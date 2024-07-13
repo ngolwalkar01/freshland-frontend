@@ -26,7 +26,7 @@ async function klarnaSession(req, res) {
                 if (serverError && serverError.response) {
                     res.status(500).json({ error: serverError.response.data });
                 } else {
-                    res.status(500).json({ error: 'Axios error without response' });
+                    res.status(500).json({ error: 'Axios error without response', KLARNA_API_URL, KLARNA_USER_ID, KLARNA_PASSWORD, token });
                 }
             } else {
                 res.status(500).json({ error: 'Non-Axios error' });
