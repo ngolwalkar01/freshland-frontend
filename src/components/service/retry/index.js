@@ -12,13 +12,11 @@ export const retryCall = async (method, parameters, errorMessage = "", count = 0
         const result = await method(...parameters);
         return result;
     } catch (error) {
-        debugger;
         if (error?.response?.status === 401 || error?.response?.status === 403 && count < 1) {
             removeLocalStorage("userId", false);
             removeLocalStorage("token", false);
             cookieService.removeCookie("userId");
             cookieService.removeCookie("token");
-            debugger;
             if(redirect){
                 Router.push("/")
             } else {

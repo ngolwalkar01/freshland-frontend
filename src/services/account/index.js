@@ -5,7 +5,6 @@ import axios from '@/utils/axios';
 const ACCOUNT_API_BASE_URL = `/wp-json/fl-cart/v1/cart`;
 
 const getOrders = async (token) => {
-    debugger
     try {
         const config = {
             headers: {

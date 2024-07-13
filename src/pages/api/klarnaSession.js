@@ -1,13 +1,22 @@
 const axios = require('axios');
 
-let { KLARNA_API_URL, KLARNA_USER_ID, KLARNA_PASSWORD,
-    NEXT_PUBLIC_kLARNA_API_URL, NEXT_PUBLIC_kLARNA_USER_ID, NEXT_PUBLIC_kLARNA_PASSWORD
- } = process.env;
-KLARNA_API_URL = KLARNA_API_URL ? KLARNA_API_URL : NEXT_PUBLIC_kLARNA_API_URL;
-KLARNA_USER_ID = KLARNA_USER_ID ? KLARNA_USER_ID : NEXT_PUBLIC_kLARNA_USER_ID;
-KLARNA_PASSWORD = KLARNA_PASSWORD ? KLARNA_PASSWORD : NEXT_PUBLIC_kLARNA_PASSWORD;
+
+// let { KLARNA_API_URL, KLARNA_USER_ID, KLARNA_PASSWORD,
+//     NEXT_PUBLIC_kLARNA_API_URL, NEXT_PUBLIC_kLARNA_USER_ID, NEXT_PUBLIC_kLARNA_PASSWORD
+//  } = process.env;
+// KLARNA_API_URL = KLARNA_API_URL ? KLARNA_API_URL : NEXT_PUBLIC_kLARNA_API_URL;
+// KLARNA_USER_ID = KLARNA_USER_ID ? KLARNA_USER_ID : NEXT_PUBLIC_kLARNA_USER_ID;
+// KLARNA_PASSWORD = KLARNA_PASSWORD ? KLARNA_PASSWORD : NEXT_PUBLIC_kLARNA_PASSWORD;
+
+let {
+    NEXT_PUBLIC_kLARNA_API_URL: KLARNA_API_URL,
+    NEXT_PUBLIC_kLARNA_USER_ID: KLARNA_USER_ID,
+    NEXT_PUBLIC_kLARNA_PASSWORD: KLARNA_PASSWORD
+} = process.env;
+
 
 async function klarnaSession(req, res) {
+    console.log(KLARNA_API_URL, "", KLARNA_USER_ID, "", KLARNA_PASSWORD);
     if (req.method === 'POST') {
         const { totalAmount, currency, locale } = req.body;
 
@@ -26,20 +35,13 @@ async function klarnaSession(req, res) {
                 session_id: response.data.session_id
             });
         } catch (error) {
+            // console.log(error);
             if (axios.isAxiosError(error)) {
                 const serverError = error;
                 if (serverError && serverError.response) {
                     res.status(500).json({ error: serverError.response.data });
                 } else {
-                    res.status(500).json({
-                        error: 'Axios error without response',
-                        error: {
-                            aa: KLARNA_API_URL,
-                            aa1: KLARNA_USER_ID,
-                            aa2: KLARNA_PASSWORD,
-                            aa3: token
-                        }
-                    });
+                    res.status(500).json({ error: 'Axios error without response' });
                 }
             } else {
                 res.status(500).json({ error: 'Non-Axios error' });
