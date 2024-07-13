@@ -7,8 +7,6 @@ const kLARNA_API_URL = 'https://api.playground.klarna.com',
 
 
 async function klarnaSession(req, res) {
-    console.log(KLARNA_API_URL, "", KLARNA_USER_ID, "", KLARNA_PASSWORD);
-    debugger;
     if (req.method === 'POST') {
         const { totalAmount, currency, locale } = req.body;
 
@@ -27,17 +25,15 @@ async function klarnaSession(req, res) {
                 session_id: response.data.session_id
             });
         } catch (error) {
-            debugger;
-            // console.log(error);
             if (axios.isAxiosError(error)) {
                 const serverError = error;
                 if (serverError && serverError.response) {
-                    res.status(500).json({ error: serverError.response.data });
+                    res.status(500).json({ error: serverError.response.data, error });
                 } else {
-                    res.status(500).json({ error: 'Axios error without response' });
+                    res.status(500).json({ error: 'Axios error without response', error });
                 }
             } else {
-                res.status(500).json({ error: 'Non-Axios error' });
+                res.status(500).json({ error: 'Non-Axios error', error });
             }
         }
     } else {
