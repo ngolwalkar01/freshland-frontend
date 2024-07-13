@@ -1,0 +1,787 @@
+.shopingcart {
+  background-color: #ffffff;
+}
+
+.closebtn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.cartempty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  height: 300px;
+  width: 100%;
+}
+.emptybasket {
+  font-size: 30px;
+  line-height: 2;
+}
+
+.cartempty a {
+  color: #1a7420;
+}
+.mainContainer {
+  padding: 50px;
+  /* display: none; */
+}
+
+.wrapper {
+  padding-inline: 0;
+}
+
+.mainHeading {
+  text-align: center;
+}
+
+.wrapper {
+  max-width: 1204px;
+  margin: 60px auto;
+  padding-inline: 24px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  /*Left container font*/
+
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  color: rgba(44, 44, 44);
+}
+
+.productSection {
+  display: flex;
+  justify-content: left;
+  gap: 23px;
+}
+
+.leftSide {
+  position: relative;
+}
+
+.smallImage img {
+  position: absolute;
+  top: 5px;
+  left: 4px;
+}
+
+.mainImage img {
+  border-radius: 14px;
+  border: 1.5px solid rgba(44, 44, 44, 0.1);
+  object-fit: contain;
+}
+
+/* Add to basket */
+
+.addToBasket .valueButton {
+  border: 1px solid var(--green);
+
+  width: 40px;
+  padding: 0;
+  background: var(--green);
+  outline: none;
+  cursor: pointer;
+}
+
+.addToBasket {
+  width: 152px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--green);
+  border-radius: 5px;
+  padding: 13px 7px;
+  height: 48px;
+}
+
+.addToBasket .valueButton:hover {
+  /* background: #1a7420; */
+}
+
+.addToBasket .valueButton:active {
+  background: #219029;
+}
+
+.addToBasket .decreaseButton,
+.addToBasket .increaseButton {
+  margin: 0;
+  width: 30px;
+  height: 34px;
+  background-color: var(--green);
+  color: white;
+  border: none;
+  font-size: 22px;
+}
+
+.addToBasket .decreaseButton {
+  border-radius: 4px 0 0 4px;
+}
+
+.addToBasket .increaseButton {
+  border-radius: 0 4px 4px 0;
+}
+
+.addToBasket label {
+  display: none;
+}
+
+.addToBasket .number {
+  color: white;
+  appearance: none;
+  width: 30px;
+  height: 34px;
+  border: none;
+  text-align: center;
+  background: transparent;
+  color: #ffff;
+  outline: none;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 652px;
+  margin-block: 2rem;
+  padding-inline: 2rem;
+  gap: 40px;
+}
+
+.productTitle {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+}
+
+.productTitle span {
+  color: var(--green);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: 3;
+}
+
+.subtotalLeft {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 443px;
+  margin-bottom: 10px;
+}
+
+.formTitle {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+}
+
+.fieldsRow {
+  display: flex;
+  gap: 24px;
+}
+
+.fieldColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.inputField {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 319px;
+  height: 48px;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+}
+
+.radioField {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fieldColumn select {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 450px;
+  height: 67px;
+  padding: 20px 16px;
+  background: #ffffff;
+  border: 2px solid #e7e7e7;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+}
+
+.customArrow {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: 10px;
+  transform: rotate(45deg);
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.discountcol {
+  border: 1.41066px dashed #e7e7e7;
+  height: 78px;
+  padding: 0px 11px;
+}
+
+.fieldColumn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fieldColumn > span {
+  color: var(--blue);
+}
+
+.fieldColumnDelivery {
+  flex-direction: column;
+  align-items: start;
+  position: relative;
+}
+
+.discount input {
+  font-size: 18px;
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  max-width: 200px;
+}
+.discount input::placeholder {
+  color: #2c2c2c;
+  font-weight: 500;
+}
+.discountcoupon{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.applydiscount {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: #1d405c;
+}
+.discount > p {
+  font-weight: 500;
+}
+
+/* Right Container CSS */
+
+.total span {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.rightContainer {
+  padding: 30px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 498px;
+  height: fit-content;
+  background: rgba(29, 64, 92, 0.08);
+
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #2c2c2c;
+}
+
+.include {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.totalprice {
+  width: 100%;
+}
+
+.totalprice .tax {
+  font-weight: normal;
+}
+
+.pickup input[type="radio"] {
+  accent-color: var(--green);
+  height: 20px;
+  width: 20px;
+}
+
+.localpickup,
+.homedelivery {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+ line-height: 1;
+}
+.newdelivery{
+  display: flex;
+  line-height: 1;
+  gap: 12px;
+}
+
+.rightContainer .goToCartBtn {
+  box-sizing: border-box;
+  margin-inline: auto;
+  padding: 14px 59px;
+  width: fit-content;
+  gap: 55px;
+
+  background: #219029;
+  margin: 15px auto;
+  box-shadow: 0px 4px 8px rgba(33, 144, 41, 0.25);
+  border-radius: 8px;
+  border: none;
+  color: white;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  cursor: pointer;
+}
+
+.rightContainer a:active {
+  transform: scale(0.98);
+}
+
+.rightContainer a:hover {
+  background-color: #27aa30;
+}
+
+.table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 29.65px;
+}
+
+.subtotal {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.total > h4 {
+  text-align: right;
+}
+
+.firstHeading {
+  color: var(--blue);
+  padding: 30px 0px;
+  margin: 0px 27px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.shipment {
+  width: 100%;
+  max-width: 439px;
+  /* display: none;  */
+  /* Temp change */
+  display: flex;
+  justify-content: space-between;
+}
+.discountcol .discount{
+  max-width: 220px;
+  width: 100%;
+}
+.discount {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+
+}
+.discountHeader span {
+  margin-left: 7px;
+  color: #219029;
+  font-size: 14px;
+}
+.discountAmount span {
+  margin-left: 7px;
+  font-size: 14px;
+}
+.discountHeader {
+}
+.discountAmount {
+}
+.pickup {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.shippingrate{
+  margin: 0px 0px 8px 0px;
+}
+.newlabelstyle span{
+  font-size: 13px;
+  font-weight: normal;
+  text-align: center;
+}
+.newstyle{
+  font-size: 13px;
+  font-weight: normal;
+  text-align: center;
+}
+.shipment + p {
+  width: 100%;
+  max-width: 363px;
+  text-align: center;
+  align-items: center;
+  padding: 0px 30px 30px 30px;
+  color: rgba(44, 44, 44);
+  font-weight: normal;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.continueBtn {
+  box-sizing: border-box;
+  margin-inline: auto;
+  padding: 11.5px 50px;
+  width: fit-content;
+
+  background: var(--blue);
+
+  border-radius: 5px;
+  border: none;
+  color: white;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  cursor: pointer;
+}
+.continueBtn:hover {
+  background-color: #2a5e88;
+}
+
+.continueBtn:active {
+  transform: scale(0.98);
+}
+
+.addToBasket input[type="number"]::-webkit-inner-spin-button,
+.addToBasket input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  margin: 0;
+}
+.continueBtnWrapper {
+  padding: 12.5px 39.5px;
+  display: flex;
+  margin-inline: auto;
+}
+
+@media (min-width: 320px) and (max-width: 375px) {
+  .discount {
+    grid-template-columns: 15px 50px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1022px) {
+  .wrapper {
+    flex-direction: column;
+    padding-inline: 0;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .leftContainer {
+    margin-inline: auto;
+  }
+
+  .table {
+    align-items: center;
+  }
+
+  .emptybasket {
+    font-size: 25px;
+    line-height: 2;
+  }
+}
+@media (min-width: 1023px) {
+  .wrapper {
+    flex-direction: row;
+    padding-inline: 0;
+    gap: 40px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 10px 0px;
+    margin-inline: 0px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .shoppingcartdiv {
+    position: relative;
+  }
+
+  .emptybasket {
+    font-size: 25px;
+    line-height: 2;
+  }
+  .closebtn {
+    align-items: flex-start;
+  }
+
+  .mainContainer {
+    padding: 30px 0px;
+  }
+
+  .mainImage img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .discountcol {
+    height: 58px;
+  }
+
+  .productSection {
+    gap: 5px;
+  }
+
+  .productSection > span {
+    position: absolute;
+    top: -12px;
+    right: 29px;
+  }
+
+  .pickup input[type="radio"] {
+    height: 16px;
+    width: 16px;
+  }
+
+  .totalprice .tax {
+    text-align: right;
+  }
+
+  .leftContainer {
+    gap: 24px;
+    width: 100%;
+    max-width: 374px;
+    padding-inline: 28px;
+    /*Left container font*/
+
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+      sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    color: rgba(44, 44, 44);
+  }
+
+  .leftSide {
+    padding-right: 16px;
+  }
+
+  .fieldColumn select {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 450px;
+    height: 48px;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+      sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.5;
+    color: rgba(44, 44, 44);
+  }
+
+  .productTitle {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+      sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: normal;
+  }
+
+  .rightContainer {
+    font-size: 13px;
+    gap: 13px;
+  }
+
+  .firstHeading {
+    margin: 0;
+    padding: 0px 0px;
+    border-bottom: none;
+    text-align: center;
+  }
+
+  .addToBasket {
+    width: 108px;
+    height: 34px;
+    padding: 9px 5px;
+  }
+
+  .productTitle span {
+    font-size: 16px;
+    color: var(--green);
+    line-height: 2.3;
+  }
+
+  .subtotal {
+    padding: 20px 10px 0px 10px;
+    border-top: 2px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .shipment,
+  .include {
+    padding: 0px 10px 0px 10px;
+  }
+
+  .shipment + p {
+    padding: 0px 30px 15px 30px;
+  }
+
+  .rightContainer .goToCartBtn {
+    margin-top: 20px;
+    margin-bottom: 0;
+
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+      sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    padding: 14px 55px;
+  }
+
+  .continueBtn {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+      sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+  }
+
+  .continueBtnWrapper {
+    padding: 0;
+    margin-bottom: 15px;
+  }
+
+  .discount input {
+    font-size: 13px;
+    width: 100%;
+  }
+  .applydiscount {
+    font-size: 13px;
+  }
+  .discountcol .discount{
+    max-width: 140px;
+  }
+  .discountHeader span{
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 375px) {
+  .leftContainer {
+    max-width: 374px;
+    /*Left container font*/
+  }
+
+  .rightContainer {
+    padding-inline: 28px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) {
+  .productSection > span {
+    position: absolute;
+    top: -12px;
+    right: 29px;
+  }
+}

@@ -1,0 +1,307 @@
+.testmonialSkeleton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  gap: 50px;
+  padding: 50px 0px;
+}
+.sliderContainer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 24px;
+    padding-block: 16px;
+  }
+
+  .sliderWrapper {
+    position: relative; /* Position relative to enable positioning the arrows */
+  }
+  
+  .slide:hover .overlay {
+    opacity: 1;
+  }
+
+  .overlayContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 62%;
+    background-color: rgba(236, 236, 236, 0.5); /* Change the opacity and color as needed */
+    z-index: 1;
+    border-radius: 5px;
+  }
+
+  .prev,
+  .next {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+
+  border: 1px solid #1d405c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 45px;
+  background-color: rgb(255, 255, 255);
+  }
+  
+  .prev {
+    left: -50px; /* Adjust this value to your preference */
+  }
+  
+  .next {
+    right: -50px; /* Adjust this value to your preference */
+  }
+  
+
+
+  .testimonialcontainer {
+    background-color: #fff;
+    padding: 70px 20px;
+  }
+  .heading {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: Calistoga;
+    color: #01395e;
+  }
+  
+  .container {
+    max-width: 1144px;
+    max-height: fit-content;
+    margin: 40px auto;
+    position: relative;
+  }
+  
+  .reviewContainer {
+    width: 340px;
+    height: 550px;
+
+    flex: 0 0 auto;
+    position: relative;
+
+    /* border: 2px solid #ccc; */
+
+    /* border-radius: 20px; */
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+  }
+
+  .reviewContainer:hover .overlay {
+    opacity: 1;
+  }
+  
+  .ellipse {
+    position: absolute;
+    z-index: -1;
+    left: 0px;
+    top: -18px;
+  }
+  
+  .imgName {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: linear-gradient(rgb(36, 36, 36) 0%, rgba(36, 36, 36, 0) 100%);
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    -moz-box-align: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  /* .flexContainer {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 15px 16px;
+    min-height: 273px;
+  } */
+  
+  .circular_image img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .reviewHeading {
+    color: #01395e;
+  }
+  
+  .bg_image {
+    width: 100%;
+    max-width: 340px;
+    height: 100%;
+    max-height: 340px;
+  }
+  
+  .bg_image img {
+    width: 100%;
+    max-width: 380px;
+    height: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .redHr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      rgba(165, 28, 28, 0),
+      #ff8045,
+      rgba(0, 0, 0, 0)
+    );
+  }
+  
+  .reviewtext {
+    /* min-height: 240px; */
+  
+    /* font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 27px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 16px; */
+
+    display: none;
+  }
+  
+  .activeReviewText {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 27px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 16px;
+  }
+
+
+  
+  .description {
+    font-weight: 500;
+    color: #1d405c;
+  }
+  
+  .name {
+    line-height: 20px;
+    margin-left: 16px;
+    color: white;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 600;
+    word-break: break-word;
+  }
+  
+  .arrowContainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .arrowStyle {
+    border: 2px solid #01395e;
+    border-radius: 50%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    cursor: pointer;
+  }
+  
+  .arrowIcon {
+    color: #01395e;
+    width: 24px;
+    height: 24px;
+  }
+  
+  @media only screen and (max-width: 400px) {
+  }
+  
+  @media (min-width: 320px) and (max-width: 600px) {
+    .reviewContainer {
+      width: 274px !important;
+      margin-left: 0px;
+      height: 100%;
+      min-height: 450px;
+    }
+    .description {
+      font-size: 13px;
+    }
+    .testimonialcontainer {
+      padding: 8px 0px;
+    }
+    .reviewHeading {
+      font-size: 19px;
+    }
+    .ellipse {
+      top: -65px;
+    }
+  
+    .circular_image img {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .name {
+      font-size: 14px;
+    }
+  
+    /* .flexContainer {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 15px 16px;
+      min-height: 310px;
+    } */
+  
+    .reviewtext {
+      /* min-height: 200px; */
+    }
+  
+    .bg_image {
+      height: 270px;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1200px) {
+    .reviewContainer {
+      width: 314px !important;
+      /* height: 280px; */
+    }
+  
+    .bg_image {
+      width: 100%;
+      max-width: 376px;
+      height: 100%;
+      max-height: 310px;
+    }
+  }
+  
+  @media (min-width: 1201px) {
+    /* .reviewContainer {
+      height: 590px;
+    } */
+  }

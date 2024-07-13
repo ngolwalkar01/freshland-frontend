@@ -1,0 +1,126 @@
+.farmercontainer{
+    background-color: #fff;
+}
+.farmercontent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   justify-content: center;
+   padding: 80px 0px;
+}
+.farmers{
+  text-align: center;
+}
+.shorten{
+    color: rgba(44, 44, 44, 0.7);
+}
+.videocontainer{
+    width: 100%;
+    max-width: 1165px;
+    width: 100%;
+    max-width: 1165px;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    gap: 60px;
+    margin: 40px 0px 60px 0px;
+}
+.videocontent{
+    max-height: 606px;
+    background-color: #F4F5F7;
+    border-radius: 30px;
+   
+    padding: 70px 42px;
+    gap: 10px;
+
+}
+.innercontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0px 0px;
+    text-align: center;
+    gap: 24px;
+}
+.text{
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.56;
+    letter-spacing: normal;
+    max-width: 419px;
+}
+
+.iframeconatiner{
+    width: 440px;
+    height: 256px;
+}
+@media(max-width:370px){
+    .videocontent{
+        padding: 41px 18px !important;
+     }
+    .innercontainer{
+        width: 270px !important;
+    
+     }
+}
+@media (min-width: 320px) and (max-width: 700px) {
+    
+ .videocontainer{
+    grid-template-columns: auto;
+    max-width: 333px;
+    margin: 40px 21px 0px 21px;
+ }
+ .videocontent{
+    padding: 41px 27px;
+ }
+ .innercontainer{
+    gap: 15px;
+    width: 287px;
+    margin: auto;
+
+ }
+ .shorten{
+    font-size: 13px;
+    line-height: 3;
+ }
+ .iframeconatiner{
+    width: 100%;
+    height: 100%;
+ 
+ }
+ .text{
+    font-size: 16px;
+ }
+}
+
+@media (min-width: 701px) and (max-width: 1020px){
+.videocontent{
+    padding: 40px 0px;
+}
+.iframeconatiner{
+    width: 100%;
+    height: 187px;
+}
+.text{
+    font-size: 16px;
+}
+.videocontainer{
+    max-width: 740px;
+    gap: 30px;
+}
+}
+@media (min-width: 1021px) and (max-width:1200px){
+    .videocontainer{
+        max-width: 740px;
+        gap: 30px;
+        
+    }
+   .videocontent{
+    padding: 50px 20px;
+   }
+}

@@ -1,0 +1,56 @@
+.uploadContainer {
+    display: flex;
+}
+
+.uploadLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 8px;
+
+    border-radius: 5px;
+    background-color: rgba(29, 64, 92, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+}
+
+.uploadLabel:hover {
+    background-color: #e5e5f5;
+}
+
+.uploadIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.uploadIcon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.uploadInput {
+    display: none;
+}
+
+.imagePreview {
+    display: block;
+    margin-top: 20px;
+}
+
+.imagePreview img {
+    max-width: 300px;
+    max-height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}

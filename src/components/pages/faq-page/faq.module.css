@@ -1,0 +1,112 @@
+.faqssection{
+    background-color: #ffff;
+}
+
+.faqscontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 44px 0px 0px 0px;
+}
+
+.faqsdelivery{
+    width: 100%;
+  max-width: 845px;
+  margin: 60px 0px;
+}
+.faqsdelivery a{
+    color: #1D405C;
+  
+    
+}
+.emailnumber{
+    height: 24px;
+    width: 100%;
+}
+.emailnumber a {
+    display: inline-block;
+    min-width: 48px; /* Adjust as needed */
+    min-height:48px;
+}
+.dk{
+    color: rgba(44, 44, 44, 0.7);
+}
+.faqs{
+    margin: 10px 0;
+}
+.contactus{
+    font-family: Calistoga;
+    font-size: 30px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -1.2px;
+}
+.accordion{
+    background-color: white;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0px;
+ 
+   
+}
+.pannel{
+    color: var(--text-light);
+    padding: 0px 0px 24px 0px;
+}
+.open{
+    transition: 0.4s;
+
+}
+.faqs i{
+    color: #FF9277;
+}
+
+.horizontalLine{
+    background:linear-gradient(90deg, rgba(2,0,36,0) 0%, rgba(255,146,119,1) 50%, rgba(255,162,0,0) 100%);
+    border: none;
+    height: 1px;
+}
+.delivery{
+    margin: 60px 0px 0px 0px;
+}
+
+@media (min-width: 320px) and (max-width: 740px)  {
+  .faqsdelivery{
+    width: 100%;
+    max-width: 345px;
+    margin: 0px 0px;
+  }
+  .accordion{
+    font-size: 16px;
+    text-align: left;
+  }
+  .delivery{
+    margin: 0px 0px;
+  }
+  .pannel{
+    font-size: 13px;
+  }
+  .contactus{
+    font-size: 24px;
+  }
+  .contactcontainer{
+    padding:  30px 0px;
+  }
+  .faqscontainer{
+    padding: 0px 16px 64px 16px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+ .faqsdelivery{
+    width: 100%;
+    max-width: 650px;
+ }
+}

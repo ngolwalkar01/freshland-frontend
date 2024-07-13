@@ -1,0 +1,118 @@
+.boxContainer {
+  background: #fff;
+  padding-bottom: 80px;
+}
+
+.sliderContainer {
+  width: 100%;
+  overflow: hidden;
+}
+.slidercontainer{
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px;
+}
+.slider {
+  display: flex;
+}
+
+.slide {
+  padding: 0 7px;
+  height: 430px;
+  margin-bottom: 10px;
+}
+
+.image {
+  float: left;
+  background-position: center;
+  background-size: cover;
+  /* height: 100%;
+  width: 100%; */
+  border-radius: 20px;
+  
+}
+
+.arrowButtons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.arrowButton {
+  border: 1px solid #01395e;
+  border-radius: 50%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+}
+
+
+.arrowContainer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.arrowIcon {
+  color: #01395e;
+  width: 24px;
+  height: 24px;
+}
+.arrowStyle {
+  border: 2px solid #01395e;
+border-radius: 50%;
+height: 45px;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 46px;
+cursor: pointer;
+}
+
+@media (min-width:320px) and (max-width:375px){
+ 
+  .image{
+    width: 248px;
+    object-fit: cover;
+  }
+}
+@media (min-width: 375px) and (max-width: 600px)  {
+
+  .slidercontainer{
+    width: auto;
+    margin: auto;
+    padding: 4px 9px;
+
+  }
+  .image{
+    width: 291px;
+    object-fit: cover;
+  }
+  .boxContainer{
+    padding: 40px 0px;
+  }
+  .arrowContainer{
+    gap: 19px;
+  }
+  .arrowStyle{
+    height: 27px;
+    width: 27px;
+
+  }
+  .slide{
+    margin-bottom: 30px;
+    padding: 0px 3px;
+  }
+ 
+}
+
+@media (min-width: 768px) and (max-width: 1000px){
+  .slidercontainer{
+    margin: auto;
+  }
+  .image{
+    width: 350px;
+    object-fit: cover;
+  }
+}

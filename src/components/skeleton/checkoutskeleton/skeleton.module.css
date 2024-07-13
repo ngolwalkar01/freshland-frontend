@@ -1,0 +1,49 @@
+.Checkoutcontainer {
+    background-color: #ffffff;
+  }
+
+  .mainconatiner {
+    padding: 50px 0px;
+  }
+
+  .mainHeading {
+    text-align: center;
+  }
+
+  .wrapper {
+    margin: 45px auto;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .leftContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 662px;
+  }
+
+  .rightContainer {
+    padding: 20px 28px 50px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 400px;
+    height: fit-content;
+    background: rgba(29, 64, 92, 0.05);
+  
+    /* payment Paragraph */
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+      sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+  }
+  .Skeletoncotainer{
+    display: flex;
+    gap: 24px;
+  }

@@ -1,0 +1,57 @@
+.payment{
+   text-align: center;
+   color: #2C2C2C;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 10px;
+   padding: 40px 0px;
+}
+.payment h1{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #2C2C2C;
+    
+}
+.notify{
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    color: #ffffff;
+    background-color: #01395e;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-inline: auto;
+    text-transform: capitalize;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 47px;
+    font-size: 17px;
+    width: 245px;
+    gap: 5px;
+    cursor: pointer;
+  }
+  .notify:hover{
+    background-color: #2a5e88;
+  }
+  
+  .notify:active{
+    transform: scale(0.98); 
+  }
+
+  @media (min-width: 320px) and (max-width: 600px) {
+    .payment{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 40px 0px;
+    }
+    .payment img{
+        width: 113px;
+        height: 83px;
+    }
+    .payment h1{
+        font-size: 25px;
+    }
+  }

@@ -1,0 +1,109 @@
+.OrderDeadlineSkeleton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+}
+.order_card {
+  /* background-image: url("/Images/Deadlinebgimg.png"); */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  object-fit: cover;
+  }
+
+
+.next_order{
+    /* width: 400px;
+    height: 700px; */
+    /* margin: 11px 0px; */
+    padding: 50px;
+    position: relative;
+  }
+
+.nextorder_deadline{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 24px;
+  text-align: center;
+  width: 400px;
+  padding: 18px 19px;
+  height: 208px;
+}
+.nextorder_deadline .next{
+  color:#1D405C;
+  font-size: 40px;
+}
+.nextorder_deadline .contentCard1{
+  letter-spacing: 5px;
+  background-image: linear-gradient(98.89deg, #FF5F6D 0%, #FFC371 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.Freight{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 24px;
+  text-align: center;
+  margin-top: 24px;
+  width: 400px;
+  padding: 20px;
+}
+.Freight div{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.timeCard1{
+  word-spacing: 30px;
+  color: var( --text-light);
+
+}
+.deadlinedata{
+  display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+ .Freight h2{
+ color: var( --blue);
+ font-size: 40px;
+ 
+ }
+ .Freight h3{
+  background-image: linear-gradient(98.89deg, #FF5F6D 0%, #FFC371 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ }
+ .Freight p{
+  color: var( --text-light);
+ }
+
+
+ @media only screen and (max-width: 601px){
+  .nextorder_deadline, .Freight{
+    max-width: 303px;
+  }
+  .nextorder_deadline .next{
+    font-size: 30px;
+  }
+  .Freight h2{
+    font-size: 30px;
+  }
+  .Freight p{
+    font-size: 13px;
+  }
+  .timeCard1{
+    font-size: 13px;
+  }
+ }

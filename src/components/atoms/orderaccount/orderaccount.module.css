@@ -1,0 +1,656 @@
+.myaccountconatiner {
+    max-width: 1207px;
+    max-height: 675px;
+}
+
+.ordertable {
+    border-collapse: collapse;
+    width: 1100px;
+    max-width: 1200px;
+}
+
+.ordertable th {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.35;
+    letter-spacing: normal;
+}
+
+.ordertable td {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.56;
+    letter-spacing: normal;
+}
+
+.ordertable th {
+    padding: 16px 0px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.ordertable td {
+    padding: 24px 0px;
+    text-align: left;
+}
+
+.ordertable th:last-child {
+    text-align: right;
+
+}
+.ordertable th:not(:last-child) {
+    padding-right: 20px; /* Adjust the padding value to control the gap */
+  }
+.ordertable td:not(:last-child) {
+    padding-right: 20px; /* Adjust the padding value to control the gap */
+  }
+  
+.ordertable td:first-child{
+    color: var(--green);
+}
+
+
+
+.ordertable td:last-child {
+    text-align: right;
+    display: block;
+}
+
+.btnlink {
+   
+}
+.btnlink a{
+  margin-left: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  color: #1D405C;
+}
+.btnlink .view {
+    padding: 10px;
+    gap: 10px;
+    width: 48px;
+    height: 40px;
+    background: rgba(29, 64, 92, 0.05);
+    border-radius: 5px;
+}
+
+.pdf {
+    padding: 10px;
+    gap: 10px;
+    width: 91px;
+    height: 40px;
+    background: rgba(29, 64, 92, 0.05);
+    border-radius: 5px;
+
+}
+.request{
+padding: 10px;
+gap: 10px;
+width: 143px;
+height: 40px;
+background: rgba(29, 64, 92, 0.05);
+border-radius: 5px;
+
+}
+
+.requestbtn:active{
+  transform: scale(0.98);
+}
+
+/* orderview */
+
+.orderCard {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 545px;
+    padding: 0px 18px;
+  }
+  .orderDetail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 2px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  }
+  .label{
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .value {
+    font-weight: normal;
+    font-size: 18px;
+    color: var(--text-light);
+  }
+  .ordertotal{
+    font-weight: normal;
+    font-size: 18px;
+    color: #2c2c2c;
+  }
+  .orderDetail .id{
+    font-weight: normal;
+    font-size: 18px;
+   color: var(--green);
+  }
+  .viewinvoice{
+    display: none;
+  }
+  .orderinvoice{
+    display: flex;
+    gap: 24px;
+    color: var(--green);
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .orderCard h5{
+    color: var(--text-light);
+  }
+  /* rightconatiner */
+
+  .orderviewdetail{
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+    width: 1100px;
+    max-width: 1200px;
+    margin: 50px 0px;
+  }
+  .ordercomplete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 92px;
+    max-width: 674px;
+    background-color: rgba(29, 64, 92, 0.08);
+    padding: 0px 18px;
+    border-radius: 10px;
+    margin: auto;
+  }
+.rightContainer{
+    /* max-height: 350px; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    background: rgba(29, 64, 92, 0.05);
+    padding: 20px 28px;
+  }
+  
+  .terms
+  {
+   padding-inline: 15px;
+  }
+  
+  .acceptTerms{
+    display: flex;
+    margin-block: 27px;
+  }
+  
+  .rightContainer span{
+  
+    /* payment Paragraph */
+   color: rgba(44, 44, 44, 0.7);
+   font-weight: 500;
+   
+  }
+  
+  .rightContainer button {
+  
+  
+  box-sizing: border-box;
+  margin-inline: auto;
+  padding: 14px 59px;
+  width: fit-content;
+  gap: 55px;
+  
+  background: #219029;
+  /* button shadow */
+  box-shadow: 0px 4px 8px rgba(33, 144, 41, 0.25);
+  border-radius: 8px;
+  border: none;
+  color: white;
+  
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  }
+  
+  
+  
+  .table {
+    border-collapse: collapse;
+    width: 333px;
+    max-width: 375px;
+    margin: auto;
+  }
+  .topRow .cross{
+    margin: 0px 5px;
+    color: #FF4A4A;
+  }
+
+  .table tbody tr:nth-child(2) td {
+    padding-top: 20px;
+  }
+  
+  .table th,
+  .table td,
+  .table label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    color: #2C2C2C;
+  }
+  
+  .table span {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+  }
+  
+  
+  .table th:nth-child(1) {
+    text-align: left;
+  }
+  
+  .table th:nth-child(2) {
+    text-align: right;
+  }
+  
+  .table th:nth-child(1){
+    padding-block: 20px;
+  }
+  
+  .topRow td:nth-child(1),
+  .topRow td:nth-child(2) {
+    padding: 20px 0px;
+  }
+  
+  .table th,
+  .table td {
+    padding: 14px 0; /* Set the default padding */
+  }
+  
+  /* Right align the content in the second column */
+  .table td:nth-child(2) {
+    text-align: right;
+  }
+  
+  .table tr:nth-child(1) td,.table tr:nth-child(2) td
+  
+  {
+  
+  border-block: 1px solid rgba(0, 0, 0, 0.2);
+  
+  }
+  .orderbtn{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 0px 0px 0px 55px;
+  }
+  .orderbtn button{
+    padding: 12px 12px;
+    max-width: 209px;
+    width: 100%;
+    background: #219029;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.56;
+    letter-spacing: normal;
+    cursor: pointer;
+  }
+  .orderbtn .requestbtn{
+   background-color: #FFFF;
+   border: 1px solid #1d405c;
+   color: var(--blue);
+  }
+  .gobackbtn{
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    margin: auto 40px;
+  }
+  .gobackbtn i{
+    color: var(--blue);
+  }
+  .mobileviewtable{
+    display: none;
+  }
+  .ordercontainer{
+    text-align: center;
+    padding: 40px 0px;
+  }
+  /* tablecard */
+
+  .tablecard{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+   }
+    .ordercarddetail{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 16px 18px;
+      gap: 10px;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+      border-radius: 10px;
+      width: 318px;
+      height: 80px;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+     font-size: 13px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    }
+    .orderid{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 282px;
+    }
+    .orderid p:first-child{
+      display: flex;
+      gap: 16px;
+      font-weight: 700;
+    }
+    .orderid .status{
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-style: normal;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 700;
+      color: #219029;
+    }
+    .date{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 282px;
+    }
+    
+    .orderviewdetail{
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-evenly;
+      width: 1100px;
+      max-width: 100%;
+      margin: 40px 0px;
+      
+    }
+    .viewtabledetail{
+      margin: 40px 55px;
+    }
+    .viewtable{
+      width: 1049px;
+      max-width: 1200px;
+      border-collapse: collapse;
+      margin: 40px 0px;
+    }
+    .viewtable tr th{
+      text-align: left;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.35;
+      letter-spacing: normal;
+    }
+    .viewtable td{
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
+      padding: 16px 0px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 18px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.56;
+      letter-spacing: normal;
+      width: 700px;
+    }
+    .viewtable .btnlink{
+      text-align: end;
+    }
+      
+.viewtable td:first-child{
+  color: var(--green);
+}
+
+
+    /* addresscontainer css */
+.addresscontainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  max-width: 650px;
+  margin: 15px 0px;
+  column-gap: 40px;
+}
+
+.addresscontainer p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: rgba(44, 44, 44, 0.7);
+}
+
+.addresscontainer h4 {
+  margin-bottom: 17px;
+  color: #2C2C2C;
+}
+.followingpage{
+  color: var(--text-light);
+}
+   
+
+ @media(min-width:320px) and (max-width:360px){
+  .myaccountconatiner{
+    display: none;
+  }
+  .viewtabledetail{
+    display: none;
+  }
+  .mobileviewtable{
+    display: block;
+    padding: 0px 0px 40px 0px;
+  }
+
+  .label, .value, .orderinvoice{
+    font-size: 13px;
+  }
+  .orderinvoice{
+    gap: 15px;
+  }
+  .viewinvoice{
+    display: block;
+  }
+  .orderbtn{
+    display: none;
+  }
+  .orderviewdetail{
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+    max-width: 375px;
+    margin: 0px 0px;
+  }
+  .ordercomplete{
+    display: none;
+  }
+  .rightContainer{
+    width: 100%;
+    padding: 7px 18px;
+  }
+  .rightContainer h5{
+   display: none;
+  }
+  .table{
+    width: 100%;
+  }
+  .ordercarddetail{
+    width: 300px;
+    padding: 16px 8px
+  }
+  .date{
+    font-size: 13px;
+  }
+
+ } 
+
+  @media (min-width:360px) and (max-width:600px){
+    .viewtabledetail{
+      display: none;
+    }
+    .myaccountconatiner{
+      display: none;
+    }
+    .mobileviewtable{
+      display: block;
+      padding: 0px 0px 40px 0px;
+    }
+  
+    .label, .value{
+      font-size: 13px;
+    }
+    .orderinvoice{
+      font-size: 13px;
+      padding: 14px 2px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .viewinvoice{
+      display: block;
+    }
+    .orderbtn{
+      display: none;
+    }
+    .orderviewdetail{
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 375px;
+      margin: 0px 0px;
+     
+    }
+    .ordercomplete{
+      display: none;
+    }
+    .date{
+      font-size: 13px;
+    }
+    .rightContainer h5{
+      display: none;
+     }
+    
+  }
+  @media (min-width:601px) and (max-width:1000px){
+    .viewtabledetail{
+      display: none;
+    }
+    .myaccountconatiner{
+      display: none;
+    }
+    .mobileviewtable{
+      display: block;
+      padding: 0px 0px 40px 0px;
+    }
+    .tablecard{
+      display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    }
+    .orderviewdetail{
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      max-width: 800px;
+      padding: 0px 0px 40px 0px;
+    }
+    .orderCard{
+      padding: 0px 0px;
+    }
+    .orderinvoice{
+      font-size: 16px;
+    }
+    .orderbtn button{
+      font-size: 16px;
+      width: 260px;
+    }
+    
+  }
+
+  @media (min-width:1020px) and (max-width:1100px){
+    .ordertable{
+      width: 950px;
+    }
+    .viewtabledetail{
+      margin: 40px 0px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .viewtabledetail .viewtable{
+      width: 100%;
+      max-width: 951px;
+    }
+    .orderviewdetail{
+      justify-content: center;
+      gap: 40px;
+    }
+    .orderbtn{
+      margin: 0px 0px 0px 78px;
+
+    }
+  }
+
+ 

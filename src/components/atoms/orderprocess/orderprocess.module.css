@@ -1,0 +1,478 @@
+.mainorderPage{
+    width: 893px;
+    max-width: 893px;
+}
+/* progress bar */
+.progressConatiner{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    position: relative;
+    max-width: 288px;
+    margin: auto auto 40px auto;
+}
+.progressConatiner::before{
+    content: "";
+    position: absolute;
+    background-color: #ddd;
+    height: 4px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+.progress{
+    background-color: #1D405C;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    z-index: 1;
+    transition:all 0.8s ease-in;
+}
+.circle{
+    background-color: #ddd;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 1;
+}
+.circle.active{
+    background-color: var(--blue);
+    color: #fff;
+}
+.claimForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.claimOptions{
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0px;
+}
+.labelOption{
+    padding: 16px 0px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: var(--text-light);
+}
+.claimOptions input[type="radio"]{
+    height: 15px;
+    width: 15px;
+    accent-color: var(--blue);
+}
+.problemLable{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: var(--text-light);
+}
+.orderno{
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+}
+.nextButton{
+    padding: 14px 14px;
+    max-width: 140px;
+    width: 100%;
+    background: #219029;
+    box-shadow: 0px 4px 8px rgba(33, 144, 41, 0.25);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.56;
+    letter-spacing: normal;
+    cursor: pointer;
+}
+.nextButton:active{
+  transform: scale(0.98);
+}
+.chooseOrder{
+    background-color: rgba(29, 64, 92, 0.05);
+    height: 100%;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 40px 0px;
+}
+.updateOrder{
+    margin: 0px 0px 40px 0px;
+}
+.fruitChoose{
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 5px;
+}
+.fruitDiv{
+    display: flex;
+    gap: 25px;
+}
+.orderUnit{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.orderUnit p:nth-child(2){
+    color:rgba(44, 44, 44, 0.6);
+}
+.choose{
+    padding: 10px 32px;
+    max-width: 109px;
+    width: 100%;
+    height: 40px;
+    background: #1D405C;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.56;
+    letter-spacing: normal;
+    cursor: pointer;
+}
+.review{
+    padding: 40px 0px 20px 0px;
+}
+.nextBack{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nextPrev{
+    padding: 14px 14px;
+    max-width: 140px;
+    width: 100%;
+    background-color: #219029;
+    box-shadow: 0px 4px 8px rgba(33, 144, 41, 0.25);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.56;
+    letter-spacing: normal;
+    cursor: pointer;
+}
+.nextPrev:active{
+  transform: scale(0.98);
+}
+.backBtn{
+    color: var(--blue);
+    border: 1px solid rgba(29, 64, 92, 1);
+    border-color: rgba(29, 64, 92, 1);
+    background-color: #fff;
+    box-shadow: none;
+}
+.moldfruit{
+    display: flex;
+    gap: 8px;
+}
+.moldfruit span{
+    background: rgba(29, 64, 92, 0.1);
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: var(--blue);
+}
+.reportIssues{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 0px 0px 40px 0px;
+}
+.reportIssues select{
+    width: 100%;
+    border: none;
+    background: rgba(29, 64, 92, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+.couponCode{
+    background: rgba(33, 144, 41, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+.comment{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 16px 0px 0px 0px;
+}
+.comment input[type="text"]{
+    border: none;
+    background: rgba(29, 64, 92, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+.comment input[type="text"]::placeholder{
+ color: #000;
+ font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+ sans-serif;
+font-size: 12px;
+font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: 1.67;
+letter-spacing: normal;
+}
+
+
+.popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+  }
+  
+  .popupContent {
+    background-color: rgba(255, 255, 255, 1);
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    width: 827px;
+    max-width: 827px;
+    height: 675px;
+    max-height: 1050px;
+    overflow: auto;
+  }
+  .popupContent::-webkit-scrollbar {
+    width: 6px;
+  }
+  .popupContent::-webkit-scrollbar-track {
+    background: #ddd; 
+  }
+  .popupContent::-webkit-scrollbar-track {
+  border-radius: 5px;
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .popupContainer{
+    max-width: 586px;
+    margin: auto;
+  }
+  .issues input[type="text"] ,.numberbox{
+    border: none;
+    background: rgba(29, 64, 92, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+.issues input[type="text"]::placeholder{
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+   font-size: 12px;
+   font-weight: normal;
+   font-stretch: normal;
+   font-style: normal;
+   line-height: 1.67;
+   letter-spacing: normal;
+   }
+   
+  .issues input[type="number"]::placeholder{
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+   font-size: 12px;
+   font-weight: normal;
+   font-stretch: normal;
+   font-style: normal;
+   line-height: 1.67;
+   letter-spacing: normal;
+  }
+  .issueContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 40px 0px;
+  }
+  .fruitQuality{
+    display: flex;
+    gap: 20px;
+    background: rgba(29, 64, 92, 0.05);
+    padding: 20px;
+    margin: 40px 0px 20px 0px;
+  }
+  .qualityIssue{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .btngroup{
+    display: flex;
+    gap: 16px;
+  }
+  .btngroup button{
+    padding: 8px 5px;
+    max-width: 73px;
+    width: 100%;
+    background: rgba(29, 64, 92, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.56;
+    letter-spacing: normal;
+    cursor: pointer;
+  }
+  .addissue{
+    display: flex;
+    gap: 16px;
+  }
+  .addissue button{
+    padding: 10px 12px;
+    max-width: 109px;
+    width: 100%;
+    height: 40px;
+    background: #1D405C;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.56;
+    letter-spacing: normal;
+    cursor: pointer;
+  }
+  .addissue button:nth-child(2){
+    background-color: #fff;
+    color: #1D405C;
+    border: 1px solid #1D405C;
+  }
+  .issues{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .btngroup button:hover{
+    background-color: #219029;
+    color: #fff;
+  }
+  .unitOrder{
+    color: #219029 !important;
+  }
+
+@media(max-width:370px){
+  .nextButton{
+    margin-bottom: 40px;
+  }
+  .mainorderPage{
+    width: 400px;
+    margin-bottom: 40px;
+   }
+   .nextBack{
+    justify-content: center;
+    gap: 20px;
+   }
+   .choose{
+    padding: 0px 11px;
+    max-width: 84px;
+    width: 100%;
+   }
+   .fruitChoose{
+    justify-content: space-around;
+   }
+   .chooseOrder{
+    margin: 40px 42px;
+    padding: 10px 10px;
+   }
+   .reportIssues{
+    margin: 0px 46px 40px 46px;
+   }
+   .review{
+    padding: 40px 0px 0px 0px;
+    text-align: center;
+    font-size: 18px;
+   }
+   .btngroup{
+    flex-wrap: wrap;
+   }
+   .popupContent{
+    width: 300px;
+   }
+}
+  @media (min-width: 372px) and (max-width: 690px){
+    .nextBack{
+      justify-content: space-around;
+      gap: 34px;
+     }
+  .nextButton{
+    margin-bottom: 40px;
+  }
+  .mainorderPage{
+    width: 400px;
+    margin-bottom: 40px;
+   }
+   .chooseOrder{
+    margin: 40px 17px;
+   }
+   .reportIssues{
+    margin: 0px 20px 40px 20px;
+   }
+   .review{
+    padding: 40px 0px 0px 0px;
+    text-align: center;
+   }
+   .popupContent{
+    width: 400px;
+   }
+   .btngroup{
+    flex-wrap: wrap;
+   }
+  
+  }
+  @media only screen and (min-width: 700px) and (max-width: 1024px) {
+   .mainorderPage{
+    width: 700px;
+   }
+   .popupContent{
+    width: 640px;
+   }
+  }
+  @media (min-width: 1025px) and (max-width: 1440px){
+
+  }

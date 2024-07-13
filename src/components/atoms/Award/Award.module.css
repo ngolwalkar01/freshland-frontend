@@ -1,0 +1,115 @@
+.awardSkeleton{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+}
+.bgcontainer{
+  background-color: #fff;
+  padding: 40px 0px;
+  height: fit-content;
+}
+.container {
+    max-width: 840px;
+    height: 642px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+  
+  .heading {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Calistoga';
+    color: #1D405C;
+  }
+  
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 267px 267px 267px;
+    /* grid-template-rows: repeat(3, 263px); */
+    row-gap: 64px;
+    column-gap: 18px;
+  }
+  
+  .gridItem {
+    padding: 0 10px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .card {
+    max-width: 241px;
+    box-shadow: none;
+    background-color: transparent;
+    text-align: center;
+  }
+  
+  .image {
+    width: 192px;
+    height: 192px;
+    object-fit: contain;
+  }
+  
+  .content {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .name {
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+  }
+  @media(min-width:320px) and (max-width:360px){
+    .gridItem {
+      padding: 0 15px;
+  }
+}
+  @media (min-width: 320px) and (max-width: 600px) {
+    .gridContainer {
+      display: grid;
+      grid-template-columns: 161px 161px;
+      padding: 25px 25px;
+  
+    }
+    .name{
+      font-weight: 500;
+    font-size: 13px;
+
+    }
+    .container{
+      max-width: 850px;
+      height: auto;
+      margin: auto;
+  
+    }
+    .image {
+      width: 112px;
+      height: 112px;
+      object-fit: contain;
+  
+  
+    }
+    .bgcontainer{
+      padding: 0px;
+    }
+    .card {
+      margin: 0px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+    
+    }
+    
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px){
+    .gridContainer{
+      grid-template-columns: 233px 234px 233px;
+    }
+  }

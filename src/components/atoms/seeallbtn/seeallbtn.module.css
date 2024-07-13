@@ -1,0 +1,37 @@
+.seeAllButton{
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    color: #ffffff;
+    background-color: #01395e;
+    border-radius: 20px;
+    margin-bottom: 100px;
+    margin-top: 64px;
+    margin-inline: auto;
+    text-transform: capitalize;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 47px;
+    font-size: 17px;
+    width: 245px;
+    gap: 5px;
+    cursor: pointer;
+  }
+  .seeAllButton:hover{
+    background-color: #2a5e88;
+  }
+  
+  .seeAllButton:active{
+    transform: scale(0.98); 
+  }
+  
+  /* css for tablet device */
+  @media (max-width: 600px) {
+  
+    .seeAllButton{
+      margin-top: 36px;
+      margin-bottom: 40px;
+    }
+  
+
+  }

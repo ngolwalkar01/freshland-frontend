@@ -1,0 +1,331 @@
+/* Left conatiner css */
+.orderpage{
+  background-color: #ffff;
+}
+.orderhedaing{
+  text-align: center;
+}
+.ordersection{
+  padding: 60px 28px;
+}
+.ordercontainer{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 80px;
+  margin: 50px auto;
+}
+.orderCard {
+  border-radius: 10px;
+  width: 318px;
+  max-height: 200px;
+  max-width: 400px;
+  padding: 30px 18px;
+  background: rgba(29, 64, 92, 0.08);
+}
+
+.orderDetail {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 2px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+font-size: 13px;
+font-weight: bold;
+font-stretch: normal;
+font-style: normal;
+line-height: 1.54;
+letter-spacing: normal;
+}
+
+.label{
+  font-weight: bold;
+  margin-bottom: 2px;
+  display: inline;
+}
+
+.value {
+  margin: 0;
+  display: inline;
+}
+
+/* addresscontainer css */
+.addresscontainer{
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  max-width: 650px;
+  margin: 60px auto;
+  column-gap: 40px;
+
+}
+.addresscontainer h4{
+  text-transform: uppercase;
+  color: #2C2C2C;
+}
+.addresscontainer p{
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+
+  color: rgba(44, 44, 44, 0.7);
+}
+.addresscontainer h4{
+  margin-bottom: 17px;
+}
+/* Right Container CSS */
+
+.rightContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 328px;
+  max-width: 375px;
+  height: fit-content; 
+  /* payment Paragraph */
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+}
+
+.terms
+{
+  /* payment Paragraph */
+ padding-inline: 15px;
+}
+
+.acceptTerms{
+  display: flex;
+  margin-block: 27px;
+}
+
+.rightContainer span{
+
+  /* payment Paragraph */
+ color: rgba(44, 44, 44, 0.7);
+ font-weight: 500;
+ 
+}
+
+.rightContainer button {
+
+
+box-sizing: border-box;
+margin-inline: auto;
+padding: 14px 59px;
+width: fit-content;
+gap: 55px;
+
+background: #219029;
+/* button shadow */
+box-shadow: 0px 4px 8px rgba(33, 144, 41, 0.25);
+border-radius: 8px;
+border: none;
+color: white;
+
+font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+font-size: 13px;
+font-weight: bold;
+font-stretch: normal;
+font-style: normal;
+line-height: 1.54;
+letter-spacing: normal;
+}
+
+
+
+.table {
+  border-collapse: collapse;
+}
+.table tbody tr:nth-child(2) td {
+  padding-top: 20px;
+}
+
+.table th,
+.table td,
+.table label {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  color: #2C2C2C;
+}
+
+.table span {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+}
+
+.firstHeading{
+  width: 55%;
+}
+
+.table th:nth-child(1) {
+  text-align: left;
+}
+
+.table th:nth-child(2) {
+  text-align: right;
+}
+
+.table th:nth-child(1){
+  padding-block: 20px;
+}
+
+.topRow td:nth-child(1),
+.topRow td:nth-child(2) {
+  padding: 20px 0px;
+}
+
+.table th,
+.table td {
+  padding: 14px 0; /* Set the default padding */
+}
+
+/* Right align the content in the second column */
+.table td:nth-child(2) {
+  text-align: right;
+}
+
+.table thead  th{
+
+border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+}
+
+.wrapper input[type="radio"] {
+  accent-color: var(--green);
+}
+
+.wrapper input[type="checkbox"] {
+  accent-color: #2C2C2C;
+}
+
+.cards{
+  display: flex;
+  gap: 10.26px;
+  padding-left: 29px;
+}
+
+.continueBtn {
+  box-sizing: border-box;
+  margin-inline: auto;
+  padding: 11.5px 50px;
+  width: fit-content;
+
+  background: var(--blue);
+
+  border-radius: 5px;
+  border: none;
+  color: white;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  cursor: pointer;
+}
+.continueBtn:hover{
+  background-color: #2a5e88;
+}
+
+.continueBtn:active{
+  transform: scale(0.98); 
+}
+
+.continueBtnWrapper {
+  display: flex;
+  margin: auto;
+}
+
+@media (min-width: 320px) and (max-width: 370px){
+    .ordersection{
+    padding: 24px 28px 40px 28px;
+  }
+
+  .continueBtnWrapper{
+    margin:40px 0px 30px auto;
+  }
+
+  .orderCard{
+    width: 300px;
+  }
+  .ordercontainer{
+    flex-direction: column;
+    align-items: center;
+}
+.addresscontainer{
+  grid-template-columns: auto;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  gap: 40px;
+  margin-block: 0;
+}
+.orderDetail .value{
+  font-weight: normal;
+ }
+}
+
+@media (max-width: 600px) {
+  .continueBtn{
+    padding: 12px 39px;
+  }
+}
+
+@media (min-width: 370px) and (max-width: 600px){
+  .ordersection{
+    padding: 24px 28px 20px 28px;
+  }
+ 
+  .ordercontainer{
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+  }
+  .orderCard, .rightContainer{
+    width: 100%;
+  }
+  .addresscontainer{
+    grid-template-columns: auto;
+    align-items: center;
+    width: auto;
+    gap: 40px;
+    margin: auto;
+  }
+  .continueBtnWrapper{
+    margin: 40px auto;
+  }
+  .orderDetail .value{
+   font-weight: normal;
+  }
+  .table td:nth-child(2) {
+    font-weight: 400;
+    color: rgb(0 0 0 / 50%);
+  }
+  .rightContainer span{
+
+    font-weight: 400;
+    color: rgb(0 0 0 / 50%);
+   
+  }
+}

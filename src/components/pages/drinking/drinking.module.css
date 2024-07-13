@@ -1,0 +1,427 @@
+.container {
+    /* margin: 40px 0px; */
+    background-color: #f4fff7;
+  }
+  
+  
+  .heading {
+    color: forestgreen;
+    font-weight: 800;
+    text-align: center;
+    font-family: Calistoga;
+    margin-top: 80px;
+    margin-bottom: 64px;
+  }
+  
+  .gridContainer {
+    justify-content: center;
+    padding-inline: 20px;
+    gap: 40px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+  
+  .transparentCard {
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    height: 100%;
+    width: 220px;
+    background-color: transparent;
+  }
+  
+  
+  
+  .imgContainer {
+    position: relative;
+    width: 218px;
+    height: 218px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: #FFFFFF;
+    box-shadow: 0px 6.23512px 15.5878px rgba(0, 0, 0, 0.08);
+    border-radius: 15px;
+  
+  }
+  
+  .cardTopImage {
+    width: 40px;
+    height: auto;
+    position: absolute;
+    right: 9.4px;
+    top: 18px;
+    border-radius: 3.11756px;
+  }
+  
+  .cardImage {
+    max-width: 174px;
+    max-height: 152px;
+    object-fit: contain;
+  }
+  
+  .cardContent {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .cardTitle {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.35;
+    letter-spacing: normal;
+    cursor: pointer;
+    /* padding: 0px 15px; */
+  }
+  
+  .cardPrice {
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.56;
+    letter-spacing: normal;
+    color: rgba(33, 33, 33, 0.7);
+  }
+  
+  .cardActions {
+    text-align: center;
+  }
+  
+  .addToBasketButton {
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 31.21px;
+    letter-spacing: normal;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 25px;
+    border: none;
+    background: #219029;
+    box-shadow: 0px 6.23512px 12.4702px rgba(33, 144, 41, 0.25);
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+  .addToBasketButton:hover {
+    background: #32a33a;
+    transform: scale(1.05);
+  }
+  
+  .addToBasketButton:active { 
+    transform: scale(0.98); 
+    /* Scaling button to 0.98 to its original size */ 
+  }
+  .addToBasketButton:active { 
+    transform: scale(0.98); 
+    /* Scaling button to 0.98 to its original size */ 
+    box-shadow: 0px 4px 8px rgba(33, 144, 41, 0.25);; 
+    /* Lowering the shadow */ 
+  } 
+  
+  
+  
+  .buttonContainer {
+    text-align: center;
+  }
+  
+  .productButton {
+    text-transform: capitalize;
+    width: 200px;
+    border-radius: 25px;
+    background-color: #1d405c;
+    font-size: 15px;
+    color: #fff;
+  }
+  
+  .arrowIcon {
+    margin-left: 7px;
+  }
+  
+  .addToBasket .valueButton:hover {
+    /* background: #1a7420; */
+  }
+  
+  .addToBasket .valueButton:active {
+    background: #219029;
+  }
+  
+  .addToBasket .decreaseButton,
+  .addToBasket .increaseButton {
+    margin: 0;
+    width: 30px;
+    height: 34px;
+    background-color: var(--green);
+    color: white;
+    border: none;
+    font-size: 22px;
+  }
+  
+  .addToBasket .decreaseButton {
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .addToBasket .increaseButton {
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .addToBasket label {
+    display: none;
+  }
+  
+  .addToBasket .number {
+    color: white;
+    appearance: none;
+    width: 30px;
+    height: 34px;
+    border: none;
+    text-align: center;
+    background: transparent;
+    color: #ffff;
+    outline: none;
+  }
+  
+  .addToBasket input[type="number"]::-webkit-inner-spin-button,
+  .addToBasket input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    margin: 0;
+  }
+  /* .addToBasket {
+      width: 108px;
+      height: 34px;
+      padding: 9px 5px;
+    } */
+  .addToBasket .valueButton {
+    border: 1px solid var(--green);
+  
+    width: 40px;
+    padding: 0;
+    background: var(--green);
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .addToBasket {
+    width: 176px;
+    height: 51px;
+    font-size: 20px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 31.21px;
+      letter-spacing: normal;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 7px;
+      border: none;
+      background: #219029;
+      box-shadow: 0px 6.23512px 12.4702px rgba(33, 144, 41, 0.25);
+      border-radius: 25px;
+      cursor: pointer;
+  }
+  
+
+  /* Image container */
+.imageContainer {
+    /* Styles for the image container */
+  
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .category{
+    margin: 100px auto;
+  }
+  /* Cover image */
+.coverImage {
+    /* Styles for the cover image */
+    width: 100%; /* Set width to 100% */
+    height: auto; /* Let the height adjust automatically to maintain aspect ratio */
+    max-width: 1200px; /* Limit the maximum width to 92% of the container width */
+    margin-inline: 60px;
+    max-height: 178px; /* Limit the maximum height to 178px */
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    border-radius: 15px;
+    opacity: 1;
+  }
+  
+  .imageHeading {
+    /* Styles for the image heading */
+  
+    margin-top: 65px;
+    position: absolute;
+    color: #ffffff;
+    font-weight: 700;
+    z-index: 2;
+  
+    font-family: Calistoga;
+    font-size: 50px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -2px;
+  }
+
+  
+/* Goods card */
+.goodsCard {
+    /* Styles for the goods card */
+    margin-inline: auto;
+    margin-top: 40px;
+  
+  }
+
+
+  @media (min-width: 318px) and (max-width: 350px) {
+    .gridContainer {
+      gap: 16px !important;
+    }
+  }
+  
+  @media (max-width: 600px) {
+   .addToBasket{
+      width: 113px;
+      height: 34px;
+      font-size: 13px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.54;
+      letter-spacing: normal;
+      padding: 7px 15px;
+   }
+    .container {
+      /* padding: 20px 0px; */
+      background-color: transparent;
+    }
+  
+    .heading {
+      margin-top: 40px;
+      margin-bottom: 24px;
+    }
+  
+    .gridContainer {
+      gap: 26px;
+      grid-template-columns: auto auto;
+      padding: 20px;
+    }
+  
+    .transparentCard {
+      gap: 16px;
+      width: 100%;
+      max-width: 140px;
+    }
+  
+    .imgContainer {
+      /* width: 100%; */
+      width: 140px;
+      height: 140px;
+  
+      border-radius: 9px;
+    }
+    .imageContainer {
+        width: 100%;
+        position: absolute;
+        top: 0;
+      }
+      .category{
+        margin: 40px auto;
+        position: relative;
+        padding-top: 80px;
+      }
+        /* Cover image */
+  .coverImage {
+    /* Styles for the cover image */
+
+    max-width: 100%;
+    height: 169px;
+    margin-inline: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+    
+    .cardTitle {
+      font-size: 13px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.54;
+      letter-spacing: normal;
+    }
+  
+    .cardPrice {
+      font-size: 13px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.54;
+      letter-spacing: normal;
+    }
+  
+    .cardActions {
+      text-align: center;
+    }
+  
+    .addToBasketButton {
+      /* font-family: HelveticaNeue; */
+      font-size: 13px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.54;
+      letter-spacing: normal;
+  
+      padding: 7px 15.55px;
+    }
+  
+    .cardTopImage {
+      width: 26px;
+      height: auto;
+      right: 6px;
+      top: 11.5px;
+      border-radius: 2px;
+    }
+  
+    .cardImage {
+      max-width: 114px;
+      max-height: 90px;
+      object-fit: contain;
+    }
+  
+  }
+  
+  @media (min-width: 600px) and (max-width: 780px) {
+    .gridContainer {
+      grid-template-columns: auto auto;
+    }
+  
+  }
+  
+  @media (min-width: 781px) and (max-width: 1080px) {
+    .gridContainer {
+      grid-template-columns: auto auto auto;
+    }
+  }

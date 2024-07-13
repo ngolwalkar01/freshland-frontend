@@ -1,0 +1,128 @@
+.freshness{
+    background-color: #F4F5F7;
+}
+.freshnesscontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1199px;
+    margin: auto;
+}
+
+.headingcontainer h2{
+    color: var(--blue);
+    text-align: center;
+}
+.paragraph{
+    text-align: center;
+    color: #2C2C2C;
+    margin: 40px auto;
+}
+.aboutcontent{
+    margin: 80px auto;
+}
+.content{
+    max-width: 999px;
+}
+
+.harvestdate{
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+.harvestdate h4{
+    color: var(--green);
+    max-width: 326px;
+}
+.harvestheading{
+    color: var(--green);
+    font-family: Calistoga;
+    font-size: 30px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -1.2px;
+}
+.harvestdate p{
+    color: #2C2C2C;
+}
+.harvestdate img{
+    border-radius: 10px;
+    object-fit: cover;
+}
+.contentpara{
+    padding: 16px 0px 0px 0px;
+}
+
+@media (min-width: 320px) and (max-width: 600px){
+    .harvestdate{
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 24px;
+    }
+    .harvestdate img{
+        width: 100%;
+        height: 100%;
+       object-fit: cover;
+    }
+    .paragraph{
+        font-size: 13px;
+        text-align: left;
+        margin: 40px auto 0px auto;
+    }
+    .harvestdate p{
+        font-size: 13px;
+    }
+   
+    .goalimg img{
+        height: 217px;
+    }
+    
+    .headingcontainer{
+        max-width: 254px;
+        margin: auto;
+
+    }
+    .freshnesscontainer{
+        margin: auto 24px;
+    }
+    .aboutcontent{
+        margin: 40px 0px;
+    }
+    .harvestheading{
+        font-size: 24px;
+    }
+    
+    
+}
+@media (min-width: 601px) and (max-width: 1000px){
+    .paragraph{
+        font-size: 14px;
+        margin: 40px 40px;
+    }
+    .contentpara{
+        font-size: 14px;
+    }
+    .harvestdate img{
+        width: 356px;
+        height: 356px;
+    }
+    .harvestdate{
+        padding: 0px 20px;
+    }
+  
+}
+@media (min-width: 1001px) and (max-width: 1200px){
+    .aboutcontent{
+        margin: 80px 20px;
+    }
+    .paragraph,.contentpara{
+        font-size: 18px;
+    }
+    .harvestdate{
+        padding: 0px 20px;
+    }
+
+}

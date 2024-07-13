@@ -1,0 +1,234 @@
+.seasonalgoodcontainer{
+  background-color: #ffffff;
+  padding: 50px 0px;
+}
+
+.container {
+  text-align: center;
+  margin: auto;
+  max-width: 1000px;
+  padding: 20px 0px;
+  padding-top: 74px;
+}
+
+.title {
+  color: var(--green);
+}
+
+.subtitle {
+  margin-bottom: 5px;
+  color: #21212199;
+}
+
+.goodscontainer{
+  margin: 50px auto;
+
+}
+.slideContainer {
+  position: relative;
+  width: 318px;
+  height: 198px;
+  margin: auto;
+  overflow: hidden;
+  box-shadow: none;
+  background-color: none;
+  border-radius: 13px;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideTextOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  color: #fff;
+  background: radial-gradient(100% 299.2% at 3.59% 3.24%, rgba(255, 255, 255, 0.49) 0%, rgba(255, 255, 255, 0.07) 100%);
+  border: 2.39899px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(14.3939px);
+  border-radius: 10px 0px 0px 10px;
+
+}
+
+.addWrapper {
+  padding: 0px;
+  position: absolute;
+  top: 72%;
+  right: 13px;
+  height: 36px;
+  width: 94px;
+  border-radius: 12px;
+  background-color: #01395e;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.addWrapper:hover{
+  color: #01395e;
+  background-color: #fff;
+}
+
+.seeAllButton {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  color: #ffffff;
+  background-color: #01395e;
+  border-radius: 20px;
+  margin-inline: auto;
+  text-transform: capitalize;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 47px;
+  font-size: 17px;
+  width: 245px;
+  gap: 5px;
+  cursor: pointer;
+}
+.seeAllButton:hover{
+  background-color: #2a5e88;
+}
+
+.seeAllButton:active{
+  transform: scale(0.98); 
+}
+
+
+.arrowIcon {
+  margin-left: 7px;
+}
+
+
+.addWrapperquantity .valueButton {
+  border: 1px solid #ddd;
+  width: 40px;
+  padding: 0;
+  background: #eee;
+  outline: none;
+  cursor: pointer;
+}
+
+.valueButton i {
+  color: rgb(44, 44, 44, 0.6);
+}
+
+.addToConatiner {
+  margin: 0 8px 0 0;
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  align-items: center;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.addWrapperquantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 0px;
+  position: absolute;
+  top: 72%;
+  right: 13px;
+  height: 36px;
+  width: 94px;
+  border-radius: 12px;
+  /* background-color: #01395e; */
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+
+
+.addWrapperquantity .decreaseButton,
+.addWrapperquantity  .increaseButton {
+  margin: 0;
+  /* width: 30px;
+  height: 34px; */
+  background-color: #fff;
+
+  border: none;
+}
+
+.addWrapperquantity  .decreaseButton {
+  border-radius: 4px 0 0 4px;
+}
+
+.addWrapperquantity  .increaseButton {
+  border-radius: 0 4px 4px 0;
+}
+
+.addWrapperquantity  .number {
+  display: inline-block;
+  text-align: center;
+  border: none;
+  margin-block: auto;
+  /* width: 15px; */
+  font-size: 16px;
+  color: black;
+  background: white;
+}
+
+@media only screen and (max-width: 400px){
+
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .goodscontainer{
+    width: auto;
+  }
+
+  .slideContainer {
+    border-radius: 10px;
+    width: 250px;
+    height: 156px;
+  }
+  .slick-list {
+    margin: 0px 7px;
+}
+.slick-slide > div {
+  margin: 0px 14px !important;
+}
+.slideTextOverlay p{
+  font-size: 16px;
+}
+.seasonalgoodcontainer{
+  padding: 0px 0px;
+}
+
+
+
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

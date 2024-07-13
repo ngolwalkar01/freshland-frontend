@@ -1,0 +1,405 @@
+.bgWrapper {
+  height: 76px;
+}
+
+.headerdiv {
+  position: absolute;
+  top: 16px;
+  left: 35px;
+  right: 35px;
+}
+
+.activeLink {
+  color: var(--green);
+  font-weight: 500;
+}
+
+.header {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.headercontent {
+  display: flex;
+  align-items: center;
+  padding: 12px 12px 12px 24px;
+  gap: 0px;
+}
+
+.headercontent a {
+  cursor: pointer;
+}
+
+.headercontent .freshland {
+  display: block;
+  margin: 0;
+}
+
+.icon {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.menubar {
+  display: none;
+}
+
+.flexgrow {
+  flex-grow: 1;
+}
+
+.linkdescription {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  font-size: 13px;
+  color: #333132;
+  font-family: sans-serif;
+  margin-right: 3rem;
+}
+
+.linkdescription a {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+
+.linkdescription .store {
+  display: flex;
+  gap: 7px;
+  position: relative;
+}
+
+.store i {
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.storemenu {
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+  width: 270px;
+  padding: 30px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  z-index: 1;
+  text-align: left;
+  /* display: none; */
+}
+
+.storemenu li {
+  list-style: none;
+  padding: 4px 0px;
+  color: #2c2c2c;
+}
+.storemenu li {
+  position: relative;
+}
+
+.storemenu li::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 0.175rem;
+  left: 0;
+  bottom: 0;
+  background-color: var(--green);
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+  transform-origin: 0% 100%;
+}
+.lifirst::after{
+  width: 62px !important;
+}
+.linuts::after{
+  width: 100px !important;
+}
+.storemenu li:hover::after {
+  transform: scaleX(1);
+}
+
+.fa-bars {
+  display: none;
+}
+
+.headerIconWrapper {
+  position: relative;
+  width: 24px;
+  cursor: pointer;
+}
+
+.headerIconWrapper img {
+  position: relative !important;
+}
+
+.cartIcon {
+  display: flex;
+}
+
+.cartIcon span {
+  padding: 6px 6px 6px 0;
+  position: relative;
+  font-size: 12px;
+  top: -7px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+.openBtn {
+  background: #f1f1f1;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.openBtn:hover {
+  background: #bbb;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: visibility 0s, opacity 0.3s ease;
+}
+
+.overlay.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.overlayContent {
+  position: relative;
+  top: 46%;
+  width: 100%;
+  max-width: 1400px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.1);
+  text-align: left;
+  margin: 60px;
+  
+}
+
+.looking {
+  color: #5454548C;
+  margin: 0px 0px 20px 0px;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 0px 0px 0px 10px;
+  font-weight: 600;
+}
+
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #545454;
+  transition: transform 0.5s ease;
+
+}
+
+.closebtn:hover {
+  color: #ccc;
+}
+
+.overlayInput {
+  padding: 6px 0px 20px 0px;
+  font-size: 41px;
+  border: none;
+  float: left;
+  width: 95%;
+  background: white;
+  outline: none;
+  font-family: 'Calistoga';
+}
+
+.searchbg input[type="placeholder"] {
+  color: #ddd;
+}
+
+.overlayButton {
+  float: left;
+  background: transparent;
+  font-size: 50px;
+  border: none;
+  cursor: pointer;
+  color: #ddd;
+}
+
+.searchbg {
+  background: #fff;
+  min-height: 330px;
+  display: flex;
+  transform: scale(0.9);
+  transition: transform 0.6s ease;
+}
+
+.overlay.show .searchbg {
+  transform: scale(1);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 320px) and (max-width: 750px) {
+  .storemenu {
+    position: relative;
+    top: 0;
+    background-color: #fff;
+    width: 270px;
+    padding: 10px 0 10px 20px;
+    box-shadow: none;
+    z-index: 1;
+    text-align: left;
+  }
+
+  .headerContainer .icon .fa-bars {
+    display: block;
+  }
+
+  .linkdescription {
+    display: none;
+  }
+
+  .navlinksmobile {
+    /* display: none; */
+    position: absolute;
+    display: inline-grid;
+    gap: 16px;
+    list-style: none;
+    left: 10px;
+    right: 10px;
+    top: 78px;
+    margin: auto;
+    max-width: 349px;
+    background-color: #ffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(21px);
+    backdrop-filter: blur(21px);
+    border-radius: 15px;
+    padding: 24px 16px;
+    z-index: 4;
+    text-align: left;
+  }
+
+  .navlinksmobile a {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+      sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+  }
+
+  .store i {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+
+  .menubar {
+    display: block;
+  }
+
+  .headerContainer {
+    padding: 0px 0px;
+  }
+
+  .headercontent {
+    gap: 6px;
+  }
+
+  .headerIconWrapper {
+    width: 20px;
+    height: 20px;
+  }
+
+  .icon {
+    gap: 15px;
+  }
+
+  .headerdiv {
+    left: 12px;
+    right: 12px;
+  }
+  .overlayInput{
+    width: 88%;
+    padding: 0px 0px 20px 0px;
+    font-size: 24px;
+  }
+  .overlayButton{
+    font-size: 28px;
+  }
+  .overlayContent{
+    margin: 20px 20px;
+    width: auto;
+
+  }
+  .closebtn{
+    top: 12px;
+    right: 37px;
+  }
+  .looking{
+    padding: 0px 0px 0px 0px;
+  }
+ 
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .linkdescription {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 12px;
+    color: #333132;
+    font-family: sans-serif;
+    margin-right: 0rem;
+  }
+
+  .headercontent {
+    gap: 13px;
+    padding: 12px 8px;
+  }
+  .overlayInput{
+    width: 88%;
+    padding: 0px;
+    font-size: 24px;
+  }
+  
+  .overlayContent{
+    max-width: 966px;
+   
+    width: auto;
+
+  }
+  .overlayButton{
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px){
+  .overlayContent{
+   width: auto;
+
+  }
+}
+
+
+
+
+

@@ -1,0 +1,933 @@
+.myaccountconatiner {
+    max-height: 675px;
+}
+
+.ordertable {
+    border-collapse: collapse;
+    width: 931px;
+    max-width: 1200px;
+}
+
+.ordertable th {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.35;
+    letter-spacing: normal;
+}
+
+.ordertable td {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.56;
+    letter-spacing: normal;
+}
+
+.ordertable th {
+    padding: 16px 0px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.ordertable td {
+    padding: 16px 0px;
+    text-align: left;
+}
+
+
+.ordertable td:first-child{
+    color: var(--green);
+}
+.ordertable th:last-child {
+  text-align: right;
+
+}
+.ordertable td:last-child {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+}
+
+
+
+
+
+
+.btnlink a{
+ 
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  color: #1D405C;
+}
+.btnlink .view {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 75px;
+    height: 40px;
+    background: rgba(29, 64, 92, 0.05);
+    border-radius: 5px;
+}
+
+
+/* subscriptionview */
+
+.orderCard {
+    border-radius: 10px;
+    width: 480px;
+    max-width: 600px;
+    padding: 0px 18px;
+  }
+  .orderDetail {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 14px 2px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  gap: 60px;
+  }
+  .label{
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .value {
+    font-weight: normal;
+    font-size: 18px;
+    color: var(--text-light);
+  }
+  .ordertotal{
+    font-weight: normal;
+    font-size: 18px;
+    color: #2c2c2c;
+  }
+  .orderDetail .id{
+    font-weight: normal;
+    font-size: 18px;
+   color: var(--green);
+  }
+  .orderinvoice{
+    display: flex;
+    gap: 24px;
+    color: var(--green);
+  }
+  .orderCard h5{
+    color: var(--text-light);
+  }
+  /* rightconatiner */
+
+  .orderviewdetail{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 1100px;
+    max-width: 1200px;
+    margin: 40px 0px;
+  }
+
+.rightContainer{
+    /* max-height: 350px; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    background: rgba(29, 64, 92, 0.05);
+    padding: 20px 28px;
+  }
+  
+  .terms
+  {
+   padding-inline: 15px;
+  }
+  
+  .acceptTerms{
+    display: flex;
+    margin-block: 27px;
+  }
+  
+  .rightContainer span{
+  
+    /* payment Paragraph */
+   color: rgba(44, 44, 44, 0.7);
+   font-weight: 500;
+   
+  }
+  
+
+
+  .skip a{
+    background: #219029;
+    color: #fff;
+    padding: 8px 5px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+  }
+  .linkbtn{
+    display: grid;
+    grid-template-columns: 119px 119px 119px;
+    gap: 20px;
+
+  }
+  .skippayment{
+    margin: 24px 0px 0px 0px;
+
+  }
+  .skipoveraly{
+    position: fixed;
+    /* display: none; */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  .skippaymentpopup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+  background-color: #FFFFFF;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    border-radius: 10px;
+        height: auto;
+        max-height: 80vh;
+        max-width: 900px;
+        padding: 10vmin;
+        width: 80vw;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+  }
+
+  .calender{
+    background: #fff;
+    position: absolute;
+    height: auto;
+    max-width: 900px;
+    padding: 10vmin;
+    width: 80vw;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    text-align: center;
+    overflow-y: auto;
+    max-height: 80vh;
+    border-radius: 10px;
+  }
+  .calender i{
+    position: absolute;
+    left: 92%;
+    top: 4%;
+    font-size: 40px;
+  }
+  .Calendardiv{
+    border: 1px solid #868686;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 16px;
+  }
+  .anotherdate{
+    text-transform: none;
+    font-size: 14px;
+    text-decoration: underline;
+    color: #545454 !important;
+    cursor: pointer;
+    font-weight: 600;
+
+  }
+  .btndate{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+  }
+  .btndate > button:first-of-type {
+    background: #EBEBEB;
+    color: #000;
+  }
+  .skippaymentpopup p{
+    font-size: 18px;
+  }
+  .skiptext{
+    border: 1px solid #868686;
+    border-radius: 5px;
+    width: 100%;
+    padding: 20px;
+    margin: 28px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .skippaymentpopup i{
+    position: absolute;
+    left: 92%;
+    top: 4%;
+  }
+  .confirm{
+    background: #219029;
+    color: #fff;
+    padding: 15px 5px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    width: 100%;
+    max-width: 220px;
+    font-size: 13px;
+    text-transform: uppercase;
+   
+
+  }
+  .linkbtn > *:nth-child(3) {
+   width: 119px;
+  }
+  
+  
+  
+  .table {
+    border-collapse: collapse;
+    width: 318px;
+    max-width: 375px;
+    margin: auto;
+  }
+  .topRow .cross{
+    margin: 0px 5px;
+    color: #FF4A4A;
+  }
+
+  .table tbody tr:nth-child(2) td {
+    padding-top: 20px;
+  }
+  
+  .table th,
+  .table td,
+  .table label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    color: #2C2C2C;
+  }
+  
+  .table span {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+  }
+  
+  /* .firstHeading{
+    width: 55%;
+  } */
+  
+  .table th:nth-child(1) {
+    text-align: left;
+  }
+  
+  .table th:nth-child(2) {
+    text-align: right;
+  }
+  
+  .table th:nth-child(1){
+    padding-block: 20px;
+  }
+  
+  .topRow td:nth-child(1),
+  .topRow td:nth-child(2) {
+    padding: 20px 0px;
+  }
+  
+  .table th,
+  .table td {
+    padding: 14px 0; /* Set the default padding */
+  }
+  
+  /* Right align the content in the second column */
+  .table td:nth-child(2) {
+    text-align: right;
+  }
+  
+  .table tr:nth-child(1) td,.table tr:nth-child(2) td
+  
+  {
+  
+  border-block: 1px solid rgba(0, 0, 0, 0.2);
+  
+  }
+
+  /* addresscontainer css */
+.addresscontainer{
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    max-width: 650px;
+    margin: 20px 18px;
+    column-gap: 40px;
+  }
+  .addresscontainer p{
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  
+    color: rgba(44, 44, 44, 0.7);
+  }
+  .addresscontainer h4{
+    margin-bottom: 17px;
+  }
+  
+  .mobileviewtable{
+    display: none;
+  }
+  .ordercontainer{
+    text-align: center;
+    padding: 40px 0px;
+  }
+
+  .upperCase {
+    text-transform: uppercase;
+  }
+
+  /* @media (min-width:320px) and (max-width:600px){
+    .myaccountconatiner{
+      display: none;
+    }
+    .mobileviewtable{
+      display: block;
+    }
+   .tablecard{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+   }
+    .ordercarddetail{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 16px 18px;
+      gap: 10px;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+      border-radius: 10px;
+      width: 318px;
+      height: 136px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    }
+    .orderid{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 282px;
+    }
+    .orderid p:first-child{
+      display: flex;
+      gap: 16px;
+    }
+    .orderid .status{
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-style: normal;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 700;
+      color: #219029;
+    }
+    .date{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 282px;
+    }
+
+   
+    .orderviewdetail{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 30px;
+      width: 318px;
+      max-width: 375px;
+      margin: 40px auto;
+    }
+    .orderCard{
+      width: 100%;
+      padding: 0px 0px;
+    }
+    .addresscontainer{
+      max-width: 375px;
+      margin: auto 0px 40px 0px;
+    }
+
+
+    .value, .ordertotal,.label{
+      font-size: 13px;
+    }
+    
+  
+    .orderDetail .id{
+      font-size: 13px;
+    
+    }
+   
+  
+  } */
+ 
+
+  /* tablecard */
+
+  .tablecard{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+   }
+    .ordercarddetail{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 16px 18px;
+      gap: 10px;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+      border-radius: 10px;
+      width: 318px;
+      height: 136px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    }
+    .orderid{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 282px;
+    }
+    .orderid p:first-child{
+      display: flex;
+      gap: 16px;
+      /* font-weight: 700; */
+    }
+    .orderid .status{
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-style: normal;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 700;
+      color: #219029;
+    }
+    .date{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 282px;
+    }
+    .date span{
+      padding-left: 16px;
+    }
+    
+    .orderviewdetail{
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 90px;
+      width: 1100px;
+      max-width: 100%;
+      margin: 40px 0px;
+      
+    }
+    .orderCard{
+    width: 100%;
+    max-width: 573px;
+    padding: 0px 0px;
+    }
+    .subscriptiontable{
+       display: flex;
+     align-items: center;
+   justify-content: center;
+   width: 1100px;
+
+    }
+    .subscriptiontable .ordertable{
+      width: 1045px;
+    }
+
+ @media(min-width:320px) and (max-width:360px){
+  .skippaymentpopup i{
+    font-size: 18px;
+  }
+  .skippaymentpopup h1{
+    font-size: 26px;
+  }
+  .skippaymentpopup{
+    padding: 16px;
+  }
+  .skippaymentpopup p{
+    font-size: 13px;
+    margin: 8px 0px;
+  }
+  .calender i{
+    font-size: 18px;
+  }
+  .calender h1{
+    font-size: 26px;
+    margin: 16px;
+  }
+  .calender{
+    padding: 16px;
+  }
+  .calender p{
+    font-size: 13px;
+    margin: 8px 0px;
+  }
+  .btndate{
+    flex-direction: column;
+  }
+  .subscriptiontable{
+    display: none;
+  }
+  .myaccountconatiner{
+    display: none;
+  }
+  .mobileviewtable{
+    display: block;
+    padding: 0px 0px 40px 0px;
+  }
+
+  .label, .value, .orderinvoice{
+    font-size: 13px;
+  }
+  .viewinvoice{
+    display: block;
+  }
+  .orderbtn{
+    display: none;
+  }
+  .orderviewdetail{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    width: 300px;
+    max-width: 375px;
+    margin: 0px auto;
+  }
+  .ordercomplete{
+    display: none;
+  }
+  .rightContainer{
+    width: 100%;
+    padding: 7px 9px;
+  }
+  .table{
+    width: 100%;
+  }
+  .ordercarddetail{
+    width: 300px;
+    padding: 16px 8px
+  }
+  .addresscontainer{
+    max-width: 375px;
+    margin: 40px 0px 40px 0px;
+  }
+  .linkbtn{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding: 0px;
+    gap: 6px;
+    width: 255px;
+    height: 192px;
+  }
+  .skip a{
+    width: 119px;
+  }
+  .orderDetail{
+    gap:13px;
+  }
+  /* .linkbtn > *:nth-child(6) {
+    width: 188px;
+   } */
+   .orderDetail .id{
+    font-size: 13px;
+    font-weight: bold;
+   }
+
+ } 
+
+  @media (min-width:360px) and (max-width:600px){
+    .skippaymentpopup i{
+      font-size: 26px;
+    }
+    .skippaymentpopup h1{
+      font-size: 26px;
+    }
+    .skippaymentpopup{
+      padding: 16px;
+    }
+    .skippaymentpopup p{
+      font-size: 13px;
+      margin: 8px 0px;
+    }
+    .calender i{
+      font-size: 18px;
+    }
+    .calender h1{
+      font-size: 26px;
+      margin: 16px;
+    }
+    .calender{
+      padding: 16px;
+    }
+    .calender p{
+      font-size: 13px;
+      margin: 8px 0px;
+    }
+    .btndate{
+      flex-direction: column;
+    }
+    .linkbtn{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      align-content: flex-start;
+      padding: 0px;
+      gap: 16px;
+      width: 257px;
+      /* height: 192px; */
+    }
+    .skip a{
+      width: 119px;
+    }
+    .orderDetail{
+      gap:13px;
+    }
+    /* .linkbtn > *:nth-child(6) {
+      width: 188px;
+     } */
+     
+    .subscriptiontable{
+      display: none;
+    }
+    .myaccountconatiner{
+      display: none;
+    }
+    .mobileviewtable{
+      display: block;
+      padding: 0px 0px 40px 0px;
+    }
+  
+    .label, .value, .orderinvoice{
+      font-size: 13px;
+    }
+    .viewinvoice{
+      display: block;
+    }
+    .orderbtn{
+      display: none;
+    }
+    .orderviewdetail{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 30px;
+      width: 318px;
+      max-width: 375px;
+      margin: 0px auto;
+    }
+    .ordercomplete{
+      display: none;
+    }
+    .addresscontainer{
+      max-width: 375px;
+      margin: 40px 0px 40px 0px;
+    }
+    .orderDetail .id{
+      font-size: 13px;
+      font-weight: bold;
+     }
+    
+  }
+  @media (min-width:601px) and (max-width:1000px){
+    .subscriptiontable{
+      display: none;
+    }
+    .orderDetail{
+      gap: 10px;
+    }
+    .linkbtn{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      align-content: flex-start;
+      padding: 0px;
+      gap: 16px;
+      width: 254px;
+      /* height: 192px; */
+    }
+    .skip a{
+      width: 119px;
+    }
+    /* .linkbtn > *:nth-child(6) {
+      width: 188px;
+     } */
+    .myaccountconatiner{
+      display: none;
+    }
+    .mobileviewtable{
+      display: block;
+      padding: 0px 0px 40px 0px;
+    }
+    .tablecard{
+      display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    }
+    .orderviewdetail{
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 36px;
+      width: 100%;
+      max-width: 800px;
+      padding: 0px 0px 40px 0px;
+    }
+    .orderCard{
+      padding: 0px 0px;
+      width: 320px;
+     max-width: 375px;
+    }
+    .orderinvoice{
+      font-size: 16px;
+    }
+    .orderbtn button{
+      font-size: 16px;
+      width: 260px;
+    }
+    .addresscontainer{
+      margin: auto 10px;
+    }
+  }
+
+  @media (min-width:1020px) and (max-width:1100px){
+    /* .ordertable{
+      width: 1000px;
+    } */
+    .subscriptiontable .ordertable{
+      width: 100%;
+      max-width: 1000px;
+    }
+    .orderviewdetail{
+      gap: 40px;
+    }
+    .addresscontainer{
+      margin: 20px 46px;
+    }
+  }
+
+
+  .reactcalendar {
+    width: 350px;
+    max-width: 100%;
+    background: white;
+    border: none !important;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.125em;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    margin: 1rem auto;
+    max-width: 100%;
+    width: 20rem;
+  }
+  .reactcalendar abbr{
+    text-decoration: none;
+  }
+  .reactcalendar span{
+   
+  }
+  .reactcalendar  .react-calendar__tile .react-calendar__tile--active .react-calendar__tile--range .react-calendar__tile--rangeStart .react-calendar__tile--rangeEnd .react-calendar__tile--rangeBothEnds .react-calendar__month-view__days__day {
+    background: #219028 !important;
+  }
+
+  .reactcalendar  .react-calendar__month-view__weekNumbers{
+    display: none !important;
+  }
+  /* styles/global.css */
+.react-calendar__tile--active {
+  background-color: yellow !important;
+  color: black !important; /* Adjust text color if needed */
+}
+
+.reactcalendar .react-calendar__tile--now {
+  background-color: green !important;
+  color: black !important; /* Adjust text color if needed */
+}
+
+
+  
+
+
+
+
+
+ 

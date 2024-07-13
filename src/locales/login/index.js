@@ -1,0 +1,52 @@
+export const loginTranslation = {
+  en: {
+    login: "Login",
+    usern: "Username",
+    password: "Password",
+    remb: "Remember me",
+    forgot: "Forgot",
+    pass: "password?",
+    useSocial: "Use a social account for faster login or easy registration.",
+    logfb: "Login with Facebook",
+    logt: "Login with Twitter",
+    logg: "Login with Google+",
+  },
+  dk: {
+    login: "dk Login",
+    usern: "Username",
+    password: "Password",
+    remb: "Remember me",
+    forgot: "Forgot",
+    pass: "password?",
+    useSocial: "Use a social account for faster login or easy registration.",
+    logfb: "Login with Facebook",
+    logt: "Login with Twitter",
+    logg: "Login with Google+",
+
+  },
+  fi: {
+    login: "fi Login",
+    usern: "Username",
+    password: "Password",
+    remb: "Remember me",
+    forgot: "Forgot",
+    pass: "password?",
+    useSocial: "Use a social account for faster login or easy registration.",
+    logfb: "Login with Facebook",
+    logt: "Login with Twitter",
+    logg: "Login with Google+",
+
+  },
+  se: {
+    login: "se Login",
+    usern: "Username",
+    password: "Password",
+    remb: "Remember me",
+    forgot: "Forgot",
+    pass: "password?",
+    useSocial: "Use a social account for faster login or easy registration.",
+    logfb: "Login with Facebook",
+    logt: "Login with Twitter",
+    logg: "Login with Google+",
+  }
+}

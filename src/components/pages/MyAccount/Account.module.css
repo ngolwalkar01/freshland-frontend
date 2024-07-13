@@ -1,0 +1,229 @@
+.accountSkeleton{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 50px 0px;
+}
+.myaccount{
+    background-color: #FFFF;
+    position: relative;
+}
+.allcontainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 28px 40px 28px;
+}
+.activeOption {
+  color: #219029;
+}
+
+.ordercontainer {
+  display: none;
+}
+
+.menuToggle {
+  display: none;
+}
+
+.Headeraccount{
+    position: relative;
+    z-index: 1100;
+}
+.accountcontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0px;
+}
+.accountnavbar{
+    /* padding: 40px 0px; */
+}
+.navbar{
+  padding: 32px 0px 32px 0px;
+}
+.accountnavbar ul li{
+    list-style: none;
+  font-family: Calistoga;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: var(--text-light);
+}
+.accountnavbar ul li a i{
+  display: none;
+}
+.accountnavbar ul li a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 500;
+}
+.accountnavbar ul{
+    display: flex;
+    gap: 33px;
+}
+
+
+/* Account.module.css */
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.61);
+    z-index: 999; /* Ensure overlay is on top of other content */
+  }
+  
+  /* Logout confirmation popup */
+  .logoutConfirmation {
+    width: 318px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 16px 18px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  }
+  
+  
+  
+  .confirmationMessage p {
+    margin-bottom: 10px;
+  }
+  
+  .actions  {
+   display: flex;
+   gap: 11px;
+  }
+  
+  .cancelbtn{
+    box-sizing: border-box;
+    padding: 8px 42px;
+    width: 135px;
+    background: #FFFF;
+    border: 1px solid rgba(33, 33, 33, 0.4);
+    /* button shadow */
+    border-radius: 6px;
+    color: #2C2C2C;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    cursor: pointer;
+  }
+  .logoutbtn{
+    box-sizing: border-box;
+    padding: 7px 42px;
+    width: 135px;
+    background: #219029;
+    /* button shadow */
+    box-shadow: 0px 4px 8px rgba(33, 144, 41, 0.25);
+    border-radius: 8px;
+    border: none;
+    color: white;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    cursor: pointer;
+  }
+
+  /* Account.module.css */
+
+.menuToggle {
+    display: none; /* Hide the container by default */
+  }
+  .ordercontainer{
+    display: none;
+  }
+  /* Show the container (and the toggle button inside) only on mobile screens */
+  @media (min-width:320px) and (max-width:600px){
+    .menuToggle {
+      display: block;
+      position: relative;
+      left: 91%;
+      top: 0;
+      
+  
+    }
+    .accountcontainer{
+        display: flex;
+        align-items: flex-start;
+        padding: 0px 30px
+    }
+    .accountnavbar ul{
+     display: flex;
+     flex-direction: column;
+     gap: 16px;
+    }
+    .accountcontainer h2{
+        display: none;
+    }
+    .accountnavbar {
+        display: none; /* Hide the account navbar by default */
+      }
+      
+      /* Show the account navbar when showNavbar is true */
+      .showNavbar {
+        display: block;
+        padding: 20px;
+      }
+      .ordercontainer{
+        display: block;
+        text-align: center;
+        padding: 0px 0px 40px 0px;
+      }
+      .navbar{
+        padding: 0px 0px 0px 0px;
+      }
+      .navbar ul li{
+        color: #2C2C2C;
+      }
+      .mainnavbar{
+        margin-top: 19px;
+      }
+      .allcontainer{
+        padding: 0px 0px 0px 0px;
+      }
+      .accountnavbar ul li a i{
+        display: block;
+        font-size: 13px;
+        color: var(--text-light);
+      }
+      
+  }
+  @media (min-width:601px) and (max-width:1000px){
+    .accountnavbar ul{
+      gap: 10px;
+    }
+  .accountnavbar ul li a{
+    font-size: 16px;
+  }
+  .allcontainer{
+    padding: 0px 17px 40px 17px;
+  }
+  }
+  

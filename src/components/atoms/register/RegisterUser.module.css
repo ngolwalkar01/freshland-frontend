@@ -1,0 +1,222 @@
+.registerSkeleton{
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+.registerBox {
+  padding: 60px;
+  background-color: #ffffff;
+}
+
+.gridContainer {
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  gap: 140px;
+}
+.errorMessage{
+  color: #D8000C;
+  font-weight: 600;
+  display: block;
+  text-align: left;
+  margin: 10px 0px 0px 0px;
+}
+.registerWrapper {
+  /* background-image: url('/Images/rimage.png'); */
+  position: relative;
+  background-size: cover;
+  border-radius: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 573px;
+  height: 811px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
+  max-height: 811px;
+}
+
+.imgWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.innerWrapper {
+  margin: auto;
+  padding: 0px 41px;
+  position: relative;
+}
+
+.heading {
+  color: #fff;
+}
+
+.text {
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 0.4px;
+}
+
+.formWrapper {
+  margin-top: 30px;
+}
+
+.formControlBox {
+  width: auto;
+  margin: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formLabel {
+  color: #ffffff;
+  text-align: left;
+  padding-bottom: 10px;
+  font-size: 20px;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.textField {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 21px 37px;
+  border: none;
+  width: 100%;
+  height: 75px;
+  max-height: 75px;
+
+}
+.textField::placeholder{
+ color: #212121;
+ font-size: 20px;
+}
+
+.registerButton {
+  background-color: #01395e;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 17px 0px;
+  margin: 10px 0px;
+  border: none;
+  width: 100%;
+  height: 74px;
+  max-height: 75px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.registerButton:hover{
+  background-color: #2a5e88;
+}
+
+.registerButton:active{
+  transform: scale(0.98); 
+}
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.checkbox {
+  margin-right: 10px;
+  margin-left: 6px;
+}
+
+.checkboxLabel {
+  color: #ffffff;
+  font-size: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+.gridItem{
+  width: 523px;
+  /* height: 423px; */
+}
+.contactList li{
+  list-style: none;
+}
+.contactList{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.numberInfo, .emailInfo{
+  background-color: #E9F5FF;
+  padding: 22px;
+  border-radius: 14px;
+  color: #1D405C;
+}
+.contactHead{
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--blue);
+}
+.phoneNumber,.email{
+  background-image: linear-gradient(98.89deg, #ff5f6d 0%, #ffc371 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (min-width: 320px) and (max-width: 700px)  {
+  .gridContainer{
+    height: auto;
+    flex-direction: column;
+    gap: 50px;
+  }
+  .registerBox{
+    padding: 20px;
+  }
+  .checkboxLabel{
+    font-size: 15px;
+  }
+  .gridItem{
+    width: auto;
+  }
+  .heading{
+    font-size: 26px;
+  }
+ .registerButton, .textField{
+  height: 48px;
+  font-size: 20px;
+  padding: 10px 20px;
+
+  }
+  .errorMessage{
+    text-align: left;
+  }
+  .registerWrapper{
+    height: 526px;
+  }
+  .innerWrapper{
+    padding: 0px 10px;
+    text-align: center;
+    margin-top: 144px;
+
+  }
+  .text{
+    font-size: 20px;
+    margin-top: 8px;
+  }
+  .registerWrapper {
+    height: auto;
+    width: auto;
+  }
+} 
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .gridContainer{
+    height: auto;
+    flex-direction: column;
+    gap: 50px;
+  }
+  .registerWrapper, .gridItem{
+    margin: auto;
+  }
+}

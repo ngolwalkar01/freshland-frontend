@@ -1,0 +1,10 @@
+.Toastify__toast-theme--light {
+  background: #219029!important;
+  color: #ffffff!important;
+  padding: 20px!important;
+  font-weight: 600!important;
+}
+
+.Toastify__toast-container {
+  width: 455px!important;
+}
