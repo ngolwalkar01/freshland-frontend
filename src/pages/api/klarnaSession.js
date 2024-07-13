@@ -1,10 +1,6 @@
 const axios = require('axios');
 
-// const { KLARNA_API_URL, KLARNA_USER_ID, KLARNA_PASSWORD } = process.env;
-const kLARNA_API_URL = 'https://api.playground.klarna.com',
-    kLARNA_USER_ID = '138f1881-aa59-4e34-bf7d-b715699712ff',
-    kLARNA_PASSWORD = 'klarna_test_api_TE5mbSovZm1RPzlFQSFBNXg4MTI0N1BmTC96aiFBMkosMTM4ZjE4ODEtYWE1OS00ZTM0LWJmN2QtYjcxNTY5OTcxMmZmLDEsMU1KbGRub0p0R1JKWDN2RTlVZm9iQUZjY0NMTFMwdlNzSEQ5QUJkc0hTST0';
-
+const { KLARNA_API_URL, KLARNA_USER_ID, KLARNA_PASSWORD } = process.env;
 
 async function klarnaSession(req, res) {
     if (req.method === 'POST') {
@@ -28,12 +24,12 @@ async function klarnaSession(req, res) {
             if (axios.isAxiosError(error)) {
                 const serverError = error;
                 if (serverError && serverError.response) {
-                    res.status(500).json({ error: serverError.response.data, error });
+                    res.status(500).json({ error: serverError.response.data });
                 } else {
-                    res.status(500).json({ error: 'Axios error without response', error });
+                    res.status(500).json({ error: 'Axios error without response' });
                 }
             } else {
-                res.status(500).json({ error: 'Non-Axios error', error });
+                res.status(500).json({ error: 'Non-Axios error' });
             }
         }
     } else {
