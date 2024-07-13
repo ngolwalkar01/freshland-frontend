@@ -1,6 +1,9 @@
 const axios = require('axios');
 
-const { KLARNA_API_URL, KLARNA_USER_ID, KLARNA_PASSWORD } = process.env;
+let { KLARNA_API_URL, KLARNA_USER_ID, KLARNA_PASSWORD } = process.env;
+KLARNA_API_URL = KLARNA_API_URL ? KLARNA_API_URL : "https://api.playground.klarna.com";
+KLARNA_USER_ID = KLARNA_USER_ID ? KLARNA_USER_ID : "138f1881-aa59-4e34-bf7d-b715699712ff";
+KLARNA_PASSWORD = KLARNA_PASSWORD ? KLARNA_PASSWORD : "klarna_test_api_TE5mbSovZm1RPzlFQSFBNXg4MTI0N1BmTC96aiFBMkosMTM4ZjE4ODEtYWE1OS00ZTM0LWJmN2QtYjcxNTY5OTcxMmZmLDEsMU1KbGRub0p0R1JKWDN2RTlVZm9iQUZjY0NMTFMwdlNzSEQ5QUJkc0hTST0";
 
 async function klarnaSession(req, res) {
     if (req.method === 'POST') {
@@ -26,7 +29,15 @@ async function klarnaSession(req, res) {
                 if (serverError && serverError.response) {
                     res.status(500).json({ error: serverError.response.data });
                 } else {
-                    res.status(500).json({ error: 'Axios error without response', KLARNA_API_URL, KLARNA_USER_ID, KLARNA_PASSWORD, token });
+                    res.status(500).json({
+                        error: 'Axios error without response',
+                        error: {
+                            aa: KLARNA_API_URL,
+                            aa1: KLARNA_USER_ID,
+                            aa2: KLARNA_PASSWORD,
+                            aa3: token
+                        }
+                    });
                 }
             } else {
                 res.status(500).json({ error: 'Non-Axios error' });
