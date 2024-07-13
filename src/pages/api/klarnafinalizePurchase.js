@@ -13,7 +13,6 @@ let {
     NEXT_PUBLIC_kLARNA_PASSWORD: KLARNA_PASSWORD
 } = process.env;
 
-
 async function klarnaFinalizePurchase(req, res) {
     if (req.method === 'POST') {
         const { authorizationToken, orderDetails } = req.body;

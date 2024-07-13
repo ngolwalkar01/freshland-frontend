@@ -124,7 +124,7 @@ const Header = () => {
               <div className={styles.flexgrow} />
               <div className={Mobile ? `${styles.navlinksmobile}` : `${styles.linkdescription}`}>
                 <div className={`${styles.store} ${isActive('/shop')}`} ref={menuRef}>
-                  <Link href="/shop">Store</Link>
+                  <Link href="/order/23">Store</Link>
                   <span className="chevrondown" onClick={handleStoreClick}>
                     <i className="fa-solid fa-chevron-down"></i>
                   </span>

@@ -14,7 +14,6 @@ let {
     NEXT_PUBLIC_kLARNA_PASSWORD: KLARNA_PASSWORD
 } = process.env;
 
-
 async function klarnaSession(req, res) {
     console.log(KLARNA_API_URL, "", KLARNA_USER_ID, "", KLARNA_PASSWORD);
     if (req.method === 'POST') {
