@@ -14,7 +14,6 @@ import Loader from "@/components/atoms/loader/loader";
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 
 const Description = ({ productDetailProps }) => {
-  debugger;
   const router = useRouter();
 
   const pdt = productdetailTranslation[lang];
