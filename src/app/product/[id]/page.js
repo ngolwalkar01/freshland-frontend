@@ -19,11 +19,6 @@ const ProductPage = () => {
     const [loading, setLoading] = useState(false);
 
     const productId = params?.id;
-    if (!productId || typeof productId !== 'string') {
-        return <>
-            <div>Product not found!</div>
-        </>
-    }
 
     useEffect(() => {
         async function fetchData() {
@@ -41,8 +36,17 @@ const ProductPage = () => {
             setLoading(false);
         }
 
-        fetchData();
-    }, []);
+        if (productId)
+            fetchData();
+    }, [productId]);
+
+    if (!productId || typeof productId !== 'string') {
+        return <>
+            <div>Product not found!</div>
+        </>
+    }
+
+
 
     return (
         <Layout>
