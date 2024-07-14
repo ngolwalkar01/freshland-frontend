@@ -23,7 +23,7 @@ export const retryCall = async (method, parameters, errorMessage = "", count = 0
                 return retryCall(method, parameters, count + 1);
             }
         } else {
-            toast.error(errorMessage ? errorMessage : "Something went wrong", { autoClose: toastTimer });
+            toast.error((error?.data?.message ? error.data.message : (errorMessage ? errorMessage : "Something went wrong")), { autoClose: toastTimer });
         }
     }
 };

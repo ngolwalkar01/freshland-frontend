@@ -8,7 +8,7 @@ import productService from '@/services/product';
 import shippingService from '@/services/shipping';
 import vipPagesService from '@/services/vipPages';
 import deliveryCycleAPI from '@/services/deliveryCycle';
-import { toast, ToastContainer } from 'react-toastify';
+import { getCartData } from "@/components/service/cart";
 
 export default function Home() {
   const [data, setData] = useState({
@@ -42,6 +42,8 @@ export default function Home() {
         vipPages: vipPagesResponse || [],
         cutOffDaysDetail: DeliveryCycleResponse || undefined
       });
+
+      getCartData();
     }
 
     fetchData();

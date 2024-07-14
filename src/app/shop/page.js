@@ -5,6 +5,7 @@ import Layout from "@/components/layout";
 import productCategoryService from "@/services/productCategories";
 import { useEffect, useState } from "react";
 import Shopskeleton from "@/components/skeleton/shopskeleton";
+import { getCartData } from "@/components/service/cart";
 
 const GoodsPage = (props) => {
   const [data, setData] = useState([]);
@@ -16,6 +17,7 @@ const GoodsPage = (props) => {
       const categoryWithProducts = await productCategoryService.getCategoriesWithProducts();
       setData({ categoryWithProducts })
       setLoading(false);
+      getCartData();
     }
 
     fetchData();

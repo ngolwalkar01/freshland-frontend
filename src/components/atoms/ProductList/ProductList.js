@@ -163,7 +163,8 @@ const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, 
     
   };
 
-  const debouncedUpdateQuantity = quantityDebounce(updateQuantity, 1000);
+  // const debouncedUpdateQuantity = quantityDebounce(updateQuantity, 500);
+  const debouncedUpdateQuantity = updateQuantity;
 
   const addToBasket = async (productId) => {
     setLoading(true);
