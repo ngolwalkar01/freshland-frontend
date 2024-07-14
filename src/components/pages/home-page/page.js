@@ -13,7 +13,6 @@ import { addToCart, updateCartQuantity, removeCartItem } from '@/components/serv
 import LazyLoad from "react-lazyload"; // Import LazyLoad component
 import CustomTestimonial from '@/components/atoms/CustomTestimonial/CustomTestimonial'
 
-
 const HomePage = ({ homePageProps }) => {
   const { farmProducts, sessionalProducts, shippingMethods, vipPages, cutOffDaysDetail } = homePageProps;
   const enableMockData = process.env.NEXT_PUBLIC_ENABLE_MOCK_DATA === 'true';
@@ -27,15 +26,15 @@ const HomePage = ({ homePageProps }) => {
       {pathname === '/' && <TopImage farmProductProps={{ productData: farmProducts, enableMockData, addToCart, updateCartQuantity, removeCartItem }} />}
 
       <LazyLoad height={200} offset={100}>
-      <OrderDeadline {...shippingProps} />
-      <Goods sessionalProductProps={{ productData: sessionalProducts, enableMockData, addToCart, updateCartQuantity, removeCartItem }} />
-      <ProductSlider />
-      <AddSignUp {...vipProps} />
-      <VideoComponent />
-      <Award />
-      <Register />
-      {/* <Testimonials /> */}
-      <CustomTestimonial />
+        <OrderDeadline {...shippingProps} />
+        <Goods sessionalProductProps={{ productData: sessionalProducts, enableMockData, addToCart, updateCartQuantity, removeCartItem }} />
+        <ProductSlider />
+        <AddSignUp {...vipProps} />
+        <VideoComponent />
+        <Award />
+        <Register />
+        {/* <Testimonials /> */}
+        <CustomTestimonial />
 
       </LazyLoad>
     </>

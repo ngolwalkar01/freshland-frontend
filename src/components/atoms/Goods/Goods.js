@@ -12,10 +12,12 @@ import { homepageTranslation } from '@/locales';
 import { getLocalStorage } from '@/services/local-storage';
 import Loader from "@/components/atoms/loader/loader";
 import debounce, { quantityDebounce } from '@/helper/debounce';
+import { applyLoader } from "@/helper/loader";
+import OverLayLoader from '@/components/atoms/overLayLoader';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 
-const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProducts }) => {
+const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProducts, setOlLoader }) => {
   const productInCart = cartProducts.find(x => x.id === product.id);
   const [quantityValue, setQuantityValue] = useState(1);
   const [itemKey, setItemKey] = useState(null);
@@ -36,10 +38,12 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
           <button
             className={`${styles.valueButton} ${styles.decreaseButton}`}
             onClick={() => {
-              debouncedUpdateQuantity(
-                itemKey,
-                - 1,
-                quantityValue
+              applyLoader(
+                setOlLoader,
+                debouncedUpdateQuantity,
+                [itemKey,
+                  -1,
+                  quantityValue]
               )
             }}
           >
@@ -49,10 +53,12 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
           <button
             className={`${styles.valueButton} ${styles.increaseButton}`}
             onClick={() => {
-              debouncedUpdateQuantity(
-                itemKey,
-                1,
-                quantityValue
+              applyLoader(
+                setOlLoader,
+                debouncedUpdateQuantity,
+                [itemKey,
+                  1,
+                  quantityValue]
               )
             }}
           >
@@ -63,7 +69,11 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
         <div>
           <button className={styles.addWrapper} onClick={(e) => {
             e.stopPropagation();
-            addToBasket(product.id.toString())
+            applyLoader(
+              setOlLoader,
+              addToBasket,
+              [product.id.toString()]
+            )
           }}>{cmt.add}</button>
         </div>
       )}
@@ -76,7 +86,8 @@ const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 const Goods = ({ sessionalProductProps }) => {
   const [loading, setLoading] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
-  const [progress, setProgress] = useState(0); 
+  const [progress, setProgress] = useState(0);
+  const [olLoader, setOlLoader] = useState(false);
 
   const hpt = homepageTranslation[lang];
   const cmt = commonTranslation[lang];
@@ -155,12 +166,12 @@ const Goods = ({ sessionalProductProps }) => {
   const addToBasket = async (productId) => {
     setLoading(true);
     setProgress(60);
-  await addToCart(productId.toString());
+    await addToCart(productId.toString());
     setLoading(false);
     setProgress(100);
   }
 
-  
+
 
   const redirectToProductDetail = (id) => {
     router.push(`/product/${id}`);
@@ -193,7 +204,8 @@ const Goods = ({ sessionalProductProps }) => {
 
   return (
     <>
-      {loading ? <Loader progress={progress}/> : null}
+      {loading ? <Loader progress={progress} /> : null}
+      {olLoader && <OverLayLoader />}
       <div className={styles.seasonalgoodcontainer}>
         <div className={styles.container}>
           <h3 className={`W-H2 ${styles.title}`}>{hpt.seasonalGoods}</h3>
@@ -228,7 +240,7 @@ const Goods = ({ sessionalProductProps }) => {
                         <p className={styles.slideText} dangerouslySetInnerHTML={{ __html: item.price }} ></p>
                       </div>
                     </>}
-                    <ProductCard cartProducts={cartProducts} product={item} debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} />
+                    <ProductCard setOlLoader={setOlLoader} cartProducts={cartProducts} product={item} debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} />
                   </div>
                 </div>
               ))}

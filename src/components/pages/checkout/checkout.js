@@ -35,6 +35,8 @@ import { handleKlarnaAuthorization } from "@/components/service/Klarna";
 import { recoverUserCart } from "@/components/service/cart";
 import cartStyles from "../cart/cart.module.css";
 import UserAddress from "@/components/atoms/userAddress";
+import { applyLoader } from "@/helper/loader";
+import OverLayLoader from '@/components/atoms/overLayLoader';
 
 const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
@@ -77,6 +79,7 @@ function Checkout() {
   const check = checkoutTranslation[lang];
   const ct = cartTranslation[lang];
 
+  const [olLoader, setOlLoader] = useState(false);
   const [isCheckoutReady, setIsCheckoutReady] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -662,7 +665,7 @@ function Checkout() {
           <Loader />
         </>
       ) : null}
-
+      {olLoader && <OverLayLoader />}
       {isCheckoutReady ? (
         <div className={styles.Checkoutcontainer}>
           <Header />
@@ -1497,7 +1500,11 @@ function Checkout() {
                               <span
                                 className={styles.cross}
                                 onClick={() => {
-                                  removeCoupon(coupons.toUpperCase());
+                                  applyLoader(
+                                    setOlLoader,
+                                    removeCoupon,
+                                    [coupons.toUpperCase()]
+                                  )
                                 }}
                               >
                                 {check.xicon}
@@ -1508,7 +1515,13 @@ function Checkout() {
                         <Shipping
                           shipping={shipping}
                           subscriptionShipping={subscriptionShipping}
-                          setCartShipment={setCartShipment}
+                          setCartShipment={() => {
+                            applyLoader(
+                              setOlLoader,
+                              setCartShipment,
+                              [shipmentOpt, packageId]
+                            )
+                          }}
                           styles={styles}
                           getCorrectPrice={getCorrectPrice}
                         />

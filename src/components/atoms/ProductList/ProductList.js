@@ -6,13 +6,15 @@ import Loader from "@/components/atoms/loader/loader";
 import debounce, { quantityDebounce } from '@/helper/debounce';
 import { getLocalStorage } from '@/services/local-storage';
 import { commonTranslation } from '@/locales';
+import { applyLoader } from "@/helper/loader";
+import OverLayLoader from '@/components/atoms/overLayLoader';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 
 
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
-const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProducts }) => {
+const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProducts, setOlLoader }) => {
   const cmt = commonTranslation[lang];
   const productInCart = cartProducts.find(x => x.id === product.id);
   const [quantityValue, setQuantityValue] = useState(1);
@@ -57,10 +59,12 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
                 <button
                   className={`${styles.valueButton} ${styles.decreaseButton}`}
                   onClick={() => {
-                    debouncedUpdateQuantity(
-                      itemKey,
-                      -1,
-                      quantityValue
+                    applyLoader(
+                      setOlLoader,
+                      debouncedUpdateQuantity,
+                      [itemKey,
+                        -1,
+                        quantityValue]
                     )
                   }
                   }
@@ -78,10 +82,12 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
                 <button
                   className={`${styles.valueButton} ${styles.increaseButton}`}
                   onClick={() => {
-                    debouncedUpdateQuantity(
-                      itemKey,
-                      1,
-                      quantityValue
+                    applyLoader(
+                      setOlLoader,
+                      debouncedUpdateQuantity,
+                      [itemKey,
+                        1,
+                        quantityValue]
                     )
                   }
                   }
@@ -92,7 +98,11 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
             </>
           ) : (
             <button className={styles.addToBasketButton} onClick={() => {
-              addToBasket(product.id);
+              applyLoader(
+                setOlLoader,
+                addToBasket,
+                [product.id]
+              )
             }}>
               {cmt.addToBasket}
             </button>
@@ -107,6 +117,7 @@ const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, 
   const data = productData;
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [olLoader, setOlLoader] = useState(false);
 
 
   const getCartData = () => {
@@ -139,7 +150,6 @@ const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, 
 
   const removeProductCart = async (itemKey) => {
     setLoading(true);
-   
     await removeCartItem(itemKey);
     setLoading(false);
     setProgress(100);
@@ -151,7 +161,7 @@ const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, 
       setProgress(60);
       await removeProductCart(itemKey);
       setProgress(100);
-    
+
 
       return;
     }
@@ -160,7 +170,7 @@ const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, 
     await updateCartQuantity(itemKey, newQuantity);
     setLoading(false);
     setProgress(100);
-    
+
   };
 
   // const debouncedUpdateQuantity = quantityDebounce(updateQuantity, 500);
@@ -172,16 +182,17 @@ const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, 
     await addToCart(productId.toString());
     setLoading(false);
     setProgress(100);
-    }
+  }
 
   return (
     <div>
-      {loading ? <Loader progress={progress}/> : null}
+      {loading ? <Loader progress={progress} /> : null}
+      {olLoader && <OverLayLoader />}
       <div className={styles.container}>
         {cardHeading ? <h2 className={styles.heading}>{cardHeading}</h2> : null}
         <div className={styles.gridContainer}>
-          {data && data.map((product,i) => (
-            <ProductCard key={i} cartProducts={cartProducts} product={product} debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} />
+          {data && data.map((product, i) => (
+            <ProductCard key={i} setOlLoader={setOlLoader} cartProducts={cartProducts} product={product} debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} />
           ))}
         </div>
       </div >
