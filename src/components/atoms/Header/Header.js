@@ -59,7 +59,8 @@ const Header = () => {
   }, []);
 
   const updateCartCount = () => {
-    const data = cartDataStorage && localStorage.getItem(cartDataStorage) ? JSON.parse(localStorage.getItem(cartDataStorage)): cartDataStorage;
+    const cartLocalStorageData = cartDataStorage && localStorage.getItem(cartDataStorage);
+    const data =  cartLocalStorageData && cartLocalStorageData != 'undefined' ? JSON.parse(cartLocalStorageData): cartDataStorage;
     let numberProductsInCart = 0;
     if (data?.items && data.items.length > 0) {
       data.items.forEach(x => {
