@@ -11,7 +11,6 @@ const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 
 
 const updateCartData = (cartData) => {
-    if(cartData)
     setLocalStorage(cartDataStorage, cartData);
 }
 
