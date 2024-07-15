@@ -246,12 +246,14 @@ function Cart() {
                           key: item_key,
                           images,
                           id: productId,
-                          prices,
+                          prices
                         } = cartItem;
+                        const itemTotals = cartItem.totals;
                         const currentImage =
                           images && images.length > 0 ? images[0].src : "";
                         const quantityValue = quantity;
                         const subtotal = getCorrectPrice(prices?.price);
+                        const itemsSubTotal = getCorrectPrice(parseInt(itemTotals?.line_subtotal) + parseInt(itemTotals?.line_subtotal_tax))
                         const subscription_schemes =
                           cartItem?.extensions?.subscription_schemes;
                         const current_options =
@@ -390,7 +392,7 @@ function Cart() {
                             <div className={styles.subtotalLeft}>
                               <p>{ct.subTotal}</p>
                               <p>
-                                {currency_symbol} {subtotal}
+                                {currency_symbol} {itemsSubTotal}
                               </p>
                             </div>
                           </Fragment>
@@ -503,11 +505,14 @@ function Cart() {
                           shipping={shipping}
                           subscriptionShipping={subscriptionShipping}
                           setCartShipment={
-                            applyLoader(
-                              setOlLoader,
-                              setCartShipment,
-                              [shipmentOpt, packageId]
-                            )
+                            (shipmentOpt, packageId) => {
+                              if (shipmentOpt && packageId)
+                                applyLoader(
+                                  setOlLoader,
+                                  setCartShipment,
+                                  [shipmentOpt, packageId]
+                                )
+                            }
                           }
                           styles={styles}
                           getCorrectPrice={getCorrectPrice}

@@ -5,7 +5,11 @@ import Image from 'next/image';
 const OverLayLoader = () => {
   return (
     <div className={styles.loaderOverlay}>
-      <Image src={`/Images/overlayLoader.svg`} alt="Loading..." className={styles.loaderImage} />
+      <Image width={100}
+        height={100}
+        src={`/Images/overlayLoader.svg`}
+        alt="Loading..."
+        className={styles.loaderImage} />
     </div>
   );
 };

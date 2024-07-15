@@ -1496,7 +1496,7 @@ function Checkout() {
                               </span>
                             </td>
                             <td>
-                              {currency} {getCorrectPrice(cartTotalDiscount)}
+                              {currency} {cartTotalDiscount}
                               <span
                                 className={styles.cross}
                                 onClick={() => {
@@ -1515,12 +1515,13 @@ function Checkout() {
                         <Shipping
                           shipping={shipping}
                           subscriptionShipping={subscriptionShipping}
-                          setCartShipment={() => {
-                            applyLoader(
-                              setOlLoader,
-                              setCartShipment,
-                              [shipmentOpt, packageId]
-                            )
+                          setCartShipment={(shipmentOpt, packageId) => {
+                            if (shipmentOpt && packageId)
+                              applyLoader(
+                                setOlLoader,
+                                setCartShipment,
+                                [shipmentOpt, packageId]
+                              )
                           }}
                           styles={styles}
                           getCorrectPrice={getCorrectPrice}
