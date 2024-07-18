@@ -1,10 +1,10 @@
 import { UserCredentials } from "@/interfaces/userCredentials";
-import axios from '@/utils/axios';
+import axios from "axios";
 import getHeaders from "../helper/configureHeaders";
 
-// const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 // const Auth_API_BASE_URL = `${API_BASE_URL}/wp-json/jwt-auth/v1`;
-const Auth_API_BASE_URL = `/wp-json/fl-cart/v1/cart`;
+const Auth_API_BASE_URL = `${API_BASE_URL}/wp-json/fl-cart/v1/cart`;
 
 const login = async (userCredentials: UserCredentials) => {
     try {

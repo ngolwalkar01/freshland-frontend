@@ -3,10 +3,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  text-align: center; */
   position: relative;
 }
 .topImageContainer img{
@@ -16,21 +16,42 @@
 .topBarContent {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   color: #ffff;
-  margin-top: 80px;
-  gap: 7px;
+  gap: 24px;
   position: relative;
+  max-width: 500px;
+  top: 18%;
+  left: 9%;
 }
-
+.orderOnline{
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  color: #ffffff;
+  background-color: #01395e;
+  border-radius: 10px;
+  padding: 22px;
+  
+  text-transform: capitalize;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  width: 240px;
+  gap: 5px;
+  cursor: pointer;
+}
 .topBarContent h1 {
   letter-spacing: 1px;
+  color: #fff;
+  font-size: 90px;
+  -webkit-text-stroke: 2px var(--blue);
 }
 
 
 .topBarContent p {
   font-size: 32px;
+  color: rgba(102, 102, 102, 1);
 }
 
 .circleBackground {
@@ -69,9 +90,15 @@
   }
 
   .topBarContent {
-    margin-top: 117px;
+    top: 14%;
+    left: 15%;
+    transform: translate(20%, 0%);
+    max-width: 198px;
+    text-align: center;
   }
-
+ .topBarContent h1{
+  font-size: 40px;
+ }
   .topBarContent p {
     font-size: 18px;
   }

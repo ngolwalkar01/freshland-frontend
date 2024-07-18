@@ -1,8 +1,9 @@
-import axios from '@/utils/axios';
+import axios from "axios";
 
-const SHIPPING_API_BASE_URL = `/wp-json/wc/v1`;
-const CART_API_BASE_URL = `/wp-json/fl-cart/v1/cart`;
-const WOO_CART_API_BASE_URL = `/wp-json/wc/store/v1/cart`;
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const SHIPPING_API_BASE_URL = `${API_BASE_URL}/wp-json/wc/v1`;
+const CART_API_BASE_URL = `${API_BASE_URL}/wp-json/fl-cart/v1/cart`;
+const WOO_CART_API_BASE_URL = `${API_BASE_URL}/wp-json/wc/store/v1/cart`;
 
 const getShippingMethods = async () => {
     try {

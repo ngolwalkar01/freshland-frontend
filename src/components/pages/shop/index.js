@@ -49,7 +49,7 @@ const AllItems = ({ categoryWithProducts }) => {
                 style={{ display: showMenu ? "flex" : "none" }}
               >
                 <ul className={styles.filterList}>
-                  {categoryWithProducts && categoriesWithProducts.map((x, i) => {
+                  {categoriesWithProducts.map((x, i) => {
                     return (
                       <li
                         key={i}
@@ -78,10 +78,10 @@ const AllItems = ({ categoryWithProducts }) => {
                 </ul>
               </div>
             </div>
-          </div>  
+          </div>
           <div className={styles.categoriesCover}>
             {/* Product list */}
-            {categoriesWithProducts && categoriesWithProducts
+            {categoriesWithProducts
               .filter((x) => {
                 return !selectedFilter || x.category.id === selectedFilter;
               })

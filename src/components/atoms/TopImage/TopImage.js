@@ -24,7 +24,7 @@ const TopImage = ({ farmProductProps }) => {
     <>
       <div className={styles.topImageContainer}>
         <Image
-          src="/Images/TinaHarvesting.png"
+          src="/Images/homepage.png"
           alt="Harvesting Image"
           media="(min-width: 640px)"
           lazyload="lazy"
@@ -32,7 +32,7 @@ const TopImage = ({ farmProductProps }) => {
           priority
         />
         <Image
-          src="/Images/TinaHarvestingMobile.webp"
+          src="/Images/homepage.png"
           alt="Harvesting Image"
           media="(max-width: 639px)"
           fill
@@ -42,15 +42,6 @@ const TopImage = ({ farmProductProps }) => {
 
         <div className={styles.topBarContent}>
           <h1>{hpt.freshlyHarvested}</h1>
-          <p>{hpt.directlyFromFarm}</p>
-          <div className={styles.circleBackground} onClick={handleCircleClick}>
-            <Image
-              src="/Images/circle.svg"
-              alt="logo"
-              width={25}
-              height={25}
-            ></Image>
-          </div>
         </div>
       </div>
       <div ref={productListRef}>

@@ -9,7 +9,10 @@ const Freshness = () => {
       <section className={styles.freshness}>
         <div className={styles.freshnesscontainer}>
           <div className={styles.aboutcontent}>
-            <div className={styles.headingcontainer}>
+            <div className={`${styles.headingSkl}`}>
+        
+                  <Skeleton width={400} height={50} />
+               
             </div>
             <div className={styles.content}>
               <div className={styles.harvestdate}>
@@ -19,7 +22,11 @@ const Freshness = () => {
                 <div>
              
                   <p className={`W-body-Large ${styles.contentpara}`}>
-                  <Skeleton width={428} height={459} />
+                  <Skeleton width={300} height={50} />
+                  <Skeleton width={428} height={30} />
+                  <Skeleton width={428} height={30} />
+                  <Skeleton width={428} height={30} />
+                  <Skeleton width={428} height={200} />
                   </p>
                 </div>
               </div>
@@ -31,7 +38,11 @@ const Freshness = () => {
                 <div>
                 
                   <p className={`W-body-Large ${styles.contentpara}`}>
-                  <Skeleton width={428} height={459} />
+                  <Skeleton width={300} height={50} />
+                  <Skeleton width={428} height={30} />
+                  <Skeleton width={428} height={30} />
+                  <Skeleton width={428} height={30} />
+                  <Skeleton width={428} height={200} />
                   </p>
                 </div>
               </div>
@@ -43,7 +54,11 @@ const Freshness = () => {
                 <div>
                  
                   <p className={`W-body-Large ${styles.contentpara}`}>
-                  <Skeleton width={428} height={459} />
+                  <Skeleton width={300} height={50} />
+                  <Skeleton width={428} height={30} />
+                  <Skeleton width={428} height={30} />
+                  <Skeleton width={428} height={30} />
+                  <Skeleton width={428} height={200} />
                   </p>
                 </div>
               </div>

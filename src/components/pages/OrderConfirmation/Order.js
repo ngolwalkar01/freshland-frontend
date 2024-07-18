@@ -27,10 +27,8 @@ const Order = ({ orderId }) => {
   useEffect(() => {
     if (orderData) {
       const currency_minor_unit = orderData?.totals?.currency_minor_unit;
-      const total_items = orderData?.totals?.total_items;
-      const total_tax = orderData?.totals?.total_tax;
       const cartSubTotal = getCorrectPrice(
-        parseInt(total_items) + parseInt(total_tax),
+        parseInt(orderData?.totals?.total_items) + parseInt(orderData?.totals?.total_tax),
         currency_minor_unit
       );
       const cartTotalDiscount = getCorrectPrice(

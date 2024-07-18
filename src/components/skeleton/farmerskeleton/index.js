@@ -11,11 +11,28 @@ const Farmers = () => {
      <div className={styles.farmercontainer}>
      <Header/>
      <main className={styles.farmercontent}>
-        <div className={styles.videocontainer} >
-        <Skeleton height={400} width={400} />
-        <Skeleton height={400} width={400} />
-        <Skeleton height={400} width={400} />
-        <Skeleton height={400} width={400} />
+     <div className={styles.videocontainer} >
+        <div className={`${styles.videoSkeleton} ${styles.videocontent}`} >
+        <Skeleton height={200} width={400} />
+        <Skeleton height={30} width={300} />
+        <Skeleton height={70} width={400} />
+        </div>
+        <div className={`${styles.videoSkeleton} ${styles.videocontent}`} >
+        <Skeleton height={200} width={400} />
+        <Skeleton height={30} width={300} />
+        <Skeleton height={70} width={400} />
+        </div>
+        <div className={`${styles.videoSkeleton} ${styles.videocontent}`} >
+        <Skeleton height={200} width={400} />
+        <Skeleton height={30} width={300} />
+        <Skeleton height={70} width={400} />
+        </div>
+        <div className={`${styles.videoSkeleton} ${styles.videocontent}`} >
+        <Skeleton height={200} width={400} />
+        <Skeleton height={30} width={300} />
+        <Skeleton height={70} width={400} />
+        </div>
+        
         </div>
      </main>
      </div>

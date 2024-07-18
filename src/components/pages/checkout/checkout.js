@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Loader from "@/components/atoms/loader/loader";
 import { checkoutTranslation, cartTranslation } from "@/locales";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/router";
 import Shipping from "@/components/atoms/shipping";
 import CheckoutSkeleton from "@/components/skeleton/checkoutskeleton/checkoutskeleton";
 import {
@@ -35,8 +35,6 @@ import { handleKlarnaAuthorization } from "@/components/service/Klarna";
 import { recoverUserCart } from "@/components/service/cart";
 import cartStyles from "../cart/cart.module.css";
 import UserAddress from "@/components/atoms/userAddress";
-import { applyLoader } from "@/helper/loader";
-import OverLayLoader from '@/components/atoms/overLayLoader';
 
 const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
@@ -79,7 +77,6 @@ function Checkout() {
   const check = checkoutTranslation[lang];
   const ct = cartTranslation[lang];
 
-  const [olLoader, setOlLoader] = useState(false);
   const [isCheckoutReady, setIsCheckoutReady] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -153,8 +150,8 @@ function Checkout() {
   const currency_symbol = currency;
 
   const router = useRouter();
-  // const stripe = useStripe();
-  // const elements = useElements();
+  const stripe = useStripe();
+  const elements = useElements();
 
   const setCartDataByCartData = (cartData) => {
     if (!cartData) return;
@@ -665,7 +662,7 @@ function Checkout() {
           <Loader />
         </>
       ) : null}
-      {olLoader && <OverLayLoader />}
+
       {isCheckoutReady ? (
         <div className={styles.Checkoutcontainer}>
           <Header />
@@ -1496,15 +1493,11 @@ function Checkout() {
                               </span>
                             </td>
                             <td>
-                              {currency} {cartTotalDiscount}
+                              {currency} {getCorrectPrice(cartTotalDiscount)}
                               <span
                                 className={styles.cross}
                                 onClick={() => {
-                                  applyLoader(
-                                    setOlLoader,
-                                    removeCoupon,
-                                    [coupons.toUpperCase()]
-                                  )
+                                  removeCoupon(coupons.toUpperCase());
                                 }}
                               >
                                 {check.xicon}
@@ -1515,14 +1508,7 @@ function Checkout() {
                         <Shipping
                           shipping={shipping}
                           subscriptionShipping={subscriptionShipping}
-                          setCartShipment={(shipmentOpt, packageId) => {
-                            if (shipmentOpt && packageId)
-                              applyLoader(
-                                setOlLoader,
-                                setCartShipment,
-                                [shipmentOpt, packageId]
-                              )
-                          }}
+                          setCartShipment={setCartShipment}
                           styles={styles}
                           getCorrectPrice={getCorrectPrice}
                         />

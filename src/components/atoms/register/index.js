@@ -58,11 +58,9 @@ const Register = () => {
       <div className={registerStyles.gridContainer}>
         <div className={registerStyles.registerWrapper}>
           <Image
-            src="/Images/rimage.png"
+            src="/Images/regitserimg.png"
             alt="rimage"
-            width={573}
-            height={811}
-            className={registerStyles.imgWrapper}
+           fill
           />
           <div className={registerStyles.innerWrapper}>
             <h2 className={`W-H2 ${registerStyles.heading}`}>{hpt.subscribeNewsletter}</h2>
@@ -106,7 +104,9 @@ const Register = () => {
                 <button className={registerStyles.registerButton} type="submit" onClick={registerform}>
                   {hpt.register}
                 </button>
-                <div className={registerStyles.checkboxContainer}>
+               
+              </div>
+              <div className={registerStyles.checkboxContainer}>
                   <input
                     type="checkbox"
                     className={registerStyles.checkbox}
@@ -116,11 +116,10 @@ const Register = () => {
                     {hpt.iAgree}
                   </label>
                 </div>
-              </div>
             </form>
           </div>
         </div>
-        <div className={registerStyles.gridItem}>
+        {/* <div className={registerStyles.gridItem}>
           <div className={registerStyles.contactWrapper}>
             <h1 className={`W-H3 ${registerStyles.contactHead}`}>{hpt.contactUs}</h1>
             <ul className={registerStyles.contactList}>
@@ -143,7 +142,7 @@ const Register = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
-import axios from '@/utils/axios';
+import axios from "axios";
 
-const PAYMENT_API_BASE_URL = `/wp-json/fl-cart/v1/cart`;
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const PAYMENT_API_BASE_URL = `${API_BASE_URL}/wp-json/fl-cart/v1/cart`;
 
 const getPaymentGateways = async () => {
     try {

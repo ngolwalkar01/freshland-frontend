@@ -10,8 +10,10 @@ const Prices = () => {
         <div className={styles.pricescontainer}>
           <div className={styles.pricesheading}>
             <div className={styles.pricecontent}></div>
-
-            <p className={`W-body-Large ${styles.consumers}`}></p>
+            <Skeleton width={400} height={50} />
+            <p className={`W-body-Large ${styles.consumers}`}>
+            <Skeleton width={550} height={50} />
+            </p>
           </div>
           <div className={styles.priceslog}>
             <div>

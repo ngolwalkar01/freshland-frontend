@@ -6,19 +6,17 @@ import cookieService from "@/services/cookie";
 const expires = parseInt(process.env.NEXT_PUBLIC_CART_KEY_EXPIRY);
 
 const createKlarnaPayload = (cartData) => {
-  const orderLines = cartData.items.map((item) => {
-    return {
-      type: "physical",
-      reference: item.id.toString(),
-      name: item.name,
-      quantity: item.quantity,
-      unit_price: parseInt(item.prices.price),
-      tax_rate: 0,
-      total_amount:
-        parseInt(item.totals.line_subtotal) + parseInt(item.totals.line_subtotal_tax),
-      total_tax_amount: 0,
-    }
-  })
+  const orderLines = cartData.items.map((item) => ({
+    type: "physical",
+    reference: item.id.toString(),
+    name: item.name,
+    quantity: item.quantity,
+    unit_price: parseInt(item.prices.price),
+    tax_rate: 0,
+    total_amount:
+      parseInt(item.totals.line_total) + parseInt(item.totals.line_total_tax),
+    total_tax_amount: 0,
+  }));
 
   orderLines.push({
     type: "shipping_fee",

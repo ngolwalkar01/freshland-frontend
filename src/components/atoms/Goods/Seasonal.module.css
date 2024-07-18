@@ -1,5 +1,4 @@
 .seasonalgoodcontainer{
-  background-color: #ffffff;
   padding: 50px 0px;
 }
 
@@ -83,23 +82,26 @@
 
 .seeAllButton {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-  color: #ffffff;
-  background-color: #01395e;
-  border-radius: 20px;
+  color: #01395e;
+  border-radius: 10px;
+  border: 2px solid #01395e;
+  margin-bottom: 100px;
+  margin-top: 64px;
   margin-inline: auto;
   text-transform: capitalize;
-  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 47px;
+  height: 71px;
   font-size: 17px;
-  width: 245px;
+  width: 203px;
   gap: 5px;
   cursor: pointer;
+  text-align: center;
 }
 .seeAllButton:hover{
-  background-color: #2a5e88;
+  background-color: var(--blue);
+  color: #fff;
 }
 
 .seeAllButton:active{

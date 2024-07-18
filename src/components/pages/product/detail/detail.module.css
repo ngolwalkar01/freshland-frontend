@@ -792,4 +792,15 @@ cursor: pointer;
   }
 }
 
-
+.detailBtn{
+  display: flex;
+  gap: 16px;
+}
+.detailBtn .addbtn{
+  border-radius: 16px !important;
+}
+.SkeletonWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

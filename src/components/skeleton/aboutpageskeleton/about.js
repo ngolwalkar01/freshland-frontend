@@ -14,12 +14,15 @@ const About = () => {
       <main className={styles.aboutbg}>
         <Header />
         <section className={styles.aboutcontainer}>
+        <div className={styles.disrupt}>
+        <Skeleton width={500} height={40} />
+      </div>
           <div className={styles.groupimg}>
-            <div className={styles.flogo}>
-              <Skeleton width={900} height={200} />
+            <div className={styles.flogoSkeleton}>
+              <Skeleton  height={70} />
             </div>
-            <div className={styles.maskgroup}>
-              <Skeleton width={1100} height={300} />
+            <div className={styles.flogoSkeleton}>
+              <Skeleton width={1000} height={300} />
             </div>
           </div>
         </section>
@@ -28,15 +31,18 @@ const About = () => {
         {/* just in time  section*/}
         <section className={styles.aboutcontainer}>
           <div className={styles.groupimg}>
-            <div className={`${styles.justtimeimg} ${styles.maskgroup}`}>
-              <Skeleton width={990} height={300} />
+          <div className={styles.disrupt}>
+        <Skeleton width={500} height={40} />
+      </div>
+            <div className={`${styles.justtimeimg} ${styles.flogoSkeleton}`}>
+              <Skeleton width={990} height={200} />
             </div>
           </div>
         </section>
         <Foodchain />
-        <Ourmission/>
-        <Producttase/>
-        <Prices/>
+        <Ourmission />
+        <Producttase />
+        <Prices />
       </main>
     </>
   );

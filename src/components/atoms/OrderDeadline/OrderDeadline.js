@@ -53,28 +53,42 @@ const OrderDeadline = ({ shippingMethods, enableMockData, cutOffDaysDetail }) =>
   return (
     <>
       <div className={styles.order_card}>
-      <Image
+     
+        <div className={styles.next_order}>
+        <Image
           src="/Images/Deadlinebgimg.png"
           alt="Background Image"
           fill
           
         />
-        <div className={styles.next_order}>
           <div className={styles.nextorder_deadline}>
             <div>
               <div className={styles.deadlinedata}>
-                <h2 className={styles.next}>{data.orderCard1?.headCard1}</h2>
+                <div className={styles.deadlineContainer}>
+                <h1 className={styles.next}>{data.orderCard1?.headCard1}</h1>
+                <p>For delivery the following week</p>
                 {/* <h3 className={`W-H3 ${styles.contentCard1}`}>{timer}</h3> */}
-                <h2 className={`W-H3 ${styles.contentCard1}`}>{timer}</h2>
-                <p className={`W-Body-Large-Regular ${styles.timeCard1}`}>{data.orderCard1?.timeCard1}</p>
+                <div className={styles.contentCard1}>
+                <h1 className={``}>{timer}</h1>
+                <h4 className={`W-Body-Regular ${styles.timeCard1}`}>{data.orderCard1?.timeCard1}</h4>
+                </div>
+            </div>
+                <button className={styles.orderNow}>Order Now</button>
               </div>
             </div>
           </div>
-          <div className={styles.Freight}>
+        
+       
+        </div>
+
+        <div className={styles.freightConatiner}>
+        <div className={styles.Freight}>
             {enableMockData ? (
               <div>
+                <div>
                 <h2>{data.orderCard2?.head1}</h2>
                 <p className="W-Body-Large-Regular">{data.orderCard2?.detail1}</p>
+                 </div>     
                 <h3 className="W-H3">{data.orderCard2?.head2}</h3>
                 <p>{data.orderCard2?.detail2}</p>
                 <hr className={styles.hr} />
@@ -85,23 +99,30 @@ const OrderDeadline = ({ shippingMethods, enableMockData, cutOffDaysDetail }) =>
                 <p className="W-Body-Large-Regular">{data.orderCard2?.detail4}</p>
               </div>
             ) : (
-              <div>
+              <div className={styles.mainFreight}>
+                <div className={styles.freightdiv}>
                 <h2>{hpt.freight}</h2>
                 <p className="W-Body-Large-Regular">{hpt.weDeliverTo}</p>
+                </div>
+                <div className={styles.shippingPrice}>
                 {shippingMethods && shippingMethods.map((x, i) => {
                   return <Fragment key={i}>
-                    <h3 className="W-H3">DKK {x.cost}</h3>
+
+                    <div className={styles.dkcost}>
+                    <h4 className="W-H3">DKK {x.cost}</h4>
                     <p>{x.title}</p>
+                    </div>
+
                     {i < (shippingMethods.length - 1) && (<hr className={styles.hr} />)}
                   </Fragment>
                 })}
+                 </div>
               </div>
             )}
 
 
           </div>
         </div>
-
       </div>
 
     </>

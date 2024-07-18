@@ -11,7 +11,7 @@
 }
 
 .faqsdelivery{
-    width: 100%;
+  width: 100%;
   max-width: 845px;
   margin: 60px 0px;
 }
@@ -26,7 +26,7 @@
 }
 .emailnumber a {
     display: inline-block;
-    min-width: 48px; /* Adjust as needed */
+    min-width: 48px; 
     min-height:48px;
 }
 .dk{
@@ -110,3 +110,10 @@
     max-width: 650px;
  }
 }
+
+.contactSkeleton{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+

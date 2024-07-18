@@ -5,7 +5,7 @@ export const headingsData = [
     title2: "Directly from the farm",
     productHeading: "Directly from the Farm",
     orderCard1: {
-      headCard1: "Next Order Deadline",
+      headCard1: "Order Deadline",
       contentCard1: "3:03:35",
       timeCard1: "Days Hours Minutes",
     },

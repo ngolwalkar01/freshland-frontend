@@ -12,15 +12,20 @@ const Faqs = () => {
         <Header />
         <div className={styles.faqscontainer}>
           <div className={styles.faqsdelivery}>
-            <div className={styles.contactcontainer}>
-            <Skeleton height={200} width={300} />
-             
+            <div className={styles.contactSkeleton}>
+            <Skeleton height={20} width={300} />
+            <Skeleton height={20} width={300} />
+            <Skeleton height={20} width={300} />
+            <Skeleton height={20} width={300} />
             </div>
             <div className={styles.delivery}>
              
-              <div className={styles.faqs}>
-              <Skeleton height={400} width={800} />
-              
+              <div className={`${styles.contactSkeleton} ${styles.faqs}`}>
+              <Skeleton height={60} width={400} />
+              <Skeleton height={100} width={800} />
+              <Skeleton height={100} width={800} />
+              <Skeleton height={100} width={800} />
+              <Skeleton height={100} width={800} />
               </div>
             </div>
           </div>

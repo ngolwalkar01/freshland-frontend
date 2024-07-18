@@ -10,7 +10,7 @@ import Accountinformation from "@/components/atoms/accountinformation/accountinf
 import Payment from "@/components/atoms/paymentmethod/payment";
 import { myaccountTranslation } from "@/locales";
 import cookieService from "@/services/cookie";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/router";
 import accountService from '@/services/account'
 import subscriptionService from "@/services/subscriptions";
 import Loader from "@/components/atoms/loader/loader";

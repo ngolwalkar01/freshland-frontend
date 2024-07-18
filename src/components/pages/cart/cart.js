@@ -18,9 +18,6 @@ import Loader from "@/components/atoms/loader/loader";
 import { cartTranslation } from "@/locales";
 import { setShippingMethod } from "@/components/service/shipping";
 import CartShipping from "@/components/atoms/cartshiiping";
-import { applyLoader } from "@/helper/loader";
-import OverLayLoader from '@/components/atoms/overLayLoader';
-
 const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 
@@ -42,7 +39,6 @@ function Cart() {
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const ct = cartTranslation[lang];
-  const [olLoader, setOlLoader] = useState(false);
 
   const [cartData, setCartData] = useState(INTIAL_CART_DATA);
 
@@ -213,8 +209,7 @@ function Cart() {
 
   };
 
-  // const debouncedUpdateQuantity = quantityDebounce(updateQuantity, 1000);
-  const debouncedUpdateQuantity = updateQuantity
+  const debouncedUpdateQuantity = quantityDebounce(updateQuantity, 1000);
 
   const checkShippingRates = useCallback(() => {
     return shipping && shipping.length > 0 && shipping[0]?.shipping?.[0]?.shipping_rates?.length > 0;
@@ -227,7 +222,6 @@ function Cart() {
           <Loader progress={progress} />
         </>
         : null}
-      {olLoader && <OverLayLoader />}
       {isCartReady ? (
         <div className={styles.shopingcart}>
           <Header />
@@ -246,14 +240,12 @@ function Cart() {
                           key: item_key,
                           images,
                           id: productId,
-                          prices
+                          prices,
                         } = cartItem;
-                        const itemTotals = cartItem.totals;
                         const currentImage =
                           images && images.length > 0 ? images[0].src : "";
                         const quantityValue = quantity;
                         const subtotal = getCorrectPrice(prices?.price);
-                        const itemsSubTotal = getCorrectPrice(parseInt(itemTotals?.line_subtotal) + parseInt(itemTotals?.line_subtotal_tax))
                         const subscription_schemes =
                           cartItem?.extensions?.subscription_schemes;
                         const current_options =
@@ -273,11 +265,7 @@ function Cart() {
                               <span
                                 className={styles.closebtn}
                                 onClick={(e) => {
-                                  applyLoader(
-                                    setOlLoader,
-                                    removeProductCart,
-                                    [e, item_key]
-                                  )
+                                  removeProductCart(e, item_key);
                                 }}
                               >
                                 <i className="fa-solid fa-xmark"></i>
@@ -316,14 +304,10 @@ function Cart() {
                                   <button
                                     className={`${styles.valueButton} ${styles.decreaseButton}`}
                                     onClick={() =>
-                                      applyLoader(
-                                        setOlLoader,
-                                        debouncedUpdateQuantity,
-                                        [
-                                          cartItem.key,
-                                          -1,
-                                          cartItem.quantity
-                                        ]
+                                      debouncedUpdateQuantity(
+                                        cartItem.key,
+                                        -1,
+                                        cartItem.quantity
                                       )
                                     }
                                   >
@@ -342,14 +326,10 @@ function Cart() {
                                   <button
                                     className={`${styles.valueButton} ${styles.increaseButton}`}
                                     onClick={() =>
-                                      applyLoader(
-                                        setOlLoader,
-                                        debouncedUpdateQuantity,
-                                        [
-                                          cartItem.key,
-                                          1,
-                                          cartItem.quantity
-                                        ]
+                                      debouncedUpdateQuantity(
+                                        cartItem.key,
+                                        1,
+                                        cartItem.quantity
                                       )
                                     }
                                   >
@@ -367,13 +347,7 @@ function Cart() {
                                   id="selectDelivery"
                                   value={selectedValue?.id}
                                   onChange={(e) =>
-                                    applyLoader(
-                                      setOlLoader,
-                                      updateProductFrequency,
-                                      [
-                                        e, cartItem.key
-                                      ]
-                                    )
+                                    updateProductFrequency(e, cartItem.key)
                                   }
                                   className={styles.selectbox}
                                 >
@@ -392,7 +366,7 @@ function Cart() {
                             <div className={styles.subtotalLeft}>
                               <p>{ct.subTotal}</p>
                               <p>
-                                {currency_symbol} {itemsSubTotal}
+                                {currency_symbol} {subtotal}
                               </p>
                             </div>
                           </Fragment>
@@ -423,13 +397,7 @@ function Cart() {
                       <button
                         type="submit"
                         className={styles.applydiscount}
-                        onClick={() => {
-                          applyLoader(
-                            setOlLoader,
-                            applyCoupon,
-                            []
-                          )
-                        }}
+                        onClick={applyCoupon}
                       >
                         {ct.applyDisscount}
                       </button>
@@ -456,11 +424,7 @@ function Cart() {
                             </label>
                             <span
                               onClick={() => {
-                                applyLoader(
-                                  setOlLoader,
-                                  removeCoupon,
-                                  [coupons?.toUpperCase()]
-                                )
+                                removeCoupon(coupons?.toUpperCase());
                               }}
                             >
                               X
@@ -504,16 +468,7 @@ function Cart() {
                         <CartShipping
                           shipping={shipping}
                           subscriptionShipping={subscriptionShipping}
-                          setCartShipment={
-                            (shipmentOpt, packageId) => {
-                              if (shipmentOpt && packageId)
-                                applyLoader(
-                                  setOlLoader,
-                                  setCartShipment,
-                                  [shipmentOpt, packageId]
-                                )
-                            }
-                          }
+                          setCartShipment={setCartShipment}
                           styles={styles}
                           getCorrectPrice={getCorrectPrice}
                         />
@@ -567,11 +522,10 @@ function Cart() {
               </p>
             </div>
           )}
-        </div >
+        </div>
       ) : (
         <Cartskeleton />
-      )
-      }
+      )}
     </>
   );
 }

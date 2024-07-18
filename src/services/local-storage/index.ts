@@ -5,7 +5,7 @@ const setLocalStorage = (key: string, value: any) => {
 
 const getLocalStorage = (key: string) => {
     const data = localStorage.getItem(key);
-    return data && data != 'undefined' ? JSON.parse(data) : null;
+    return data ? JSON.parse(data) : null;
 }
 
 const removeLocalStorage = (key: string, isDispatchEvent = true) => {

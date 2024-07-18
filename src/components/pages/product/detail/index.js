@@ -8,7 +8,7 @@ import { addToCart, updateCartQuantity, removeCartItem, getSubscriptionOptions }
 import LazyLoad from "react-lazyload"; // Import LazyLoad component
 import { productdetailTranslation } from '@/locales';
 import Link from "next/link";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/router"; 
 import Loader from "@/components/atoms/loader/loader";
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
@@ -42,7 +42,7 @@ const Description = ({ productDetailProps }) => {
       quantity.toString(),
       isOneTimePurchaseActive ? "" : deliveryOption,
     );
-    setLoading(false);
+    setLoading(false); 
   };
   const [deliveryOption, setDeliveryOption] = useState("");
 
@@ -113,7 +113,7 @@ const Description = ({ productDetailProps }) => {
                   height={78}
                 />
               </div>
-              {productDetail && <div className={styles.mainImage}>
+              <div className={styles.mainImage}>
                 <Image
                   src={productDetail.thumbnail}
                   alt="Main Image"
@@ -122,12 +122,11 @@ const Description = ({ productDetailProps }) => {
                   priority
                 />
               </div>
-              }
             </div>
             <div className={styles.rightSide}>
               <div className={`${styles.productTitle}`}>
                 <div>
-                  {productDetail && <h3>{productDetail.name}</h3>}
+                  <h3>{productDetail.name}</h3>
                   {/* <Image
                   src="/mockImage/Spain Flag.png"
                   width={40}
@@ -135,7 +134,7 @@ const Description = ({ productDetailProps }) => {
                   alt="Spain Flag"
                 /> */}
                 </div>
-                {productDetail && <h5 dangerouslySetInnerHTML={{ __html: productDetail.price }} />}
+                <h5 dangerouslySetInnerHTML={{ __html: productDetail.price }} />
               </div>
               <div className={styles.featuresWrapper}>
                 <div className={styles.textWrapper}>
@@ -244,13 +243,13 @@ const Description = ({ productDetailProps }) => {
                     </button>
                   </div>
                   <div className={`M-Body-Large ${styles.basketWrapper}`}>
-
-                    <span
-                      onClick={handleAddToCart}
-                    >
-                      {loading ? <Loader /> : null}
-                      {isOneTimePurchaseActive ? "Add To Basket" : "Subscribe"}
-                    </span>
+                 
+                      <span
+                        onClick={handleAddToCart}
+                      >
+                        {loading ? <Loader /> : null}
+                        {isOneTimePurchaseActive ? "Add To Basket" : "Subscribe"}
+                      </span>
                   </div>
                 </div>
                 <div className={styles.itemCatagory}>
@@ -282,35 +281,35 @@ const Description = ({ productDetailProps }) => {
                     </h3>
                   </div>
                   <span>
-                    {pdt.theseOrange}
+                  {pdt.theseOrange}
                   </span>
 
                   <br />
                   <span>
-                    {pdt.orangeContent}
+                 {pdt.orangeContent}
                   </span>
                 </div>
 
                 <div className={styles.storageWrapper}>
                   <h4>{pdt.storage}</h4>
                   <span>
-                    {pdt.orangeTemp}
+                 {pdt.orangeTemp}
                     <br />
-                    {pdt.byStoring}
+                   {pdt.byStoring}
                   </span>
                 </div>
 
                 <div className={styles.storageWrapper}>
                   <h4>{pdt.ourEconomy}</h4>
                   <span>
-                    {pdt.oneOfour}
+                {pdt.oneOfour}
                   </span>
                 </div>
 
                 <div className={styles.storageWrapper}>
                   <h4>{pdt.season}</h4>
                   <span>
-                    {pdt.orangeThrive}
+                  {pdt.orangeThrive}
                   </span>
                 </div>
                 <div className={styles.nutriWrapper}>

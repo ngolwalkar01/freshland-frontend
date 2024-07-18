@@ -12,10 +12,12 @@ const Ourmission = () => {
         <div className={styles.mission}>
             <div className={styles.missioncontent}>
             <div className={styles.missionheading}>
-            <Skeleton width={400} height={100} />
+            <Skeleton width={400} height={50} />
           </div>
-          <p>
-          <Skeleton width={800} height={200} />
+          <p className={styles.Ourmissionskl}>
+          <Skeleton width={800} height={30} />
+          <Skeleton width={800} height={30} />
+          <Skeleton width={800} height={30} />
           </p>
             </div>
           

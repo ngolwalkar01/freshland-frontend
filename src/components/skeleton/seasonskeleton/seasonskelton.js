@@ -9,20 +9,31 @@ const SeasonOverview = () => {
       <section className={styles.seasonoverview}>
         <Header />
         <div className={styles.seasoncontainer}>
+          <div className={styles.headingSkeleton}>
+          <Skeleton height={50} width={350} />
+          </div>
+        
           <div>
+         
             <div className={styles.imgcontainer}>
-              <div>
-                <Skeleton height={580} width={580} />
+          
+              <div className={styles.seasonoverviewSkeleton}>
+              <Skeleton height={100} width={530} />
+              <Skeleton height={100} width={530} />
+              <Skeleton height={100} width={530} />
               </div>
-              <div>
-                <Skeleton height={580} width={580} />
+             
+              <div className={styles.seasonoverviewSkeleton}>
+              <Skeleton height={100} width={530} />
+              <Skeleton height={100} width={530} />
+              <Skeleton height={100} width={530} />
               </div>
             </div>
           </div>
 
-          <div>
-            <div className={styles.avocado}>
-              <Skeleton width={1214} height={554} />
+          <div className={styles.SkeletonDiv}>
+            <div>
+              <Skeleton width={1170} height={554} />
             </div>
           </div>
         </div>

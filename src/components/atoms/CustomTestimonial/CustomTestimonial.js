@@ -31,7 +31,7 @@ const Slider = () => {
   const generatePixelValue = (ci) => {
     let pv;
     const totalLength = testimonialdata.length;
-
+ 
     if (ci < 2) {
       pv = "0px";
     } else if (ci === 2) {

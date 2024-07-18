@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./Seasonal.module.css";
 import Image from "next/image";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/router";
 import { seasonalgood } from "@/mockdata/seasonalgood";
 import Link from "next/link";
 import { commonTranslation } from '@/locales';
@@ -12,12 +12,10 @@ import { homepageTranslation } from '@/locales';
 import { getLocalStorage } from '@/services/local-storage';
 import Loader from "@/components/atoms/loader/loader";
 import debounce, { quantityDebounce } from '@/helper/debounce';
-import { applyLoader } from "@/helper/loader";
-import OverLayLoader from '@/components/atoms/overLayLoader';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 
-const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProducts, setOlLoader }) => {
+const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProducts }) => {
   const productInCart = cartProducts.find(x => x.id === product.id);
   const [quantityValue, setQuantityValue] = useState(1);
   const [itemKey, setItemKey] = useState(null);
@@ -38,12 +36,10 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
           <button
             className={`${styles.valueButton} ${styles.decreaseButton}`}
             onClick={() => {
-              applyLoader(
-                setOlLoader,
-                debouncedUpdateQuantity,
-                [itemKey,
-                  -1,
-                  quantityValue]
+              debouncedUpdateQuantity(
+                itemKey,
+                - 1,
+                quantityValue
               )
             }}
           >
@@ -53,12 +49,10 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
           <button
             className={`${styles.valueButton} ${styles.increaseButton}`}
             onClick={() => {
-              applyLoader(
-                setOlLoader,
-                debouncedUpdateQuantity,
-                [itemKey,
-                  1,
-                  quantityValue]
+              debouncedUpdateQuantity(
+                itemKey,
+                1,
+                quantityValue
               )
             }}
           >
@@ -69,11 +63,7 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
         <div>
           <button className={styles.addWrapper} onClick={(e) => {
             e.stopPropagation();
-            applyLoader(
-              setOlLoader,
-              addToBasket,
-              [product.id.toString()]
-            )
+            addToBasket(product.id.toString())
           }}>{cmt.add}</button>
         </div>
       )}
@@ -86,8 +76,7 @@ const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 const Goods = ({ sessionalProductProps }) => {
   const [loading, setLoading] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
-  const [progress, setProgress] = useState(0);
-  const [olLoader, setOlLoader] = useState(false);
+  const [progress, setProgress] = useState(0); 
 
   const hpt = homepageTranslation[lang];
   const cmt = commonTranslation[lang];
@@ -166,12 +155,12 @@ const Goods = ({ sessionalProductProps }) => {
   const addToBasket = async (productId) => {
     setLoading(true);
     setProgress(60);
-    await addToCart(productId.toString());
+  await addToCart(productId.toString());
     setLoading(false);
     setProgress(100);
   }
 
-
+  
 
   const redirectToProductDetail = (id) => {
     router.push(`/product/${id}`);
@@ -199,13 +188,11 @@ const Goods = ({ sessionalProductProps }) => {
     setProgress(100);
   };
 
-  // const debouncedUpdateQuantity = quantityDebounce(updateQuantity, 500);
-  const debouncedUpdateQuantity = updateQuantity;
+  const debouncedUpdateQuantity = quantityDebounce(updateQuantity, 1000);
 
   return (
     <>
-      {loading ? <Loader progress={progress} /> : null}
-      {olLoader && <OverLayLoader />}
+      {loading ? <Loader progress={progress}/> : null}
       <div className={styles.seasonalgoodcontainer}>
         <div className={styles.container}>
           <h3 className={`W-H2 ${styles.title}`}>{hpt.seasonalGoods}</h3>
@@ -240,7 +227,7 @@ const Goods = ({ sessionalProductProps }) => {
                         <p className={styles.slideText} dangerouslySetInnerHTML={{ __html: item.price }} ></p>
                       </div>
                     </>}
-                    <ProductCard setOlLoader={setOlLoader} cartProducts={cartProducts} product={item} debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} />
+                    <ProductCard cartProducts={cartProducts} product={item} debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} />
                   </div>
                 </div>
               ))}
@@ -248,12 +235,6 @@ const Goods = ({ sessionalProductProps }) => {
           </div>
           <Link href="/shop" className={styles.seeAllButton}>
             {cmt.seeAllProducts}
-            <Image
-              src="/Images/seeproduct.svg"
-              alt="logo"
-              width={23}
-              height={22}
-            ></Image>
           </Link>
         </div>
       </div>

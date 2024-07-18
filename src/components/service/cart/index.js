@@ -24,37 +24,32 @@ export const getCartData = async () => {
 export const addToCart = async (productId, quantity = "1", subscription_scheme = "") => {
     const errorMessage = "There was an issue adding the product to your cart. Please try again.";
     const productAddedToCart = await retryCall(cartService.addProductToCart, [productId, quantity, subscription_scheme], errorMessage);
-    toast.success("Product has been successfully added to your cart.", { autoClose: toastTimer });
-    updateCartData(productAddedToCart);
+    await getCartData();
     return productAddedToCart;
 };
 
 export const updateCartQuantity = async (itemKey, quantity) => {
     const errorMessage = "There was an issue in updating quantity. Please try again.";
-    const data = await retryCall(cartService.updateCartQuantity, [itemKey, quantity], errorMessage);
-    updateCartData(data);
-    return data;
+    await retryCall(cartService.updateCartQuantity, [itemKey, quantity], errorMessage);
+    return await getCartData();
 };
 
 export const removeCartItem = async (itemKey) => {
     const errorMessage = "There was an issue removing the product from your cart. Please try again.";
-    const data = await retryCall(cartService.removeItemFromCart, [itemKey], errorMessage);
-    updateCartData(data);
-    return data;
+    await retryCall(cartService.removeItemFromCart, [itemKey], errorMessage);
+    return await getCartData();
 };
 
 export const addCouponCart = async (coupon_code) => {
     const errorMessage = "There was an issue in applying coupon on cart item. Please try again.";
-    const data = await retryCall(cartService.addCouponCart, [coupon_code], errorMessage);
-    updateCartData(data);
-    return data;
+    await retryCall(cartService.addCouponCart, [coupon_code], errorMessage);
+    return await getCartData();
 };
 
 export const removeCouponCart = async (coupon_code) => {
     const errorMessage = "There was an issue in applying coupon on cart item. Please try again.";
-    const data = await retryCall(cartService.removeCouponCart, [coupon_code], errorMessage);
-    updateCartData(data);
-    return data;
+    await retryCall(cartService.removeCouponCart, [coupon_code], errorMessage);
+    return await getCartData();
 };
 
 export const addShippingCart = async (shipping_method) => {
@@ -80,9 +75,8 @@ export const updateCartSubscriptionFrequency = async (cart_item_key, subscriptio
 
 export const setCustomerDetails = async (customerInfo) => {
     const errorMessage = "There was an issue in saving customer detail. Please try again.";
-    const data = await retryCall(cartService.setCustomerDetails, [customerInfo], errorMessage);
-    updateCartData(data);
-    return data;
+    await retryCall(cartService.setCustomerDetails, [customerInfo], errorMessage);
+    return getCartData();
 };
 
 export const getSubscriptionOptions = async (product_id) => {

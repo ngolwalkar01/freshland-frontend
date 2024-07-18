@@ -14,7 +14,11 @@ const Producttase = () => {
             </div>
             <div className={styles.paracontainer}>
               <p className={`W-body-Large`}>
-              <Skeleton width={406} height={400} />
+                  <Skeleton  width={428} height={100} />
+                  <Skeleton width={428} height={30} />
+                  <Skeleton width={428} height={30} />
+                  <Skeleton width={428} height={30} />
+                  <Skeleton width={428} height={30} />
               </p>
             </div>
           </div>
