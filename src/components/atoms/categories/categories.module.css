@@ -1,0 +1,92 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 100px 0px;
+    background: #fff;
+
+  }
+  .mainContainer h1{
+    color: var(--green);
+  }
+  
+.categoriesName{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 17px;
+}
+.categoriesName img{
+    border-radius: 10px;
+}
+.fruitCategories{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.fruitCategories p{
+    position: absolute;
+    font-size: 24px;
+    color: #fff;
+    margin: 0px 0px 0px 24px;
+}
+.seeAllButton {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--green);
+    border-radius: 25px;
+    border: 2px solid var(--green);
+    margin-inline: auto;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 71px;
+    font-size: 17px;
+    width: 203px;
+    gap: 5px;
+    cursor: pointer;
+    text-align: center;
+    background-color: transparent;
+
+  }
+  .seeAllButton:hover{
+    background-color: var(--green);
+    color: #fff;
+  }
+  
+  .seeAllButton:active{
+    transform: scale(0.98); 
+  }
+
+  @media (min-width: 320px) and (max-width: 600px) {
+    .categoriesName{
+      flex-wrap: wrap;
+    }
+    .categoriesName img{
+      width: 158px;
+      height: 101px;
+    }
+    .fruitCategories p{
+      font-size: 12px;
+      padding: 0px 0px 12px 0px;
+      margin: 0px 0px 0px 12px;
+    }
+    .mainContainer{
+      gap: 24px;
+      padding: 40px 0px;
+    }
+    .seeAllButton{
+      height: 53px;
+      font-size: 16px;
+      width: 163px;
+    }
+  }
+
+  @media (min-width: 601px) and (max-width: 1300px) {
+    .categoriesName{
+      display: grid;
+      grid-template-columns: auto auto;
+    }
+  }

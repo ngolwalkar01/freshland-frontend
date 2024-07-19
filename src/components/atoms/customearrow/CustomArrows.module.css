@@ -1,0 +1,89 @@
+/* CustomArrows.module.css */
+.arrowContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--blue);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .arrowprevContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--blue);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+ 
+  .arrowprevContainer:before{
+    font-family: 'Calistoga' !important;
+    line-height: 1.3;
+    color: white;
+    font-weight: 700;
+    opacity: 1;
+  }
+  .arrowContainer:before, .arrowContainer:before {
+    font-family: 'Calistoga' !important;
+    line-height: 1.3;
+    color: white;
+    font-weight: 700;
+    opacity: 1;
+}
+  .arrowContainer:hover, .slick-prev:focus, .arrowContainer:hover, .arrowContainer:focus {
+    color: #fff !important;
+    outline: none;
+    background: var(--blue) !important;
+}
+
+.arrowprevContainer:hover, .arrowprevContainer:focus, .arrowprevContainer:hover, .arrowprevContainer:focus{
+  color: #fff !important;
+  outline: none;
+  background: var(--blue) !important;
+}
+
+  /* CustomArrows.module.css */
+.slick-prev, .slick-next {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+    z-index: 2;
+  }
+  
+  .arrowprevContainer{
+    left: 3px;
+  }
+  
+  .arrowContainer {
+    right: -19px;
+  }
+  
+  /* You can add custom styles to the arrows if needed */
+  @media (min-width: 320px) and (max-width: 600px)  {
+      
+  .arrowContainer {
+    right: 7px;
+  }
+  .arrowprevContainer{
+    display: none !important;
+  }
+  }
+ 

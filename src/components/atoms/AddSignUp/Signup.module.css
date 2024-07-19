@@ -5,30 +5,30 @@
   background-color: #fff;
   gap: 50px;
   padding: 50px 0px;
+  
 }
 .Boxconatiner {
-  background-color: #01395e;
-  box-shadow: 0px -10px 15px rgba(29, 64, 92, 0.3);
-  padding: 50px 0;
+  margin: 100px 0px;
+
 }
 
 .container {
   text-align: center;
+  max-width: 1230px;
   margin: auto;
-  max-width: 900px;
 }
 
 .heading {
   font-family: Calistoga;
-  background-image: linear-gradient(98.89deg, #ff5f6d 0%, #ffc371 100%);
+  color: var(--blue);
+  font-size: 72px;
+  /* background-image: linear-gradient(98.89deg, #ff5f6d 0%, #ffc371 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
 }
 
 .description {
-  color: #fff;
-  padding: 25px 32px;
-  margin-bottom: 20px;
+  color: var(--blue);
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -39,19 +39,25 @@
 .imageContainer {
   position: relative;
   display: flex;
+  flex-direction: column;
+  gap: 16px;
   align-items: center;
   justify-content: center;
-  width: 267px;
-  margin: auto;
+  border: 1px solid var(--blue);
+  padding: 20px 24px;
+  margin: 0px 0px 0px 24px;
+  border-radius: 10px;
+
+}
+.sliderContainer{
+  margin: 55px 0px;
+}
+.allcontent{
 
 }
 
 .image {
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  float: left;
-  opacity: 0.8;
+  border-radius: 12px;
 }
 
 .overlay {
@@ -73,17 +79,27 @@
 .text {
   font-family: Calistoga;
   font-size: 1.6rem;
+  font-size: 32px;
+  color: var(--blue);
 }
 
 .button {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   color: #fff;
+  border-radius: 25px;
+  border: 2px solid var(--blue);
+  margin-inline: auto;
   text-transform: capitalize;
-  margin-top: -1px;
-  border: 1px solid #fff;
-  border-radius: 20px;
-  padding: 4px 20px;
-  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px 12px 14px;
+  font-size: 20px;
+  width: 262px;
+  gap: 5px;
   cursor: pointer;
+  text-align: center;
+  background-color: var(--blue);
 }
 
 /* .signupButton {
@@ -102,26 +118,30 @@
 } */
 
 .signupButton {
-  display: inline-block;
-    color: #fff;
-    background-color: #01395e;
-    border: 1px solid #ffffff;
-    border-radius: 20px;
-    /* margin: auto; */
-    margin-top: 28px;
-    padding: 15px 20px;
-    width: 328px;
-    text-transform: capitalize;
-    height: 58px;
-    font-size: 20px;
-    cursor: pointer;
-    /* font-weight: 700; */
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--green);
+  border-radius: 25px;
+  border: 2px solid var(--green);
+  margin-bottom: 100px;
+  margin-top: 64px;
+  margin-inline: auto;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 71px;
+  font-size: 17px;
+  width: 203px;
+  gap: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
  
 }
 
 .signupButton:hover{
-  background-color: #2a5e88;
+  background-color: var(--green);
+    color: #fff;
 }
 
 .signupButton:active{
@@ -129,7 +149,7 @@
 }
 
 @media (min-width: 320px) and (max-width: 370px) {
-  .description{
+  /* .description{
     padding: 20px 3px;
     font-size: 16px;
   }
@@ -140,33 +160,54 @@
     width: 280px;
   }
   .Boxconatiner{
-    padding: 50px 20px;
+    padding: 50px 0px;
+    margin: 0px 0px;
   }
   .imageContainer{
-    width: 259px !important;
-    margin-left: -2px;
+   
   }
   .signupButton{
-    width: 296px;
+    width: 113px;
    }
+    */
+ .imageContainer{
+  margin: 0px 0px 0px 17px !important;
+  width: 309px !important;
+  padding: 14px 16px !important;
 }
-@media (min-width: 375px) and (max-width: 600px) {
+    
+}
+@media (min-width: 320px) and (max-width: 600px) {
   .description{
-    padding: 20px 10px;
     font-size: 16px;
   }
+  .heading ,.description{
+   margin: 0px 40px;
+  }
   .heading{
-    padding: 0px 60px;
+    padding: 0px 0px;
+    font-size: 40px;
   }
   .Boxconatiner{
-    padding: 50px 20px;
+    padding: 50px 0px;
+    margin: 0px 0px;
   }
   
   .imageContainer{
-    /* margin-left: -9px; */
-    /* width: 100%; */
+    margin: 0px 0px 0px 15px;
+    width: 322px;
+    padding: 14px 17px;
+  }
+  .imageContainer img{
+    width: 100%;
   }
  .signupButton{
-  width: 296px;
+  font-size: 12px;
+  width: 171px;
+  margin: 50px auto;
+  height: 55px;
+ }
+ .text{
+  font-size: 24px;
  }
 }

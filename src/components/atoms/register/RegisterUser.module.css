@@ -1,27 +1,24 @@
-.registerSkeleton{
+.registerSkeleton {
   display: flex;
   gap: 20px;
   align-items: flex-start;
   justify-content: space-evenly;
 }
+
 .registerBox {
-  padding: 60px;
-  background-color: #ffffff;
+ 
 }
 
-.gridContainer {
-  height: 800px;
-  display: flex;
-  justify-content: center;
-  gap: 140px;
-}
-.errorMessage{
+.gridContainer {}
+
+.errorMessage {
   color: #D8000C;
   font-weight: 600;
   display: block;
   text-align: left;
   margin: 10px 0px 0px 0px;
 }
+
 .registerWrapper {
   /* background-image: url('/Images/rimage.png'); */
   position: relative;
@@ -29,13 +26,7 @@
   border-radius: 15px;
   background-repeat: no-repeat;
   background-position: center;
-  width: 573px;
-  height: 811px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  opacity: 1;
-  max-height: 811px;
+
 }
 
 .imgWrapper {
@@ -48,8 +39,13 @@
 
 .innerWrapper {
   margin: auto;
-  padding: 0px 41px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 98px 0px;
+  background: rgba(29, 64, 92, 0.4);
 }
 
 .heading {
@@ -60,6 +56,7 @@
   color: #fff;
   font-size: 20px;
   letter-spacing: 0.4px;
+  padding: 8px 0px 0px 0px;
 }
 
 .formWrapper {
@@ -68,9 +65,8 @@
 
 .formControlBox {
   width: auto;
-  margin: 30px 0px;
+  margin: 45px 0px 30px 0px;
   display: flex;
-  flex-direction: column;
   gap: 20px;
 }
 
@@ -88,14 +84,16 @@
   border-radius: 10px;
   padding: 21px 37px;
   border: none;
-  width: 100%;
+  width: 461px;
+  max-width: 461px;
   height: 75px;
   max-height: 75px;
 
 }
-.textField::placeholder{
- color: #212121;
- font-size: 20px;
+
+.textField::placeholder {
+  color: #212121;
+  font-size: 20px;
 }
 
 .registerButton {
@@ -103,22 +101,24 @@
   color: #ffffff;
   border-radius: 10px;
   padding: 17px 0px;
-  margin: 10px 0px;
+  margin: 38px 0px 0px 0px;
   border: none;
-  width: 100%;
+  width: 230px;
+  max-width: 230px;
   height: 74px;
   max-height: 75px;
   font-size: 20px;
   cursor: pointer;
 }
 
-.registerButton:hover{
+.registerButton:hover {
   background-color: #2a5e88;
 }
 
-.registerButton:active{
-  transform: scale(0.98); 
+.registerButton:active {
+  transform: scale(0.98);
 }
+
 .checkboxContainer {
   display: flex;
   align-items: center;
@@ -135,88 +135,151 @@
   font-size: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
 }
-.gridItem{
+
+.gridItem {
   width: 523px;
   /* height: 423px; */
 }
-.contactList li{
+
+.contactList li {
   list-style: none;
 }
-.contactList{
+
+.contactList {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.numberInfo, .emailInfo{
+
+.numberInfo,
+.emailInfo {
   background-color: #E9F5FF;
   padding: 22px;
   border-radius: 14px;
   color: #1D405C;
 }
-.contactHead{
+
+.contactHead {
   text-align: center;
   margin-bottom: 20px;
   color: var(--blue);
 }
-.phoneNumber,.email{
+
+.phoneNumber,
+.email {
   background-image: linear-gradient(98.89deg, #ff5f6d 0%, #ffc371 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-@media (min-width: 320px) and (max-width: 700px)  {
-  .gridContainer{
+.desktopimg{
+  display: block;
+}
+.responsiveimg{
+  display: none;
+}
+
+@media (min-width: 320px) and (max-width: 601px) {
+  .gridContainer {
     height: auto;
     flex-direction: column;
     gap: 50px;
   }
-  .registerBox{
-    padding: 20px;
-  }
-  .checkboxLabel{
+
+  .checkboxLabel {
     font-size: 15px;
   }
-  .gridItem{
+
+  .gridItem {
     width: auto;
   }
-  .heading{
-    font-size: 26px;
+
+  .heading {
+    font-size: 32px;
   }
- .registerButton, .textField{
-  height: 48px;
-  font-size: 20px;
-  padding: 10px 20px;
+
+  .registerButton,
+  .textField {
+    height: 53px;
+    font-size: 20px;
+    width: 100%;
+    max-width: 100%;
+
 
   }
-  .errorMessage{
+  .formLabel{
+    font-size: 14px;
+
+  }
+  .registerButton{
+    margin: 0px;
+  }
+
+  .errorMessage {
     text-align: left;
   }
-  .registerWrapper{
-    height: 526px;
-  }
-  .innerWrapper{
-    padding: 0px 10px;
+
+  .innerWrapper {
+    padding: 20px 10px;
     text-align: center;
-    margin-top: 144px;
+    
 
   }
-  .text{
-    font-size: 20px;
-    margin-top: 8px;
+
+  .text {
+    font-size: 12px;
+    margin-top: 5px;
   }
+
   .registerWrapper {
     height: auto;
     width: auto;
   }
-} 
+  .formControlBox{
+    flex-direction: column;
+    margin: 0px 0px 23px 0px;
+  }
+  .formWrapper{
+    margin: 30px 0px 23px 0px;
+  }
+  .desktopimg{
+    display: none;
+  }
+  .responsiveimg{
+    display: block;
+    object-fit: cover;
+  }
+}
 
-@media (min-width: 768px) and (max-width: 1024px){
-  .gridContainer{
+@media (min-width: 605px) and (max-width: 900px) {
+  .gridContainer {
     height: auto;
     flex-direction: column;
     gap: 50px;
   }
-  .registerWrapper, .gridItem{
+
+  .registerWrapper,
+  .gridItem {
     margin: auto;
+  }
+  .formControlBox{
+    flex-direction: column;
+  }
+  .desktopimg{
+    display: none;
+  }
+  .responsiveimg{
+    display: block;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1250px) {
+  .registerButton,
+  .textField {
+    
+    width: 316px;  
+
+
   }
 }

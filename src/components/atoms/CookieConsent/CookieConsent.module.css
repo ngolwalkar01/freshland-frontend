@@ -1,0 +1,21 @@
+/* components/atoms/CookieConsent.module.css */
+
+.banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    z-index: 1000;
+    display: none; /* Initially hidden */
+  }
+  .button {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  

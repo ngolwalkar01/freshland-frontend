@@ -6,7 +6,7 @@
 
   @media (min-width: 300px) and (max-width: 370px){
     .iframe{
-      width: 230px;
+      width: 227px !important;
       height: 200px;
     border-radius: 10px;
       

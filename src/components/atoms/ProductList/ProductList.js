@@ -19,7 +19,11 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
   const productInCart = cartProducts.find(x => x.id === product.id);
   const [quantityValue, setQuantityValue] = useState(1);
   const [itemKey, setItemKey] = useState(null);
+  const [isClicked, setIsClicked] = useState(false);
 
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
   useEffect(() => {
     if (productInCart) {
       const quantity = productInCart.quantity || 1;
@@ -33,24 +37,50 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
   return (
     <div key={product.id} className={styles.gridItem}>
       <div className={styles.transparentCard}>
-        <Link href={`/product/${product.id}`} className={styles.imgContainer}>
+      <div className={styles.cardContent}>
+          <div>
+            <div className={styles.newStatus}>
+            <p>New</p>
           <Image
             className={styles.cardTopImage}
-            src="/Images/productTop.png" alt="" width={40} height={10}
+            src="/Images/productTop.png"
+            alt=""
+            width={40}
+            height={10}
           />
+          </div>
+          <div>
+            <Link href={`/product/${product.id}`}>
+              <h3 className={styles.cardTitle}>{product.name}</h3>
+            </Link>
+          </div>
+          <p
+            className={styles.cardPrice}
+            dangerouslySetInnerHTML={{ __html: product.price }}
+          />
+          </div>
+          <div className={styles.hearticon} >
+            <i className={`fa-solid fa-heart ${isClicked ? styles.clicked :styles.default}`} onClick={handleClick}></i>
+          </div>
+     </div>
+        <Link href={`/product/${product.id}`} className={styles.imgContainer}>
+          {/* <Image
+            className={styles.cardTopImage}
+            src="/Images/productTop.png" alt="" width={40} height={10}
+          /> */}
           <Image
             className={styles.cardImage}
             src={product.thumbnail ? product.thumbnail : "/mockImage/orange.png"}
             alt={product?.name}
-            width={174} height={152}
+            width={227} height={159}
           />
         </Link>
-        <div className={styles.cardContent}>
+        {/* <div className={styles.cardContent}>
           <Link href={`/product/${product.id}`}>
             <h3 className={styles.cardTitle}>{product.name}</h3>
           </Link>
-        </div>
-        <div className={styles.cardPrice} dangerouslySetInnerHTML={{ __html: product.price }} />
+        </div> */}
+        {/* <div className={styles.cardPrice} dangerouslySetInnerHTML={{ __html: product.price }} /> */}
         {/* <p className={styles.cardPrice}>DKK {product.price}</p> */}
         <div className={styles.cardActions}>
           {productInCart ? (

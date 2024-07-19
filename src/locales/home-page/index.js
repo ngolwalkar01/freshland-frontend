@@ -1,7 +1,7 @@
 export const homepageTranslation = {
     en: {
         freshlyHarvested: "Freshly Harvested",
-        directlyFromFarm: "Directly from the Farm",
+        directlyFromFarm: "Popular Goods",
         lorem: "Freshly Harvested",
         cardHeading: "Directly from the Farm",
         freight: "Freight",

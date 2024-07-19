@@ -6,22 +6,44 @@
 }
 .order_card {
   /* background-image: url("/Images/Deadlinebgimg.png"); */
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   object-fit: cover;
   }
+  .deliveryweek{
+    font-size: 20px;
+    color: var(--blue);
+    margin: 12px 0px;
+  }
+.timer{
+  display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 14px;
+}
+.timeUnit{
+  display: flex;
+  flex-direction: column;
+}
 
-
+.timeUnit span:first-child{
+  background-image: linear-gradient(98.89deg, #FF5F6D 0%, #FFC371 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 120px;
+  font-family: 'Calistoga';
+}
+.timeUnit span:last-child{
+  color: rgba(33, 33, 33, 0.7);
+    font-size: 24px;
+}
 .next_order{
-    /* width: 400px;
-    height: 700px; */
-    /* margin: 11px 0px; */
-    padding: 50px;
-    position: relative;
+  position: relative;
+  width: 100%;
+  height: 709px;
+  max-height: 710px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   }
 
 .nextorder_deadline{
@@ -29,25 +51,65 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #FFFFFF;
   border-radius: 24px;
   text-align: center;
-  width: 400px;
   padding: 18px 19px;
-  height: 208px;
+ ;
 }
 .nextorder_deadline .next{
-  color:#1D405C;
-  font-size: 40px;
+  color:#544131;
+}
+.orderNow{
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  color: #ffffff;
+  background-color: #F17267;
+  border-radius: 25px;
+  margin-inline: auto;
+  text-transform: capitalize;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 71px;
+  font-size: 17px;
+  width: 232px;
+  gap: 5px;
+  cursor: pointer;
 }
 .nextorder_deadline .contentCard1{
-  letter-spacing: 5px;
+
+}
+
+.contentCard1 h1{
+
   background-image: linear-gradient(98.89deg, #FF5F6D 0%, #FFC371 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
+}
+.freightConatiner{
+  padding: 100px 0px;
+  background-color: rgba(241, 114, 103, 0.29);
+  position: relative;
+}
+.mainFreight{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+.shippingPrice{
+  display: flex;
+  gap: 60px;
+  
+}
+.freightdiv{
+  margin: 0px 0px 48px 0px;
 }
 .Freight{
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
   background: #FFFFFF;
@@ -55,50 +117,75 @@
   text-align: center;
   margin-top: 24px;
   width: 400px;
-  padding: 20px;
+  padding: 20px; */
+}
+.hr{
+  display: none;
 }
 .Freight div{
-  width: 80%;
+  /* width: 80%;
   margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 6px; */
 }
 
 .timeCard1{
-  word-spacing: 30px;
-  color: var( --text-light);
+     word-spacing: 30px;
+    color: rgba(33, 33, 33, 0.7);
+    font-size: 24px;
 
 }
 .deadlinedata{
+
+ position: relative;
   display: flex;
-    flex-direction: column;
-    gap: 10px;
+  flex-direction: column;
+  gap: 60px;
+}
+.deadlineContainer{
+  background: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  width: 694px;
+  max-width: 694px;
 }
  .Freight h2{
- color: var( --blue);
- font-size: 40px;
+ color: #544131;
+ font-size: 72px;
  
  }
- .Freight h3{
+ .Freight h4{
   background-image: linear-gradient(98.89deg, #FF5F6D 0%, #FFC371 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
  }
+ .dkcost{
+  background-color: #fff;
+  width: 314px;
+  max-width: 314px;
+  padding: 23px;
+  border-radius: 10px;
+  border: 2px inset rgba(241, 114, 103, 0.29);
+  box-shadow: 0px 3.76px 18.81px rgba(0, 0, 0, 0.08);
+ }
  .Freight p{
-  color: var( --text-light);
+  padding: 16px 0px 0px 0px;
+  color: rgba(33, 33, 33, 0.7);
  }
 
+ @media (min-width: 318px) and (max-width: 350px)
+ {
 
- @media only screen and (max-width: 601px){
-  .nextorder_deadline, .Freight{
-    max-width: 303px;
-  }
+ }
+ @media (min-width: 320px) and (max-width: 604px){
+  
   .nextorder_deadline .next{
-    font-size: 30px;
+    font-size: 20px;
   }
   .Freight h2{
-    font-size: 30px;
+    font-size: 40px;
+    color: var(--blue);
   }
   .Freight p{
     font-size: 13px;
@@ -106,4 +193,75 @@
   .timeCard1{
     font-size: 13px;
   }
+  .deadlineImg{
+    height: 379px !important;
+    object-fit: cover;
+  }
+ 
+  .timeUnit span:first-child{
+    font-size: 50px;
+  }
+  .timeUnit span:last-child{
+    font-size: 12px;
+  }
+  .deliveryweek{
+    font-size: 12px;
+  }
+  .orderNow{
+    height: 38px;
+    font-size: 12px;
+    width: 99px;
+  }
+  .next_order{
+    height: 378px;
+  }
+  .shippingPrice{
+    flex-direction: column;
+    gap: 16px;
+  }
+  .freightConatiner{
+    padding: 40px 0px;
+  }
+  .dkcost{
+    width: 190px;
+    padding: 6px 0px;
+  }
+  .mainFreight{
+    margin: 0px 90px;
+  }
+  .Freight h4{
+    font-size: 12px;
+  }
+  .freightdiv{
+    margin: 0px 0px 24px 0px;
+  }
+  .deadlineContainer{
+    width: 296px;
+  }
+  .deadlinedata{
+    gap: 24px;
+  }
  }
+
+ 
+@media (min-width: 605px) and (max-width: 1100px) {
+  .timeUnit span:first-child{
+    font-size: 70px;
+  }
+  .timeUnit span:last-child{
+    font-size: 16px;
+  }
+
+  .nextorder_deadline .next{
+  font-size: 30px;
+  }
+  .deadlineContainer{
+    width: 509px;
+  }
+  .deadlineImg{
+    object-fit: cover;
+  }
+  .shippingPrice{
+    gap: 23px;
+  }
+}

@@ -1,16 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { seasonproductslider } from "@/mockdata/seasonproductslider";
 import styles from "./ProductSlider.module.css";
 import Image from 'next/image'
+import { CustomPrevArrow, CustomNextArrow } from "@/components/atoms/customearrow"
 
 const ProductSlider = () => {
   const sliderRef = useRef(null);
-  const prevArrowRef = useRef(null); // Ref for previous arrow
-  const nextArrowRef = useRef(null); // Ref for next arrow
   const images = seasonproductslider;
+ 
 
   const settings = {
     infinite: true,
@@ -20,7 +20,9 @@ const ProductSlider = () => {
     autoplay: false,
     autoplaySpeed: 2000,
     adaptiveHeight: true,
-    arrow: false,
+    prevArrow:  <CustomPrevArrow />,
+ 
+    nextArrow: <CustomNextArrow/>,
     responsive: [
       {
         breakpoint: 1440,
@@ -56,62 +58,74 @@ const ProductSlider = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 400,
         settings: {
-          slidesToShow: 2, // Show 2 slides on mobile screens
+          slidesToShow: 1, // Show 2 slides on mobile screens
           slidesToScroll: 1,
-          initialSlide: 0, // Ensure the first slide is fully visible
-          variableWidth: true
+          
         },
+        
+      },
+
+       {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1, // Show 2 slides on mobile screens
+          slidesToScroll: 1,
+          
+        },
+        
       },
     ],
   };
 
-  const handlePrev = () => {
-    sliderRef.current.slickPrev();
-  };
 
-  const handleNext = () => {
-    sliderRef.current.slickNext();
-  };
 
   return (
     <div className={styles.boxContainer}>
+      <h1>What our customers say</h1>
       <div className={styles.slidercontainer}>
         <Slider {...settings} ref={sliderRef} className={styles.slickslider}>
           {images[0].imagesData.map((data, index) => (
-            <div key={index} className={styles.slide}>
+            <div key={index}>
+              <div className={styles.slide}>
+                <div className={styles.customername}>
+                  <Image
+                  src="/mockImage/Testimonialavtra1.png"
+                  width={30}
+                  height={30}
+                  alt="testimonial"
+                  />
+                  <p>Patricia</p>
+                </div>
               <Image
                 className={styles.image}
                 src={`/${data.image}`}
                 alt={`Slide ${index}`}
-                width={430}
-                height={430}
+                width={345}
+                height={345}
                 
               />
+              <div className={styles.groupicon}>
+              <i class="fa-regular fa-heart"></i>
+               <Image
+               src="/Images/message.svg"
+               width={21}
+               height={21}
+                  alt="testimonial"
+               />
+                 <Image
+               src="/Images/send.svg"
+               width={21}
+               height={21}
+                  alt="testimonial"
+               />
+              </div>
+              <p className={styles.testimonialspeech}>The worlds best and juiciest oranges and mandarins!!</p>
+              </div>
             </div>
           ))}
         </Slider>
-      </div>
-      <div className={styles.arrowContainer}>
-        <div className={styles.arrowStyle} onClick={handlePrev} ref={prevArrowRef}>
-          <Image
-            src="Images/chevron-left.svg"
-            alt="Back"
-            className={styles.arrowIcon}
-            width={21}
-            height={21}
-          />
-        </div>
-        <div className={styles.arrowStyle} onClick={handleNext} ref={nextArrowRef}>
-          <Image
-            src="Images/chevron-down.svg"
-            alt="Forward"
-            className={styles.arrowIcon}
-            width={21}
-            height={21}
-          />
-        </div>
       </div>
     </div>
   );

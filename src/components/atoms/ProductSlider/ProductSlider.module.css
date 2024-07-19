@@ -1,37 +1,76 @@
 .boxContainer {
   background: #fff;
-  padding-bottom: 80px;
+  padding: 100px 0px;
+  text-align: center;
+
 }
 
+.boxContainer h1{
+  margin: 20px 0px 40px 0px;
+  font-size: 72px;
+  color: var(--blue);
+}
 .sliderContainer {
   width: 100%;
   overflow: hidden;
 }
 .slidercontainer{
-  max-width: 1400px;
+  max-width: 1230px;
   margin: auto;
-  padding: 20px;
 }
 .slider {
   display: flex;
 }
 
 .slide {
-  padding: 0 7px;
-  height: 430px;
-  margin-bottom: 10px;
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    border: 1px solid var(--blue);
+    padding: 20px 20px 9px 20px;
+    margin: 0px 0px 0px 24px;
+    border-radius: 10px;
 }
 
+.customername{
+  display: flex;
+align-items: center;
+gap: 16px;
+
+}
+.customername p{
+  font-size: 16px;
+  color: var(--blue);
+  font-weight: bold;
+}
+.customername img{
+  border-radius: 15px;
+}
 .image {
   float: left;
   background-position: center;
   background-size: cover;
   /* height: 100%;
   width: 100%; */
-  border-radius: 20px;
+  border-radius: 11px;
   
 }
-
+.groupicon{
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.groupicon i{
+  font-size: 21px;
+  color:#2C3B29;
+}
+.testimonialspeech{
+  font-size: 24px;
+    color: var(--blue);
+    font-weight: 500;
+}
 .arrowButtons {
   display: flex;
   justify-content: center;
@@ -70,24 +109,55 @@ width: 46px;
 cursor: pointer;
 }
 
-@media (min-width:320px) and (max-width:375px){
+@media (min-width:320px) and (max-width:399px){
  
   .image{
     width: 248px;
     object-fit: cover;
   }
-}
-@media (min-width: 375px) and (max-width: 600px)  {
-
-  .slidercontainer{
-    width: auto;
-    margin: auto;
-    padding: 4px 9px;
+  .slide{
+    width: 280px;
+    max-height: 412px;
+    padding: 17px 17px;
+    margin: 0px 0px 0px 0px;
+  }
+   
+  .boxContainer h1{
+    margin: 40px 35px 24px 35px;
+    font-size: 40px;
+  }
+  .testimonialspeech{
+    font-size: 16px;
+    text-align: left;
 
   }
+  .sliderContainer{
+    margin: 0px 0px 0px 30px;
+  }
+ 
+}
+
+@media (min-width: 400px) and (max-width: 599px){
+  .slide{
+    width: 100%;
+    max-height: 412px;
+    padding: 17px 17px;
+    margin: 0px 0px 0px 0px;
+  }
+  .slidercontainer{
+    margin: auto 0px 0px 0px;
+  }
+} 
+
+@media (min-width: 375px) and (max-width: 600px)  {
+
+  .sliderContainer{
+    margin: 0px 0px 0px 30px ;
+  }
+ 
   .image{
-    width: 291px;
-    object-fit: cover;
+    width: 100%;
+  
   }
   .boxContainer{
     padding: 40px 0px;
@@ -100,19 +170,29 @@ cursor: pointer;
     width: 27px;
 
   }
-  .slide{
-    margin-bottom: 30px;
-    padding: 0px 3px;
+ 
+  .boxContainer h1{
+    margin: 40px 35px 24px 35px;
+    font-size: 40px;
   }
+  .testimonialspeech{
+    font-size: 18px;
+    text-align: left;
+
+  }
+ 
  
 }
 
-@media (min-width: 768px) and (max-width: 1000px){
+@media (min-width: 601px) and (max-width: 1300px){
   .slidercontainer{
     margin: auto;
   }
   .image{
-    width: 350px;
+    width: 100%;
     object-fit: cover;
+  }
+  .slide{
+    margin: 0px 0px 0px 0px;
   }
 }

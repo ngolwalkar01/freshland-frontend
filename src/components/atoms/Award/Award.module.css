@@ -6,32 +6,35 @@
 
 }
 .bgcontainer{
-  background-color: #fff;
-  padding: 40px 0px;
-  height: fit-content;
+  padding: 60px 0px;
+  background: #fff;
+ 
 }
 .container {
-    max-width: 840px;
-    height: 642px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
+  display: inline-flex;
+  }
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
   
   .heading {
     text-align: center;
-    margin-bottom: 30px;
+    margin: 70px 0px 48px 0px;
     font-family: 'Calistoga';
     color: #1D405C;
   }
   
   .gridContainer {
-    display: grid;
-    grid-template-columns: 267px 267px 267px;
-    /* grid-template-rows: repeat(3, 263px); */
+   display: flex;
     row-gap: 64px;
     column-gap: 18px;
+    animation: 18s slide infinite linear;
+    column-gap: 24px;
   }
   
   .gridItem {
@@ -41,7 +44,8 @@
   }
   
   .card {
-    max-width: 241px;
+    width: 267px;
+    max-width: 267px;
     box-shadow: none;
     background-color: transparent;
     text-align: center;
@@ -69,12 +73,7 @@
   }
 }
   @media (min-width: 320px) and (max-width: 600px) {
-    .gridContainer {
-      display: grid;
-      grid-template-columns: 161px 161px;
-      padding: 25px 25px;
-  
-    }
+    
     .name{
       font-weight: 500;
     font-size: 13px;
@@ -105,11 +104,15 @@
   
     
     }
+    .content{
+      max-width: 213px;
+    }
+    .gridItem{
+      max-width: 213px;
+    }
     
   }
 
   @media (min-width: 768px) and (max-width: 1024px){
-    .gridContainer{
-      grid-template-columns: 233px 234px 233px;
-    }
+  
   }

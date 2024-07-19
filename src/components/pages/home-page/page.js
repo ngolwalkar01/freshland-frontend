@@ -12,6 +12,7 @@ import Award from '@/components/atoms/Award/Awardlogo';
 import { addToCart, updateCartQuantity, removeCartItem } from '@/components/service/cart';
 import LazyLoad from "react-lazyload"; // Import LazyLoad component
 import CustomTestimonial from '@/components/atoms/CustomTestimonial/CustomTestimonial'
+import Categories from '@/components/atoms/categories';
 
 const HomePage = ({ homePageProps }) => {
   const { farmProducts, sessionalProducts, shippingMethods, vipPages, cutOffDaysDetail } = homePageProps;
@@ -27,14 +28,16 @@ const HomePage = ({ homePageProps }) => {
 
       <LazyLoad height={200} offset={100}>
         <OrderDeadline {...shippingProps} />
-        <Goods sessionalProductProps={{ productData: sessionalProducts, enableMockData, addToCart, updateCartQuantity, removeCartItem }} />
-        <ProductSlider />
+        {/* <Goods sessionalProductProps={{ productData: sessionalProducts, enableMockData, addToCart, updateCartQuantity, removeCartItem }} /> */}
+        
+        <Categories/>
+        <Register />
         <AddSignUp {...vipProps} />
         <VideoComponent />
         <Award />
-        <Register />
+        <ProductSlider />
         {/* <Testimonials /> */}
-        <CustomTestimonial />
+        {/* <CustomTestimonial /> */}
 
       </LazyLoad>
     </>
