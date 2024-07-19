@@ -1,7 +1,6 @@
-import axios from "axios";
+import axios from '@/utils/axios';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-const PRODUCT_API_BASE_URL = `${API_BASE_URL}/wp-json/wc/v1/categories-products`;
+const PRODUCT_API_BASE_URL = `/wp-json/wc/v1/categories-products`;
 
 const getCategoriesWithProducts = async () => {
     try {

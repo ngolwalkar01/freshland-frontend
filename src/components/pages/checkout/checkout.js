@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Loader from "@/components/atoms/loader/loader";
 import { checkoutTranslation, cartTranslation } from "@/locales";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Shipping from "@/components/atoms/shipping";
 import CheckoutSkeleton from "@/components/skeleton/checkoutskeleton/checkoutskeleton";
 import {
@@ -16,6 +16,7 @@ import {
   createNewOrder,
   setCustomerDetails,
   getCartData,
+  updateCartData,
 } from "@/components/service/cart";
 import {
   getShippingMethodsByAddress,
@@ -35,6 +36,8 @@ import { handleKlarnaAuthorization } from "@/components/service/Klarna";
 import { recoverUserCart } from "@/components/service/cart";
 import cartStyles from "../cart/cart.module.css";
 import UserAddress from "@/components/atoms/userAddress";
+import { applyLoader } from "@/helper/loader";
+import OverLayLoader from "@/components/atoms/overLayLoader";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
@@ -77,6 +80,7 @@ function Checkout() {
   const check = checkoutTranslation[lang];
   const ct = cartTranslation[lang];
 
+  const [olLoader, setOlLoader] = useState(false);
   const [isCheckoutReady, setIsCheckoutReady] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -133,16 +137,20 @@ function Checkout() {
     subscriptionShipping,
   } = cartData;
   const coupons = couponsData;
-  const currency_minor_unit = parseInt(totals?.currency_minor_unit)
+  const currency_minor_unit = parseInt(totals?.currency_minor_unit);
   const getCorrectPrice = (number) => {
     if (currency_minor_unit)
       return parseFloat((number / 100).toFixed(currency_minor_unit));
 
     return number;
-  }
+  };
 
-  const cartSubTotal = getCorrectPrice(parseInt(totals?.total_items) + parseInt(totals?.total_items_tax));
-  const cartTotalDiscount = getCorrectPrice(parseInt(totals?.total_discount) + parseInt(totals?.total_discount_tax));
+  const cartSubTotal = getCorrectPrice(
+    parseInt(totals?.total_items) + parseInt(totals?.total_items_tax)
+  );
+  const cartTotalDiscount = getCorrectPrice(
+    parseInt(totals?.total_discount) + parseInt(totals?.total_discount_tax)
+  );
 
   const cartTotal = getCorrectPrice(totals?.total_price);
   const discountTotal = getCorrectPrice(totals?.total_discount);
@@ -150,8 +158,8 @@ function Checkout() {
   const currency_symbol = currency;
 
   const router = useRouter();
-  const stripe = useStripe();
-  const elements = useElements();
+  // const stripe = useStripe();
+  // const elements = useElements();
 
   const setCartDataByCartData = (cartData) => {
     if (!cartData) return;
@@ -164,7 +172,7 @@ function Checkout() {
       customer,
       payment_methods: paymentMethods,
       billing_address,
-      shipping_address
+      shipping_address,
     } = cartData;
     const delivery_dates = extensions?.delivery;
     const currency = totals?.currency_code;
@@ -205,7 +213,7 @@ function Checkout() {
       paymentMethods,
       billing_address,
       subscriptionShipping,
-      shipping_address
+      shipping_address,
     });
   };
 
@@ -238,8 +246,7 @@ function Checkout() {
   useEffect(() => {
     const { shipping_address } = cartData;
     if (shipping_address) {
-      const { first_name, last_name } =
-        shipping_address;
+      const { first_name, last_name } = shipping_address;
 
       if (first_name) setFirstName(first_name);
       if (last_name) setLastName(last_name);
@@ -446,7 +453,7 @@ function Checkout() {
     }
 
     if (isBusinessAddress && !billingAddress?.company) {
-      errors.billing_company = "Billing Company is required"
+      errors.billing_company = "Billing Company is required";
     }
     // Add more validation rules for other fields if needed
 
@@ -497,17 +504,19 @@ function Checkout() {
         state: "",
         postcode: postcode,
         country: country,
-        phone: phone
+        phone: phone,
       },
     };
-    await setCustomerDetails(customerInfo);
+    const data = await setCustomerDetails(customerInfo);
+    updateCartData(data);
   };
 
   const orderObj = () => {
-    const city = streetValue?.adgangsadresse?.postnrnavn;
-    const postcode = streetValue?.adgangsadresse?.postnr;
+    const currentAddress = userAddresses[selectedAddressIndex];
+    const { address_1, city, postcode, phone } = currentAddress;
+
     const country = process.env.NEXT_PUBLIC_COUNTRY || "DK";
-    const stVal = streetValue?.tekst ? streetValue?.tekst : "";
+    const stVal = address_1;
     return {
       billing_address: {
         first_name: firstName,
@@ -652,7 +661,7 @@ function Checkout() {
     updateLocalStorageCartData,
     errors,
     setErrors,
-    cartData
+    cartData,
   };
 
   return (
@@ -662,7 +671,7 @@ function Checkout() {
           <Loader />
         </>
       ) : null}
-
+      {olLoader && <OverLayLoader />}
       {isCheckoutReady ? (
         <div className={styles.Checkoutcontainer}>
           <Header />
@@ -950,33 +959,33 @@ function Checkout() {
                       </div>
                     </div>
 
-
-                    {
-                      isBusinessAddress && (
-                        <div className={styles.fieldsRow}>
-                          <div className={styles.fieldColumn}>
-                            <label htmlFor="comp_name">
-                              <strong>Billing Company Name</strong>
-                            </label>
-                            <input
-                              className={styles.inputField}
-                              type="text"
-                              value={billingAddress?.company}
-                              placeholder="Billing Company Name"
-                              onChange={(e) => {
-                                setBillingAddress({ ...billingAddress, company: e.target.value })
-                              }}
-                              name="comp_name"
-                            />
-                            {isBusinessAddress && errors.billing_company && (
-                              <span className={styles.errorMessage}>
-                                {errors.billing_company}
-                              </span>
-                            )}
-                          </div>
+                    {isBusinessAddress && (
+                      <div className={styles.fieldsRow}>
+                        <div className={styles.fieldColumn}>
+                          <label htmlFor="comp_name">
+                            <strong>Billing Company Name</strong>
+                          </label>
+                          <input
+                            className={styles.inputField}
+                            type="text"
+                            value={billingAddress?.company}
+                            placeholder="Billing Company Name"
+                            onChange={(e) => {
+                              setBillingAddress({
+                                ...billingAddress,
+                                company: e.target.value,
+                              });
+                            }}
+                            name="comp_name"
+                          />
+                          {isBusinessAddress && errors.billing_company && (
+                            <span className={styles.errorMessage}>
+                              {errors.billing_company}
+                            </span>
+                          )}
                         </div>
-                      )
-                    }
+                      </div>
+                    )}
                     {/* <div className={styles.sendaddress}>
                     <input
                       type="checkbox"
@@ -1353,32 +1362,34 @@ function Checkout() {
                             const value = x.dates[currDate];
                             return (
                               <>
-                                {
-                                  value ? (
-                                    <Fragment key={i}>
-                                      <div>
-                                        <input
-                                          type="radio"
-                                          id="deliveryDate1"
-                                          name="deliveryDate"
-                                          value={currDate}
-                                          checked={deliveryDate === currDate}
-                                          onChange={() => setDeliveryDate(currDate)}
-                                        />
-                                        <label htmlFor="deliveryDate1">
-                                          {currDate} {value}
-                                        </label>
-                                      </div>
-                                      {errors.deliveryDateVal && (
-                                        <span className={styles.errorMessage}>
-                                          {errors.deliveryDateVal}
-                                        </span>
-                                      )}
-                                    </Fragment>
-                                  ) : (
-                                    <span className={styles.errorMessage}>Please enter complete address</span>
-                                  )
-                                }
+                                {value ? (
+                                  <Fragment key={i}>
+                                    <div>
+                                      <input
+                                        type="radio"
+                                        id="deliveryDate1"
+                                        name="deliveryDate"
+                                        value={currDate}
+                                        checked={deliveryDate === currDate}
+                                        onChange={() =>
+                                          setDeliveryDate(currDate)
+                                        }
+                                      />
+                                      <label htmlFor="deliveryDate1">
+                                        {value}
+                                      </label>
+                                    </div>
+                                    {errors.deliveryDateVal && (
+                                      <span className={styles.errorMessage}>
+                                        {errors.deliveryDateVal}
+                                      </span>
+                                    )}
+                                  </Fragment>
+                                ) : (
+                                  <span className={styles.errorMessage}>
+                                    Please enter complete address
+                                  </span>
+                                )}
                               </>
                             );
                           })}
@@ -1446,13 +1457,16 @@ function Checkout() {
                             const currentImage =
                               images && images.length > 0 ? images[0].src : "";
                             const quantityValue = quantity;
-                            const subtotal = getCorrectPrice(parseInt(prices?.line_subtotal) + parseInt(prices?.line_subtotal_tax));
+                            const subtotal = getCorrectPrice(
+                              parseInt(prices?.line_subtotal) +
+                                parseInt(prices?.line_subtotal_tax)
+                            );
                             const subscription_schemes =
                               cartItem?.extensions?.subscription_schemes;
                             const current_options =
                               subscription_schemes &&
-                                subscription_schemes.subscription_schemes &&
-                                subscription_schemes.subscription_schemes.length >
+                              subscription_schemes.subscription_schemes &&
+                              subscription_schemes.subscription_schemes.length >
                                 0
                                 ? subscription_schemes.subscription_schemes
                                 : [];
@@ -1493,11 +1507,13 @@ function Checkout() {
                               </span>
                             </td>
                             <td>
-                              {currency} {getCorrectPrice(cartTotalDiscount)}
+                              {currency} {cartTotalDiscount}
                               <span
                                 className={styles.cross}
                                 onClick={() => {
-                                  removeCoupon(coupons.toUpperCase());
+                                  applyLoader(setOlLoader, removeCoupon, [
+                                    coupons.toUpperCase(),
+                                  ]);
                                 }}
                               >
                                 {check.xicon}
@@ -1508,7 +1524,13 @@ function Checkout() {
                         <Shipping
                           shipping={shipping}
                           subscriptionShipping={subscriptionShipping}
-                          setCartShipment={setCartShipment}
+                          setCartShipment={(shipmentOpt, packageId) => {
+                            if (shipmentOpt && packageId)
+                              applyLoader(setOlLoader, setCartShipment, [
+                                shipmentOpt,
+                                packageId,
+                              ]);
+                          }}
                           styles={styles}
                           getCorrectPrice={getCorrectPrice}
                         />

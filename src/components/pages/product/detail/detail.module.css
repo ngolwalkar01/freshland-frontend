@@ -153,6 +153,17 @@
   gap: 16px;
 }
 
+.textWrapperTxt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--blue);
+  background-color: rgb(29, 64, 92, 0.05);
+}
+
+
 @media (min-width: 767px) and (max-width: 1200px) {
 
   /* Reorder elements based on their position */
@@ -790,17 +801,4 @@ cursor: pointer;
   .customArrow{
     right: 7%;
   }
-}
-
-.detailBtn{
-  display: flex;
-  gap: 16px;
-}
-.detailBtn .addbtn{
-  border-radius: 16px !important;
-}
-.SkeletonWrapper{
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
 }

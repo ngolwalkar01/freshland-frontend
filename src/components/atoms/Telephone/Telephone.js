@@ -41,7 +41,7 @@ const Telephone = ({ value, onChange }) => {
           background: "rgb(44, 44, 44, 0.2)"
         }}
         required
-        countryCodeEditable={true} 
+        countryCodeEditable={false} 
           />
     )
 }

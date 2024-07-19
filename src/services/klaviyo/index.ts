@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from '@/utils/axios';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_KLAVIYO_URL;
 const COMPANY_KEY = process.env.NEXT_PUBLIC_KLAVIYO_COMPANY;
@@ -36,7 +36,7 @@ const createProfile = async (email: string, first_name: string) => {
             }
         }
 
-        const url = `${API_BASE_URL}/profiles/?company_id=${COMPANY_KEY}`;
+        const url = `/profiles/?company_id=${COMPANY_KEY}`;
         const response = await axios.post(url, obj, config);
         return response.data;
     } catch (error) {

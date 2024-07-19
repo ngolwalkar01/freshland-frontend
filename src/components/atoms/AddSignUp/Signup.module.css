@@ -5,30 +5,30 @@
   background-color: #fff;
   gap: 50px;
   padding: 50px 0px;
-  
 }
 .Boxconatiner {
-  margin: 100px 0px;
-
+  background-color: #01395e;
+  box-shadow: 0px -10px 15px rgba(29, 64, 92, 0.3);
+  padding: 50px 0;
 }
 
 .container {
   text-align: center;
-  max-width: 1230px;
   margin: auto;
+  max-width: 900px;
 }
 
 .heading {
   font-family: Calistoga;
-  color: var(--blue);
-  font-size: 72px;
-  /* background-image: linear-gradient(98.89deg, #ff5f6d 0%, #ffc371 100%);
+  background-image: linear-gradient(98.89deg, #ff5f6d 0%, #ffc371 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
+  -webkit-text-fill-color: transparent;
 }
 
 .description {
-  color: var(--blue);
+  color: #fff;
+  padding: 25px 32px;
+  margin-bottom: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -39,25 +39,19 @@
 .imageContainer {
   position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 16px;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--blue);
-  padding: 20px 24px;
-  margin: 0px 0px 0px 24px;
-  border-radius: 10px;
-
-}
-.sliderContainer{
-  margin: 55px 0px;
-}
-.allcontent{
+  width: 267px;
+  margin: auto;
 
 }
 
 .image {
-  border-radius: 12px;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  float: left;
+  opacity: 0.8;
 }
 
 .overlay {
@@ -79,27 +73,17 @@
 .text {
   font-family: Calistoga;
   font-size: 1.6rem;
-  font-size: 32px;
-  color: var(--blue);
 }
 
 .button {
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   color: #fff;
-  border-radius: 25px;
-  border: 2px solid var(--blue);
-  margin-inline: auto;
   text-transform: capitalize;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 14px 12px 14px;
-  font-size: 20px;
-  width: 262px;
-  gap: 5px;
+  margin-top: -1px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  padding: 4px 20px;
+  background: transparent;
   cursor: pointer;
-  text-align: center;
-  background-color: var(--blue);
 }
 
 /* .signupButton {

@@ -10,11 +10,12 @@ import Accountinformation from "@/components/atoms/accountinformation/accountinf
 import Payment from "@/components/atoms/paymentmethod/payment";
 import { myaccountTranslation } from "@/locales";
 import cookieService from "@/services/cookie";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/navigation';
 import accountService from '@/services/account'
 import subscriptionService from "@/services/subscriptions";
 import Loader from "@/components/atoms/loader/loader";
 import AuthAPI from "@/services/auth";
+import { getCheckoutOrderById, getOrderDates } from "@/components/service/account"
 
 const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 
@@ -25,12 +26,13 @@ function Account({ orders }) {
   const [showAccountNavbar, setShowAccountNavbar] = useState(true);
   const [showOrderView, setShowOrderView] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [progress, setProgress] = useState(0); 
+  const [progress, setProgress] = useState(0);
   const [showSaveAddressBox, setShowSaveAddressBox] = useState(false);
   const [showAddAddressButton, setShowAddAddressButton] = useState(true);
   const [showshippingAddress, setShippingAddress] = useState(false);
   const [orderObj, setorderObj] = useState(null)
- 
+  const [orderDatesData, setOrderDatesData] = useState(null);
+
   const router = useRouter();
 
   const isUserLoggedIn = () => {
@@ -47,7 +49,9 @@ function Account({ orders }) {
     if (token) {
       setLoading(true);
       setProgress(60)
-      const orderDetail = await accountService.getOrdersById(id, token);
+      const orderDetail = await getCheckoutOrderById(id);
+      const orderDates = await getOrderDates(id);
+      setOrderDatesData(orderDates);
       setorderObj(orderDetail);
       setShowOrderView(val);
       setLoading(false);
@@ -76,7 +80,7 @@ function Account({ orders }) {
     cookieService.removeCookie("userId");
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
-    
+
     setShowLogoutConfirmation(false);
     router.push("/");
   };
@@ -97,7 +101,7 @@ function Account({ orders }) {
 
   return (
     <>
-      {loading ? <Loader progress={progress}/> : null}
+      {loading ? <Loader progress={progress} /> : null}
       <div className={styles.myaccount}>
         <div className={styles.Headeraccount}>
           <Header />
@@ -191,7 +195,8 @@ function Account({ orders }) {
             <div>
               <h4 className={styles.ordercontainer}>{mat.ordersHeading}</h4>
               <Orderaccount showOrderView={showOrderView} isUserLoggedIn={isUserLoggedIn}
-                setShowOrderView={toggleOrderView} orders={orders} orderobj={orderObj} />
+                setShowOrderView={toggleOrderView} orders={orders} orderobj={orderObj}
+                orderDates={orderDatesData} />
             </div>
           )}
 
@@ -222,7 +227,7 @@ function Account({ orders }) {
           {activeOption === "accountinfo" && (
             <div>
               <h4 className={styles.ordercontainer}>{mat.accountHeading}</h4>
-              <Accountinformation isUserLoggedIn={isUserLoggedIn}/>
+              <Accountinformation isUserLoggedIn={isUserLoggedIn} />
             </div>
           )}
 

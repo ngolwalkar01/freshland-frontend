@@ -1,7 +1,6 @@
-import axios from "axios";
+import axios from '@/utils/axios';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-const DELIVERY_CYCLE_API_BASE_URL = `${API_BASE_URL}/wp-json/wc/v1`;
+const DELIVERY_CYCLE_API_BASE_URL = `/wp-json/wc/v1`;
 
 const getcuttoffday = async () => {
     try {

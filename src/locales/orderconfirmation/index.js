@@ -10,6 +10,7 @@ export const orderconfirmationTranslation = {
         subtotal: "Subtotal",
         shipment: "Shipment",
         expectedDelivery: "Expected Delivery",
+        orderDate: "Order Date",
         rabat: "Rabat",
         remark: "Remark",
         billingAddress: "Billing Address",

@@ -2,14 +2,14 @@ import { AddToCartRequest } from "@/interfaces/addToCartRequest";
 import { CustomerInfo } from "@/interfaces/customer";
 import { OrderData } from "@/interfaces/orderData";
 import { UserAddress } from "@/interfaces/userAddress";
-import axios, { AxiosRequestConfig } from "axios";
+import { AxiosRequestConfig } from "axios";
+import axios from '@/utils/axios';
 import getHeaders from "../helper/configureHeaders";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-const CART_API_BASE_URL = `${API_BASE_URL}/wp-json/wc/store/v1/cart`;
-const INTERNAL_API_BASE_URL = `${API_BASE_URL}/wp-json/fl-cart/v1/cart`;
-const COUPON_CART_API_BASE_URL = `${API_BASE_URL}/wp-json/cocart/v3/cart`;
-const CHECKOUT_API_BASE_URL = `${API_BASE_URL}/wp-json/wc/store/v1`;
+const CART_API_BASE_URL = `/wp-json/wc/store/v1/cart`;
+const INTERNAL_API_BASE_URL = `/wp-json/fl-cart/v1/cart`;
+const COUPON_CART_API_BASE_URL = `/wp-json/cocart/v3/cart`;
+const CHECKOUT_API_BASE_URL = `/wp-json/wc/store/v1`;
 
 const addProductToCart = async (token: string, id: string, quantity: string, subscription_scheme: string = "") => {
     try {

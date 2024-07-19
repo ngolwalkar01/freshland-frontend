@@ -5,7 +5,9 @@ import Image from "next/image";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
 const createKlarnaPayload = () => {
-    const cartData = JSON.parse(localStorage.getItem(cartDataStorage));
+    const cartData = localStorage.getItem(cartDataStorage) ? JSON.parse(localStorage.getItem(cartDataStorage)): {
+        items: []
+    };
     const orderLines = cartData.items.map(item => ({
         type: 'physical',
         reference: item.id.toString(),

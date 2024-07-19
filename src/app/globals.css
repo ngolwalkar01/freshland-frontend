@@ -1,6 +1,5 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Calistoga&display=swap");
-@import "react-toastify/dist/ReactToastify.css";
 @import "/css/toast.css";
 :root {
   --max-width: 1100px;
@@ -409,3 +408,148 @@ body {
 .sticky-header header.Header_header__DLcAQ {
   border-radius: 0;
 }
+
+/*
+ *  Cookie consent css Start
+*/
+/* General Styles for the Cookie Consent Popup */
+.cm-wrapper, .pm-wrapper {
+  font-family: Arial, sans-serif;
+}
+
+/* Style for the main popup */
+.cm {
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styles */
+.cm__btn, .pm__btn {
+  background-color: green !important;
+  border-color: green !important;
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Button Hover and Focus Styles */
+.cm__btn:hover, .pm__btn:hover,
+.cm__btn:focus, .pm__btn:focus {
+  background-color: darkgreen !important;
+  border-color: darkgreen !important;
+}
+
+/* Secondary Button Styles */
+.cm__btn.cm__btn--secondary, .pm__btn.pm__btn--secondary {
+  background-color: lightgreen !important;
+  border-color: lightgreen !important;
+  color: white !important;
+}
+
+.cm__btn.cm__btn--secondary:hover, .pm__btn.pm__btn--secondary:hover,
+.cm__btn.cm__btn--secondary:focus, .pm__btn.pm__btn--secondary:focus {
+  background-color: green !important;
+  border-color: green !important;
+}
+
+/* Footer Links */
+.cm__footer a, .pm__footer a {
+  color: green;
+  text-decoration: underline;
+}
+
+.cm__footer a:hover, .pm__footer a:hover {
+  color: darkgreen;
+}
+
+/* Toggle Styles */
+.section__toggle-wrapper .section__toggle:checked + .toggle__icon .toggle__icon-on {
+  background-color: green !important;
+  border-color: green !important;
+}
+
+.section__toggle-wrapper .section__toggle:checked + .toggle__icon .toggle__icon-on svg {
+  stroke: white !important;
+}
+
+.section__toggle-wrapper .section__toggle:not(:checked) + .toggle__icon .toggle__icon-off {
+  background-color: lightgray !important;
+  border-color: gray !important;
+}
+
+.section__toggle-wrapper .section__toggle:not(:checked) + .toggle__icon .toggle__icon-off svg {
+  stroke: gray !important;
+}
+
+/* Modal Styles */
+.pm {
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pm__close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: green;
+}
+
+.pm__close-btn:hover {
+  color: darkgreen;
+}
+
+/*
+ *  Cookie consent css End
+*/
+
+
+/*
+ *  Product detail dynamic content start
+*/
+.featuresWrapper {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.textWrapperTxt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--blue);
+  background-color: rgb(29, 64, 92, 0.05);
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.descriptionWrapper span {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+/*
+ *  Product detail dynamic content end
+*/

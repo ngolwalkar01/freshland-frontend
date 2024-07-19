@@ -3,7 +3,7 @@ import Header from "@/components/atoms/Header/Header";
 import styles from "./Login.module.css";
 import { toast } from "react-toastify";
 import authService from "@/services/auth";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/navigation';
 import { loginTranslation } from '@/locales';
 import cookieService from '@/services/cookie';
 

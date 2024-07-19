@@ -126,20 +126,3 @@
         height: 100%;
        }
   }
-
-  .headingSkeleton{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .seasonoverviewSkeleton{
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  .SkeletonDiv{
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }

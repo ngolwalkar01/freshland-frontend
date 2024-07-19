@@ -10,7 +10,6 @@ import styles from './Signup.module.css';
 import Image from 'next/image';
 import { homepageTranslation } from '@/locales';
 import Link from "next/link";
-import { CustomPrevArrow, CustomNextArrow } from "@/components/atoms/customearrow"
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 
@@ -28,8 +27,7 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
     autoplay: false,
     adaptiveHeight: true,
     beforeChange: (current, next) => setCurrentSlide(next),
-    prevArrow: <CustomPrevArrow />, // Use custom prev arrow
-    nextArrow: <CustomNextArrow />, // Use custom next arrow
+    arrows: true,
     responsive: [
      
       {
@@ -69,35 +67,27 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
     <div className={styles.Boxconatiner}>
       <div className={styles.container}>
         <h2 className={styles.heading}>{hpt.benefitsVIP}</h2>
-        <p className={styles.description}>Be the first to know when you favorite products are in season</p>
-        <div className={styles.sliderContainer}>
+        <p className={styles.description}>{descriptionText}</p>
         <Slider {...settings}>
-         
           {vipPages && vipPages.map((data, index) => (
             <div key={index}>
-
               <div className={styles.imageContainer}>
                 <Image
                   className={styles.image}
                   src={data.thumbnail && false ? data.thumbnail : '/mockImage/viporange.png'}
                   alt={`Slide ${index}`}
-                  width={343}
-                  height={350}
+                  width={340}
+                  height={197}
                   priority 
                 />
-               
-               <h4 className={styles.text}>{data.title}</h4>
-
-       <button className={styles.button}>{hpt.signUp}</button>
-               
+                <div className={styles.overlay}>
+                  <h4 className={styles.text}>{data.title}</h4>
+                  <button className={styles.button}>{hpt.signUp}</button>
+                </div>
               </div>
-              
             </div>
-           
           ))}
-          
         </Slider>
-        </div>
         <Link href ="/shop" className={styles.signupButton}>{hpt.seeVIP}</Link>
       </div>
     </div>

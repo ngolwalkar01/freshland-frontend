@@ -12,25 +12,23 @@ const VideoComponent = () => {
       <div className={videoStyles.container}>
       
         <div className={videoStyles.card}>
+        <div className={videoStyles.ellipse}>
+        <Image
+                  src="/Images/videoellipse.svg"
+                  alt="logo"
+                  width={153}
+                  height={165}
+                ></Image>
+        </div>
           <div className={videoStyles.content}>
             <h1 className={videoStyles.heading}>{hpt.commonFront}</h1>
             <div className={videoStyles.textContainer}>
-              <p className={`W-body-Large ${videoStyles.text}`}>{hpt.weCanAllHelp}</p>
-              <p className={`W-body-Large ${videoStyles.text}`}>{hpt.thankYouTommorow}</p>
+              <p className={videoStyles.text}>{hpt.weCanAllHelp}</p>
+              <p className={videoStyles.text}>{hpt.thankYouTommorow}</p>
             </div>
-           
+            <LazyYoutube videoId="MrvUKufzTXA" />
           </div>
-          <div className={videoStyles.videoContainer}><LazyYoutube videoId="MrvUKufzTXA" /></div>
         </div>
-        <div className={videoStyles.commonfrontImg}>
-        <Image
-            src="/Images/commonfront.svg"
-            alt=""
-            fill
-
-          />
-          </div>
-        {/* <LazyYoutube videoId="MrvUKufzTXA" /> */}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { checkoutTranslation, cartTranslation, commonTranslation } from "@/locales";
 import Telephone from "@/components/atoms/Telephone/Telephone";
 import { getUserAddresses, setUserAddressesAsync, saveUserAddresses } from '@/components/service/cart';
+import Image from 'next/image';
 
 const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
@@ -12,7 +13,7 @@ const INTIAL_ADDRESS = {
     address_2: "",
     city: "",
     postcode: "",
-    country: "",
+    country: process.env.NEXT_PUBLIC_COUNTRY || "SE",
     state: "",
     selected: false,
     isNewAddress: true,
@@ -148,9 +149,11 @@ function UserAddress({ userAddressProps }) {
 
     useEffect(() => {
         if (newAddressAdded) {
+            const index = userAddresses.length - 1;
             const newAdd = userAddresses[userAddresses.length - 1];
             setSelectedAddress(newAdd);
             setNewAddressAdded(false);
+            setEditableMode({ index, status: true });
         }
     }, [userAddresses, newAddressAdded]);
 
@@ -196,7 +199,7 @@ function UserAddress({ userAddressProps }) {
         } else {
             setEditableMode({ index, status: true });
         }
-        setSelectedAddressIndex(index);
+        // setSelectedAddressIndex(index);
         setSelectedAddress({ ...userAddresses[index] });
     }
 
@@ -221,10 +224,9 @@ function UserAddress({ userAddressProps }) {
             const newAdd = { ...INTIAL_ADDRESS, isNewAddress: true };
             index = userAddresses.length;
             setUserAddresses([...userAddresses, newAdd]);
-            setNewAddressAdded(true);
         }
-        setSelectedAddressIndex(index);
-        setEditableMode({ index, status: true });
+        setNewAddressAdded(true);
+        // setSelectedAddressIndex(index);
     }
 
     const debounce = (func, delay) => {
@@ -259,9 +261,14 @@ function UserAddress({ userAddressProps }) {
 
     const onUpdateShippingAddress = async (e, column) => {
         let userAdd = [...userAddresses];
-        userAdd[selectedAddressIndex][column] = e.target.value;
+        let currentIndex = selectedAddressIndex;
+
+        if (selectedAddress?.isNewAddress)
+            currentIndex = userAddresses.length - 1;
+
+        userAdd[currentIndex][column] = e.target.value;
         setUserAddresses(userAdd);
-        setSelectedAddress({ ...userAdd[selectedAddressIndex] });
+        setSelectedAddress({ ...userAdd[currentIndex] });
     }
 
     const handleShippingSuggestion = (e) => {
@@ -315,8 +322,10 @@ function UserAddress({ userAddressProps }) {
     }
 
     const savedAddress = async () => {
-        await saveUserAddresses(userAddresses);
-        await checkIfUserHaveAddress();
+        try {
+            await saveUserAddresses(userAddresses);
+            await checkIfUserHaveAddress();
+        } catch (error) { }
     }
 
     return (
@@ -335,15 +344,20 @@ function UserAddress({ userAddressProps }) {
                                     <>
                                         {(x.address_1 || firstName || lastName) ? (
                                             <div key={i} className={styles.addresscontainer}>
+                                                <input type="radio" id="user_address" checked={x.selected} name="user_address" value="user_address" onChange={() => updateUserAddress(i)} />
                                                 <div className={styles.address}>
                                                     <p className="M-Body-Medium">{firstName} {lastName}</p>
                                                     <p className="M-Caption">
                                                         {x.address_1}
                                                     </p>
                                                 </div>
-                                                <input type="radio" id="user_address" checked={x.selected} name="user_address" value="user_address" onChange={() => updateUserAddress(i)} />
                                                 <p onClick={() => { editAddress(x, i); }}>
-                                                    Edit
+                                                    <Image
+                                                        src="/Images/lucide_edit.png"
+                                                        width={20}
+                                                        height={20}
+                                                        alt="google"
+                                                    ></Image>
                                                 </p>
                                             </div>
                                         ) : (

@@ -1,6 +1,6 @@
 export const productdetailTranslation = {
     en: {
-        freeShippingOver: "📦 Free shipping on orders over DKK 699",
+        freeShippingOver: "📦 Free shipping on orders over SEK 699",
         OrderBefore: "⏰ Order before Wednesday at midnight and have your goods delivered directly to your door the following week 🚛",
         oneTimePurchase: "One Time Purchase",
         subscribe: "Subscribe",

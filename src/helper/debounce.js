@@ -14,12 +14,12 @@ export const quantityDebounce = (func, wait) => {
     let timeout;
     let accumulatedValue = 0;
 
-    return (itemKey, increment, cQ) => {
+    return (itemKey, increment, cQ, ...args) => {
         accumulatedValue += increment;
 
         const later = () => {
             clearTimeout(timeout);
-            func(itemKey, accumulatedValue, cQ);
+            func(itemKey, accumulatedValue, cQ, ...args);
             accumulatedValue = 0;
         };
 

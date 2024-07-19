@@ -14,6 +14,12 @@ const Seeallbtn = () => {
 
           <Link href="/shop" className={styles.seeAllButton}>
             {cmt.seeAllProducts}
+            <Image
+              src="/Images/seeproduct.svg"
+              alt="logo"
+              width={23}
+              height={22}
+            ></Image>
           </Link>
       
     </>

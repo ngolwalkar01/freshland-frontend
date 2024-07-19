@@ -1,11 +1,10 @@
-import axios from "axios";
+import axios from '@/utils/axios';
 
 import { SubscriptionModification } from '@/interfaces/addProductToSubscription'
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-const SUBSCRIPTION_API_BASE_URL = `${API_BASE_URL}/wp-json/wc/v3`;
+const SUBSCRIPTION_API_BASE_URL = `/wp-json/wc/v3`;
 
-const SUBCRIPTION_DATE_API = `${API_BASE_URL}/wp-json/fl-cart/v1/cart`;
+const SUBCRIPTION_DATE_API = `/wp-json/fl-cart/v1/cart`;
 
 const getSubscriptions = async (userId: string, token: string) => {
     const config = {

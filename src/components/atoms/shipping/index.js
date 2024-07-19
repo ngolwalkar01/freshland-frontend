@@ -75,7 +75,8 @@ const ShippingOptions = ({ shippingData, setNamePrefix, setCartShipment, styles,
                                                                 />
                                                                 <label htmlFor={shipping_rate.method_id} onClick={(e) => e.stopPropagation()}>
                                                                     {shipping_rate.name}
-                                                                    <span className={styles.black}>(SUBSCRIPTION):{shipping_rate.currency_code}
+                                                                    {/* <span className={styles.black}>(SUBSCRIPTION):{shipping_rate.currency_code} */}
+                                                                    <span className={styles.black}> {shipping_rate.currency_code}
                                                                         {getCorrectPrice(parseInt(shipping_rate?.price) + parseInt(shipping_rate.taxes))}</span>
                                                                     <BillingPeriod shData={shData} styles={styles} />
                                                                 </label>
