@@ -48,7 +48,7 @@ function handleErrorResponse(response) {
     if (response.status === 401 || response.status === 403) {
         clearAuthData();
         // Router.push('/login');
-        // window.location.href = "/login";
+        window.location.href = "/login";
     }
 }
 
