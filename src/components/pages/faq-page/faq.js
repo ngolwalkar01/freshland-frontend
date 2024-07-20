@@ -29,9 +29,7 @@ const Faq = ({ heading, accordionData }) => {
               </button>
               {openAccordionIndex === index && (
                 <div className={`${styles.pannel} ${styles.open}`}>
-                  <p className={`W-Body-Regular`}>
-                    {item.content}
-                  </p>
+                  <p className={`W-Body-Regular`} dangerouslySetInnerHTML={{ __html: item.content }} />
                 </div>
               )}
               <hr className={styles.horizontalLine} />
