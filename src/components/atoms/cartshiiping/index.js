@@ -87,7 +87,6 @@ const ShippingOptions = ({
                                       <span
                                         className={`${styles.black} ${styles.newstyle}`}
                                       >
-                                        (SUBSCRIPTION):
                                         {shipping_rate.currency_code}{" "}
                                         {getCorrectPrice(parseInt(shipping_rate?.price) + parseInt(shipping_rate.taxes))}
                                       </span>

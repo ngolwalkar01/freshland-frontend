@@ -44,7 +44,7 @@ const TopImage = ({ farmProductProps }) => {
           <h1>{hpt.freshlyHarvested}</h1>
         </div>
       </div>
-      <div ref={productListRef}>
+      <div ref={productListRef} className={styles.bgcolor}>
         {" "}
         {/* Add a ref to the ProductList component */}
         {/* Render your ProductList component here */}
@@ -53,8 +53,10 @@ const TopImage = ({ farmProductProps }) => {
             cardHeading={hpt.directlyFromFarm}
             {...farmProductProps}
           />
-
-          <Seeallbtn />
+       <div>
+       <Seeallbtn />
+       </div>
+         
         </div>
       </div>
     </>

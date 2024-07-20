@@ -67,16 +67,16 @@ const Footer = () => {
                 <p>{hpt.customerService}</p>
                 <ul>
                   <li><Link href="/faq">{hpt.faq}</Link></li>
-                  <li><Link href="complaints">{hpt.complaint}</Link></li>
+                  <li><Link href="https://fresh.land/dk/reklamation/">{hpt.complaint}</Link></li>
                   <li><Link href="/media">{hpt.media}</Link></li>
                 </ul>
               </div>
               <div>
                 <p>{hpt.theLegal}</p>
                 <ul>
-                  <li><Link href="terms">{hpt.terms}</Link></li>
-                  <li><Link href="personaldatapolicy">{hpt.personalData}</Link></li>
-                  <li><Link href="right&withdrawals">{hpt.rightWithdraw}</Link></li>
+                  <li><Link href="https://fresh.land/dk/terms/">{hpt.terms}</Link></li>
+                  <li><Link href="https://fresh.land/dk/persondatapolitik/">{hpt.personalData}</Link></li>
+                  <li><Link href="https://fresh.land/dk/faq/#1618301203185-86a5501d-ce2b">{hpt.rightWithdraw}</Link></li>
                 </ul>
 
                 <div className={styles.thelegalconutry}>

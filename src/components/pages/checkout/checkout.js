@@ -693,7 +693,7 @@ function Checkout() {
                     <div className={styles.fieldsRow}>
                       <div className={styles.fieldColumn}>
                         <label htmlFor="Email">
-                          <strong>Contact information</strong>
+                          <strong className="W-Body-Large-Medium">Contact information</strong>
                         </label>
                         <label>
                           We use this email to send you details and updates
@@ -963,7 +963,7 @@ function Checkout() {
                       <div className={styles.fieldsRow}>
                         <div className={styles.fieldColumn}>
                           <label htmlFor="comp_name">
-                            <strong>Billing Company Name</strong>
+                            <strong className="W-Body-Large-Medium">Billing Company Name</strong>
                           </label>
                           <input
                             className={styles.inputField}

@@ -2,15 +2,15 @@ import { AxiosRequestConfig } from "axios";
 
 const getHeaders = (token: string = "") => {
     let config: AxiosRequestConfig = {
-        withCredentials: true
+        // withCredentials: true
     }
 
     if (token) {
         config = {
             headers: {
                 Authorization: token
-            },
-            withCredentials: true
+            }
+            // withCredentials: true
         };
     }
 

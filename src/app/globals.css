@@ -377,7 +377,10 @@ body {
   padding: 0;
   /* Add other global styles or resets as needed */
 }
-
+main{
+  min-height: 100vh;
+  background: #fff;
+}
 /* css for tablet device */
 @media (max-width: 600px) {
   .slick-slide > div {

@@ -174,7 +174,7 @@
 .wrapper label {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
     sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -184,6 +184,7 @@
 
 .sendaddress {
   display: flex;
+  align-items: center;
   gap: 8px;
 }
 
@@ -234,11 +235,11 @@
 /* Right Container CSS */
 
 .rightContainer {
-  padding: 20px 28px 50px 28px;
+  padding: 20px 21px 50px 21px;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-width: 400px;
+  max-width: 415px;
   height: fit-content;
   background: rgba(29, 64, 92, 0.05);
 
@@ -261,7 +262,7 @@
 .freedelivery {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 10px;
 }
 
@@ -290,11 +291,12 @@
 .terms {
   /* payment Paragraph */
   padding-inline: 15px;
+  font-size: 16px;
 }
 
 .acceptTerms {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 10px;
   margin-block: 27px 3px;
 }
@@ -353,11 +355,20 @@
 }
 
 .table th,
-.table td,
+.table td{
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+  sans-serif;
+font-size: 18px;
+font-weight: 500;
+font-stretch: normal;
+font-style: normal;
+line-height: 1.5;
+letter-spacing: normal;
+}
 .table label {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
     sans-serif;
-  font-size: 13px;
+  font-size: 18px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;

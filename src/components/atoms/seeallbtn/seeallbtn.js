@@ -11,11 +11,11 @@ const Seeallbtn = () => {
   return (
     <>
       
-
+       <div className={styles.seeproduct}>
           <Link href="/shop" className={styles.seeAllButton}>
             {cmt.seeAllProducts}
           </Link>
-      
+      </div>
     </>
   );
 };
