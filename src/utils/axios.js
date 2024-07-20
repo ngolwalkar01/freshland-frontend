@@ -8,18 +8,18 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(config => {
     const token = localStorage.getItem('token');
-    // const cartToken = localStorage.getItem('cart-token');
-    // const nonce = localStorage.getItem('nonce');
+    const cartToken = localStorage.getItem('cart-token');
+    const nonce = localStorage.getItem('nonce');
 
     if (token) {
         config.headers.Authorization = token;
     }
-    // if (cartToken) {
-    //     config.headers['Cart-Token'] = cartToken;
-    // }
-    // if (nonce) {
-    //     config.headers['Nonce'] = nonce;
-    // }
+    if (cartToken) {
+        config.headers['Cart-Token'] = cartToken;
+    }
+    if (nonce) {
+        config.headers['Nonce'] = nonce;
+    }
 
     return config;
 }, error => {
@@ -27,7 +27,7 @@ axiosInstance.interceptors.request.use(config => {
 });
 
 axiosInstance.interceptors.response.use(response => {
-    // setCartTokenNonce(response);
+    setCartTokenNonce(response);
     return response;
 }, error => {
     if (error.response) {
