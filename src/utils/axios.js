@@ -10,7 +10,6 @@ axiosInstance.interceptors.request.use(config => {
     const token = localStorage.getItem('token');
     const cartToken = localStorage.getItem('cart-token');
     const nonce = localStorage.getItem('nonce');
-
     if (token) {
         config.headers.Authorization = token;
     }
@@ -37,10 +36,10 @@ axiosInstance.interceptors.response.use(response => {
 });
 
 function setCartTokenNonce(response) {
-    if (response.headers['cart-token'] && !localStorage.getItem('cart-token')) {
+    if (response.headers['cart-token']) {
         localStorage.setItem('cart-token', response.headers['cart-token']);
     }
-    if (response.headers['nonce'] && !localStorage.getItem('nonce')) {
+    if (response.headers['nonce']) {
         localStorage.setItem('nonce', response.headers['nonce']);
     }
 }
@@ -49,7 +48,7 @@ function handleErrorResponse(response) {
     if (response.status === 401 || response.status === 403) {
         clearAuthData();
         // Router.push('/login');
-        window.location.href = "/login";
+        // window.location.href = "/login";
     }
 }
 
