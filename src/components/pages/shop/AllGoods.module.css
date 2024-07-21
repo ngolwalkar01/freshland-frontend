@@ -14,7 +14,6 @@
 
 /* Heading wrapper */
 .headingWrapper {
-  display: flex;
   margin-bottom: 60px;
   text-align: center;
   color: #219029;
@@ -87,10 +86,7 @@
 
 .imageHeading {
   /* Styles for the image heading */
-
-  margin-top: 65px;
-  position: absolute;
-  color: #ffffff;
+  color: var(--blue);
   font-weight: 700;
   z-index: 2;
 
@@ -119,6 +115,7 @@
 }
 
 .filterCover {
+  display: none;
 }
 .filterIcon {
 }
@@ -159,6 +156,42 @@
   color: #111;
 }
 .filterListLi label {
+  cursor: pointer;
+}
+.newfilterListLi{
+  font-weight: 500;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px 6px;
+  width: 100%;
+  max-width: 130px;
+  cursor: pointer;
+}
+.newfilterlist{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 929px;
+  margin: auto;
+  margin: 40px auto;
+  cursor: pointer;
+
+
+}
+.newfilterListLi:hover{
+  background-color: var(--blue);
+  color: #fff;
+  cursor: pointer;
+}
+.activeFilter{
+  background-color: var(--blue);
+  color: #fff;
   cursor: pointer;
 }
 .shopfilterbtn{
@@ -203,7 +236,16 @@
 } */
 .categoriesCover {
 }
+.newfilterlist{
+  
+}
 @media (max-width: 600px) {
+  .filterCover{
+    display: block;
+  }
+  .newfilterlist{
+    display: none;
+  }
   .customContainer {
     padding: 0;
   }
@@ -266,6 +308,7 @@
   .headingWrapper {
     /* Styles for the heading wrapper */
     margin-bottom: 22px;
+    display: flex;
   }
 
   .headingWrapper h1 {
@@ -283,7 +326,6 @@
 
     margin-top: 65px;
     position: absolute;
-    color: #ffffff;
     font-weight: 700;
     z-index: 2;
 

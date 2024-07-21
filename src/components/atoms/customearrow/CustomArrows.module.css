@@ -76,11 +76,26 @@
     right: -19px;
   }
   
+  @media(min-width:428px) and (max-width:580px) {
+   .arrowContainer{
+    right: 89px !important;
+
+   }
+   .arrowprevContainer{
+    display: none !important;
+  }
+  }
+@media(max-width:550px){
+
+  .arrowprevContainer{
+    display: none !important;
+  }
+}
   /* You can add custom styles to the arrows if needed */
-  @media (min-width: 320px) and (max-width: 600px)  {
+  @media (min-width: 320px) and (max-width: 429px)  {
       
   .arrowContainer {
-    right: 7px;
+    right: 11px;
   }
   .arrowprevContainer{
     display: none !important;

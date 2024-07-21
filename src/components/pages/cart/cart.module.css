@@ -166,7 +166,7 @@
 .productTitle {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
     sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -177,7 +177,7 @@
   color: var(--green);
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
     sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -335,11 +335,11 @@
   gap: 24px;
   max-width: 498px;
   height: fit-content;
-  background: rgba(29, 64, 92, 0.08);
+  background: rgba(29, 64, 92, 0.05);
 
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
     sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;

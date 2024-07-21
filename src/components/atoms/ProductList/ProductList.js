@@ -8,6 +8,7 @@ import { getLocalStorage } from '@/services/local-storage';
 import { commonTranslation } from '@/locales';
 import { applyLoader } from "@/helper/loader";
 import OverLayLoader from '@/components/atoms/overLayLoader';
+import productService from '@/services/product';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 
@@ -21,7 +22,12 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
   const [itemKey, setItemKey] = useState(null);
   const [isClicked, setIsClicked] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = async () => {
+    await applyLoader(
+      setOlLoader,
+      productService.setProductFavorite,
+      [product.id]
+    )
     setIsClicked(!isClicked);
   };
   useEffect(() => {
@@ -37,32 +43,32 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
   return (
     <div key={product.id} className={styles.gridItem}>
       <div className={styles.transparentCard}>
-      <div className={styles.cardContent}>
+        <div className={styles.cardContent}>
           <div>
             <div className={styles.newStatus}>
-            <p>New</p>
-          <Image
-            className={styles.cardTopImage}
-            src="/Images/productTop.png"
-            alt=""
-            width={40}
-            height={10}
-          />
-          </div>
-          <div>
-            <Link href={`/product/${product.id}`}>
-              <h3 className={styles.cardTitle}>{product.name}</h3>
-            </Link>
-          </div>
-          <p
-            className={styles.cardPrice}
-            dangerouslySetInnerHTML={{ __html: product.price }}
-          />
+              <p>New</p>
+              <Image
+                className={styles.cardTopImage}
+                src="/Images/productTop.png"
+                alt=""
+                width={40}
+                height={10}
+              />
+            </div>
+            <div>
+              <Link href={`/product/${product.id}`}>
+                <h3 className={styles.cardTitle}>{product.name}</h3>
+              </Link>
+            </div>
+            <p
+              className={styles.cardPrice}
+              dangerouslySetInnerHTML={{ __html: product.price }}
+            />
           </div>
           <div className={styles.hearticon} >
-            <i className={`fa-solid fa-heart ${isClicked ? styles.clicked :styles.default}`} onClick={handleClick}></i>
+            <i className={`fa-solid fa-heart ${isClicked ? styles.clicked : styles.default}`} onClick={handleClick}></i>
           </div>
-     </div>
+        </div>
         <Link href={`/product/${product.id}`} className={styles.imgContainer}>
           {/* <Image
             className={styles.cardTopImage}
@@ -142,7 +148,7 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
     </div>
   )
 }
-const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, removeCartItem }) => {
+const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, removeCartItem, overRideClass = false }) => {
   const [cartProducts, setCartProducts] = useState([]);
   const data = productData;
   const [loading, setLoading] = useState(false);
@@ -218,7 +224,7 @@ const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, 
     <div>
       {loading ? <Loader progress={progress} /> : null}
       {olLoader && <OverLayLoader />}
-      <div className={styles.container}>
+      <div className={overRideClass ? styles.container : ""}>
         {cardHeading ? <h2 className={styles.heading}>{cardHeading}</h2> : null}
         <div className={styles.gridContainer}>
           {data && data.map((product, i) => (

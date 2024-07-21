@@ -29,8 +29,8 @@ const HomePage = ({ homePageProps }) => {
       <LazyLoad height={200} offset={100}>
         <OrderDeadline {...shippingProps} />
         {/* <Goods sessionalProductProps={{ productData: sessionalProducts, enableMockData, addToCart, updateCartQuantity, removeCartItem }} /> */}
-        
-        <Categories/>
+
+        <Categories />
         <Register />
         <AddSignUp {...vipProps} />
         <VideoComponent />

@@ -121,7 +121,7 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
         <section className={styles.orderviewpage} style={{ display: showRequest ? 'none' : 'block' }}>
           <div className={styles.ordercomplete}>
             <p className="W-body-Large">
-              Order #{orderobj.id} was carried out on {new Date(orderobj.date_created).toLocaleDateString()} and is currently {orderobj.status}.
+              Order #{orderobj.id} was carried out on {orderDate} and is currently {orderobj.status}.
             </p>
           </div>
           <div className={styles.orderviewdetail}>
@@ -178,7 +178,7 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
                           {item.name} <span>x {item.quantity}</span>
                         </td>
                         <td>
-                          {orderobj.totals.currency_code} {getCorrectPrice(parseInt(item.totals.line_total) + parseInt(item.totals.line_total_tax), item.totals.currency_minor_unit)}
+                          {orderobj.totals.currency_code} {getCorrectPrice(parseInt(item.totals.line_subtotal) + parseInt(item.totals.line_subtotal_tax), item.totals.currency_minor_unit)}
                         </td>
                       </tr>
                     ))}

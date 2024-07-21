@@ -25,7 +25,6 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      debugger;
       const data = await authService.login({ username, password });
       if (data && data.token) {
         localStorage.setItem("token", `Bearer ${data.token}`);
@@ -92,12 +91,12 @@ const Login = () => {
           </div>
           <p>{log.useSocial}</p>
           <div className={styles.socialmedia}>
-            <a href="#" className="fb btn">
+            {/* <a href="#" className="fb btn">
               <i className="fa-brands fa-facebook-f"></i> {log.logfb}
             </a>
             <a href="#" className={styles.twitter}>
               <i className="fa-brands fa-twitter"></i> {log.logt}
-            </a>
+            </a> */}
             <a href="#" onClick={(e) => {
               e.preventDefault();
               signIn('google')

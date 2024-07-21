@@ -58,11 +58,11 @@ const ProductSlider = () => {
         },
       },
       {
-        breakpoint: 400,
+        breakpoint: 600,
         settings: {
           slidesToShow: 1, // Show 2 slides on mobile screens
           slidesToScroll: 1,
-          
+          initialSlide: 1,
         },
         
       },

@@ -10,12 +10,18 @@ const ProductList = () => {
     <div className={styles.skeletonContainer}>
       {skeletons.map((index) => (
         <div key={index} className={styles.skeletonCard}>
-          <div className={styles.cardSkeleton}>
-           {/* <Skeleton  width={40} height={30} className={styles.topImage}/> */}
-          <Skeleton className={styles.skeletonImage} height={77} width={140}/>
+            <div className={styles.newskl}>
+              <div>
+          <Skeleton className={styles.skeletonText} height={20} width={130}/>
+          <Skeleton className={styles.skeletonText} height={20} width={100}/>
           </div>
-          <Skeleton className={styles.skeletonText} height={30} />
-          <Skeleton className={styles.skeletonText} height={30} />
+          <Skeleton className={styles.skeletonText} height={30} width={40}/>
+          </div>
+          <div className={styles.cardSkeleton}>
+         
+          <Skeleton className={styles.skeletonImage} height={150}/>
+          </div>
+          
        
           <Skeleton className={styles.skeletonButton} height={40} />
          

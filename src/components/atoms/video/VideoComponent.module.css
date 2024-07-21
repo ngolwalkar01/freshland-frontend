@@ -146,6 +146,9 @@
     font-size: 14px;
     width: 171px;
   }
+  .textContainer{
+    padding: 0px 26px;
+  }
 }
 @media(min-width:400px) and (max-width: 500px) {
   .commonfrontImg img{

@@ -78,7 +78,58 @@ const AllItems = ({ categoryWithProducts }) => {
                 </ul>
               </div>
             </div>
+
+        
           </div>  
+
+              {/* desktop filter */}
+
+              <div
+              >
+
+                
+                <ul className={styles.newfilterlist}>
+
+                <li
+                className={`${styles.newfilterListLi} ${selectedFilter === null ? styles.activeFilter : ''}`}
+                onClick={() => {
+                      setSelectedFilter(null);
+                      setShowMenu(false);
+                    }}
+                  >
+                    <label className={styles.FilterRadioLabel}>
+                     All Product
+                    </label>
+                  </li>
+                  {categoryWithProducts && categoriesWithProducts.map((x, i) => {
+                    return (
+                      <li
+                        key={i}
+                        className={styles.newfilterListLi}
+                        onClick={() => {
+                          setSelectedFilter(x.category.id);
+                          setShowMenu(false);
+                        }}
+                      >
+                        {/* <input
+                          className={styles.filterInput}
+                          type="radio"
+                          name="cat-filters"
+                          value={x.category.id}
+                          id={x.category.id}
+                        /> */}
+                        <label
+                          className={styles.FilterRadioLabel}
+                          htmlFor={x.category.id}
+                        >
+                          {x.category.name}
+                        </label>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              {/*  */}
           <div className={styles.categoriesCover}>
             {/* Product list */}
             {categoriesWithProducts && categoriesWithProducts
@@ -90,7 +141,7 @@ const AllItems = ({ categoryWithProducts }) => {
                   <div className={styles.goodsItem} key={index}>
                     {/* Image */}
                     <div className={styles.imageContainer}>
-                      <Image
+                      {/* <Image
                         src={`/mockImage/Fruit.png`}
                         alt={item.category.name}
                         className={styles.coverImage}
@@ -98,7 +149,7 @@ const AllItems = ({ categoryWithProducts }) => {
                         height={213}
                         sizes="(max-width: 600px) 100vw, (max-width: 1400px) 80vw"
                         loading="lazy"
-                      />
+                      /> */}
                       <h2 className={styles.imageHeading}>
                         {item.category.name}
                       </h2>

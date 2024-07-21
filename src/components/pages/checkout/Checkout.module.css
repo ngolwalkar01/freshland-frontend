@@ -345,7 +345,7 @@
 
 .table {
   border-collapse: collapse;
-  margin: auto;
+  margin: auto 0px;
 }
 .table tr{
   display: flex;
@@ -358,7 +358,7 @@
 .table td{
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
   sans-serif;
-font-size: 18px;
+font-size: 16px;
 font-weight: 500;
 font-stretch: normal;
 font-style: normal;
@@ -368,7 +368,7 @@ letter-spacing: normal;
 .table label {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
     sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;

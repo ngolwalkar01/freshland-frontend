@@ -227,3 +227,13 @@
   }
   }
   
+  .newskl{
+    display: flex;
+    gap: 20px;
+  }
+
+ .skeletonTable .table th,
+.table td {
+  padding: 0.5rem;
+  text-align: left;
+}

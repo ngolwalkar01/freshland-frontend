@@ -29,7 +29,16 @@ const Shop = () => {
 
                 <div className={styles.skeletonImageContainer}>
                 <div className={styles.skeletonBox}>
-                <Skeleton width={1100} height={213} className={styles.skeletonWidth}/>
+               
+                <ul className={styles.newfilterlist}>
+                <Skeleton width={110} height={40} />
+                <Skeleton width={110} height={40} />
+                <Skeleton width={110} height={40} />
+                <Skeleton width={110} height={40} />
+                <Skeleton width={110} height={40} />
+                <Skeleton width={110} height={40} />
+              
+                </ul>
                
                 </div>
                  

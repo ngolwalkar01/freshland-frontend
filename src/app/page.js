@@ -42,7 +42,6 @@ export default function Home() {
         vipPages: vipPagesResponse || [],
         cutOffDaysDetail: DeliveryCycleResponse || undefined
       });
-
       getCartData();
     }
 

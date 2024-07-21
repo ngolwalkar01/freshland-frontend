@@ -465,8 +465,8 @@ function UserAddress({ userAddressProps }) {
                                         type="text"
                                         placeholder="Apartment,suite"
                                         name="address"
-                                        value={""}
-                                        onChange={() => { }}
+                                        value={selectedAddress?.address_2 || ""}
+                                        onChange={(e) => { onUpdateShippingAddress(e, 'address_2'); }}
                                     />
                                 </div>
                             </div>

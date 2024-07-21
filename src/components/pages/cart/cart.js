@@ -506,7 +506,7 @@ function Cart() {
                           subscriptionShipping={subscriptionShipping}
                           setCartShipment={
                             (shipmentOpt, packageId) => {
-                              if (shipmentOpt && packageId)
+                              if (shipmentOpt && (packageId || packageId === 0))
                                 applyLoader(
                                   setOlLoader,
                                   setCartShipment,

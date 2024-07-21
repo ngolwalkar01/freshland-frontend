@@ -11,10 +11,11 @@ export default NextAuth({
     ],
     callbacks: {
         async signIn({ user, account, profile }) {
-            // console.log("sdasdasdas", user, account, profile)
+            //console.log("sdasdasdas", user, account, profile)
             return true;
         },
         async redirect({ url, baseUrl }) {
+            console.log("SignIn Callback Triggered");
             return baseUrl;
         },
     },

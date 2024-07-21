@@ -444,7 +444,7 @@
 }
 
 .skeletonText {
-  margin-bottom: 16px;
+  margin-bottom: 7px;
   width: 100%;
   border-radius: 4px; /* Add border radius */
 }
@@ -463,4 +463,17 @@
 .topImage{
   float: right;
   margin-bottom: 20px;
+}
+
+.newskl{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+    justify-content: space-between;
+}
+
+.newskl div:first-child{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }

@@ -126,7 +126,7 @@ const Order = ({ orderId }) => {
                           <tr key={index}>
                             <td>{item.name} <span>x {item.quantity}</span></td>
                             <td>{currency} {getCorrectPrice(
-                              parseInt(item?.totals?.line_total) + parseInt(item?.totals?.line_total_tax),
+                              parseInt(item?.totals?.line_subtotal) + parseInt(item?.totals?.line_subtotal_tax),
                               item?.totals?.currency_minor_unit
                             )}</td>
                           </tr>

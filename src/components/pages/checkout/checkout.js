@@ -244,7 +244,7 @@ function Checkout() {
   }, []);
 
   useEffect(() => {
-    const { shipping_address } = cartData;
+    const { shipping_address, billing_address } = cartData;
     if (shipping_address) {
       const { first_name, last_name } = shipping_address;
 
@@ -253,6 +253,11 @@ function Checkout() {
       // setEmail(email);
       // setStreetValue({ tekst: address_1 });
       // setPhone(phone);
+    }
+
+    if(billing_address) {
+      const { email } = billing_address;
+      if (email) setEmail(email);
     }
   }, [cartData]);
 
@@ -1525,7 +1530,7 @@ function Checkout() {
                           shipping={shipping}
                           subscriptionShipping={subscriptionShipping}
                           setCartShipment={(shipmentOpt, packageId) => {
-                            if (shipmentOpt && packageId)
+                            if (shipmentOpt && (packageId || packageId === 0))
                               applyLoader(setOlLoader, setCartShipment, [
                                 shipmentOpt,
                                 packageId,

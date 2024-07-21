@@ -2,17 +2,20 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from "react";
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.css";
 import { homepageTranslation } from '@/locales';
-import Productsearch from '@/components/atoms/searchproduct/searchproduct';
+import Productsearch from '@/components/atoms/search';
+import productService from '@/services/product';
+import productCategoryService from "@/services/productCategories";
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
 const Header = () => {
+  const router = useRouter();
   const hpt = homepageTranslation[lang];
   const [Mobile, setMobile] = useState(false);
   const pathname = usePathname()
@@ -22,8 +25,12 @@ const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
   const [overlayVisible, setOverlayVisible] = useState(false);
+  const [productData, setProductData] = useState([]);
+  const [searchTxt, setSearchTxt] = useState("");
+  const [categories, setCategories] = useState([])
 
   const openSearch = () => {
+    setSearchTxt("");
     setOverlayVisible(true);
   };
 
@@ -57,6 +64,15 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await productCategoryService.getCategories();
+      setCategories(data);
+    }
+
+    fetchData();
+  }, [])
 
   const updateCartCount = () => {
     const cartLocalStorageData = cartDataStorage && localStorage.getItem(cartDataStorage);
@@ -102,6 +118,29 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const getSearchedProducts = async () => {
+      if (searchTxt) {
+        const data = await productService.getSearchedProducts(searchTxt);
+        setProductData(data?.suggestions && data?.suggestions.length > 0 ? data.suggestions : []);
+      } else {
+        setProductData([]);
+      }
+    }
+
+    const timeoutId = setTimeout(() => {
+      getSearchedProducts();
+    }, 300);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchTxt])
+
+  const onSearch = (e) => {
+    e.preventDefault();
+    if (searchTxt)
+      router.push(`/search/${searchTxt}`);
+  }
+
   return (
     <>
       <div className={styles.bgWrapper}>
@@ -132,11 +171,11 @@ const Header = () => {
                   {showmenu && (
                     <ul className={`${styles.storemenu}`}>
                       <li className={styles.lifirst}><Link href='/shop'>{hpt.allgood}</Link></li>
-                      <li><Link href='/green'>{hpt.green}</Link></li>
-                      <li className={styles.linuts}><Link href='/nutssnack'>{hpt.nuts}</Link></li>
-                      <li><Link href='/basis'>{hpt.basis}</Link></li>
-                      <li className={styles.lifirst}><Link href='/drinking'>{hpt.drink}</Link></li>
-                      <li className={styles.lifirst}><Link href='/giftcards'>{hpt.gift}</Link></li>
+                      {
+                        categories && categories.length > 0 && categories.map((x, i) => {
+                          return <li key={i}><Link href={`/category/${x}`}>{x}</Link></li>
+                        })
+                      }
                     </ul>
                   )}
                 </div>
@@ -182,11 +221,15 @@ const Header = () => {
             <div className={styles.overlayContent}>
               <p className={styles.looking}>{hpt.whatAre}</p>
               <form>
-                <input type="text" placeholder="search items.." name="search" className={styles.overlayInput} />
-                <button type="submit" className={styles.overlayButton}><i className="fa fa-search"></i></button>
+                <input type="text" placeholder="search items.." value={searchTxt}
+                  onChange={(e) => setSearchTxt(e.target.value)} name="search" className={styles.overlayInput} />
+                <button type="button" onClick={onSearch} className={styles.overlayButton}><i className="fa fa-search"></i></button>
               </form>
             </div>
-            <Productsearch />
+            <div className={styles.ovFlow_scroll}>
+              <Productsearch cardHeading=""
+                productData={productData} />
+            </div>
           </div>
         </div>
       </div>
