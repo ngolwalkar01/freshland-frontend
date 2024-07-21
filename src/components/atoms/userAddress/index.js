@@ -122,6 +122,16 @@ function UserAddress({ userAddressProps }) {
         setEditableMode({ index: 0, status: true });
     }
 
+    const resetForm = () => {
+        setEditableMode({
+            status: false,
+            index: -1,
+        });
+        setSelectedAddress(null);
+        setNewAddressAdded(false);
+        setShowSaveButton(false);
+    }
+
     const checkIfUserHaveAddress = useCallback(async () => {
         if (token) {
             let userAddress = await getSavedAddress();
@@ -155,6 +165,7 @@ function UserAddress({ userAddressProps }) {
             setNewAddressAdded(false);
             setEditableMode({ index, status: true });
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userAddresses, newAddressAdded]);
 
     const validateAddress = () => {
@@ -242,7 +253,6 @@ function UserAddress({ userAddressProps }) {
     };
 
     const fetchData1 = async (firstName, lastName, userAddresses, selectedAddressIndex) => {
-        console.log('API called')
         await setCustomerDetail(firstName, lastName, userAddresses, selectedAddressIndex);
         await updateLocalStorageCartData();
     }
@@ -324,6 +334,7 @@ function UserAddress({ userAddressProps }) {
     const savedAddress = async () => {
         try {
             await saveUserAddresses(userAddresses);
+            resetForm();
             await checkIfUserHaveAddress();
         } catch (error) { }
     }

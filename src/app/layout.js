@@ -13,6 +13,7 @@ export default function RootLayout({ children }) {
       <Head>
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <title>Fresh.Land - Nyhøstet frugt og grøntsager. Bestil nu!</title>
+        {/* <script src="https://apis.google.com/js/platform.js" async defer></script> */}
       </Head>
       <body className={inter.className}>
         {children}

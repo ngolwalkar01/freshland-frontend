@@ -59,6 +59,7 @@ const Order = ({ orderId }) => {
 
   useEffect(() => {
     getOrderDetail();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [orderId]);
 
   const getCorrectPrice = (number, currency_minor_unit) => {

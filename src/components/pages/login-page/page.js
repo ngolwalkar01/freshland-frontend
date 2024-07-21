@@ -6,6 +6,7 @@ import authService from "@/services/auth";
 import { useRouter } from 'next/navigation';
 import { loginTranslation } from '@/locales';
 import cookieService from '@/services/cookie';
+import { signIn } from 'next-auth/react';
 
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
@@ -24,6 +25,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      debugger;
       const data = await authService.login({ username, password });
       if (data && data.token) {
         localStorage.setItem("token", `Bearer ${data.token}`);
@@ -96,7 +98,10 @@ const Login = () => {
             <a href="#" className={styles.twitter}>
               <i className="fa-brands fa-twitter"></i> {log.logt}
             </a>
-            <a href="#" className={styles.google}>
+            <a href="#" onClick={(e) => {
+              e.preventDefault();
+              signIn('google')
+            }} className={`${styles.google} login-with-google-button`}>
               <i className="fa-brands fa-google"></i> {log.logg}
             </a>
           </div>
