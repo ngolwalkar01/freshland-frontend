@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
+import AuthAPI from '@/services/auth';
 
 export default NextAuth({
     providers: [
@@ -11,7 +12,14 @@ export default NextAuth({
     ],
     callbacks: {
         async signIn({ user, account, profile }) {
-            //console.log("sdasdasdas", user, account, profile)
+            try {
+                console.log(">>>>>>>>>>>", window?.localStorage)
+                // console.log(JSON.stringify(account))
+                // const data = await AuthAPI.loginWithGoogle(account);
+                // console.log("Success", JSON.stringify(data))
+            } catch (error) {
+                console.log(JSON.stringify(error));
+            }
             return true;
         },
         async redirect({ url, baseUrl }) {

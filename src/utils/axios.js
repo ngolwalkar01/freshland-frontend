@@ -2,6 +2,19 @@ import axios from 'axios';
 import Router from 'next/router';
 import cookieService from '@/services/cookie';
 
+const getCartKey = () => {
+    let cartKey;
+    try {
+        const cartData = JSON.parse(localStorage.getItem('cartDataStorage'));
+
+        if (cartData && cartData.extensions && cartData.extensions.delivery && cartData.extensions.delivery.length > 0) {
+            cartKey = cartData.extensions.delivery[0].cart_key;
+        }
+    } catch (error) {
+
+    }
+    return cartKey;
+}
 const axiosInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_BASE_URL
 });
@@ -9,12 +22,17 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(config => {
     const token = localStorage.getItem('token');
     const cartToken = localStorage.getItem('cart-token');
+    const cartKey = getCartKey();
     const nonce = localStorage.getItem('nonce');
+
     if (token) {
         config.headers.Authorization = token;
     }
     if (cartToken) {
         config.headers['Cart-Token'] = cartToken;
+    }
+    if (cartKey) {
+        config.headers['Cart-key'] = cartKey;
     }
     if (nonce) {
         config.headers['Nonce'] = nonce;

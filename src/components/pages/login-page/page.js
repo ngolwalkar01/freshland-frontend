@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "@/components/atoms/Header/Header";
 import styles from "./Login.module.css";
 import { toast } from "react-toastify";
@@ -6,7 +6,7 @@ import authService from "@/services/auth";
 import { useRouter } from 'next/navigation';
 import { loginTranslation } from '@/locales';
 import cookieService from '@/services/cookie';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
@@ -21,6 +21,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const router = useRouter();
+  const { data: session, status } = useSession();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -44,6 +45,22 @@ const Login = () => {
       );
     }
   };
+
+  // useEffect(() => {
+  //   if (status === "authenticated") {
+  //     (async () => {
+  //       try {
+  //         const data = await authService.loginWithGoogle(session.user);
+  //         if (typeof window !== 'undefined') {
+  //           localStorage.setItem('data', JSON.stringify(data));
+  //         }
+  //         router.push("/account");
+  //       } catch (error) {
+  //         toast.error("Failed to fetch user data.", { autoClose: toastTimer });
+  //       }
+  //     })();
+  //   }
+  // }, [session, status, router]);
 
   return (
     <>
@@ -97,9 +114,9 @@ const Login = () => {
             <a href="#" className={styles.twitter}>
               <i className="fa-brands fa-twitter"></i> {log.logt}
             </a> */}
-            <a href="#" onClick={(e) => {
+            <a href="#" onClick={async (e) => {
               e.preventDefault();
-              signIn('google')
+              signIn('google');
             }} className={`${styles.google} login-with-google-button`}>
               <i className="fa-brands fa-google"></i> {log.logg}
             </a>

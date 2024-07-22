@@ -300,6 +300,16 @@ const saveUserAddresses = async (token: string, userAddresses: UserAddress) => {
     }
 }
 
+const getVipPageDataById = async (id: string) => {
+    try {
+        const response = await axios.get(`${INTERNAL_API_BASE_URL}/vip-page/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error in getting vip page data :', error);
+        throw error;
+    }
+}
+
 const CartAPI = {
     addProductToCart,
     getCartItems,
@@ -318,7 +328,8 @@ const CartAPI = {
     recoverUserCart,
     getUserAddresses,
     setUserAddresses,
-    saveUserAddresses
+    saveUserAddresses,
+    getVipPageDataById
 };
 
 export default CartAPI;

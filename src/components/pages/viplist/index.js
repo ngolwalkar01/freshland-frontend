@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Telephone from "@/components/atoms/phonenumber/";
 
-const Vip = () => {
+const Vip = ({ vipPageData }) => {
+  const { content = "", featured_image = "" } = vipPageData || {};
   return (
     <>
       <main>
@@ -16,7 +17,8 @@ const Vip = () => {
         <section className={style.viplistConatiner}>
           <div>
             <form className={style.container}>
-              <div className={style.juicy}>
+              <div className={style.juicy} dangerouslySetInnerHTML={{ __html: content }} ></div>
+              {/* <div className={style.juicy}>
                 <h4>Sweet and juicy citrus fruits! </h4>
                 <p>
                   Sun-ripened oranges 🍊 clementines, grapefruits and other
@@ -38,7 +40,7 @@ const Vip = () => {
                   We expect the citrus season to start around October or
                   November, but of course it depends on the weather.
                 </p>
-              </div>
+              </div> */}
               <div className={style.juicy}>
                 <div className={style.signUpvip}>
                   <p>Sign up for the VIP list</p>
@@ -50,7 +52,7 @@ const Vip = () => {
                 </div>
                 <div className={style.productimg}>
                   <Image
-                    src="/mockImage/viporange.png"
+                    src={featured_image}
                     alt="viporange"
                     width={250}
                     height={250}

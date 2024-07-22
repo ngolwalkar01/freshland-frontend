@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { signUp } from "@/mockdata/signUp";
-import { useState,useRef } from 'react';
+import { useState, useRef } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './Signup.module.css';
@@ -11,6 +11,7 @@ import Image from 'next/image';
 import { homepageTranslation } from '@/locales';
 import Link from "next/link";
 import { CustomPrevArrow, CustomNextArrow } from "@/components/atoms/customearrow"
+import { useRouter } from 'next/navigation';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 
@@ -19,7 +20,8 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
   const hpt = homepageTranslation[lang];
   const images = signUp;
   const sliderRef = useRef(null);
- 
+  const router = useRouter();
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
@@ -30,8 +32,8 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
     autoplay: false,
     adaptiveHeight: true,
     beforeChange: (current, next) => setCurrentSlide(next),
-    prevArrow:  <CustomPrevArrow 
-     />,
+    prevArrow: <CustomPrevArrow
+    />,
     nextArrow: <CustomNextArrow
     />,
     responsive: [
@@ -75,17 +77,17 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
           slidesToScroll: 1,
           initialSlide: 1,
         },
-        
+
       },
 
-       {
+      {
         breakpoint: 400,
         settings: {
           slidesToShow: 1, // Show 2 slides on mobile screens
           slidesToScroll: 1,
-          
+
         },
-        
+
       },
     ],
   };
@@ -98,36 +100,36 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
         <h2 className={styles.heading}>{hpt.benefitsVIP}</h2>
         <p className={styles.description}>Be the first to know when you favorite products are in season</p>
         <div className={styles.sliderContainer}>
-        <Slider {...settings}>
-         
-          {vipPages && vipPages.map((data, index) => (
-            <div key={index}>
+          <Slider {...settings}>
 
-              <div className={styles.imageContainer}>
-                <Image
-                  className={styles.image}
-                  src={data.thumbnail && false ? data.thumbnail : '/mockImage/viporange.png'}
-                  alt={`Slide ${index}`}
-                  width={343}
-                  height={350}
-                  priority 
-                />
-               
-               <h4 className={styles.text}>{data.title}</h4>
+            {vipPages && vipPages.map((data, index) => (
+              <div key={index}>
 
-       <button className={styles.button}>{hpt.signUp}</button>
-               
+                <div className={styles.imageContainer}>
+                  <Image
+                    className={styles.image}
+                    src={data.thumbnail && false ? data.thumbnail : '/mockImage/viporange.png'}
+                    alt={`Slide ${index}`}
+                    width={343}
+                    height={350}
+                    priority
+                  />
+
+                  <h4 className={styles.text}>{data.title}</h4>
+
+                  <button className={styles.button} onClick={() => router.push(`/viplist/${data.id}`)}>{hpt.signUp}</button>
+
+                </div>
+.
               </div>
-              
-            </div>
-           
-          ))}
-          
-        </Slider>
+
+            ))}
+
+          </Slider>
         </div>
-        <Link href ="/shop" className={styles.signupButton}>{hpt.seeVIP}</Link>
-      </div>
-    </div>
+        <Link href="/shop" className={styles.signupButton}>{hpt.seeVIP}</Link>
+      </div >
+    </div >
   );
 };
 

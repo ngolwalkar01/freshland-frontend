@@ -83,7 +83,7 @@ const Register = () => {
                     type="text"
                     className={registerStyles.textField}
                     name="text"
-                    placeholder="Harsh"
+                    placeholder="Enter Firstname"
                     value={firstName}
                     onInput={(e) => setFirstName(e.target.value)}                  
                 />
@@ -100,7 +100,7 @@ const Register = () => {
                     type="email"
                     className={registerStyles.textField}
                     name="email"
-                    placeholder="harshrathi@gmail.com"
+                    placeholder="Enter email"
                     value={email}
                     onInput={(e) => setEmail(e.target.value)}   
                   />
