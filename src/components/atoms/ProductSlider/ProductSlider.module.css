@@ -70,6 +70,7 @@ gap: 16px;
   font-size: 24px;
     color: var(--blue);
     font-weight: 500;
+    text-align: left;
 }
 .arrowButtons {
   display: flex;
@@ -117,7 +118,7 @@ cursor: pointer;
 @media (min-width:320px) and (max-width:377px){
  
   .image{
-    width: 248px;
+    width: 244px;
     object-fit: cover;
   }
   .slide{
@@ -139,7 +140,9 @@ cursor: pointer;
   .sliderContainer{
     margin: 0px 0px 0px 30px;
   }
- 
+ .boxContainer{
+  padding: 12px 0px 40px 0px;
+ }
 }
 
 

@@ -89,7 +89,7 @@
 }
 .freightConatiner{
   padding: 100px 0px;
-  background-color: rgba(241, 114, 103, 0.29);
+  background-color: #f3e3db;
   position: relative;
 }
 .mainFreight{
@@ -240,6 +240,9 @@
   }
   .deadlinedata{
     gap: 24px;
+  }
+  .freightConatiner{
+    background-color: rgba(246, 233, 221, 1);;
   }
  }
 

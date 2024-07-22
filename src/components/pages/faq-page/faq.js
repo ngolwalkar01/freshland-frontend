@@ -64,11 +64,11 @@ const faqData = [
       },
       {
         title: 'Vad händer om leveransen misslyckas?',
-        content: 'Kontakta oss på hej@fresh.land eller tel. +46 10 888 57 20. Onsdagar kan vi kontaktas till 20.00 på telefon – om du behöver kontakta oss senare på kvällen så skicka gärna ett mejl som vi följer upp nästa morgon.'
+        content: 'Kontakta oss på <a href="mailto:hej@fresh.land">hej@fresh.land</a> eller tel. <a href="#">+46 10 888 57 20</a>. Onsdagar kan vi kontaktas till 20.00 på telefon – om du behöver kontakta oss senare på kvällen så skicka gärna ett mejl som vi följer upp nästa morgon.'
       },
       {
         title: 'Vad gör jag om jag fått varor som inte lever upp till förväntningarna?',
-        content: 'Meddela oss redan vid mottagandet, senast 3 dagar efter leverans, men gärna så fort som möjligt i samband med leverans. Ta gärna några bilder av produkterna samt etiketten på sidan av lådan och beskriv problemet och hur mycket av lådan det omfattar. Skicka ditt mail till hej@fresh.land med rubriken “Reklamation” och bilderna. Vi hör av oss så snart som möjligt och hittar en lösning tillsammans – vi strävar efter att svara inom 48 timmar.'
+        content: 'Meddela oss redan vid mottagandet, senast 3 dagar efter leverans, men gärna så fort som möjligt i samband med leverans. Ta gärna några bilder av produkterna samt etiketten på sidan av lådan och beskriv problemet och hur mycket av lådan det omfattar. Skicka ditt mail till <a href="mailto:hej@fresh.land">hej@fresh.land</a> med rubriken “Reklamation” och bilderna. Vi hör av oss så snart som möjligt och hittar en lösning tillsammans – vi strävar efter att svara inom 48 timmar.'
       },
       {
         title: 'Kan ni leverera till mitt fritidshus?',
@@ -85,7 +85,7 @@ const faqData = [
       },
       {
         title: 'Jag vill göra några ändringar i min order. Kan ni hjälpa mig?',
-        content: 'Ändringar angående innehållet i din order. Ja, vi kan absolut hjälpa dig med att ta bort varor på din order innan tidsfristen. Ring bara till oss på tlf: +46 10 888 57 20, så hjälper vi dig. Vi kan tyvärr inte hjälpa till med att lägga till extra varor i din order, på grund av GDPR regler. Men om du har betällt under ett kundkonto, så kan du göra en tilläggsorder i en redan befintlig order. Systemet kommer automatiskt att registrera ytterligare leveranser till samma person och adress, och därför endast lägga på fraktavgift på den ena. – Detta gäller självklart endast innan deadline. Om du beställer som gäst – utan ett kundkonto på hemsidan – kan du fortfarande göra en tilläggsorder utan att betala dubbel frakt. Kontakta oss genom att antingen ringa eller skicka ett mail; vårt kundservice-team är redo att hjälpa dig. Alla beställningar som läggs innanför samma cykel till samma adress kommer att bli levererade tillsammans. Deadline för beställningar/ändringar/avbeställningar: Tidsfristen för leverans onsdag: Onsdag kl. 24.00 veckan innan. Deadline för adressändringar: Tidsfrist för leverans onsdag: Onsdag kl. 24.00 veckan innan.'
+        content: 'Ändringar angående innehållet i din order. Ja, vi kan absolut hjälpa dig med att ta bort varor på din order innan tidsfristen. Ring bara till oss på tlf: <a href="#">+46 10 888 57 20</a>, så hjälper vi dig. Vi kan tyvärr inte hjälpa till med att lägga till extra varor i din order, på grund av GDPR regler. Men om du har betällt under ett kundkonto, så kan du göra en tilläggsorder i en redan befintlig order. Systemet kommer automatiskt att registrera ytterligare leveranser till samma person och adress, och därför endast lägga på fraktavgift på den ena. – Detta gäller självklart endast innan deadline. Om du beställer som gäst – utan ett kundkonto på hemsidan – kan du fortfarande göra en tilläggsorder utan att betala dubbel frakt. Kontakta oss genom att antingen ringa eller skicka ett mail; vårt kundservice-team är redo att hjälpa dig. Alla beställningar som läggs innanför samma cykel till samma adress kommer att bli levererade tillsammans. Deadline för beställningar/ändringar/avbeställningar: Tidsfristen för leverans onsdag: Onsdag kl. 24.00 veckan innan. Deadline för adressändringar: Tidsfrist för leverans onsdag: Onsdag kl. 24.00 veckan innan.'
       },
       {
         title: 'Jag har beställt och vill lägga till några varor. Hur gör jag?',
@@ -97,11 +97,11 @@ const faqData = [
       },
       {
         title: 'Varför har jag inte mottagit något orderbekräftelse?',
-        content: 'Om du inte kan se någon orderbekräftelse – kika gärna i din skräppost först. Om den inte heller är där kan det bero på två saker – Antingen har din order inte gått igenom eller så har du skrivit in en felaktig mejladress. Kontakta oss gärna på hej@fresh.land eller ring oss på +46 10 888 57 20 så hjälper vi dig.'
+        content: 'Om du inte kan se någon orderbekräftelse – kika gärna i din skräppost först. Om den inte heller är där kan det bero på två saker – Antingen har din order inte gått igenom eller så har du skrivit in en felaktig mejladress. Kontakta oss gärna på<a href="mailto:hej@fresh.land">hej@fresh.land</a> eller ring oss på <a href="#">+46 10 888 57 20</a> så hjälper vi dig.'
       },
       {
         title: 'Ångerrätt och reklamation',
-        content: 'Ångerrätt: Det finns ingen ångerrätt för avtal om leverans av mat, drycker eller andra varor för hushållets nuvarande konsumtion, som levereras fysiskt till ditt hem, bostad eller arbetsplats, som en del av vår ordinarie leverans av varor. Varor på fresh.land/se/ som inte är för hushållets nuvarande konsumtion täcks av de allmänna reglerna om ångerrätt. Reklamation: Om varan du fick inte lever upp till förväntningarna vill vi gärna kompensera dig. Kontakta oss på hej@fresh.land senast 3 dagar efter leverans, men gärna så fort som möjligt i samband med leverans.'
+        content: 'Ångerrätt: Det finns ingen ångerrätt för avtal om leverans av mat, drycker eller andra varor för hushållets nuvarande konsumtion, som levereras fysiskt till ditt hem, bostad eller arbetsplats, som en del av vår ordinarie leverans av varor. Varor på fresh.land/se/ som inte är för hushållets nuvarande konsumtion täcks av de allmänna reglerna om ångerrätt. Reklamation: Om varan du fick inte lever upp till förväntningarna vill vi gärna kompensera dig. Kontakta oss på <a href="mailto:hej@fresh.land">hej@fresh.land</a> senast 3 dagar efter leverans, men gärna så fort som möjligt i samband med leverans.'
       }
     ]
   },
@@ -114,11 +114,11 @@ const faqData = [
       },
       {
         title: 'Kan jag få en blandad låda med varor jag valt själv?',
-        content: 'Nej, för tillfället har vi inte resurserna till att specialanpassa innehållet i produkterna. Vi har mix-lådor i vårt sortiment som du kan välja. Vi tar gärna emot förslag och idéer på nya produkter och mix-lådor på vår mejl hej@fresh.land'
+        content: 'Nej, för tillfället har vi inte resurserna till att specialanpassa innehållet i produkterna. Vi har mix-lådor i vårt sortiment som du kan välja. Vi tar gärna emot förslag och idéer på nya produkter och mix-lådor på vår mejl <a href="mailto:hej@fresh.land">hej@fresh.land</a>'
       },
       {
         title: 'Säljer ni..?',
-        content: 'Om du inte hittar en produkt när du söker på “Produkter i säsong” så finns produkten inte i vårt sortiment för tillfället. Vårt sortiment varierar utifrån säsong och vi är hela tiden på utkik efter fler varor i säsong att lägga till. Om du önskar en ny produkt är du välkommen att mejla oss på hej@fresh.land'
+        content: 'Om du inte hittar en produkt när du söker på “Produkter i säsong” så finns produkten inte i vårt sortiment för tillfället. Vårt sortiment varierar utifrån säsong och vi är hela tiden på utkik efter fler varor i säsong att lägga till. Om du önskar en ny produkt är du välkommen att mejla oss på <a href="mailto:hej@fresh.land">hej@fresh.land</a>'
       }
     ]
   },

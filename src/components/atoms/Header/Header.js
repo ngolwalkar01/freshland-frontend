@@ -183,7 +183,7 @@ const Header = () => {
                 <Link href="/farmer" className={isActive('/farmer')}>{hpt.farmers}</Link>
                 <Link href="/faq" className={isActive('/faq')}>{hpt.faq}</Link>
                 <Link href="/about" className={isActive('/about')}>{hpt.aboutUs}</Link>
-                <Link href="/media" className={isActive('/media')}>{hpt.media}</Link>
+             
               </div>
               <div className={styles.icon}>
                 <div className={styles.headerIconWrapper}>

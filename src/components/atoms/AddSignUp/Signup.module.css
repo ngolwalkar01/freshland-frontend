@@ -123,7 +123,6 @@
   color: var(--green);
   border-radius: 25px;
   border: 2px solid var(--green);
-  margin-bottom: 100px;
   margin-top: 64px;
   margin-inline: auto;
   text-transform: capitalize;
@@ -191,7 +190,7 @@
  .signupButton{
   font-size: 12px;
   width: 171px;
-  margin: 0px auto;
+  margin: 30px auto auto auto;
   height: 55px;
  }
  .text{

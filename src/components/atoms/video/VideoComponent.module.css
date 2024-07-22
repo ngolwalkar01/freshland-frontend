@@ -122,17 +122,27 @@
   }
   .videoContainer{
     padding: 40px 0px;
-    width: 356px;
+    width: 343px;
     max-width: 741px;
-    height: 312px;
+    height: auto;
     margin: 0px 16px;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: unset;
+
   }
   .desktopimg{
     display: none;
   }
   .mobileviewimg{
     display: block;
+    scale: 1.8;
+    width: 189.5px;
+    margin: 0px 0px 0px 0px;
+    transform: translate(0.5px, 4px);
+
   }
   .commonfrontImg img{
     top: 90% !important;

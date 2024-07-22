@@ -28,6 +28,7 @@
   gap: 20px;
   display: grid;
   grid-template-columns: auto auto auto auto;
+  margin: 0px 0px 60px 0px;
 }
 .gridItem{
   background-color: #fff;
@@ -318,7 +319,7 @@
   .gridContainer {
     gap: 11px;
     grid-template-columns: 165px 165px;
-    padding: 17px;
+    padding: 0px 17px;
   
   }
 

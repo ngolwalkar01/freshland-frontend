@@ -375,6 +375,11 @@ cursor: pointer;
 
 }
 
+
+.basketWrapper:active{
+  transform: scale(0.98); 
+}
+
 .addToBasket .valueButton {
   border: 1px solid #ddd;
   width: 40px;

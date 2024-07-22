@@ -10,7 +10,8 @@ import { CustomPrevArrow, CustomNextArrow } from "@/components/atoms/customearro
 const ProductSlider = () => {
   const sliderRef = useRef(null);
   const images = seasonproductslider;
- 
+  const [showPrevArrow, setShowPrevArrow] = useState(false);
+
 
   const settings = {
     infinite: true,
@@ -20,9 +21,9 @@ const ProductSlider = () => {
     autoplay: false,
     autoplaySpeed: 2000,
     adaptiveHeight: true,
-    prevArrow:  <CustomPrevArrow />,
- 
-    nextArrow: <CustomNextArrow/>,
+    prevArrow: <CustomPrevArrow visible={showPrevArrow}/>,
+    nextArrow: <CustomNextArrow setShowPrevArrow={setShowPrevArrow}/>,
+    
     responsive: [
       {
         breakpoint: 1440,

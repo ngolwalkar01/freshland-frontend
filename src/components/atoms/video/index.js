@@ -20,7 +20,15 @@ const VideoComponent = () => {
             </div>
            <Link href="#" className={videoStyles.learnmore}>Learn more</Link>
           </div>
-          <div className={videoStyles.videoContainer}><LazyYoutube videoId="MrvUKufzTXA" /></div>
+          <div className={videoStyles.videoContainer}><LazyYoutube videoId="MrvUKufzTXA" />
+          <Image
+          src="/Images/mobileview.png"
+          width={343}
+          height={82}
+          alt="mobileview"
+          className={videoStyles.mobileviewimg}
+          />
+          </div>
         </div>
         <div className={videoStyles.commonfrontImg}>
         <Image
@@ -30,13 +38,7 @@ const VideoComponent = () => {
            height={680}
            className={videoStyles.desktopimg}
           />
-          <Image
-          src="/Images/mobileview.png"
-          width={343}
-          height={82}
-          alt="mobileview"
-          className={videoStyles.mobileviewimg}
-          />
+       
           </div>
         {/* <LazyYoutube videoId="MrvUKufzTXA" /> */}
       </div>

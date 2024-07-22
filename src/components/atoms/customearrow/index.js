@@ -1,12 +1,12 @@
 import React from "react";
 import styles from './CustomArrows.module.css';
 const CustomPrevArrow = (props) => {
-  const { className, style, onClick } = props;
+  const { className, style, onClick,visible } = props;
   return (
     <>
     <div
        className={`${className} ${styles.arrowprevContainer}`}
-      style={{ ...style, display: "block", zIndex: 1 }}
+       style={{ ...style, display: visible ? "block" : "none", zIndex: 1 }}
       onClick={onClick}
 
     
@@ -16,15 +16,18 @@ const CustomPrevArrow = (props) => {
 };
 
 const CustomNextArrow = (props) => {
-  const { className, style, onClick } = props;
+  const { className, style, onClick, setShowPrevArrow } = props;
   return (
-    <>
     <div
       className={`${className} ${styles.arrowContainer}`}
       style={{ ...style, display: "block", zIndex: 1 }}
-      onClick={onClick}
+      onClick={() => {
+        console.log('Next arrow clicked');
+        setShowPrevArrow(true);
+        onClick();
+      }}
+      
     />
-    </>
   );
 };
 

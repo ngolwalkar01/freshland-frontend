@@ -1,6 +1,5 @@
 .seeproduct{
   padding-bottom: 100px;
- padding-top: 64px;
 }
 
 .seeAllButton{
@@ -36,14 +35,14 @@
     .seeAllButton{
       width: 165px;
       border-radius: 25px;
-      height: 38px;
+      height: 53px;
       font-size: 12px;
       font-weight: 400;
     }
 
     .seeproduct{
-      padding-bottom:24px;;
-      padding-top: 40px;
+      padding-bottom:40px;;
+  
     }
   
 
