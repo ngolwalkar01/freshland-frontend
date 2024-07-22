@@ -28,7 +28,7 @@ export const getCartKey = () => {
   } catch (error) {
 
   }
-
+  debugger;
   if (cartKey) {
     removeLocalStorage('temp_cart_key');
   } else {
@@ -40,6 +40,7 @@ export const getCartKey = () => {
 
 const storeTempState = () => {
   const cartKey = getCartKey();
+  debugger;
   if (cartKey) {
     localStorage.setItem('temp_cart_key', cartKey);
   }
