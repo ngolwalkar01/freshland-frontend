@@ -17,6 +17,34 @@ export const updateCartData = (cartData) => {
   setLocalStorage(cartDataStorage, cartData);
 };
 
+export const getCartKey = () => {
+  let cartKey;
+  try {
+    const cartData = JSON.parse(localStorage.getItem('cartDataStorage'));
+
+    if (cartData && cartData.extensions && cartData.extensions.delivery && cartData.extensions.delivery.length > 0) {
+      cartKey = cartData.extensions.delivery[0].cart_key;
+    }
+  } catch (error) {
+
+  }
+
+  if (cartKey) {
+    removeLocalStorage('temp_cart_key');
+  } else {
+    cartKey = localStorage.getItem('temp_cart_key');
+  }
+
+  return cartKey;
+}
+
+const storeTempState = () => {
+  const cartKey = getCartKey();
+  if (cartKey) {
+    localStorage.setItem('temp_cart_key', cartKey);
+  }
+}
+
 export const getCartData = async () => {
   const errorMessage =
     "There was an issue in fetching cart data. Please try again.";
@@ -112,6 +140,7 @@ export const createNewOrder = async (orderData) => {
     [orderData],
     errorMessage
   );
+  storeTempState();
   removeLocalStorage(cartDataStorage);
   toast.success("Your order is in process.", { autoClose: toastTimer });
   return data;
