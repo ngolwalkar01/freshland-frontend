@@ -29,7 +29,10 @@ const Login = () => {
       const data = await authService.login({ username, password });
       if (data && data.token) {
         setUserLoggedInData(data);
-        await googleSignOut();
+        await googleSignOut({
+          callbackUrl: `${window.location.origin}/auth/signout`,
+          redirect: false,
+        });
         // localStorage.setItem("token", `Bearer ${data.token}`);
         // cookieService.setCookie("token", `Bearer ${data.token}`, expires);
 
