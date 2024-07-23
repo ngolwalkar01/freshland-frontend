@@ -15,7 +15,8 @@ import accountService from '@/services/account'
 import subscriptionService from "@/services/subscriptions";
 import Loader from "@/components/atoms/loader/loader";
 import AuthAPI from "@/services/auth";
-import { getCheckoutOrderById, getOrderDates } from "@/components/service/account"
+import { getCheckoutOrderById, getOrderDates } from "@/components/service/account";
+import { signOut as googleSignOut } from 'next-auth/react';
 
 const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 
@@ -75,14 +76,21 @@ function Account({ orders }) {
 
   const confirmLogout = async () => {
     const token = isUserLoggedIn();
-    await AuthAPI.logout(token);
+    try {
+      await AuthAPI.logout(token);
+    } catch (error) { }
+
     cookieService.removeCookie("token");
     cookieService.removeCookie("userId");
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
 
     setShowLogoutConfirmation(false);
-    router.push("/");
+    await googleSignOut({
+      callbackUrl: `${window.location.origin}/auth/signout`,
+      redirect: false,
+    });
+    router.push("/login");
   };
 
   const cancelLogout = () => {

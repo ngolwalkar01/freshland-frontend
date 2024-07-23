@@ -36,7 +36,7 @@ axiosInstance.interceptors.response.use(response => {
     return response;
 }, error => {
     if (error.response) {
-        handleErrorResponse(error.response);
+        handleErrorResponse(error.response, error?.config?.preventAuthRedirect);
     }
     return Promise.reject(createAxiosErrorResponse(error));
 });
@@ -50,11 +50,11 @@ function setCartTokenNonce(response) {
     }
 }
 
-function handleErrorResponse(response) {
-    if (response.status === 401 || response.status === 403) {
-        // clearAuthData();
+function handleErrorResponse(response, preventAuthRedirect) {
+    if (!preventAuthRedirect && (response.status === 401 || response.status === 403)) {
+        clearAuthData();
         // Router.push('/login');
-        // window.location.href = "/login";
+        window.location.href = "/login";
     }
 }
 

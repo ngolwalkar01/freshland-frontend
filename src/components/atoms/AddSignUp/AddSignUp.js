@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { signUp } from "@/mockdata/signUp";
-import { useState, useRef } from 'react';
+import { useState,useRef } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './Signup.module.css';
@@ -32,8 +32,8 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
     autoplay: false,
     adaptiveHeight: true,
     beforeChange: (current, next) => setCurrentSlide(next),
-    prevArrow: <CustomPrevArrow
-    />,
+    prevArrow:  <CustomPrevArrow 
+     />,
     nextArrow: <CustomNextArrow
     />,
     responsive: [
@@ -77,17 +77,17 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
           slidesToScroll: 1,
           initialSlide: 1,
         },
-
+        
       },
 
-      {
+       {
         breakpoint: 400,
         settings: {
           slidesToShow: 1, // Show 2 slides on mobile screens
           slidesToScroll: 1,
-
+          
         },
-
+        
       },
     ],
   };

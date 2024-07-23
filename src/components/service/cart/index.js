@@ -13,6 +13,10 @@ const cartCookieKey = process.env.NEXT_PUBLIC_CART_COOKIE;
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 
+export const checkTokenExists = (cartData) => {
+  return localStorage.getItem('token') && localStorage.getItem('userId');
+};
+
 export const updateCartData = (cartData) => {
   setLocalStorage(cartDataStorage, cartData);
 };
@@ -28,7 +32,6 @@ export const getCartKey = () => {
   } catch (error) {
 
   }
-  debugger;
   if (cartKey) {
     removeLocalStorage('temp_cart_key');
   } else {
@@ -40,7 +43,6 @@ export const getCartKey = () => {
 
 const storeTempState = () => {
   const cartKey = getCartKey();
-  debugger;
   if (cartKey) {
     localStorage.setItem('temp_cart_key', cartKey);
   }
@@ -161,12 +163,13 @@ export const updateCartSubscriptionFrequency = async (
   return getCartData();
 };
 
-export const setCustomerDetails = async (customerInfo) => {
+export const setCustomerDetails = async (customerInfo, stopRedirectToLogin) => {
+  stopRedirectToLogin = stopRedirectToLogin || "";
   const errorMessage =
     "There was an issue in saving customer detail. Please try again.";
   const data = await retryCall(
     cartService.setCustomerDetails,
-    [customerInfo],
+    [customerInfo, stopRedirectToLogin],
     errorMessage
   );
   updateCartData(data);

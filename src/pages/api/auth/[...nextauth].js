@@ -12,15 +12,19 @@ export default NextAuth({
     ],
     callbacks: {
         async signIn({ user, account, profile }) {
-            try {
-                console.log(">>>>>>>>>>>", window?.localStorage)
-                // console.log(JSON.stringify(account))
-                // const data = await AuthAPI.loginWithGoogle(account);
-                // console.log("Success", JSON.stringify(data))
-            } catch (error) {
-                console.log(JSON.stringify(error));
-            }
             return true;
+        },
+        async jwt({ token, account }) {
+            if (account?.provider === 'google' && account?.id_token) {
+                token.idToken = account.id_token;
+            }
+            return token;
+        },
+        async session({ session, token }) {
+            if (token?.idToken) {
+                session.idToken = token.idToken;
+            }
+            return session;
         },
         async redirect({ url, baseUrl }) {
             console.log("SignIn Callback Triggered");
@@ -36,5 +40,6 @@ export default NextAuth({
     },
     session: {
         strategy: 'jwt'
-    }
+    },
+    secret: process.env.NEXTAUTH_SECRET,
 });

@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "@/components/atoms/Header/Header";
 import styles from "./Login.module.css";
 import { toast } from "react-toastify";
 import authService from "@/services/auth";
 import { useRouter } from 'next/navigation';
 import { loginTranslation } from '@/locales';
-import cookieService from '@/services/cookie';
-import { signIn, useSession } from 'next-auth/react';
+// import cookieService from '@/services/auth';
+import { signIn, signOut as googleSignOut } from 'next-auth/react';
+import { setUserLoggedInData } from "@/components/service/auth";
 
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
@@ -21,18 +22,19 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const router = useRouter();
-  const { data: session, status } = useSession();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const data = await authService.login({ username, password });
       if (data && data.token) {
-        localStorage.setItem("token", `Bearer ${data.token}`);
-        cookieService.setCookie("token", `Bearer ${data.token}`, expires);
+        setUserLoggedInData(data);
+        await googleSignOut();
+        // localStorage.setItem("token", `Bearer ${data.token}`);
+        // cookieService.setCookie("token", `Bearer ${data.token}`, expires);
 
-        localStorage.setItem("userId", data.user_id);
-        cookieService.setCookie("userId", data.user_id, expires);
+        // localStorage.setItem("userId", data.user_id);
+        // cookieService.setCookie("userId", data.user_id, expires);
         router.push("/account");
       }
     } catch (error) {
@@ -50,7 +52,7 @@ const Login = () => {
   //   if (status === "authenticated") {
   //     (async () => {
   //       try {
-  //         const data = await authService.loginWithGoogle(session.user);
+  //         const data = await authService.loginWithGoogle({ id_token: session.idToken });
   //         if (typeof window !== 'undefined') {
   //           localStorage.setItem('data', JSON.stringify(data));
   //         }

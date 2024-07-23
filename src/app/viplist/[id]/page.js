@@ -6,7 +6,6 @@ import { useParams } from 'next/navigation';
 import CartAPI from '@/services/cart';
 import { useState, useEffect } from 'react';
 import klaviyoService from '@/services/klaviyo';
-import AuthAPI from '@/services/auth';
 
 const VipList = () => {
     const params = useParams();

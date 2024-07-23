@@ -9,6 +9,7 @@ import shippingService from '@/services/shipping';
 import vipPagesService from '@/services/vipPages';
 import deliveryCycleAPI from '@/services/deliveryCycle';
 import { getCartData } from "@/components/service/cart";
+import AuthHandlerWithSession from '@/components/atoms/auth/google';
 
 export default function Home() {
   const [data, setData] = useState({
@@ -18,6 +19,7 @@ export default function Home() {
     vipPages: [],
     cutOffDaysDetail: undefined
   });
+  const [isActivatehomeApis, setISActivateHomeApis] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -45,11 +47,16 @@ export default function Home() {
       getCartData();
     }
 
-    fetchData();
-  }, []);
+    if (isActivatehomeApis)
+      fetchData();
+  }, [isActivatehomeApis]);
 
   return (
     <Layout>
+      <AuthHandlerWithSession
+        stopRedirect={true}
+        activateApis={setISActivateHomeApis}
+      />
       <HomePage homePageProps={{ ...data }} />
     </Layout>
   );

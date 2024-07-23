@@ -93,7 +93,7 @@ function UserAddress({ userAddressProps }) {
     }, []);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const setIntialAddress = () => {
+    const setIntialAddress = (isNewlyAddress) => {
         const {
             address_1,
             address_2,
@@ -113,7 +113,7 @@ function UserAddress({ userAddressProps }) {
             country,
             state,
             selected,
-            isNewAddress,
+            isNewAddress: isNewlyAddress ? isNewlyAddress : isNewAddress,
             phone
         }
         setUserAddresses([{ ...obj }]);
@@ -133,9 +133,11 @@ function UserAddress({ userAddressProps }) {
     }
 
     const checkIfUserHaveAddress = useCallback(async () => {
+        let isNewAddress = true;
         if (token) {
             let userAddress = await getSavedAddress();
             if (userAddress && userAddress.length > 0) {
+                isNewAddress = false;
                 const selectedIndex = userAddress && userAddress.length > 0 && userAddress.findIndex(x => x.selected);
                 setUserAddresses(userAddress);
                 setSelectedAddressIndex(selectedIndex);
@@ -144,7 +146,7 @@ function UserAddress({ userAddressProps }) {
             }
         }
 
-        setIntialAddress();
+        setIntialAddress(isNewAddress);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, getSavedAddress, setUserAddresses, setSelectedAddressIndex, setShowSaveButton, setEditableMode])
 
@@ -253,7 +255,8 @@ function UserAddress({ userAddressProps }) {
     };
 
     const fetchData1 = async (firstName, lastName, userAddresses, selectedAddressIndex) => {
-        await setCustomerDetail(firstName, lastName, userAddresses, selectedAddressIndex);
+        const preventAuthRedirect = "preventAuthRedirect";
+        await setCustomerDetail(firstName, lastName, userAddresses, selectedAddressIndex, preventAuthRedirect);
         await updateLocalStorageCartData();
     }
 
@@ -267,7 +270,7 @@ function UserAddress({ userAddressProps }) {
         }
         // Disable linting for the dependencies warning
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedAddress, debouncedFetchResults])
+    }, [selectedAddress])
 
     const onUpdateShippingAddress = async (e, column) => {
         let userAdd = [...userAddresses];

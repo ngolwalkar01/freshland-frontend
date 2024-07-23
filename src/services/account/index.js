@@ -101,7 +101,7 @@ const saveUpdateCustomerAddress = async (token, customerData) => {
         headers: {
             Authorization: token
         },
-        // withCredentials: true
+        withCredentials: true
     };
 
     const url = `${ACCOUNT_API_BASE_URL}/customer-profile`;

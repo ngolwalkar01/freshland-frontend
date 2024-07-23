@@ -475,8 +475,10 @@ function Checkout() {
     firstName,
     lastName,
     userAddresses,
-    selectedAddressIndex
+    selectedAddressIndex,
+    stopRedirectToLogin
   ) => {
+    stopRedirectToLogin = stopRedirectToLogin || "";
     if (
       !(userAddresses && userAddresses.length > 0 && selectedAddressIndex > -1)
     )
@@ -512,7 +514,7 @@ function Checkout() {
         phone: phone,
       },
     };
-    const data = await setCustomerDetails(customerInfo);
+    const data = await setCustomerDetails(customerInfo, stopRedirectToLogin);
     updateCartData(data);
   };
 
