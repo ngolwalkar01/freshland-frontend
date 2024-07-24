@@ -28,7 +28,7 @@ export default NextAuth({
         },
         async redirect({ url, baseUrl }) {
             console.log("SignIn Callback Triggered");
-            return baseUrl + '/account';
+            return baseUrl + '/login';
         },
     },
     pages: {
