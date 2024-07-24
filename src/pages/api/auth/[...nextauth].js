@@ -7,7 +7,7 @@ export default NextAuth({
         GoogleProvider({
             clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET || process.env.GOOGLE_CLIENT_SECRET,
-            authorizationUrl: process.env.NEXT_PUBLIC_Auth_URL || process.env.GOOGLE_Auth_URL
+            // authorization    Url: process.env.NEXT_PUBLIC_Auth_URL || process.env.GOOGLE_Auth_URL
         })
     ],
     callbacks: {
