@@ -13,7 +13,7 @@ const Shop = () => {
         <main className={styles.customContainer}>
           <div className={styles.categoriesCover}>
             <div className={styles.wrapper}>
-            <div className={styles.headingWrapper}>
+            <div className={styles.headingskl}>
             <div className={styles.blankflexItem}></div>
             <Skeleton width={350} height={60}  className={styles.headingSkeleton} />
             <div className={styles.filterCover}>
@@ -24,7 +24,7 @@ const Shop = () => {
             </div>
           </div>
            
-              <div className={styles.goodsItem}>
+              <div>
              
 
                 <div className={styles.skeletonImageContainer}>

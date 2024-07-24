@@ -35,6 +35,7 @@
 .timeUnit span:last-child{
   color: rgba(33, 33, 33, 0.7);
     font-size: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 .next_order{
   position: relative;
@@ -181,7 +182,7 @@
  @media (min-width: 320px) and (max-width: 604px){
   
   .nextorder_deadline .next{
-    font-size: 20px;
+    font-size: 24px;
   }
   .Freight h2{
     font-size: 40px;
@@ -211,6 +212,7 @@
     height: 38px;
     font-size: 12px;
     width: 99px;
+    border-radius: 10px;
   }
   .next_order{
     height: 378px;
@@ -225,6 +227,8 @@
   .dkcost{
     width: 190px;
     padding: 6px 0px;
+    border-radius: 3px;
+    border: 1px inset rgba(241, 114, 103, 0.29);
   }
   .mainFreight{
     margin: 0px 90px;
@@ -237,9 +241,10 @@
   }
   .deadlineContainer{
     width: 296px;
+    border-radius: 10px;
   }
   .deadlinedata{
-    gap: 24px;
+    gap: 26px;
   }
   .freightConatiner{
     background-color: rgba(246, 233, 221, 1);;

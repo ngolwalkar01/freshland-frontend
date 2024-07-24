@@ -88,6 +88,7 @@
   max-width: 461px;
   height: 75px;
   max-height: 75px;
+  font-size: 20px;
 
 }
 
@@ -128,7 +129,33 @@
 .checkbox {
   margin-right: 10px;
   margin-left: 6px;
+
+
+  accent-color: #ffff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    outline: none;
+    border: 2px solid #ffff;
+    border-radius: 2px;
+    position: relative;
 }
+
+
+.checkbox:checked::before {
+  content: "\2713";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  color: #fff;
+  font-weight: 800;
+}
+
+
 
 .checkboxLabel {
   color: #ffffff;

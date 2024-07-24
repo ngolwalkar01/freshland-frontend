@@ -3,9 +3,21 @@
 }
 .faqscontainer a{
   color: #1D405C;
+  font-size: 18px;
+}
+.faqscontainer a:hover{
+  color: #1468a0;
 }
 .faqscontainer p{
   color: rgba(33, 33, 33, 0.7);
+}
+.faqcontent p{
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+
+}
+.faqcontent  ul{
+  padding: 0px 24px 24px;
 }
 .faqscontainer{
     display: flex;
@@ -64,15 +76,12 @@
 }
 .pannel{
     color: var(--text-light);
-    padding: 0px 0px 24px 0px;
 }
 .open{
     transition: 0.4s;
 
 }
-.open p ul{
-  padding: 0px 24px;
-}
+
 .faqs i{
     color: #FF9277;
 }

@@ -9,7 +9,11 @@
 .mainHeading {
   text-align: center;
 }
-
+.selectAddress{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
 .wrapper {
   margin: 45px auto;
   display: flex;

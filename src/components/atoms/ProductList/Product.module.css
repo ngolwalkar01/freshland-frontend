@@ -55,11 +55,9 @@
 
 .imgContainer {
   position: relative;
-  display: flex;
- align-items: center;
- justify-content: center;
   cursor: pointer;
-
+  height: 159px;
+  max-height: 160px;
 }
 
 .cardTopImage {
@@ -72,13 +70,11 @@
 }
 
 .cardImage {
-  max-width: 227px;
-  max-height: 159px;
   object-fit: contain;
 }
 .cardContent{
   display: flex;
-  gap: 36px;
+  gap: 4px;
   justify-content: space-between;
 }
 .hearticon{
@@ -319,12 +315,14 @@
   .gridContainer {
     gap: 11px;
     grid-template-columns: 165px 165px;
+    grid-template-rows: 248px 248px;
     padding: 0px 17px;
+    margin: 0px 0px 24px 0px;
   
   }
 
   .transparentCard {
-    gap: 16px;
+    gap: 5px;
     width: 100%;
   
   }
@@ -377,10 +375,7 @@
     border-radius: 2px;
   }
 
-  .cardImage {
-    max-height: 90px;
-    object-fit: contain;
-  }
+
   .hearticon{
     font-size: 20px;
   }

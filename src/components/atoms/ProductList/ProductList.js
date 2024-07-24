@@ -78,7 +78,8 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
             className={styles.cardImage}
             src={product.thumbnail ? product.thumbnail : "/mockImage/orange.png"}
             alt={product?.name}
-            width={227} height={159}
+            // width={227} height={159}
+            fill
           />
         </Link>
         {/* <div className={styles.cardContent}>

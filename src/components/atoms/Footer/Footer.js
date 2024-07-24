@@ -68,7 +68,7 @@ const Footer = () => {
                 <ul>
                   <li><Link href="/faq">{hpt.faq}</Link></li>
                   <li><Link href="/complaint">{hpt.complaint}</Link></li>
-                  <li><Link href="/media">{hpt.media}</Link></li>
+                  {/* <li><Link href="/media">{hpt.media}</Link></li> */}
                 </ul>
               </div>
               <div>

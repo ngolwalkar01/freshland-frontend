@@ -765,6 +765,9 @@
   .discountHeader span{
     font-size: 13px;
   }
+  .sklcontainer{
+    max-width: 100% !important;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 375px) {

@@ -3,7 +3,7 @@ import styles from "./Order.module.css";
 import Image from "next/image";
 import { headingsData } from "@/mockdata/headingData";
 import { homepageTranslation } from '@/locales';
-
+import Link from "next/link";
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 
 
@@ -97,7 +97,7 @@ const OrderDeadline = ({ shippingMethods, enableMockData, cutOffDaysDetail }) =>
                 {/* <h4 className={`W-Body-Regular ${styles.timeCard1}`}>{data.orderCard1?.timeCard1}</h4> */}
                 </div>
             </div>
-                <button className={styles.orderNow}>Order Now</button>
+                <Link href="/shop" className={styles.orderNow}>Order Now</Link>
               </div>
             </div>
           </div>
@@ -133,7 +133,7 @@ const OrderDeadline = ({ shippingMethods, enableMockData, cutOffDaysDetail }) =>
                   return <Fragment key={i}>
 
                     <div className={styles.dkcost}>
-                    <h4 className="W-H3">DKK {x.cost}</h4>
+                    <h4 className="W-H3">SEK {x.cost}</h4>
                     <p>{x.title}</p>
                     </div>
 

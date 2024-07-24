@@ -11,6 +11,7 @@ const ProductSlider = () => {
   const sliderRef = useRef(null);
   const images = seasonproductslider;
   const [showPrevArrow, setShowPrevArrow] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
 
   const settings = {
@@ -21,6 +22,10 @@ const ProductSlider = () => {
     autoplay: false,
     autoplaySpeed: 2000,
     adaptiveHeight: true,
+    beforeChange: (current, next) => {
+      setCurrentSlide(next);
+      setShowPrevArrow(next > 0); 
+    },
     prevArrow: <CustomPrevArrow visible={showPrevArrow}/>,
     nextArrow: <CustomNextArrow setShowPrevArrow={setShowPrevArrow}/>,
     

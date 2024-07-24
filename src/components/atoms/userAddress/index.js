@@ -358,12 +358,14 @@ function UserAddress({ userAddressProps }) {
                                     <>
                                         {(x.address_1 || firstName || lastName) ? (
                                             <div key={i} className={styles.addresscontainer}>
+                                                <div className={styles.selectAddress}>
                                                 <input type="radio" id="user_address" checked={x.selected} name="user_address" value="user_address" onChange={() => updateUserAddress(i)} />
                                                 <div className={styles.address}>
                                                     <p className="M-Body-Medium">{firstName} {lastName}</p>
                                                     <p className="M-Caption">
                                                         {x.address_1}
                                                     </p>
+                                                </div>
                                                 </div>
                                                 <p onClick={() => { editAddress(x, i); }}>
                                                     <Image

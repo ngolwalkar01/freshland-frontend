@@ -355,6 +355,16 @@
   .filterListCover{
     left: 45%;
   }
+
+  /* skeleton css */
+  .headingskl{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .headingSkeleton{
+    width:200px
+  }
 }
 @media(min-width:650px) and (max-width:1024px){
   .filterListCover{

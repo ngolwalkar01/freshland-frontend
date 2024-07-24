@@ -23,6 +23,7 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
   const router = useRouter();
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showPrevArrow, setShowPrevArrow] = useState(false);
 
   const settings = {
     infinite: true,
@@ -31,11 +32,12 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
     slidesToScroll: 1,
     autoplay: false,
     adaptiveHeight: true,
-    beforeChange: (current, next) => setCurrentSlide(next),
-    prevArrow:  <CustomPrevArrow 
-     />,
-    nextArrow: <CustomNextArrow
-    />,
+    beforeChange: (current, next) => {
+      setCurrentSlide(next);
+      setShowPrevArrow(next > 0); 
+    },
+    prevArrow: <CustomPrevArrow visible={showPrevArrow}/>,
+    nextArrow: <CustomNextArrow setShowPrevArrow={setShowPrevArrow}/>,
     responsive: [
       {
         breakpoint: 1440,
@@ -127,9 +129,9 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
 
           </Slider>
         </div>
-        <Link href="/shop" className={styles.signupButton}>{hpt.seeVIP}</Link>
-      </div >
-    </div >
+        {/* <Link href ="/shop" className={styles.signupButton}>{hpt.seeVIP}</Link> */}
+      </div>
+    </div>
   );
 };
 

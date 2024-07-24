@@ -3,6 +3,9 @@
   align-items: center;
   justify-content: center;
 }
+.videoPosition{
+  z-index: 1;
+}
 .containerbgcolor{
   background: #fff;
   position: relative;
@@ -12,12 +15,12 @@
   display: flex;
   align-items: center;
   gap: 69px;
-  justify-content: flex-end;
+  justify-content: center;
   position: relative;
   
 }
 .commonfrontImg{
-
+ 
 
 }
 .commonfrontImg img{
@@ -31,19 +34,21 @@
   display: flex;
   flex-direction: column;
   gap: 26px;
-  margin: 0px 60px 0px 0px;
+  margin: 0px 0px 0px 60px;
+  flex: 1;
 }
 
 .videoContainer {
   background-color: rgba(163, 191, 115, 1);
   padding: 83px 0px 0px 0px;
-  width: 684px;
-  max-width: 741px;
+  width: 100%;
+  max-width: 1024px;
   height: 639px;
   max-height: 700px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  flex: 1;
 }
 
 .textContainer {
@@ -87,26 +92,53 @@
 .mobileviewimg{
   display: none;
 }
+.giftsvg{
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 303px;
+  position: absolute;
+  top: 59%;
+  left: 74%;
+  transform: translate(6px, 0px);
+}
+.giftsvgmobile{
+  display: none;
+}
 
 @media (min-width: 300px) and (max-width: 370px) {
+  .giftsvg{
+    display: none
+  }
+  .giftsvgmobile{
+    display: block;
+    width: 300px !important;
+    height: 100%;
+    border-radius: 20px;
+  }
+  .giftsvgmobile img{
+    width: 100%;
+  }
+  
   .text{
     font-size: 16px !important;
   }
   .videoContainer{
-    width: 294px !important;
+    width: 300px !important;
   }
-  .commonfrontImg img{
-    top: 88.7% !important;
-        position: absolute;
-        width: 260px !important;
-        object-fit: fill;
-        left: 15% !important;
-        margin: -9px 0px;
-  }
+
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
-
+  .giftsvg{
+    display: none
+  }
+  .giftsvgmobile{
+    display: block;
+  }
+  .giftsvgmobile img{
+    border-radius: 20px;
+  }
   .card{
     flex-direction: column;
     gap: 0px;
@@ -121,16 +153,18 @@
     font-size: 20px;
   }
   .videoContainer{
-    padding: 40px 0px;
+    padding: 40px 0px 0px 0px;
     width: 343px;
     max-width: 741px;
-    height: auto;
+    height: 100%;
+    max-height: 343px;
     margin: 0px 16px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: unset;
+    flex: auto;
 
   }
   .desktopimg{
@@ -144,38 +178,38 @@
     transform: translate(0.5px, 4px);
 
   }
-  .commonfrontImg img{
-    top: 90% !important;
-    position: absolute;
-    width: 343px;
-    object-fit: fill;
-    left: 6%;
-  }
   .learnmore{
     height: 39px;
     font-size: 14px;
     width: 171px;
+    border-radius: 16px;
   }
   .textContainer{
-    padding: 0px 26px;
+    padding: 0px 20px;
   }
+
 }
-@media(min-width:400px) and (max-width: 500px) {
-  .commonfrontImg img{
-    top: 89% !important;
-    position: absolute;
-    width: 343px;
-    object-fit: fill;
-    left: 11.3%;
-  }
-}
-/* @media(min-width:501px) and (max-width: 598px) {
-  .commonfrontImg img{
-    display: none;
-  }
-} */
+
 
 @media(min-width:602px) and (max-width: 1100px) {
+  .giftsvg{
+    display: none
+  }
+  .giftsvgmobile{
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 610px;
+    max-height: 209px;
+
+  }
+  .giftsvgmobile img{
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+  }
+
+  
   .card{
     flex-direction: column;
     gap: 0px;
@@ -190,12 +224,16 @@
     font-size: 20px;
   }
   .videoContainer{
-    padding: 65px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 65px 0px 0px 0px;
     width: 583px;
     max-width: 741px;
-    height: 410px;
+    height: 100%;
     margin: 0px 36px;
     border-radius: 20px;
+    flex: auto;
   }
   .desktopimg{
     display: none;

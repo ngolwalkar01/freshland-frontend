@@ -95,7 +95,7 @@
   @media (min-width: 320px) and (max-width: 429px)  {
       
   .arrowContainer {
-    right: 11px;
+    right: 6px;
   }
   .arrowprevContainer{
     display: none !important;

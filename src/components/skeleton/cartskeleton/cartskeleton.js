@@ -14,24 +14,24 @@ const cartskeleton = () => {
 
           <div className={styles.shoppingcartdiv}>
             <div className={styles.wrapper}>
-              <main className={styles.leftContainer}>
+              <div className={`${styles.leftContainer} ${styles.sklcontainer}`}>
            
                 <div className={styles.productSection}>
                   <div className={styles.mainImage}>
                     <Skeleton height={160} width={200} />
                   </div>
                   <div>
-                    <Skeleton height={50} width={250} count={3} />
+                    <Skeleton height={50} width={220} count={3} />
                   </div>
                 </div>
              
                 <div>
-                    <Skeleton height={60} width={480} />
+                    <Skeleton height={60} />
                   </div>
                   <div>
-                    <Skeleton height={60} width={480} />
+                    <Skeleton height={60}/>
                   </div>
-              </main>
+              </div>
               <aside className={styles.rightContainer}>
                 <Skeleton height={30} width={400} />
                 <Skeleton height={50} width={400} />

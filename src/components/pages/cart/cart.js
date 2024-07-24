@@ -237,7 +237,7 @@ function Cart() {
 
               <div className={styles.shoppingcartdiv}>
                 <div className={styles.wrapper}>
-                  <main className={styles.leftContainer}>
+                  <section className={styles.leftContainer}>
                     {cartItems &&
                       Array.isArray(cartItems) &&
                       cartItems.map((cartItem, i) => {
@@ -434,7 +434,7 @@ function Cart() {
                         {ct.applyDisscount}
                       </button>
                     </div>
-                  </main>
+                  </section>
                   <aside className={styles.rightContainer}>
                     <h3 className={styles.firstHeading}>{ct.totalAmount}</h3>
                     <div className={styles.table}>
@@ -572,6 +572,8 @@ function Cart() {
         <Cartskeleton />
       )
       }
+
+      
     </>
   );
 }

@@ -16,7 +16,7 @@ const Register = () => {
   const hpt = homepageTranslation[lang];
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
-
+  const [isChecked, setIsChecked] = useState(false);
   const [errors, setErrors] = useState({});
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -37,6 +37,12 @@ const Register = () => {
       isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       errors.email = "Email is invalid";
+      isValid = false;
+    }
+
+
+    if (!isChecked) {
+      errors.isChecked = "You must agree to the terms and conditions";
       isValid = false;
     }
     // Add more validation rules for other fields if needed
@@ -83,7 +89,7 @@ const Register = () => {
                     type="text"
                     className={registerStyles.textField}
                     name="text"
-                    placeholder="Enter Firstname"
+                    placeholder="First Name"
                     value={firstName}
                     onInput={(e) => setFirstName(e.target.value)}                  
                 />
@@ -100,7 +106,7 @@ const Register = () => {
                     type="email"
                     className={registerStyles.textField}
                     name="email"
-                    placeholder="Enter email"
+                    placeholder="Email"
                     value={email}
                     onInput={(e) => setEmail(e.target.value)}   
                   />
@@ -120,12 +126,20 @@ const Register = () => {
                   <input
                     type="checkbox"
                     className={registerStyles.checkbox}
+                    checked={isChecked}
+                    onChange={(e) => setIsChecked(e.target.checked)}
                     id="terms"
                   />
                   <label htmlFor="terms" className={registerStyles.checkboxLabel}>
                     {hpt.iAgree}
                   </label>
+                
                 </div>
+                {errors.isChecked && (
+                  <span className={registerStyles.errorMessage}>
+                    {errors.isChecked}
+                  </span>
+                )}
             </form>
           </div>
         </div>

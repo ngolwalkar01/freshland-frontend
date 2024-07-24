@@ -1,7 +1,6 @@
 .iframe {
     border: 1px solid #544131;
     border-radius: 20px;
-    
   }
 
   @media (min-width: 300px) and (max-width: 370px){
@@ -16,7 +15,7 @@
   @media (min-width: 320px) and (max-width: 600px)  {
    
     .iframe {
-      width:100%;
+      width: 280px;
       height: 200px;
     border-radius: 10px;
      
