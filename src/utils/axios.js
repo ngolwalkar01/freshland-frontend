@@ -2,6 +2,7 @@ import axios from 'axios';
 import Router from 'next/router';
 import cookieService from '@/services/cookie';
 import { getCartKey } from '@/components/service/cart';
+import { signOut } from 'next-auth/react';
 
 const axiosInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_BASE_URL
@@ -32,9 +33,17 @@ axiosInstance.interceptors.request.use(config => {
 });
 
 axiosInstance.interceptors.response.use(response => {
+    signOut({ redirect: false }).then(() => {
+        // After signing out, redirect to login page or show a message
+        window.location.href = "/login";
+    });
     setCartTokenNonce(response);
     return response;
 }, error => {
+    signOut({ redirect: false }).then(() => {
+        // After signing out, redirect to login page or show a message
+        window.location.href = "/login";
+    });
     if (error.response) {
         handleErrorResponse(error.response, error?.config?.preventAuthRedirect);
     }
