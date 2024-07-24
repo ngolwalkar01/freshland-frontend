@@ -27,7 +27,6 @@ const ProductPage = () => {
                 productService.getProductDetail(productId),
                 productService.getRelatedProducts(productId),
             ]);
-
             setData({
                 productDetail,
                 relatedProducts,

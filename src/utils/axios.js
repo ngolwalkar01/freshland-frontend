@@ -2,6 +2,7 @@ import axios from 'axios';
 import Router from 'next/router';
 import cookieService from '@/services/cookie';
 import { getCartKey } from '@/components/service/cart';
+import { signOut } from 'next-auth/react';
 
 const axiosInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_BASE_URL
@@ -31,12 +32,12 @@ axiosInstance.interceptors.request.use(config => {
     return Promise.reject(createAxiosErrorResponse(error));
 });
 
-axiosInstance.interceptors.response.use(response => {
+axiosInstance.interceptors.response.use(async response => {
     setCartTokenNonce(response);
     return response;
-}, error => {
+}, async error => {
     if (error.response) {
-        handleErrorResponse(error.response, error?.config?.preventAuthRedirect);
+        await handleErrorResponse(error.response, error?.config?.preventAuthRedirect);
     }
     return Promise.reject(createAxiosErrorResponse(error));
 });
@@ -50,8 +51,9 @@ function setCartTokenNonce(response) {
     }
 }
 
-function handleErrorResponse(response, preventAuthRedirect) {
+async function handleErrorResponse(response, preventAuthRedirect) {
     if (!preventAuthRedirect && (response.status === 401 || response.status === 403)) {
+        await signOut({ redirect: false });
         clearAuthData();
         // Router.push('/login');
         window.location.href = "/login";

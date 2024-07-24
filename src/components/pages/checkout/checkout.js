@@ -114,6 +114,7 @@ function Checkout() {
   const [selectedAddressIndex, setSelectedAddressIndex] = useState(-1);
   const [billingAddress, setBillingAddress] = useState(null);
   const [showBillingAddress, setShowBillingAddress] = useState(true);
+  const [isCreateAccount, setIsCreateAccount] = useState(false);
 
   const [token, setToken] = useState("");
 
@@ -255,7 +256,7 @@ function Checkout() {
       // setPhone(phone);
     }
 
-    if(billing_address) {
+    if (billing_address) {
       const { email } = billing_address;
       if (email) setEmail(email);
     }
@@ -550,7 +551,7 @@ function Checkout() {
         country: country,
       },
       customer_note: `${standardOrderNote} ${orderNote}`,
-      create_account: true,
+      create_account: isCreateAccount,
       payment_method: paymentOption,
       payment_data: [],
       extensions: {
@@ -720,6 +721,17 @@ function Checkout() {
                           </span>
                         )}
                       </div>
+                    </div>
+                    <div className={styles.acceptTerms}>
+                      <input
+                        type="checkbox"
+                        checked={isCreateAccount}
+                        onChange={(e) => setIsCreateAccount(!isCreateAccount)}
+                        id="createAccount"
+                      />
+                      <label htmlFor="createAccount">
+                         Do you want to create Account ?
+                      </label>
                     </div>
 
                     {/*  */}
@@ -1466,14 +1478,14 @@ function Checkout() {
                             const quantityValue = quantity;
                             const subtotal = getCorrectPrice(
                               parseInt(prices?.line_subtotal) +
-                                parseInt(prices?.line_subtotal_tax)
+                              parseInt(prices?.line_subtotal_tax)
                             );
                             const subscription_schemes =
                               cartItem?.extensions?.subscription_schemes;
                             const current_options =
                               subscription_schemes &&
-                              subscription_schemes.subscription_schemes &&
-                              subscription_schemes.subscription_schemes.length >
+                                subscription_schemes.subscription_schemes &&
+                                subscription_schemes.subscription_schemes.length >
                                 0
                                 ? subscription_schemes.subscription_schemes
                                 : [];

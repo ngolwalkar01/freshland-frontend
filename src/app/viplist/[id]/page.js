@@ -17,8 +17,8 @@ const VipList = () => {
         async function fetchData() {
             setLoading(true);
             const data = await CartAPI.getVipPageDataById(vipPageId);
-            // await klaviyoService.createProfile("sdasasas@sasas.saas", "assas");
-            // await klaviyoService.addProfileToList();
+            await klaviyoService.createProfile("sdasasddas@sasas.saas", "assas");
+            await klaviyoService.addProfileToList();
             setData(data);
             setLoading(false);
         }

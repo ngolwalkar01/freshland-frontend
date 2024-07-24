@@ -246,8 +246,8 @@ const Description = ({ productDetailProps }) => {
         </div>
         <LazyLoad height={200} offset={100}>
           <div className={styles.wrapper}>
-            <section className={styles.productDescription}>
-              <h2>{pdt.description}</h2>
+            <section className={styles.productDescription} dangerouslySetInnerHTML={{ __html: productDetail?.description }} />
+              {/* <h2>{pdt.description}</h2>
               <div className={styles.mainDescription}>
                 <div className={styles.storageWrapper}>
                   <div>
@@ -367,7 +367,7 @@ const Description = ({ productDetailProps }) => {
                   </table>
                 </div>
               </div>
-            </section>
+            </section>  */}
           </div>
 
           <section className={styles.productData}>
