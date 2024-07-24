@@ -5,9 +5,9 @@ import AuthAPI from '@/services/auth';
 export default NextAuth({
     providers: [
         GoogleProvider({
-            clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
-            clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
-            authorizationUrl: process.env.NEXT_PUBLIC_Auth_URL
+            clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET || process.env.GOOGLE_CLIENT_SECRET,
+            authorizationUrl: process.env.NEXT_PUBLIC_Auth_URL || process.env.GOOGLE_Auth_URL
         })
     ],
     callbacks: {
@@ -42,4 +42,15 @@ export default NextAuth({
         strategy: 'jwt'
     },
     secret: process.env.NEXTAUTH_SECRET,
+    logger: {
+        error(code, metadata) {
+            console.error(code, metadata)
+        },
+        warn(message) {
+            console.warn(message)
+        },
+        debug(message) {
+            console.debug(message)
+        }
+    }
 });
