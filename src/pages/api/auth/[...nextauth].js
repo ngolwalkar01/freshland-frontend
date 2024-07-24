@@ -38,6 +38,7 @@ export default NextAuth({
         verifyRequest: '/auth/verify-request',
         newUser: null
     },
+    site: process.env.NEXTAUTH_URL,
     session: {
         strategy: 'jwt'
     },
