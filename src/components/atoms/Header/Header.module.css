@@ -24,8 +24,8 @@
 .headercontent {
   display: flex;
   align-items: center;
-  padding: 12px 12px 12px 24px;
-  gap: 0px;
+  padding: 12px 18px 12px 24px;
+  gap: 40px;
 }
 
 .headercontent a {
@@ -39,7 +39,7 @@
 
 .icon {
   display: flex;
-  gap: 16px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -146,6 +146,10 @@
 
 .cartIcon {
   display: flex;
+}
+
+.cartIcon img {
+  width: 24px !important;
 }
 
 .cartIcon span {
@@ -341,6 +345,10 @@
 
   .icon {
     gap: 15px;
+  }
+
+  .cartIcon img {
+    width: 20px !important;
   }
 
   .headerdiv {

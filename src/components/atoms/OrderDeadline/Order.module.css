@@ -275,7 +275,7 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) { 
-  .contentCard1 h2 {
+  .nextorder_deadline .next {
     font-size: 56px;
   }
   .deliveryweek{
@@ -284,7 +284,7 @@
   .timeUnit span:first-child{
     font-size: 104px;
   }
-  .freightdiv {
+  .freightdiv  h2 {
     font-size: 56px;
   }
   .Freight h4 {

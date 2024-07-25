@@ -709,3 +709,196 @@ letter-spacing: normal;
     left: 53%;
   }
 }
+
+
+.editcontentPopup {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 10px;
+  padding: 20px;
+  position: absolute;
+  background-color: #d0e7fa;
+  z-index: 100;
+  border: 1px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  overflow: auto;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.editcontentPopup {
+  background: white;
+  padding: 28px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1001; /* Ensure it's on top of the overlay */
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+}
+
+
+/* Checkout.module.css */
+
+.tabs {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.tabs button {
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  background-color: #278f33;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 6.24px 12.47px 0px rgba(33, 144, 41, 0.25);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  border-radius: 15px;
+}
+
+.tabs button:hover {
+  background-color: #3fb34c;
+}
+
+.activeTab {
+  background-color: #007bff;
+  color: black;
+  border-bottom: 1px solid transparent;
+}
+
+.tabs button:disabled {
+  cursor: not-allowed;
+  opacity: 0.1;
+}
+
+.fieldsRowChecking {
+  display: flex;
+  align-items: center;
+  gap: 10px
+}
+
+.fieldsRowChecking input[type="checkbox"] {
+  accent-color: #278f33;
+}
+
+.shippingAdd {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.errorMessagePopup {
+  font-size: 13px;
+  color: #D8000C !important;
+}
+
+.popUpBtns {
+  display: flex;
+  gap: 10px;
+}
+
+.closeButton {
+  padding: 10px 16px;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 6.24px 12.47px 0px rgba(33, 144, 41, 0.25);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.saveButton {
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  background-color: #278f33;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 6.24px 12.47px 0px rgba(33, 144, 41, 0.25);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  border-radius: 15px;
+}
+
+.tabsError {
+  border: 1px solid #D8000C;
+  background-color: #df9b9b;
+}
+
+@media (max-width: 1380px) {
+  .editcontentPopup label {
+    font-size: 16px;
+  }
+  .editcontentPopup .fieldColumn {
+    gap: 2px;
+  }
+
+  .editcontentPopup {
+    gap: 10px;
+  }
+  
+  
+  .editcontentPopup {
+    gap: 12px;
+  }
+
+  
+  .tabs {
+
+    gap: 12px;
+  }
+  
+  .tabs button {
+    font-size: 14px;
+  }
+
+
+  
+  .fieldsRowChecking {
+    display: flex;
+    align-items: center;
+    gap: 6px
+  }
+
+  .shippingAdd {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  
+  .popUpBtns {
+    display: flex;
+    gap: 6px;
+  }
+  
+  .closeButton {
+    font-size: 14px;
+  }
+  
+  .saveButton {
+    font-size: 14px;
+  }
+  
+}

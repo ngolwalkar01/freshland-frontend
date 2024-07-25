@@ -122,7 +122,6 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
                   <button className={styles.button} onClick={() => router.push(`/viplist/${data.id}`)}>{hpt.signUp}</button>
 
                 </div>
-.
               </div>
 
             ))}

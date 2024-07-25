@@ -38,6 +38,7 @@ import cartStyles from "../cart/cart.module.css";
 import UserAddress from "@/components/atoms/userAddress";
 import { applyLoader } from "@/helper/loader";
 import OverLayLoader from "@/components/atoms/overLayLoader";
+import ShippingBillingAddress from "@/components/atoms/shippingBillingAddress";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
@@ -997,6 +998,7 @@ function Checkout() {
                     </div> */}
 
                     {/*  */}
+                    {/* <ShippingBillingAddress /> */}
                     <UserAddress userAddressProps={userAddressProps} />
                     <div className={styles.radioField}>
                       <label htmlFor="isBusinessAddress">

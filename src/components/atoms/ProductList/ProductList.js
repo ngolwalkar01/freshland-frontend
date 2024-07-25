@@ -238,10 +238,12 @@ const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, 
       {olLoader && <OverLayLoader />}
       <div className={overRideClass ? styles.container : ""}>
         {cardHeading ? <h2 className={styles.heading}>{cardHeading}</h2> : null}
-        <div className={styles.gridContainer}>
-          {data && data.map((product, i) => (
-            <ProductCard key={i} setOlLoader={setOlLoader} cartProducts={cartProducts} product={product} debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} />
-          ))}
+        <div className={styles.gridWrapper}>
+          <div className={styles.gridContainer}>
+            {data && data.map((product, i) => (
+              <ProductCard key={i} setOlLoader={setOlLoader} cartProducts={cartProducts} product={product} debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} />
+            ))}
+          </div>
         </div>
       </div >
     </div >

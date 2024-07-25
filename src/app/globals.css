@@ -422,7 +422,7 @@ body {
   /* Add other global styles or resets as needed */
 }
 main{
-  min-height: 100vh;
+  min-height: 50vh;
   background: #fff;
   /* padding: 0px 0px 10px 0px; */
 }

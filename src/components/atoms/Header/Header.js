@@ -161,7 +161,6 @@ const Header = () => {
                   loading="eager"
                 />
               </Link>
-              <div className={styles.flexgrow} />
               <div className={Mobile ? `${styles.navlinksmobile}` : `${styles.linkdescription}`}>
                 <div className={`${styles.store} ${isActive('/shop')}`} ref={menuRef}>
                   <Link href="/shop">Store</Link>
@@ -185,7 +184,21 @@ const Header = () => {
                 <Link href="/about" className={isActive('/about')}>{hpt.aboutUs}</Link>
              
               </div>
+              <div className={styles.flexgrow} />
               <div className={styles.icon}>
+                <div className={styles.headerIconWrapper} onClick={openSearch}>
+                  <Image src="/Images/search.svg" alt="Search" fill />
+                </div>
+                <div className={styles.headerIconWrapper}>
+                  <Link href="/account">
+                    <Image src="/Images/user.svg" alt="User profile" fill />
+                  </Link>
+                </div>
+                <div className={styles.headerIconWrapper}>
+                  <Link href="/wishlist">
+                    <Image src="/Images/heart.svg" alt="Wish List" fill />
+                  </Link>
+                </div>
                 <div className={styles.headerIconWrapper}>
                   <Link href="/cart" className={styles.cartIcon}>
                     <Image
@@ -195,14 +208,6 @@ const Header = () => {
                     />
                     <span>{cartItemCount}</span>
                   </Link>
-                </div>
-                <div className={styles.headerIconWrapper}>
-                  <Link href="/account">
-                    <Image src="/Images/user.svg" alt="User profile" fill />
-                  </Link>
-                </div>
-                <div className={styles.headerIconWrapper} onClick={openSearch}>
-                  <Image src="/Images/search.svg" alt="Search" fill />
                 </div>
                 <div className={`${styles.menubar} ${styles.headerIconWrapper}`} onClick={() => setMobile(!Mobile)}>
                   <Image

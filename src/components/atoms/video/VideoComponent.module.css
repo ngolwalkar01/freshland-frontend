@@ -256,7 +256,7 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
-  .content {
+  .content h1 {
     font-size: 64px;
   }
   .text {
