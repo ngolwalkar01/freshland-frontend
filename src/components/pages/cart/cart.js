@@ -127,90 +127,123 @@ function Cart() {
 
   useEffect(() => {
     const getCart = async () => {
-      const cartData = await getCartData();
-      setCartDataByCartData(cartData);
-      setIsCartReady(true);
+      try {
+        const cartData = await getCartData();
+        setCartDataByCartData(cartData);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsCartReady(true);
+      }
     };
 
     getCart();
   }, []);
 
   const updateQuantity = async (itemKey, incrementQuantity, currentQuantity) => {
-    let newQuantity = incrementQuantity + currentQuantity;
-    if (currentQuantity == 1 && newQuantity < 1) {
-      toast.error("Product must have atleast 1 quantity.", {
-        autoClose: toastTimer,
-      });
-      return;
+    try {
+      let newQuantity = incrementQuantity + currentQuantity;
+      if (currentQuantity == 1 && newQuantity < 1) {
+        toast.error("Product must have atleast 1 quantity.", {
+          autoClose: toastTimer,
+        });
+        return;
+      }
+      if (newQuantity < 1)
+        newQuantity = 1;
+      // const updatedItems = cartData.items.map((item) => {
+      //   if (item.item_key === itemKey) {
+      //     return { ...item, quantity: { ...item.quantity, value: newQuantity } };
+      //   }
+      //   return item;
+      // });
+      // setCartData({ ...cartData, items: updatedItems });
+      setLoading(true);
+      setProgress(60);
+      const data = await updateCartQuantity(itemKey, newQuantity);
+      setCartDataByCartData(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+      setProgress(100);
     }
-    if (newQuantity < 1)
-      newQuantity = 1;
-    // const updatedItems = cartData.items.map((item) => {
-    //   if (item.item_key === itemKey) {
-    //     return { ...item, quantity: { ...item.quantity, value: newQuantity } };
-    //   }
-    //   return item;
-    // });
-    // setCartData({ ...cartData, items: updatedItems });
-    setLoading(true);
-    setProgress(60);
-    const data = await updateCartQuantity(itemKey, newQuantity);
-    setCartDataByCartData(data);
-    setLoading(false);
-    setProgress(100);
   };
 
   const removeProductCart = async (e, itemKey) => {
-    e.preventDefault();
-    setLoading(true);
-    const data = await removeCartItem(itemKey);
-    setProgress(60);
-    setCartDataByCartData(data);
-    setLoading(false);
-    setProgress(100);
+    try {
+      e.preventDefault();
+      setLoading(true);
+      setProgress(60);
+      const data = await removeCartItem(itemKey);
+      setCartDataByCartData(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+      setProgress(100);
+    }
   };
 
   const removeCoupon = async (coupon) => {
-    setProgress(60);
-    setLoading(true);
-    const data = await removeCouponCart(coupon);
-    setCartDataByCartData(data);
-    setLoading(false);
-    setProgress(100);
+    try {
+      setProgress(60);
+      setLoading(true);
+      const data = await removeCouponCart(coupon);
+      setCartDataByCartData(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+      setProgress(100);
+    }
   };
 
   const applyCoupon = async () => {
-    if (coupon) {
-      setLoading(true);
-      const data = await addCouponCart(coupon);
-      setCartDataByCartData(data);
+    try {
+      if (coupon) {
+        setLoading(true);
+        const data = await addCouponCart(coupon);
+        setCartDataByCartData(data);
+      } else {
+        toast.error("Discount coupon is required", { autoClose: toastTimer });
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
       setLoading(false);
-    } else {
-      toast.error("Discount coupon is required", { autoClose: toastTimer });
     }
   };
 
   const updateProductFrequency = async (e, item_key) => {
-    const current_Val = e.target.value;
-    setProgress(60);
+    try {
+      const current_Val = e.target.value;
+      setProgress(60);
 
-    setLoading(true);
-    const data = await updateCartSubscriptionFrequency(item_key, current_Val);
-    setCartDataByCartData(data);
-    setProgress(100);
-    setLoading(false);
+      setLoading(true);
+      const data = await updateCartSubscriptionFrequency(item_key, current_Val);
+      setCartDataByCartData(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setProgress(100);
+      setLoading(false);
+    }
   };
 
   const setCartShipment = async (shipmentOpt, packageId) => {
+    try {
+      setLoading(true);
+      setProgress(60);
 
-    setLoading(true);
-    setProgress(60);
-
-    const data = await setShippingMethod(shipmentOpt, packageId);
-    setCartDataByCartData(data);
-    setLoading(false);
-    setProgress(100);
-
+      const data = await setShippingMethod(shipmentOpt, packageId);
+      setCartDataByCartData(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+      setProgress(100);
+    }
   };
 
   // const debouncedUpdateQuantity = quantityDebounce(updateQuantity, 1000);

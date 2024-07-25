@@ -339,7 +339,9 @@ function UserAddress({ userAddressProps }) {
             await saveUserAddresses(userAddresses);
             resetForm();
             await checkIfUserHaveAddress();
-        } catch (error) { }
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (

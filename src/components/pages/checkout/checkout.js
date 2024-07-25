@@ -216,6 +216,10 @@ function Checkout() {
       subscriptionShipping,
       shipping_address,
     });
+    if (delivery_dates && delivery_dates.length > 0 && delivery_dates[0].dates) {
+      const firstDate = Object.keys(delivery_dates[0].dates)[0];
+      setDeliveryDate(firstDate);
+    }
   };
 
   // const getShippingData = async (country = "", state = "", postcode = "", city = "") => {
@@ -235,8 +239,13 @@ function Checkout() {
     };
 
     const checkoutInit = async () => {
-      await getCart();
-      setIsCheckoutReady(true);
+      try {
+        await getCart();
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsCheckoutReady(true);
+      }
     };
     checkoutInit();
     // getShippingData("IN", "Madhya Pradesh", "474001");
@@ -351,17 +360,27 @@ function Checkout() {
   };
 
   const addShipping = async (shipmentOption) => {
-    setLoading(true);
-    const data = await addShippingCart(shipmentOption);
-    setCartDataByCartData(data);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const data = await addShippingCart(shipmentOption);
+      setCartDataByCartData(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const removeCoupon = async (coupon) => {
-    setLoading(true);
-    const data = await removeCouponCart(coupon);
-    setCartDataByCartData(data);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const data = await removeCouponCart(coupon);
+      setCartDataByCartData(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const resetCheckoutPage = () => {
@@ -403,6 +422,16 @@ function Checkout() {
     return true;
   };
 
+  function getShippingRates(shipping) {
+    try {
+      return shipping[0]?.shipping[0]?.shipping_rates || null;
+    } catch (error) {
+      console.error("An error occurred while retrieving shipping rates:", error);
+      return null;
+    }
+  }
+
+
   const validate = () => {
     const errors = {};
     let isValid = true;
@@ -438,9 +467,13 @@ function Checkout() {
     //   isValid = false;
     // }
 
+    const shippingRates = getShippingRates(shipping);
     const shpOpt = checkSelectedMethods(shipping);
 
-    if (!shpOpt) {
+    if (!(shippingRates && shippingRates.length > 0)) {
+      errors.shipmentVal = "Please enter the correct shipping address to get the shipping methods";
+      isValid = false;
+    } else if (!shpOpt) {
       errors.shipmentVal = "Please select shipment";
       isValid = false;
     }
@@ -570,9 +603,14 @@ function Checkout() {
   };
 
   const failedCallBack = async (data, cart_key) => {
-    let odID = data.order_id;
-    await recoverUserCart(odID, cart_key);
-    setLoading(false);
+    try {
+      let odID = data.order_id;
+      await recoverUserCart(odID, cart_key);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const getCartKey = () => {
@@ -620,6 +658,9 @@ function Checkout() {
         }
       }
     } catch (error) {
+      console.log(error);
+    } finally {
+      setIsCheckoutReady(true);
       setLoading(false);
     }
   };
@@ -641,10 +682,15 @@ function Checkout() {
   // }, [streetValue, setCustomerDetail]);
 
   const setCartShipment = async (shipmentOpt, packageId) => {
-    setLoading(true);
-    const data = await setShippingMethod(shipmentOpt, packageId);
-    setCartDataByCartData(data);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const data = await setShippingMethod(shipmentOpt, packageId);
+      setCartDataByCartData(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const userAddressProps = {
@@ -722,7 +768,8 @@ function Checkout() {
                         )}
                       </div>
                     </div>
-                    <div className={styles.acceptTerms}>
+                    {!token &&
+                    <div className={`${styles.acceptTerms} ${styles.isAccount}`}>
                       <input
                         type="checkbox"
                         checked={isCreateAccount}
@@ -733,6 +780,7 @@ function Checkout() {
                          Do you want to create Account ?
                       </label>
                     </div>
+                  }
 
                     {/*  */}
 

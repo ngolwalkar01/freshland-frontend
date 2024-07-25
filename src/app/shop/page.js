@@ -13,11 +13,16 @@ const GoodsPage = (props) => {
 
   useEffect(() => {
     async function fetchData() {
-      setLoading(true);
-      const categoryWithProducts = await productCategoryService.getCategoriesWithProducts();
-      setData({ categoryWithProducts })
-      setLoading(false);
-      getCartData();
+      try {
+        setLoading(true);
+        const categoryWithProducts = await productCategoryService.getCategoriesWithProducts();
+        setData({ categoryWithProducts })
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+        getCartData();
+      }
     }
 
     fetchData();

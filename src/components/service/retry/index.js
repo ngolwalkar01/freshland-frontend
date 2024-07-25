@@ -17,7 +17,7 @@ export const retryCall = async (method, parameters, errorMessage = "", count = 0
             removeLocalStorage("token", false);
             cookieService.removeCookie("userId");
             cookieService.removeCookie("token");
-            if(redirect){
+            if (redirect) {
                 Router.push("/")
             } else {
                 return retryCall(method, parameters, count + 1);
@@ -25,5 +25,6 @@ export const retryCall = async (method, parameters, errorMessage = "", count = 0
         } else {
             toast.error((error?.data?.message ? error.data.message : (errorMessage ? errorMessage : "Something went wrong")), { autoClose: toastTimer });
         }
+        throw error;
     }
 };

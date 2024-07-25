@@ -30,7 +30,7 @@ export const getCartKey = () => {
       cartKey = cartData.extensions.delivery[0].cart_key;
     }
   } catch (error) {
-
+    console.log(error)
   }
   if (cartKey) {
     removeLocalStorage('temp_cart_key');
@@ -49,11 +49,15 @@ const storeTempState = () => {
 }
 
 export const getCartData = async () => {
-  const errorMessage =
-    "There was an issue in fetching cart data. Please try again.";
-  const cartData = await retryCall(cartService.getCartData, [], errorMessage);
-  updateCartData(cartData);
-  return cartData;
+  try {
+    const errorMessage =
+      "There was an issue in fetching cart data. Please try again.";
+    const cartData = await retryCall(cartService.getCartData, [], errorMessage);
+    updateCartData(cartData);
+    return cartData;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const addToCart = async (
@@ -61,30 +65,38 @@ export const addToCart = async (
   quantity = "1",
   subscription_scheme = ""
 ) => {
-  const errorMessage =
-    "There was an issue adding the product to your cart. Please try again.";
-  const productAddedToCart = await retryCall(
-    cartService.addProductToCart,
-    [productId, quantity, subscription_scheme],
-    errorMessage
-  );
-  toast.success("Product has been successfully added to your cart.", {
-    autoClose: toastTimer,
-  });
-  updateCartData(productAddedToCart);
-  return productAddedToCart;
+  try {
+    const errorMessage =
+      "There was an issue adding the product to your cart. Please try again.";
+    const productAddedToCart = await retryCall(
+      cartService.addProductToCart,
+      [productId, quantity, subscription_scheme],
+      errorMessage
+    );
+    toast.success("Product has been successfully added to your cart.", {
+      autoClose: toastTimer,
+    });
+    updateCartData(productAddedToCart);
+    return productAddedToCart;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const updateCartQuantity = async (itemKey, quantity) => {
-  const errorMessage =
-    "There was an issue in updating quantity. Please try again.";
-  const data = await retryCall(
-    cartService.updateCartQuantity,
-    [itemKey, quantity],
-    errorMessage
-  );
-  updateCartData(data);
-  return data;
+  try {
+    const errorMessage =
+      "There was an issue in updating quantity. Please try again.";
+    const data = await retryCall(
+      cartService.updateCartQuantity,
+      [itemKey, quantity],
+      errorMessage
+    );
+    updateCartData(data);
+    return data;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const removeCartItem = async (itemKey) => {

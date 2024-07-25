@@ -597,7 +597,8 @@
     line-height: 2;
   }
   .closebtn {
-    align-items: flex-start;
+    /* align-items: flex-start; */
+    padding-right: 11px;
   }
 
   .mainContainer {
@@ -617,11 +618,11 @@
     gap: 5px;
   }
 
-  .productSection > span {
+  /* .productSection > span {
     position: absolute;
     top: -12px;
     right: 29px;
-  }
+  } */
 
   .pickup input[type="radio"] {
     height: 16px;
@@ -792,10 +793,4 @@
   }
 }
 
-@media (min-width: 600px) and (max-width: 1000px) {
-  .productSection > span {
-    position: absolute;
-    top: -12px;
-    right: 29px;
-  }
-}
+

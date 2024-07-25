@@ -164,11 +164,16 @@ const Goods = ({ sessionalProductProps }) => {
   }, []);
 
   const addToBasket = async (productId) => {
-    setLoading(true);
-    setProgress(60);
-    await addToCart(productId.toString());
-    setLoading(false);
-    setProgress(100);
+    try {
+      setLoading(true);
+      setProgress(60);
+      await addToCart(productId.toString());
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+      setProgress(100);
+    }
   }
 
 
@@ -178,25 +183,35 @@ const Goods = ({ sessionalProductProps }) => {
   };
 
   const removeProductCart = async (itemKey) => {
-    setLoading(true);
-    setProgress(60);
-    await removeCartItem(itemKey);
-    setLoading(false);
-    setProgress(100);
+    try {
+      setLoading(true);
+      setProgress(60);
+      await removeCartItem(itemKey);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+      setProgress(100);
+    }
+
   };
 
   const updateQuantity = async (itemKey, incrementQuantity, currentQuantity) => {
-    let newQuantity = incrementQuantity + currentQuantity;
-    if (newQuantity < 1) {
-      await removeProductCart(itemKey)
-      return;
+    try {
+      let newQuantity = incrementQuantity + currentQuantity;
+      setLoading(true);
+      setProgress(60);
+      if (newQuantity < 1) {
+        await removeProductCart(itemKey)
+      } else {
+        await updateCartQuantity(itemKey, newQuantity);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+      setProgress(100);
     }
-
-    setLoading(true);
-    setProgress(60);
-    await updateCartQuantity(itemKey, newQuantity);
-    setLoading(false);
-    setProgress(100);
   };
 
   // const debouncedUpdateQuantity = quantityDebounce(updateQuantity, 500);

@@ -581,6 +581,14 @@ letter-spacing: normal;
   padding: 20px 0px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+.isAccount{
+  margin: 0px 0px;
+  align-items: center;
+
+}
+.isAccount input[type="checkbox"]{
+  height: 16px !important;
+}
 @media (min-width: 320px) and (max-width: 600px) {
   .wrapper {
     flex-direction: column;

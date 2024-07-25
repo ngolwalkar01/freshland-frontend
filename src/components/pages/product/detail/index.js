@@ -36,13 +36,18 @@ const Description = ({ productDetailProps }) => {
   };
 
   const handleAddToCart = async () => {
-    setLoading(true);
-    await addToCart(
-      productDetail.id.toString(),
-      quantity.toString(),
-      isOneTimePurchaseActive ? "" : deliveryOption,
-    );
-    setLoading(false);
+    try {
+      setLoading(true);
+      await addToCart(
+        productDetail.id.toString(),
+        quantity.toString(),
+        isOneTimePurchaseActive ? "" : deliveryOption,
+      );
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
   const [deliveryOption, setDeliveryOption] = useState("");
 
@@ -138,16 +143,16 @@ const Description = ({ productDetailProps }) => {
                   alt="Spain Flag"
                 /> */}
                 </div>
-               
+
                 {productDetail && <h5 dangerouslySetInnerHTML={{ __html: productDetail.price }} />}
-             
+
 
               </div>
-              
+
 
               {productDetail?.excerpt && <div className={styles.productDetails} dangerouslySetInnerHTML={{ __html: productDetail?.excerpt }}>
               </div>
-              
+
               }
               <div className={styles.boxWrapper}>
 
@@ -254,7 +259,7 @@ const Description = ({ productDetailProps }) => {
         <LazyLoad height={200} offset={100}>
           <div className={styles.wrapper}>
             <section className={styles.productDescription} dangerouslySetInnerHTML={{ __html: productDetail?.description }} />
-              {/* <h2>{pdt.description}</h2>
+            {/* <h2>{pdt.description}</h2>
               <div className={styles.mainDescription}>
                 <div className={styles.storageWrapper}>
                   <div>

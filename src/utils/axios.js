@@ -51,9 +51,17 @@ function setCartTokenNonce(response) {
     }
 }
 
+async function logoutGoogle() {
+    try {
+        await signOut({ redirect: false });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 async function handleErrorResponse(response, preventAuthRedirect) {
     if (!preventAuthRedirect && (response.status === 401 || response.status === 403)) {
-        await signOut({ redirect: false });
+        await logoutGoogle();
         clearAuthData();
         // Router.push('/login');
         window.location.href = "/login";

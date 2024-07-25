@@ -22,17 +22,22 @@ const ProductPage = () => {
 
     useEffect(() => {
         async function fetchData() {
-            setLoading(true);
-            const [productDetail, relatedProducts] = await Promise.all([
-                productService.getProductDetail(productId),
-                productService.getRelatedProducts(productId),
-            ]);
-            setData({
-                productDetail,
-                relatedProducts,
-                productId
-            });
-            setLoading(false);
+            try {
+                setLoading(true);
+                const [productDetail, relatedProducts] = await Promise.all([
+                    productService.getProductDetail(productId),
+                    productService.getRelatedProducts(productId),
+                ]);
+                setData({
+                    productDetail,
+                    relatedProducts,
+                    productId
+                });
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setLoading(false);
+            }
         }
 
         if (productId)

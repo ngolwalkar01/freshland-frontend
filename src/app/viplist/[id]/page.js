@@ -15,13 +15,19 @@ const VipList = () => {
 
     useEffect(() => {
         async function fetchData() {
-            setLoading(true);
-            const data = await CartAPI.getVipPageDataById(vipPageId);
-            // await klaviyoService.getProfile();
-            // await klaviyoService.createProfile("sdasasddas@sasas.saas", "assas");
-            // await klaviyoService.addProfileToList();
-            setData(data);
-            setLoading(false);
+            try {
+                setLoading(true);
+                const data = await CartAPI.getVipPageDataById(vipPageId);
+                // await klaviyoService.getProfile();
+                // await klaviyoService.createProfile("sdasasddas@sasas.saas", "assas");
+                // await klaviyoService.addProfileToList();
+                setData(data);
+                
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setLoading(false);
+            }
         }
 
         if (vipPageId)
@@ -30,7 +36,7 @@ const VipList = () => {
 
     return (
         <Layout>
-            <Vip vipPageData={data}/>
+            <Vip vipPageData={data} />
         </Layout>
     )
 };

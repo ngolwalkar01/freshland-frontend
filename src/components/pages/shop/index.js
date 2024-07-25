@@ -23,9 +23,6 @@ const AllItems = ({ categoryWithProducts }) => {
 
   return (
     <>
-      <Head>
-        <link rel="preload" href="/mockImage/Fruit.png" as="Fruit.png" />
-      </Head>
       <div className={styles.BgWrapper}>
         <Header />
         {/* Main content */}

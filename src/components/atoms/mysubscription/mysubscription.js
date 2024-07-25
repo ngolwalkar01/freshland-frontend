@@ -37,12 +37,18 @@ function Mysubscription({ showOrderView, setShowOrderView, isUserLoggedIn, setLo
   const userId = getLocalStorage('userId');
 
   const getSubData = useCallback(async () => {
-    if (token) {
-      setLoading(true);
-      const subData = await subscriptionService.getSubscriptions(userId, token);
-      setSubscriptionData(subData && subData.length > 0 ? subData : [])
+    try {
+      if (token) {
+        setLoading(true);
+        const subData = await subscriptionService.getSubscriptions(userId, token);
+        setSubscriptionData(subData && subData.length > 0 ? subData : [])
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
       setLoading(false);
     }
+
   }, [token, userId, setLoading, setSubscriptionData])
 
   useEffect(() => {
@@ -114,31 +120,41 @@ function Mysubscription({ showOrderView, setShowOrderView, isUserLoggedIn, setLo
   };
 
   const toggleSubView = async (id, val) => {
-    if (token) {
-      setLoading(true);
-      const subDetail = await subscriptionService.getSubscriptionById(id, token);
-      const nextDate = subDetail?.next_payment_date_gmt ? new Date(subDetail.next_payment_date_gmt) : new Date();
-      const nextDt = formatDateToLongForm(nextDate);
-      const subOrders = await subscriptionService.getOrdersBySubscriptionId(id, token)
-      const newSubProducts = await subscriptionService.getNewPRoductsBySubscription(id);
-      setNewSubscriptionProducts(newSubProducts);
-      setSubscriptionOrders(subOrders);
-      setDate(new Date());
-      setNewDate(nextDt);
-      setSkipNewDate(nextDt)
-      setSubDetail(subDetail);
-      setShowOrderView(val);
+    try {
+      if (token) {
+        setLoading(true);
+        const subDetail = await subscriptionService.getSubscriptionById(id, token);
+        const nextDate = subDetail?.next_payment_date_gmt ? new Date(subDetail.next_payment_date_gmt) : new Date();
+        const nextDt = formatDateToLongForm(nextDate);
+        const subOrders = await subscriptionService.getOrdersBySubscriptionId(id, token)
+        const newSubProducts = await subscriptionService.getNewPRoductsBySubscription(id);
+        setNewSubscriptionProducts(newSubProducts);
+        setSubscriptionOrders(subOrders);
+        setDate(new Date());
+        setNewDate(nextDt);
+        setSkipNewDate(nextDt)
+        setSubDetail(subDetail);
+        setShowOrderView(val);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
       setLoading(false);
     }
   }
 
   const onChangeCalDate = async (e) => {
-    setLoading(true);
-    const data = await subscriptionService.getNextDeliveryDate(e, token);
-    if (data && data?.next_date)
-      setNewDate(data?.next_date);
-    setDate(e);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const data = await subscriptionService.getNextDeliveryDate(e, token);
+      if (data && data?.next_date)
+        setNewDate(data?.next_date);
+      setDate(e);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   }
 
   const skipNextDeliveryDate = async () => {
@@ -149,12 +165,18 @@ function Mysubscription({ showOrderView, setShowOrderView, isUserLoggedIn, setLo
   }
 
   const setDeliveryDate = async () => {
-    setLoading(true);
-    const data = await subscriptionService.setDeliveryDate(subscriptionDetail.id, date, newNextDate, token);
-    await toggleSubView(subscriptionDetail.id, true);
-    handleclosecalenderpopup();
-    setLoading(false);
-    toast.success("Your subscription has been put on hold.", { autoClose: toastTimer });
+    try {
+      setLoading(true);
+      const data = await subscriptionService.setDeliveryDate(subscriptionDetail.id, date, newNextDate, token);
+      await toggleSubView(subscriptionDetail.id, true);
+      handleclosecalenderpopup();
+      setLoading(false);
+      toast.success("Your subscription has been put on hold.", { autoClose: toastTimer });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   }
 
   const findMetaDataValue = (metaData, key) => {

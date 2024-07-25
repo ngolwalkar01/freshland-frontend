@@ -237,22 +237,24 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
         </section>
       )}
 
-      {!showOrderView && orderobj && (
-        <div className={styles.mobileviewtable} onClick={() => handleViewClick(orderobj.id)}>
+<div className={styles.mobileviewtableCards}>
+      {!showOrderView && orders && orders.length > 0 && orders.map((od, i) => (
+        <div key={i} className={styles.mobileviewtable} onClick={() => handleViewClick(od.order_number)}>
           <div className={styles.tablecard}>
             <div className={styles.ordercarddetail}>
-              <div className={styles.orderid}>
-                <p>{mat.orderNo} <span className={styles.status}>{orderobj.id}</span></p>
-                <p className={styles.status}>{orderobj.status}</p>
+              <div className={styles.order_number}>
+                <p>{mat.orderNo} <span className={styles.status}>#{od.order_number}</span></p>
+                <p className={styles.status}>{od.order_status}</p>
               </div>
               <div className={styles.date}>
-                <p>{new Date(orderobj.date_created).toLocaleDateString()}</p>
-                <p>{orderobj.totals.currency_symbol} {getCorrectPrice(orderobj.totals.total_price, orderobj.totals.currency_minor_unit)}</p>
+                <p>{od.order_date}</p>
+                <p>{od.order_total}</p>
               </div>
             </div>
           </div>
         </div>
-      )}
+      ))}
+</div>
       <button style={{ display: showRequest ? 'block' : 'none' }} onClick={handleGoBack} className={styles.gobackbtn}><i className="fa-solid fa-circle-arrow-left"></i></button>
 
       {showRequest && <OrderProcess />}

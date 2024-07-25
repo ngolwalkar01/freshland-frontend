@@ -14,13 +14,17 @@ const Favourites = () => {
 
     useEffect(() => {
         const getSearchedProducts = async () => {
-            setLoading(true);
+            try {
+                setLoading(true);
 
-            const data = await productService.getFavoritesProducts();
-            setProductData(data && data.length > 0 ? data : []);
-
-            setLoading(false);
-            getCartData();
+                const data = await productService.getFavoritesProducts();
+                setProductData(data && data.length > 0 ? data : []);
+                getCartData();
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setLoading(false);
+            }
         }
 
         getSearchedProducts();

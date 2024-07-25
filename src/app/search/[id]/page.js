@@ -18,15 +18,20 @@ const Search = () => {
 
     useEffect(() => {
         const getSearchedProducts = async () => {
-            setLoading(true);
-            if (searchTxt) {
-                const data = await productService.getSearchedProducts(searchTxt);
-                setProductData(data?.suggestions && data?.suggestions.length > 0 ? data.suggestions : []);
-            } else {
-                setProductData([]);
+            try {
+                setLoading(true);
+                if (searchTxt) {
+                    const data = await productService.getSearchedProducts(searchTxt);
+                    setProductData(data?.suggestions && data?.suggestions.length > 0 ? data.suggestions : []);
+                } else {
+                    setProductData([]);
+                }
+                getCartData();
+            } catch (error) {
+              console.log(error);
+            } finally {
+                setLoading(false);
             }
-            setLoading(false);
-            getCartData();
         }
 
         getSearchedProducts();

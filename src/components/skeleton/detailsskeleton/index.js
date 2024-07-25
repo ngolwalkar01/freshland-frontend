@@ -13,17 +13,17 @@ const Description = () => {
         <Header />
         <div className={styles.container}>
       
-          <section className={styles.productSection}>
+          <section className={`${styles.productSection} ${styles.productDetailskl}`}>
         
             <div className={styles.leftSide}>
-            <Skeleton height={400} width={400} />
+            <Skeleton height={400} width={400} className={styles.leftSkeleton}/>
             </div>
             <div className={styles.rightSide}>
            
               <div className={styles.featuresWrapper}>
-              <Skeleton height={50} width={500} />
-              <Skeleton height={50} width={500} />
-              <Skeleton height={50} width={500} />
+              <Skeleton height={50} width={500} className={styles.rightSkl}/>
+              <Skeleton height={50} width={500} className={styles.rightSkl}/>
+              <Skeleton height={50} width={500} className={styles.rightSkl}/>
               </div>
               <div className={styles.descriptionWrapper}>
               <Skeleton height={50} width={300} />
@@ -32,7 +32,7 @@ const Description = () => {
               </div>
               <div className={styles.detailBtn}>
               <Skeleton height={50} width={100} />
-              <Skeleton height={50} width={200} className={styles.addbtn}/>
+              <Skeleton height={50} width={180} className={styles.addbtn}/>
               </div>
           
             </div>
@@ -48,20 +48,20 @@ const Description = () => {
               <div className={styles.mainDescription}>
               <div className={styles.SkeletonWrapper}>
               <Skeleton height={30} width={300} />
-                <Skeleton height={70} width={990} />
+                <Skeleton height={70} width={990} className={styles.descriptionSkl}/>
                 </div>
                 <div className={styles.SkeletonWrapper}>
               <Skeleton height={30} width={300} />
-                <Skeleton height={70} width={990} />
+                <Skeleton height={70} width={990} className={styles.descriptionSkl}/>
                 </div>
                 <div className={styles.SkeletonWrapper}>
               <Skeleton height={30} width={300} />
-                <Skeleton height={70} width={990} />
+                <Skeleton height={70} width={990} className={styles.descriptionSkl}/>
                 </div>
 
                 <div className={styles.SkeletonWrapper}>
               <Skeleton height={30} width={300} />
-                <Skeleton height={70} width={990} />
+                <Skeleton height={70} width={990} className={styles.descriptionSkl}/>
                 </div>
               
               </div>

@@ -23,16 +23,23 @@ const Login = () => {
 
   const router = useRouter();
 
+  const logoutGoogle = async () => {
+    try {
+      await googleSignOut({
+        redirect: false,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const data = await authService.login({ username, password });
       if (data && data.token) {
         setUserLoggedInData(data);
-        await googleSignOut({
-          callbackUrl: `${window.location.origin}/auth/signout`,
-          redirect: false,
-        });
+        await logoutGoogle();
         // localStorage.setItem("token", `Bearer ${data.token}`);
         // cookieService.setCookie("token", `Bearer ${data.token}`, expires);
 

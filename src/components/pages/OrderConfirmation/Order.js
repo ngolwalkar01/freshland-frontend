@@ -23,12 +23,17 @@ const Order = ({ orderId }) => {
   const [orderDatesData, setOrderDatesData] = useState(null);
 
   const getOrderDetail = async () => {
-    setLoading(true);
-    const orderDates = await getOrderDates(orderId)
-    const data = await getCheckoutOrderById(orderId);
-    setOrderDatesData(orderDates);
-    setOrderData(data);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const orderDates = await getOrderDates(orderId)
+      const data = await getCheckoutOrderById(orderId);
+      setOrderDatesData(orderDates);
+      setOrderData(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {

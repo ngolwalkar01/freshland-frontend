@@ -424,7 +424,7 @@ body {
 main{
   min-height: 100vh;
   background: #fff;
-  padding: 0px 0px 10px 0px;
+  /* padding: 0px 0px 10px 0px; */
 }
 /* css for tablet device */
 @media (max-width: 600px) {

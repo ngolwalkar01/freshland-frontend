@@ -32,10 +32,10 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
     slidesToScroll: 1,
     autoplay: false,
     adaptiveHeight: true,
-    beforeChange: (current, next) => {
-      setCurrentSlide(next);
-      setShowPrevArrow(next > 0); 
-    },
+    // beforeChange: (current, next) => {
+    //   setCurrentSlide(next);
+    //   setShowPrevArrow(next > 0); 
+    // },
     prevArrow: <CustomPrevArrow visible={showPrevArrow}/>,
     nextArrow: <CustomNextArrow setShowPrevArrow={setShowPrevArrow}/>,
     responsive: [

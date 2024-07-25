@@ -46,15 +46,21 @@ function Account({ orders }) {
   }
 
   const toggleOrderView = async (id, val) => {
-    const token = isUserLoggedIn();
-    if (token) {
-      setLoading(true);
-      setProgress(60)
-      const orderDetail = await getCheckoutOrderById(id);
-      const orderDates = await getOrderDates(id);
-      setOrderDatesData(orderDates);
-      setorderObj(orderDetail);
-      setShowOrderView(val);
+    try {
+      const token = isUserLoggedIn();
+      if (token) {
+        setLoading(true);
+        setProgress(60)
+        const orderDetail = await getCheckoutOrderById(id);
+        const orderDates = await getOrderDates(id);
+        setOrderDatesData(orderDates);
+        setorderObj(orderDetail);
+        setShowOrderView(val);
+
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
       setLoading(false);
       setProgress(100)
     }
@@ -86,10 +92,11 @@ function Account({ orders }) {
     localStorage.removeItem("userId");
 
     setShowLogoutConfirmation(false);
-    await googleSignOut({
-      callbackUrl: `${window.location.origin}/auth/signout`,
-      redirect: false,
-    });
+    try {
+      await googleSignOut({
+        redirect: false,
+      });
+    } catch (error) { }
     router.push("/login");
   };
 

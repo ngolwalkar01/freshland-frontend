@@ -22,10 +22,10 @@ const ProductSlider = () => {
     autoplay: false,
     autoplaySpeed: 2000,
     adaptiveHeight: true,
-    beforeChange: (current, next) => {
-      setCurrentSlide(next);
-      setShowPrevArrow(next > 0); 
-    },
+    // beforeChange: (current, next) => {
+    //   setCurrentSlide(next);
+    //   setShowPrevArrow(next > 0); 
+    // },
     prevArrow: <CustomPrevArrow visible={showPrevArrow}/>,
     nextArrow: <CustomNextArrow setShowPrevArrow={setShowPrevArrow}/>,
     

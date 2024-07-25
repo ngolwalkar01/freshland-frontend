@@ -487,6 +487,33 @@ border-radius: 5px;
 .followingpage{
   color: var(--text-light);
 }
+.order_number{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 282px;
+}
+.order_number p{
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+  sans-serif;
+font-size: 13px;
+font-weight: bold;
+font-stretch: normal;
+font-style: normal;
+line-height: 1.54;
+letter-spacing: normal;
+}
+.order_number p  span{
+  color: #219029;
+}
+.order_number .status {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #219029;
+}
    
 
  @media(min-width:320px) and (max-width:360px){
@@ -589,7 +616,7 @@ border-radius: 5px;
      }
     
   }
-  @media (min-width:601px) and (max-width:1000px){
+  @media (min-width:601px) and (max-width:1015px){
     .viewtabledetail{
       display: none;
     }
@@ -600,6 +627,14 @@ border-radius: 5px;
       display: block;
       padding: 0px 0px 40px 0px;
     }
+    .mobileviewtableCards{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      column-gap: 30px;
+    }
+
     .tablecard{
       display: flex;
     flex-wrap: wrap;
@@ -628,9 +663,9 @@ border-radius: 5px;
     
   }
 
-  @media (min-width:1020px) and (max-width:1100px){
+  @media (min-width:1016px) and (max-width:1100px){
     .ordertable{
-      width: 950px;
+      width: 100%;
     }
     .viewtabledetail{
       margin: 40px 0px;
