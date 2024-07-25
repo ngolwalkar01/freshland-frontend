@@ -66,7 +66,7 @@ const Footer = () => {
               <div>
                 <p>{hpt.customerService}</p>
                 <ul>
-                  <li><Link href="/faq">{hpt.faq}</Link></li>
+                  <li><Link href="/se/faq">{hpt.faq}</Link></li>
                   <li><Link href="/complaint">{hpt.complaint}</Link></li>
                   {/* <li><Link href="/media">{hpt.media}</Link></li> */}
                 </ul>
@@ -74,9 +74,9 @@ const Footer = () => {
               <div>
                 <p>{hpt.theLegal}</p>
                 <ul>
-                  <li><Link href="/term">{hpt.terms}</Link></li>
-                  <li><Link href="/personaldata">{hpt.personalData}</Link></li>
-                  <li><Link href="/rightwithdraw">{hpt.rightWithdraw}</Link></li>
+                  <li><Link href="/se/kundvillkor">{hpt.terms}</Link></li>
+                  <li><Link href="/se/sekretesspolicy">{hpt.personalData}</Link></li>
+                  <li><Link href="/se/faq/#right-withdraw">{hpt.rightWithdraw}</Link></li>
                 </ul>
 
                 <div className={styles.thelegalconutry}>

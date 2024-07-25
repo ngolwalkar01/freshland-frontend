@@ -768,6 +768,17 @@
   .sklcontainer{
     max-width: 100% !important;
   }
+
+
+  .sklimgContainer{
+    width: 120px !important;
+    height: 122px !important;
+  }
+  .groupskl{
+    width: 192px !important;
+    height: 38px !important;
+  }
+
 }
 
 @media (min-width: 320px) and (max-width: 375px) {

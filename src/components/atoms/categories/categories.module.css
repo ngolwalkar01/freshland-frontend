@@ -90,3 +90,12 @@
       grid-template-columns: auto auto;
     }
   }
+
+  @media (min-width: 1024px) and (max-width: 1439px) {
+  .mainContainer h1 {
+    font-size: 64px;
+  }
+  .fruitCategories p{
+    font-size: 20px;
+  }
+}

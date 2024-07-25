@@ -14,6 +14,7 @@ const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, orderDates, isUserLoggedIn }) {
   const mat = myaccountTranslation[lang];
   const [showRequest, setShowRequest] = useState();
+  
   const handleRequest = () => {
     window.scrollTo({
       top: 0,

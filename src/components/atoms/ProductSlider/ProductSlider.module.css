@@ -231,3 +231,13 @@ cursor: pointer;
     text-align: left;
   }
 }
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .boxContainer h1 {
+    font-size: 64px;
+  }
+  .testimonialspeech {
+    font-size: 20px;
+  }
+
+}

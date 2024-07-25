@@ -10,104 +10,61 @@ const Faqs = () => {
         <div className={styles.Headeraccount}>
           <Header />
         </div>
-        <div className={styles.accountSkeleton}>
-          <Skeleton width={300} height={50} />
-          <div className={styles.newskl}>
-            <Skeleton width={100} height={20} />
-            <Skeleton width={100} height={20} />
-            <Skeleton width={100} height={20} />
-            <Skeleton width={100} height={20} />
-            <Skeleton width={100} height={20} />
-            <Skeleton width={100} height={20} />
-            
-          </div>
-          <Skeleton width={800} height={20} />
-
-          <div className={styles.skeletonTable}>
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th>
-                    {" "}
-                    <Skeleton width={110} height={20} />
-                  </th>
-                  <th>
-                    {" "}
-                    <Skeleton width={110} height={20} />
-                  </th>
-                  <th>
-                    {" "}
-                    <Skeleton width={110} height={20} />
-                  </th>
-                  <th>
-                    {" "}
-                    <Skeleton width={110} height={20} />
-                  </th>
-                  <th>
-                    {" "}
-                    <Skeleton width={110} height={20} />
-                  </th>
-                  <th>
-                    {" "}
-                    <Skeleton width={110} height={20} />
-                  </th>
-                  <th>
-                    {" "}
-                    <Skeleton width={30} height={20} />
-                  </th>
-                  <th>
-                    {" "}
-                    <Skeleton width={70} height={20} />
-                  </th>
-                  <th>
-                    {" "}
-                    <Skeleton width={70} height={20} />
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    {" "}
-                    <Skeleton width={110} height={20} />
-                  </td>
-                  <td>
-                    {" "}
-                    <Skeleton width={110} height={20} />
-                  </td>
-                  <td>
-                    {" "}
-                    <Skeleton width={110} height={20} />
-                  </td>
-                  <td>
-                    {" "}
-                    <Skeleton width={110} height={20} />
-                  </td>
-                  <td>
-                    {" "}
-                    <Skeleton width={110} height={20} />
-                  </td>
-                  <td>
-                    {" "}
-                    <Skeleton width={110} height={20} />
-                  </td>
-                  <td>
-                    {" "}
-                    <Skeleton width={30} height={20} />
-                  </td>
-                  <td>
-                    {" "}
-                    <Skeleton width={70} height={20} />
-                  </td>
-                  <td>
-                    {" "}
-                    <Skeleton width={70} height={20} />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div className={styles.accountPage}>
+      <header className={styles.accountHeader}>
+        <Skeleton height={50} width={200} />
+      </header>
+      <nav className={styles.accountNav}>
+        <Skeleton height={30} width={100} className={styles.navItem} />
+        <Skeleton height={30} width={100} className={styles.navItem} />
+        <Skeleton height={30} width={150} className={styles.navItem} />
+        <Skeleton height={30} width={100} className={styles.navItem} />
+      </nav>
+      <section className={styles.accountOrders}>
+        <div className={styles.orderHeader}>
+          <Skeleton height={40} />
         </div>
+        <div className={styles.orderList}>
+          {Array(5).fill().map((_, index) => (
+            <div key={index} className={styles.orderItem}>
+              <Skeleton height={30} width={100} />
+              <Skeleton height={30} width={100} />
+              <Skeleton height={30} width={100} />
+              <Skeleton height={30} width={100} />
+              <Skeleton height={30} width={100} />
+              <Skeleton height={30} width={100} />
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+
+    {/* mobile menu*/}
+
+    <div className={styles.accountMenu}>
+      <nav className={styles.navMenu}>
+        <div className={styles.navItem}>
+          <Skeleton className={styles.skeletonNavItem} height={30}/>
+          
+        </div>
+        <div className={styles.navItem}>
+          <Skeleton className={styles.skeletonNavItem} height={30}/>
+        </div>
+        <div className={styles.navItem}>
+          <Skeleton className={styles.skeletonNavItem} height={30}/>
+        </div>
+        <div className={styles.navItem}>
+          <Skeleton className={styles.skeletonNavItem} height={30}/>
+        </div>
+        <div className={styles.navItem}>
+          <Skeleton className={styles.skeletonNavItem} height={30}/>
+        </div>
+
+        
+      </nav>
+    </div>
+
+
       </div>
     </>
   );

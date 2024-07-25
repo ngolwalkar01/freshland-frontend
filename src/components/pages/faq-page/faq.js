@@ -19,7 +19,7 @@ const Faq = ({ heading, accordionData }) => {
         <h4>{heading}</h4>
         <div className={styles.faqs}>
           {accordionData.map((item, index) => (
-            <div key={index} className={styles.faqscontent}>
+            <div key={index} className={styles.faqscontent} id={item.id}>
               <button
                 className={`W-Body-Large-Regular ${styles.accordion}`}
                 onClick={() => toggleAccordion(index)}
@@ -100,6 +100,7 @@ const faqData = [
         content: "<p>Om du inte kan se någon orderbekräftelse – kika gärna i din skräppost först. Om den inte heller är där kan det bero på två saker – Antingen har din order inte gått igenom eller så har du skrivit in en felaktig mejladress. Kontakta oss gärna på <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> eller ring oss på <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 10 888 57 20</a> så hjälper vi dig.</p>"
     },
     {
+        id: "right-withdraw",
         title: "Ångerrätt och reklamation",
         content: "<p><strong>Ångerrätt </strong></p> <p>Det finns ingen ångerrätt för avtal om leverans av mat, drycker eller andra varor för hushållets nuvarande konsumtion, som levereras fysiskt till ditt hem, bostad eller arbetsplats, som en del av vår ordinarie leverans av varor. Varor på <a href=\"https://fresh.land/se/\">fresh.land/se/</a> som inte är för hushållets nuvarande konsumtion täcks av de allmänna reglerna om ångerrätt.</p> <p><strong>Reklamation </strong></p> <p>Om varan du fick inte lever upp till förväntningarna vill vi gärna kompensera dig. Kontakta oss på <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> senast 3 dagar efter leverans, men gärna så fort som möjligt i samband med leverans.</p>"
     }

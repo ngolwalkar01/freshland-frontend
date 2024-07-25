@@ -138,10 +138,17 @@ const Description = ({ productDetailProps }) => {
                   alt="Spain Flag"
                 /> */}
                 </div>
+               
                 {productDetail && <h5 dangerouslySetInnerHTML={{ __html: productDetail.price }} />}
+             
+
               </div>
-              {productDetail?.excerpt && <div dangerouslySetInnerHTML={{ __html: productDetail?.excerpt }}>
-              </div>}
+              
+
+              {productDetail?.excerpt && <div className={styles.productDetails} dangerouslySetInnerHTML={{ __html: productDetail?.excerpt }}>
+              </div>
+              
+              }
               <div className={styles.boxWrapper}>
 
                 {subscriptionOpt && subscriptionOpt.is_subscription && subscriptionOpt.subscription_schemes && subscriptionOpt.subscription_schemes.length > 0 && (

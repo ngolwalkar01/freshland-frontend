@@ -15,10 +15,10 @@ const Shop = () => {
             <div className={styles.wrapper}>
             <div className={styles.headingskl}>
             <div className={styles.blankflexItem}></div>
-            <Skeleton width={350} height={60}  className={styles.headingSkeleton} />
+            <Skeleton width={350} height={60}  className={styles.headingSkeleton}/>
             <div className={styles.filterCover}>
               <div className={styles.filterIcon}>
-              <Skeleton width={50} height={40} />
+              <Skeleton width={50} height={40}  className={styles.skl}/>
               </div>
              
             </div>

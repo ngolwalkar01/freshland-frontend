@@ -383,6 +383,28 @@
     gap: 0px;
   }
 
+  .skeletonContainer{
+    display: grid !important;
+    grid-template-columns: 165px 165px;
+    margin: 0px 24px;
+    gap: 14px !important;
+  }
+  .skeletonCard{
+    width: 100% !important;
+  }
+  .newskl{
+    justify-content: center !important;
+  }
+  .newskl div:first-child{
+    width: 100px;
+  }
+  .skeletonImage{
+    height: 120px !important;
+  }
+
+  .newskl .skldiv{
+    width: 70px !important;
+  }
 }
 
 @media (min-width: 601px) and (max-width: 975px) {
@@ -413,7 +435,17 @@
 
 }
 
-
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .cardTitle {
+    font-size: 16px;
+  }
+  .cardPrice {
+    font-size: 16px;
+  }
+  .addToBasketButton {
+    font-size: 18px;
+  }
+}
 
 .skeletonContainer {
   display: flex;

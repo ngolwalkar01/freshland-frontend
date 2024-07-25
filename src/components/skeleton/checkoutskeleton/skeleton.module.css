@@ -47,3 +47,21 @@
     display: flex;
     gap: 24px;
   }
+
+  @media (min-width: 320px) and (max-width: 600px){
+  .wrapper{
+    flex-direction: column;
+  }
+  .Skeletoncotainer{
+    flex-direction: column;
+  }
+  .leftContainer{
+    margin: 24px;
+  }
+   .skeleton{
+    width: 300px !important;
+   }
+    
+    
+ 
+  }

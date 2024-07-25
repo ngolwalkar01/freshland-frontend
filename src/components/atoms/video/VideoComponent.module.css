@@ -255,3 +255,14 @@
 }
 }
 
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .content {
+    font-size: 64px;
+  }
+  .text {
+    font-size: 18px;
+  }
+  .learnmore {
+    font-size: 18px;
+  }
+}

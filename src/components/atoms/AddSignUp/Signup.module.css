@@ -232,3 +232,15 @@
   font-size: 51px;
 }
 }
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .heading {
+    font-size: 64px;
+  }
+  .description {
+    font-size: 18px;
+  }
+  .button {
+    font-size: 18px;
+  }
+}

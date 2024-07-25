@@ -4,6 +4,24 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_KLAVIYO_URL;
 const COMPANY_KEY = process.env.NEXT_PUBLIC_KLAVIYO_COMPANY;
 const APPLICATION_NAME = process.env.NEXT_PUBLIC_APPLICATION_NAME;
 
+const getProfile = async () => {
+    try {
+        const headers = {
+            Authorization: `Klaviyo-API-Key ${COMPANY_KEY}`,
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Revision: "2023-06-15",
+            "X-Klaviyo-Onsite": 1,
+        };
+        const url = `${API_BASE_URL}/api/profiles`;
+        const response = await axios.get(url, { headers });
+        return response.data;
+    } catch (error) {
+        console.error("Error in adding profile :", error);
+        throw error;
+    }
+};
+
 const createProfile = async (email, first_name) => {
     try {
         const headers = {
@@ -98,7 +116,8 @@ const addProfileToList = async (id = "01J3E1P9WVNV7MSXGC70W1G6J3", listId = "RWd
 
 const CartAPI = {
     createProfile,
-    addProfileToList
+    addProfileToList,
+    getProfile
 };
 
 export default CartAPI;

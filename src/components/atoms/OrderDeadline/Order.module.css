@@ -72,7 +72,7 @@
   align-items: center;
   justify-content: center;
   height: 71px;
-  font-size: 17px;
+  font-size: 18px;
   width: 232px;
   gap: 5px;
   cursor: pointer;
@@ -81,7 +81,7 @@
 
 }
 
-.contentCard1 h1{
+.contentCard1 h2 {
 
   background-image: linear-gradient(98.89deg, #FF5F6D 0%, #FFC371 100%);
   -webkit-background-clip: text;
@@ -271,5 +271,23 @@
   }
   .shippingPrice{
     gap: 23px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) { 
+  .contentCard1 h2 {
+    font-size: 56px;
+  }
+  .deliveryweek{
+    font-size: 18px;
+  }
+  .timeUnit span:first-child{
+    font-size: 104px;
+  }
+  .freightdiv {
+    font-size: 56px;
+  }
+  .Freight h4 {
+    font-size: 32px;
   }
 }

@@ -18,10 +18,10 @@ const cartskeleton = () => {
            
                 <div className={styles.productSection}>
                   <div className={styles.mainImage}>
-                    <Skeleton height={160} width={200} />
+                    <Skeleton height={160} width={200} className={styles.sklimgContainer}/>
                   </div>
                   <div>
-                    <Skeleton height={50} width={220} count={3} />
+                    <Skeleton height={50} width={220} count={3} className={styles.groupskl}/>
                   </div>
                 </div>
              
@@ -33,11 +33,11 @@ const cartskeleton = () => {
                   </div>
               </div>
               <aside className={styles.rightContainer}>
-                <Skeleton height={30} width={400} />
-                <Skeleton height={50} width={400} />
-                <Skeleton height={50} width={400} />
-                <Skeleton height={50} width={400} />
-                <Skeleton height={50} width={400} />
+                <Skeleton height={30} width={300} />
+                <Skeleton height={50} width={300} />
+                <Skeleton height={50} width={300} />
+                <Skeleton height={50} width={300} />
+                <Skeleton height={50} width={300} />
               </aside>
             </div>
           </div>

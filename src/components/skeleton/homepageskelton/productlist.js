@@ -12,10 +12,10 @@ const ProductList = () => {
         <div key={index} className={styles.skeletonCard}>
             <div className={styles.newskl}>
               <div>
-          <Skeleton className={styles.skeletonText} height={20} width={130}/>
-          <Skeleton className={styles.skeletonText} height={20} width={100}/>
+          <Skeleton className={`${styles.skeletonText} ${styles.skldiv}`} height={20} width={130}/>
+          <Skeleton className={`${styles.skeletonText} ${styles.skldiv}`} height={20} width={100}/>
           </div>
-          <Skeleton className={styles.skeletonText} height={30} width={40}/>
+          <Skeleton className={`${styles.skeletonText} ${styles.skeletonTop}`} height={30} width={40}/>
           </div>
           <div className={styles.cardSkeleton}>
          
