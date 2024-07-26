@@ -13,6 +13,16 @@ export const getOrderDates = async (orderid) => {
     }
 }
 
+export const getOrderDetailById = async (orderid) => {
+    try {
+        const token = localStorage.getItem("token");
+        const orderDetail = await AccountAPI.getOrderDetailById(orderid, token);
+        return orderDetail;
+    } catch (error) {
+        toast.error("There was an issue in fetching order detail data. Please try again.", { autoClose: toastTimer });
+    }
+};
+
 export const getCheckoutOrderById = async (orderid) => {
     try {
         const token = localStorage.getItem("token");

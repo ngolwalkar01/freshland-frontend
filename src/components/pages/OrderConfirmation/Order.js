@@ -3,7 +3,7 @@ import Header from "@/components/atoms/Header/Header";
 import styles from "./Order.module.css";
 import { orderconfirmationTranslation } from '@/locales';
 import Link from "next/link";
-import { getCheckoutOrderById, getOrderDates } from "@/components/service/account"
+import { getOrderDetailById, getOrderDates } from "@/components/service/account"
 import { AddressInfo } from "@/components/atoms/address/address";
 import Orderskeleton from "@/components/skeleton/orderskeleton";
 
@@ -26,7 +26,7 @@ const Order = ({ orderId }) => {
     try {
       setLoading(true);
       const orderDates = await getOrderDates(orderId)
-      const data = await getCheckoutOrderById(orderId);
+      const data = await getOrderDetailById(orderId);
       setOrderDatesData(orderDates);
       setOrderData(data);
     } catch (error) {

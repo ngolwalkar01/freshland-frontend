@@ -36,6 +36,16 @@ const getOrdersById = async (id, token) => {
     }
 };
 
+const getOrderDetailById = async (id, token) => {
+    try {
+        const response = await axios.get(`${ACCOUNT_API_BASE_URL}/order-received/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching order:');
+        throw error;
+    }
+};
+
 const getCheckoutOrderById = async (id, token) => {
     try {
         const config = {
@@ -133,7 +143,8 @@ const AccountAPI = {
     saveUpdateCustomerAddress,
     getCheckoutOrderById,
     downloadInvoiceByOrderId,
-    getOrderDates
+    getOrderDates,
+    getOrderDetailById
 };
 
 export default AccountAPI;
