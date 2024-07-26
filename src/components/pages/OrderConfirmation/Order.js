@@ -17,11 +17,8 @@ const Order = ({ orderId }) => {
     shippingTotal: 0,
     currency: ""
   });
-
-
   const [loading, setLoading] = useState(false);
 
-  
   const [orderData, setOrderData] = useState(null);
   const [orderDatesData, setOrderDatesData] = useState(null);
 

@@ -5,7 +5,6 @@ import Layout from '@/components/layout';
 import { useParams } from 'next/navigation';
 import CartAPI from '@/services/cart';
 import { useState, useEffect } from 'react';
-import klaviyoService from '@/services/klaviyo';
 
 const VipList = () => {
     const params = useParams();
@@ -18,9 +17,6 @@ const VipList = () => {
             try {
                 setLoading(true);
                 const data = await CartAPI.getVipPageDataById(vipPageId);
-                // await klaviyoService.getProfile();
-                // await klaviyoService.createProfile("sdasasddas@sasas.saas", "assas");
-                // await klaviyoService.addProfileToList();
                 setData(data);
                 
             } catch (error) {

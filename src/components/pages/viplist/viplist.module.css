@@ -106,6 +106,17 @@
     font-size: 14px;
 }
 
+.errorMessage{
+    color:#D8000C;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+  }
+
 @media only screen and (max-width: 600px){
     .juicy p{
         font-size: 14px;

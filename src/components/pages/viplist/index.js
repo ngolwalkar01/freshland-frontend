@@ -1,12 +1,75 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "@/components/atoms/Header/Header";
 import style from "./viplist.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import Telephone from "@/components/atoms/phonenumber/";
+import Telephone from "@/components/atoms/Telephone/Telephone";
+import klaviyoService from '@/services/klaviyo/apiIndex';
+import toast from "@/helper/toast";
 
 const Vip = ({ vipPageData }) => {
-  const { content = "", featured_image = "" } = vipPageData || {};
+  const [vipData, setVipData] = useState(null);
+  const [errors, setErrors] = useState({});
+
+  const { content = "", featured_image = "", klaviyo_list_id: list_id } = vipPageData || {};
+
+  useEffect(() => {
+    if (list_id) {
+      onUpdateVipData({ target: { value: list_id } }, 'list_id');
+    }
+  }, [list_id])
+
+  const onUpdateVipData = (e, column) => {
+    const newVipData = vipData ? { ...vipData } : {};
+    newVipData[column] = e.target.value;
+    setVipData(newVipData);
+  }
+
+  const resetForm = () => {
+    setErrors({});
+    setVipData({ phone_number: "46" });
+  }
+
+  const validate = () => {
+    const errors = {};
+    let isValid = true;
+    const { name, email, phone_number } = vipData || {};
+
+    if (!(name && name.trim())) {
+      errors.name = "Name is required";
+      isValid = false;
+    }
+
+    if (!(email && email.trim())) {
+      errors.email = "Email is required";
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errors.email = "Email is invalid";
+      isValid = false;
+    }
+
+    if (!(phone_number && phone_number.trim())) {
+      errors.phone_number = "Phone number is required";
+      isValid = false;
+    }
+
+    setErrors(errors);
+    return isValid;
+  }
+
+  const submit = async (e) => {
+    e.preventDefault();
+    if (validate()) {
+      try {
+        const data = await klaviyoService.linkProfileToList(vipData);
+        resetForm();
+        toast.success("Profile linked to list.");
+      } catch (error) {
+        toast.error((error?.data?.message ? error.data.message : (errorMessage ? errorMessage : "Something went wrong")));
+      }
+    }
+  }
+
   return (
     <>
       <main>
@@ -51,12 +114,12 @@ const Vip = ({ vipPageData }) => {
                   </p>
                 </div>
                 <div className={style.productimg}>
-                  <Image
+                  {featured_image ? <Image
                     src={featured_image}
                     alt="viporange"
                     width={250}
                     height={250}
-                  />
+                  /> : null}
                 </div>
               </div>
               <div className={style.formFeild}>
@@ -67,7 +130,14 @@ const Vip = ({ vipPageData }) => {
                     type="text"
                     placeholder="Your Name"
                     name="name"
+                    value={vipData?.name ? vipData.name : ""}
+                    onChange={(e) => { onUpdateVipData(e, 'name'); }}
                   />
+                  {errors?.name && (
+                    <span className={style.errorMessage}>
+                      {errors.name}
+                    </span>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="email">E-mailE-post</label>
@@ -76,11 +146,26 @@ const Vip = ({ vipPageData }) => {
                     type="text"
                     placeholder="Your e-mail"
                     name="email"
+                    value={vipData?.email ? vipData.email : ""}
+                    onChange={(e) => { onUpdateVipData(e, 'email'); }}
                   />
+                  {errors?.email && (
+                    <span className={style.errorMessage}>
+                      {errors.email}
+                    </span>
+                  )}
                 </div>
                 <div>
                   <label>Phone number</label>
-                  <Telephone />
+                  <Telephone
+                    value={vipData?.phone_number ? vipData.phone_number : ""}
+                    onChange={(e) => { onUpdateVipData({ target: { value: e } }, 'phone_number'); }}
+                  />
+                  {errors?.phone_number && (
+                    <span className={style.errorMessage}>
+                      {errors.phone_number}
+                    </span>
+                  )}
                 </div>
               </div>
               <div>
@@ -102,7 +187,7 @@ const Vip = ({ vipPageData }) => {
                 information about you.
               </p>
               <div>
-                <button className={style.submit}>Submit</button>
+                <button onClick={submit} className={style.submit}>Submit</button>
               </div>
             </form>
           </div>
