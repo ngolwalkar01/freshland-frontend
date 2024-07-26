@@ -41,8 +41,9 @@ const Order = ({ orderId }) => {
       const currency_minor_unit = orderData?.totals?.currency_minor_unit;
       const total_items = orderData?.totals?.total_items;
       const total_tax = orderData?.totals?.total_tax;
+      const total_discount_tax = orderData?.totals?.total_discount_tax;
       const cartSubTotal = getCorrectPrice(
-        parseInt(total_items) + parseInt(total_tax),
+        parseInt(total_items) + parseInt(total_tax) + parseInt(total_discount_tax),
         currency_minor_unit
       );
       const cartTotalDiscount = getCorrectPrice(
