@@ -17,6 +17,7 @@ const Vip = ({ vipPageData }) => {
     if (list_id) {
       onUpdateVipData({ target: { value: list_id } }, 'list_id');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [list_id])
 
   const onUpdateVipData = (e, column) => {

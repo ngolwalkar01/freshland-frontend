@@ -589,6 +589,11 @@ letter-spacing: normal;
 .isAccount input[type="checkbox"]{
   height: 16px !important;
 }
+
+.error_border {
+  border: 2px solid red;
+}
+
 @media (min-width: 320px) and (max-width: 600px) {
   .wrapper {
     flex-direction: column;

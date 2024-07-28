@@ -116,6 +116,7 @@ function Checkout() {
   const [billingAddress, setBillingAddress] = useState(null);
   const [showBillingAddress, setShowBillingAddress] = useState(true);
   const [isCreateAccount, setIsCreateAccount] = useState(false);
+  const [isSubmit, setIsSubmit] = useState(false);
 
   const [token, setToken] = useState("");
 
@@ -432,10 +433,16 @@ function Checkout() {
     }
   }
 
+  const validateUserAddress = () => {
+    const { address_1, city, postcode, phone } = billingAddress;
+    const isNotValidBillingAddress = !(address_1 && city && postcode && phone);
+    return isNotValidBillingAddress || (userAddresses && userAddresses.length > 0 && userAddresses.some(item => item.errors && typeof item.errors === 'object' && item.errors !== null && Object.keys(item.errors).length > 0));
+  }
 
   const validate = () => {
     const errors = {};
     let isValid = true;
+    setIsSubmit(true);
 
     if (!firstName.trim()) {
       errors.firstName = "First Name is required";
@@ -458,6 +465,10 @@ function Checkout() {
     //   errors.phone = "Phone number is required";
     //   isValid = false;
     // }
+    if (validateUserAddress()) {
+      errors.userAddresses = "Please complete addresses";
+      isValid = false;
+    }
 
     if (!acceptTerms) {
       errors.term = "Please accept the terms and conditions";
@@ -717,6 +728,8 @@ function Checkout() {
     errors,
     setErrors,
     cartData,
+    isSubmit, setIsSubmit,
+    validateUserAddress
   };
 
   return (
@@ -770,18 +783,18 @@ function Checkout() {
                       </div>
                     </div>
                     {!token &&
-                    <div className={`${styles.acceptTerms} ${styles.isAccount}`}>
-                      <input
-                        type="checkbox"
-                        checked={isCreateAccount}
-                        onChange={(e) => setIsCreateAccount(!isCreateAccount)}
-                        id="createAccount"
-                      />
-                      <label htmlFor="createAccount">
-                         Do you want to create Account ?
-                      </label>
-                    </div>
-                  }
+                      <div className={`${styles.acceptTerms} ${styles.isAccount}`}>
+                        <input
+                          type="checkbox"
+                          checked={isCreateAccount}
+                          onChange={(e) => setIsCreateAccount(!isCreateAccount)}
+                          id="createAccount"
+                        />
+                        <label htmlFor="createAccount">
+                          Do you want to create Account ?
+                        </label>
+                      </div>
+                    }
 
                     {/*  */}
 

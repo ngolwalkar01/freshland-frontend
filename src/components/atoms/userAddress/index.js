@@ -70,7 +70,9 @@ function UserAddress({ userAddressProps }) {
         setCustomerDetail,
         updateLocalStorageCartData,
         errors, setErrors,
-        cartData
+        cartData,
+        isSubmit, setIsSubmit,
+        validateUserAddress
     } = userAddressProps;
 
     const check = checkoutTranslation[lang];
@@ -150,9 +152,18 @@ function UserAddress({ userAddressProps }) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, getSavedAddress, setUserAddresses, setSelectedAddressIndex, setShowSaveButton, setEditableMode])
 
+    const checkAddress = (userCurrentAddress) => {
+        const currentAdd = { ...userCurrentAddress };
+        const errorData = isAddressValid(currentAdd);
+        currentAdd.errors = errorData.isValid ? null : errorData.errors;
+        return { ...currentAdd };
+    }
+
     useEffect(() => {
-        if (!showBillingAddress && selectedAddressIndex > -1 && userAddresses && userAddresses.length > 0)
-            setBillingAddress(userAddresses[selectedAddressIndex]);
+        if (showBillingAddress && selectedAddressIndex > -1 && userAddresses && userAddresses.length > 0) {
+            const currentBillingAddress = checkAddress(userAddresses[selectedAddressIndex]);
+            setBillingAddress(currentBillingAddress);
+        }
     }, [showBillingAddress, selectedAddressIndex, userAddresses, setBillingAddress])
 
     useEffect(() => {
@@ -254,32 +265,67 @@ function UserAddress({ userAddressProps }) {
         };
     };
 
-    const fetchData1 = async (firstName, lastName, userAddresses, selectedAddressIndex) => {
-        const preventAuthRedirect = "preventAuthRedirect";
-        await setCustomerDetail(firstName, lastName, userAddresses, selectedAddressIndex, preventAuthRedirect);
-        await updateLocalStorageCartData();
+    const fetchData1 = async () => {
+        if (!validateUserAddress()) {
+            const preventAuthRedirect = "preventAuthRedirect";
+            await setCustomerDetail(firstName, lastName, userAddresses, selectedAddressIndex, preventAuthRedirect);
+            await updateLocalStorageCartData();
+        }
     }
+
+    // const fetchData1 = async (firstName, lastName, userAddresses, selectedAddressIndex) => {
+    //     const preventAuthRedirect = "preventAuthRedirect";
+    //     await setCustomerDetail(firstName, lastName, userAddresses, selectedAddressIndex, preventAuthRedirect);
+    //     await updateLocalStorageCartData();
+    // }
 
     // Disable linting for this line
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const debouncedFetchResults = useCallback(debounce(fetchData1, 3000), []);
+    // const debouncedFetchResults = useCallback(debounce(fetchData1, 3000), []);
 
-    useEffect(() => {
-        if (selectedAddress && userAddresses.length > 0 && selectedAddressIndex > -1) {
-            debouncedFetchResults(firstName, lastName, userAddresses, selectedAddressIndex);
+    // useEffect(() => {
+    //     if (selectedAddress && userAddresses.length > 0 && selectedAddressIndex > -1) {
+    //         debouncedFetchResults(firstName, lastName, userAddresses, selectedAddressIndex);
+    //     }
+    //     // Disable linting for the dependencies warning
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [selectedAddress])
+
+    const isAddressValid = (fields) => {
+        const errors = {};
+
+        if (!(fields.address_1 && fields.address_1.trim())) {
+            errors.address_1 = 'Address is required';
         }
-        // Disable linting for the dependencies warning
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedAddress])
+
+        if (!(fields.city && fields.city.trim())) {
+            errors.city = 'City is required';
+        }
+
+        if (!(fields.postcode && fields.postcode.trim())) {
+            errors.postcode = 'Postcode is required';
+        }
+
+        if (!(fields.phone && fields.phone.trim())) {
+            errors.phone = 'Phone number is required';
+        }
+
+        return {
+            isValid: Object.keys(errors).length === 0,
+            errors
+        };
+    }
 
     const onUpdateShippingAddress = async (e, column) => {
         let userAdd = [...userAddresses];
-        let currentIndex = selectedAddressIndex;
+        let currentIndex = enableEditableMode ? enableEditableMode.index : 0;
 
         if (selectedAddress?.isNewAddress)
             currentIndex = userAddresses.length - 1;
 
         userAdd[currentIndex][column] = e.target.value;
+        const errorData = isAddressValid(userAdd[currentIndex]);
+        userAdd[currentIndex].errors = errorData.isValid ? null : errorData.errors
         setUserAddresses(userAdd);
         setSelectedAddress({ ...userAdd[currentIndex] });
     }
@@ -291,7 +337,8 @@ function UserAddress({ userAddressProps }) {
     const onUpdateBillingAddress = (e, column) => {
         const newBillingAddress = billingAddress ? { ...billingAddress } : {};
         newBillingAddress[column] = e.target.value;
-        setBillingAddress(newBillingAddress);
+        const currentBillingAddress = checkAddress(newBillingAddress);
+        setBillingAddress(currentBillingAddress);
     }
 
     const handleBillingSuggestion = (e) => {
@@ -324,7 +371,8 @@ function UserAddress({ userAddressProps }) {
         newBillingAddress['city'] = city;
         newBillingAddress['postcode'] = postcode;
         newBillingAddress['country'] = country;
-        setBillingAddress(newBillingAddress);
+        const currentBillingAddress = checkAddress(newBillingAddress);
+        setBillingAddress(currentBillingAddress);
         setBillingSuggestions([]);
     };
 
@@ -356,18 +404,19 @@ function UserAddress({ userAddressProps }) {
                     <>
                         {
                             userAddresses && userAddresses.length > 0 && userAddresses.filter(x => !x.isNewAddress).map((x, i) => {
+                                const isError = x?.errors ? Object.keys(errors).length === 0 : false
                                 return (
                                     <>
                                         {(x.address_1 || firstName || lastName) ? (
-                                            <div key={i} className={styles.addresscontainer}>
+                                            <div key={i} className={`${styles.addresscontainer} ${isError ? styles.error_border : ''}`}>
                                                 <div className={styles.selectAddress}>
-                                                <input type="radio" id="user_address" checked={x.selected} name="user_address" value="user_address" onChange={() => updateUserAddress(i)} />
-                                                <div className={styles.address}>
-                                                    <p className="M-Body-Medium">{firstName} {lastName}</p>
-                                                    <p className="M-Caption">
-                                                        {x.address_1}
-                                                    </p>
-                                                </div>
+                                                    <input type="radio" id="user_address" checked={x.selected} name="user_address" value="user_address" onChange={() => updateUserAddress(i)} />
+                                                    <div className={styles.address}>
+                                                        <p className="M-Body-Medium">{firstName} {lastName}</p>
+                                                        <p className="M-Caption">
+                                                            {x.address_1}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                                 <p onClick={() => { editAddress(x, i); }}>
                                                     <Image
@@ -405,8 +454,9 @@ function UserAddress({ userAddressProps }) {
                                         placeholder="First Name"
                                         onChange={(e) => { setFirstName(e.target.value) }}
                                         name="First_Name"
+                                        onBlur={fetchData1}
                                     />
-                                    {errors.firstName && (
+                                    {isSubmit && errors.firstName && (
                                         <span className={styles.errorMessage}>
                                             {errors.firstName}
                                         </span>
@@ -421,8 +471,9 @@ function UserAddress({ userAddressProps }) {
                                         placeholder="Last Name"
                                         onChange={(e) => { setLastName(e.target.value) }}
                                         name="Last_Name"
+                                        onBlur={fetchData1}
                                     />
-                                    {errors.lastName && (
+                                    {isSubmit && errors.lastName && (
                                         <span className={styles.errorMessage}>
                                             {errors.lastName}
                                         </span>
@@ -440,7 +491,13 @@ function UserAddress({ userAddressProps }) {
                                     name="Street_Name_and_Number"
                                     value={selectedAddress?.address_1 || ""}
                                     onChange={(e) => { onUpdateShippingAddress(e, 'address_1'); }}
+                                    onBlur={fetchData1}
                                 />
+                                {isSubmit && selectedAddress?.errors?.address_1 && (
+                                    <span className={styles.errorMessage}>
+                                        {selectedAddress?.errors.address_1}
+                                    </span>
+                                )}
                                 {/* {errors.streetval && (
                                 <span className={styles.errorMessage}>
                                     {errors.streetval}
@@ -474,6 +531,7 @@ function UserAddress({ userAddressProps }) {
                                         name="address"
                                         value={selectedAddress?.address_2 || ""}
                                         onChange={(e) => { onUpdateShippingAddress(e, 'address_2'); }}
+                                        onBlur={fetchData1}
                                     />
                                 </div>
                             </div>
@@ -488,7 +546,13 @@ function UserAddress({ userAddressProps }) {
                                         name="Zip code"
                                         value={selectedAddress?.postcode || ""}
                                         onChange={(e) => { onUpdateShippingAddress(e, 'postcode'); }}
+                                        onBlur={fetchData1}
                                     />
+                                    {isSubmit && selectedAddress?.errors?.postcode && (
+                                        <span className={styles.errorMessage}>
+                                            {selectedAddress?.errors.postcode}
+                                        </span>
+                                    )}
                                 </div>
                                 <div className={styles.fieldColumn}>
                                     <label>{check.cPhone}*</label>
@@ -501,7 +565,13 @@ function UserAddress({ userAddressProps }) {
                                                 }
                                             }, 'phone');
                                         }}
+                                        onBlur={fetchData1}
                                     />
+                                    {isSubmit && selectedAddress?.errors?.phone && (
+                                        <span className={styles.errorMessage}>
+                                            {selectedAddress?.errors.phone}
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                             <div className={styles.fieldsRow}>
@@ -514,7 +584,13 @@ function UserAddress({ userAddressProps }) {
                                         name="city"
                                         value={selectedAddress?.city || ""}
                                         onChange={(e) => { onUpdateShippingAddress(e, 'city'); }}
+                                        onBlur={fetchData1}
                                     />
+                                    {isSubmit && selectedAddress?.errors?.city && (
+                                        <span className={styles.errorMessage}>
+                                            {selectedAddress?.errors.city}
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                             {token && showSaveButton && (
@@ -570,6 +646,11 @@ function UserAddress({ userAddressProps }) {
                                     value={billingAddress?.address_1 ? billingAddress.address_1 : ""}
                                     onChange={(e) => { onUpdateBillingAddress(e, 'address_1'); }}
                                 />
+                                {isSubmit && billingAddress?.errors?.address_1 && (
+                                    <span className={styles.errorMessage}>
+                                        {billingAddress?.errors.address_1}
+                                    </span>
+                                )}
                                 <Suggestions styles={styles} handleSelectSuggestion={handleBillingSelectSuggestion} suggestions={billingSuggestions} />
                                 {/* {errors.streetval && (
                                 <span className={styles.errorMessage}>
@@ -618,6 +699,11 @@ function UserAddress({ userAddressProps }) {
                                         value={billingAddress?.postcode ? billingAddress.postcode : ""}
                                         onChange={(e) => { onUpdateBillingAddress(e, 'postcode'); }}
                                     />
+                                    {isSubmit && billingAddress?.errors?.postcode && (
+                                        <span className={styles.errorMessage}>
+                                            {billingAddress?.errors.postcode}
+                                        </span>
+                                    )}
                                 </div>
                                 <div className={styles.fieldColumn}>
                                     <label>{check.cPhone}*</label>
@@ -625,6 +711,11 @@ function UserAddress({ userAddressProps }) {
                                         value={billingAddress?.phone ? billingAddress.phone : ""}
                                         onChange={(e) => { onUpdateBillingAddress(e, 'phone'); }}
                                     />
+                                    {isSubmit && billingAddress?.errors?.phone && (
+                                        <span className={styles.errorMessage}>
+                                            {billingAddress?.errors.phone}
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                             <div className={styles.fieldsRow}>
@@ -638,6 +729,11 @@ function UserAddress({ userAddressProps }) {
                                         value={billingAddress?.city ? billingAddress.city : ""}
                                         onChange={(e) => { onUpdateBillingAddress(e, 'city'); }}
                                     />
+                                    {isSubmit && billingAddress?.errors?.city && (
+                                        <span className={styles.errorMessage}>
+                                            {billingAddress?.errors.city}
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                         </div>

@@ -9,7 +9,9 @@ const error = (msg) => {
     toast.success(msg, { autoClose: toastTimer });
 }
 
-export default {
+const toastNotifications = {
     success,
-    error
-}
+    error,
+};
+
+export default toastNotifications;

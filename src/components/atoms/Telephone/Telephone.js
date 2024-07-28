@@ -3,7 +3,7 @@ import styles from './Telephone.module.css'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
-const Telephone = ({ value, onChange }) => {
+const Telephone = ({ value, onChange, onBlur = () => { } }) => {
   // const [value, setValue] = useState()
 
   useEffect(() => {
@@ -23,6 +23,7 @@ const Telephone = ({ value, onChange }) => {
       onChange={onChange}
       defaultCountry="se"
       onlyCountries={['se']}
+      onBlur={onBlur}
       // Set your inline styles here
       inputStyle={{
         border: "10px solid black",
