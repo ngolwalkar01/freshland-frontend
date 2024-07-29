@@ -11,7 +11,7 @@ const Vip = ({ vipPageData }) => {
   const [vipData, setVipData] = useState(null);
   const [errors, setErrors] = useState({});
 
-  const { content = "", featured_image = "", klaviyo_list_id: list_id } = vipPageData || {};
+  const { title, content = "", featured_image = "", klaviyo_list_id: list_id } = vipPageData || {};
 
   useEffect(() => {
     if (list_id) {
@@ -58,11 +58,19 @@ const Vip = ({ vipPageData }) => {
     return isValid;
   }
 
+  const addPlusPrefix = (number) => {
+    if (number && number[0] !== '+') {
+      return '+' + number;
+    }
+    return number;
+  }
+
   const submit = async (e) => {
     e.preventDefault();
     if (validate()) {
       try {
-        const data = await klaviyoService.linkProfileToList(vipData);
+        const obj = { ...vipData, phone_number: addPlusPrefix(vipData.phone_number) }
+        const data = await klaviyoService.linkProfileToList(obj);
         resetForm();
         toast.success("Profile linked to list.");
       } catch (error) {
@@ -75,14 +83,15 @@ const Vip = ({ vipPageData }) => {
     <>
       <main>
         <Header />
-        <div className={style.heading}>
-          <h1>Orange VIP list</h1>
-        </div>
-        <section className={style.viplistConatiner}>
-          <div>
-            <form className={style.container}>
-              <div className={style.juicy} dangerouslySetInnerHTML={{ __html: content }} ></div>
-              {/* <div className={style.juicy}>
+        <div className={style.vipmain}>
+          <div className={style.heading}>
+            <h1>{title}</h1>
+          </div>
+          <section className={style.viplistConatiner}>
+            <div>
+              <form className={style.container}>
+                <div className={style.juicy} dangerouslySetInnerHTML={{ __html: content }} ></div>
+                {/* <div className={style.juicy}>
                 <h4>Sweet and juicy citrus fruits! </h4>
                 <p>
                   Sun-ripened oranges 🍊 clementines, grapefruits and other
@@ -105,94 +114,95 @@ const Vip = ({ vipPageData }) => {
                   November, but of course it depends on the weather.
                 </p>
               </div> */}
-              <div className={style.juicy}>
-                <div className={style.signUpvip}>
-                  <p>Sign up for the VIP list</p>
-                  <p>
-                    By signing up to our VIP list, you get access to the first
-                    harvest a day before everyone else - so you can order with
-                    peace of mind.
+                <div className={style.juicy}>
+                  <div className={style.signUpvip}>
+                    <p>Sign up for the VIP list</p>
+                    <p>
+                      By signing up to our VIP list, you get access to the first
+                      harvest a day before everyone else - so you can order with
+                      peace of mind.
+                    </p>
+                  </div>
+                  <div className={style.productimg}>
+                    {featured_image ? <Image
+                      src={featured_image}
+                      alt="viporange"
+                      width={250}
+                      height={250}
+                    /> : null}
+                  </div>
+                </div>
+                <div className={style.formFeild}>
+                  <div>
+                    <label htmlFor="name">Name</label>
+                    <input
+                      className={style.inputField}
+                      type="text"
+                      placeholder="Your Name"
+                      name="name"
+                      value={vipData?.name ? vipData.name : ""}
+                      onChange={(e) => { onUpdateVipData(e, 'name'); }}
+                    />
+                    {errors?.name && (
+                      <span className={style.errorMessage}>
+                        {errors.name}
+                      </span>
+                    )}
+                  </div>
+                  <div>
+                    <label htmlFor="email">E-mail</label>
+                    <input
+                      className={style.inputField}
+                      type="text"
+                      placeholder="Your e-mail"
+                      name="email"
+                      value={vipData?.email ? vipData.email : ""}
+                      onChange={(e) => { onUpdateVipData(e, 'email'); }}
+                    />
+                    {errors?.email && (
+                      <span className={style.errorMessage}>
+                        {errors.email}
+                      </span>
+                    )}
+                  </div>
+                  <div>
+                    <label>Phone number</label>
+                    <Telephone
+                      value={vipData?.phone_number ? vipData.phone_number : ""}
+                      onChange={(e) => { onUpdateVipData({ target: { value: e } }, 'phone_number'); }}
+                    />
+                    {errors?.phone_number && (
+                      <span className={style.errorMessage}>
+                        {errors.phone_number}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div>
+                  <p className={style.msgInfo}>
+                    I would like to receive emails and SMS/calls from Fresh.land
+                    with marketing about Fresh.land and their{" "}
+                    <Link href="#">product offerings</Link> , events, contests and
+                    their{" "}
+                    <Link href="#">
+                      Less Waste Friendships initiative with partners
+                    </Link>{" "}
+                    . I accept that my data is processed for this purpose.
                   </p>
                 </div>
-                <div className={style.productimg}>
-                  {featured_image ? <Image
-                    src={featured_image}
-                    alt="viporange"
-                    width={250}
-                    height={250}
-                  /> : null}
-                </div>
-              </div>
-              <div className={style.formFeild}>
-                <div>
-                  <label htmlFor="name">Name</label>
-                  <input
-                    className={style.inputField}
-                    type="text"
-                    placeholder="Your Name"
-                    name="name"
-                    value={vipData?.name ? vipData.name : ""}
-                    onChange={(e) => { onUpdateVipData(e, 'name'); }}
-                  />
-                  {errors?.name && (
-                    <span className={style.errorMessage}>
-                      {errors.name}
-                    </span>
-                  )}
-                </div>
-                <div>
-                  <label htmlFor="email">E-mail</label>
-                  <input
-                    className={style.inputField}
-                    type="text"
-                    placeholder="Your e-mail"
-                    name="email"
-                    value={vipData?.email ? vipData.email : ""}
-                    onChange={(e) => { onUpdateVipData(e, 'email'); }}
-                  />
-                  {errors?.email && (
-                    <span className={style.errorMessage}>
-                      {errors.email}
-                    </span>
-                  )}
-                </div>
-                <div>
-                  <label>Phone number</label>
-                  <Telephone
-                    value={vipData?.phone_number ? vipData.phone_number : ""}
-                    onChange={(e) => { onUpdateVipData({ target: { value: e } }, 'phone_number'); }}
-                  />
-                  {errors?.phone_number && (
-                    <span className={style.errorMessage}>
-                      {errors.phone_number}
-                    </span>
-                  )}
-                </div>
-              </div>
-              <div>
                 <p className={style.msgInfo}>
-                  I would like to receive emails and SMS/calls from Fresh.land
-                  with marketing about Fresh.land and their{" "}
-                  <Link href="#">product offerings</Link> , events, contests and
-                  their{" "}
-                  <Link href="#">
-                    Less Waste Friendships initiative with partners
-                  </Link>{" "}
-                  . I accept that my data is processed for this purpose.
+                  You can always withdraw your consent, see how to do it{" "}
+                  <Link href="#">here</Link>. You can read in our
+                  <Link href="#"> privacy policy </Link> how we process
+                  information about you.
                 </p>
-              </div>
-              <p className={style.msgInfo}>
-                You can always withdraw your consent, see how to do it{" "}
-                <Link href="#">here</Link>. You can read in our
-                <Link href="#"> privacy policy </Link> how we process
-                information about you.
-              </p>
-              <div>
-                <button onClick={submit} className={style.submit}>Submit</button>
-              </div>
-            </form>
-          </div>
-        </section>
+                <div>
+                  <button onClick={submit} className={style.submit}>Submit</button>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
       </main>
     </>
   );

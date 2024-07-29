@@ -135,6 +135,20 @@ const downloadInvoiceByOrderId = async (orderId, token) => {
     }
 };
 
+const forgotPassword = async (obj) => {
+    const url = `${ACCOUNT_API_BASE_URL}/forgot-password`;
+    const response = await axios.post(url, obj);
+
+    return response.data;
+}
+
+const resetPassword = async (obj) => {
+    const url = `${ACCOUNT_API_BASE_URL}/reset-password`;
+    const response = await axios.post(url, obj);
+
+    return response.data;
+}
+
 const AccountAPI = {
     getOrders,
     getOrdersById,
@@ -144,7 +158,9 @@ const AccountAPI = {
     getCheckoutOrderById,
     downloadInvoiceByOrderId,
     getOrderDates,
-    getOrderDetailById
+    getOrderDetailById,
+    forgotPassword,
+    resetPassword
 };
 
 export default AccountAPI;

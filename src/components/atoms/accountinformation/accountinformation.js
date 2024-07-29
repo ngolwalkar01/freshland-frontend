@@ -299,8 +299,8 @@ function Accountinformation({ isUserLoggedIn }) {
             </main>
           </div>
         </form>
-        <hr></hr>
-        <div className={styles.loginaccount}>
+        {/* <hr></hr> */}
+        {/* <div className={styles.loginaccount}>
           <p className="M-Body-Medium">{mat.socialLoginAccounts}</p>
           <p className="M-Body-Medium">
             {mat.yourAccountIsLinked}{" "}
@@ -332,7 +332,7 @@ function Accountinformation({ isUserLoggedIn }) {
               {mat.unlink}
             </Link>
           </div>
-        </div>
+        </div> */}
       </section>
     </>
   );

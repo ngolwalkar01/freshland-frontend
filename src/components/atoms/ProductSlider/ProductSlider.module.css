@@ -1,6 +1,6 @@
 .boxContainer {
   background: #fff;
-  padding: 100px 0px;
+  padding: 0px 0px 60px 0px;
   text-align: center;
 
 }
@@ -131,7 +131,7 @@ cursor: pointer;
   }
    
   .boxContainer h1{
-    margin: 40px 35px 24px 35px;
+    margin: 0px 35px 24px 35px;
     font-size: 40px;
   }
   .testimonialspeech{
@@ -183,7 +183,7 @@ cursor: pointer;
   }
  
   .boxContainer h1{
-    margin: 40px 35px 24px 35px;
+    margin: 0px 35px 24px 35px;
     font-size: 40px;
   }
   .testimonialspeech{
@@ -243,3 +243,4 @@ cursor: pointer;
   }
 
 }
+

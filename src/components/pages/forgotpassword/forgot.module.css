@@ -1,0 +1,52 @@
+.forgotPassword{
+    border: none;
+    margin: 0 auto;
+    padding: 100px 0px;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.forgotPassword label{
+    display: block;
+    margin-bottom: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+.inputFeild{
+    box-sizing: border-box;
+    width: 48%;
+    height: 48px;
+    padding: 12px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    border-radius: 2px;
+    outline: none;
+}
+
+
+.forgotBtn {
+    width: 152px;
+    background-color: var(--green);
+    border-radius: 5px;
+    padding: 13px 7px;
+    height: 48px;
+    border: 1px solid var(--green);
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .forgotBtn:hover {
+    background-color: #27aa30;
+  }
+  
+  .forgotBtn:active {
+    transform: scale(0.98);
+  }
+
+  @media only screen and (max-width:600px){
+    .forgotPassword{
+        padding: 40px;
+    }
+    
+  }

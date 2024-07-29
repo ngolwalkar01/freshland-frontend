@@ -189,7 +189,8 @@
     color: var(--blue);
   }
   .Freight p{
-    font-size: 13px;
+    font-size: 14px;
+    padding: 6px 0px 0px 0px;
   }
   .timeCard1{
     font-size: 13px;

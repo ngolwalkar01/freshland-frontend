@@ -33,11 +33,17 @@ const VideoComponent = () => {
      
 
             <div className={videoStyles.giftsvgmobile}>
-              <Image
-                src="/Images/newsvg.png"
+            <Image
+                src="/Images/mobileviewimg.png"
                 alt=""
                 width={343}
                 height={100}
+                //  className={videoStyles.desktopimg}
+              />
+              <Image
+                src="/Images/mobilesvgimg.svg"
+                alt=""
+               fill
                 //  className={videoStyles.desktopimg}
               />
             </div>

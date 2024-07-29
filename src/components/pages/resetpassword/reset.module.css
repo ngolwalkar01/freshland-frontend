@@ -1,0 +1,69 @@
+.resetPassword{
+    border: none;
+    margin: 0 auto;
+    padding: 100px 0px;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.resetPassword label{
+    display: block;
+    margin-bottom: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+.inputFeild{
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    padding: 12px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    border-radius: 2px;
+    outline: none;
+}
+
+
+.btnSave {
+    width: 152px;
+    background-color: var(--green);
+    border-radius: 5px;
+    padding: 13px 7px;
+    height: 48px;
+    border: 1px solid var(--green);
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .btnSave:hover {
+    background-color: #27aa30;
+  }
+  
+  .btnSave:active {
+    transform: scale(0.98);
+  }
+
+  .formConatainer{
+    display: flex;
+    gap: 20px;
+  }
+  .inputConatiner{
+    position: relative;
+  }
+  .showPasswordButton {
+    position: absolute;
+    right: 16px;
+    transform: translateY(70%);
+    cursor: pointer;
+    color: var(--text-light);
+}
+  @media only screen and (max-width:600px){
+    .resetPassword{
+        padding: 40px;
+    }
+    .formConatainer{
+      flex-direction: column;
+    }
+    
+  }

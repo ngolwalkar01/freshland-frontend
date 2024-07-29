@@ -18,7 +18,7 @@ const VipList = () => {
                 setLoading(true);
                 const data = await CartAPI.getVipPageDataById(vipPageId);
                 setData(data);
-                
+
             } catch (error) {
                 console.log(error);
             } finally {
@@ -32,7 +32,7 @@ const VipList = () => {
 
     return (
         <Layout>
-            <Vip vipPageData={data} />
+            {loading ? <></> : <Vip vipPageData={data} />}
         </Layout>
     )
 };

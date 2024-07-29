@@ -3,14 +3,16 @@
     color: var(--green);
 }
 .heading{
-    padding: 40px 0px 0px 0px;
+    padding: 0px 0px 40px 0px;
+}
+.vipmain{
+    padding: 50px;
 }
 .viplistConatiner{
     display: flex;
     align-items: center;
     justify-content: center;
     background: #d9ead3;
-    margin:50px;
     padding: 20px 11px;
     border-radius: 2px;
 }
@@ -131,7 +133,10 @@
     .juicy p{
         font-size: 14px;
     }
-    .viplistConatiner{
-        margin: 20px;
+    .vipmain{
+        padding: 20px;
+    }
+    .heading{
+        padding: 20px 0px 20px 0px;
     }
 }

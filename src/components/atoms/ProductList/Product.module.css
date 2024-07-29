@@ -454,10 +454,16 @@
   }
 }
 
-@media (max-width: 600px) {
+@media(min-width:373px) and (max-width:416px){
   .transparentCard {
-    height: 195px;
-    width: 150px;
+    height: 215px;
+    width: 154px;
+  }
+}
+@media (min-width:417px) and (max-width: 600px) {
+  .transparentCard {
+    height: 217px;
+    width: 175px;
   }
 }
 @media (max-width: 370px) {

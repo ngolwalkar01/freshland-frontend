@@ -115,6 +115,7 @@
 }
 .giftsvgmobile{
   display: none;
+  position: relative;
 }
 
 @media (min-width: 300px) and (max-width: 370px) {
@@ -148,7 +149,13 @@
     display: block;
   }
   .giftsvgmobile img{
-    border-radius: 20px;
+    position: relative;
+
+  }
+  .giftsvgmobile img:last-child{
+    top: -4px !important;
+    transform: translate(10px, -1px);
+
   }
   .card{
     flex-direction: column;
@@ -243,7 +250,7 @@
     max-width: 741px;
     height: 100%;
     margin: 0px 36px;
-    border-radius: 20px;
+    border-radius: 36px;
     flex: auto;
   }
   .desktopimg{
@@ -258,6 +265,16 @@
     object-fit: fill;
     left: 55.7%;
     width: auto;
+  }
+  .giftsvgmobile img{
+    position: relative;
+    border-radius: 0px;
+    top: 3px;
+
+  }
+  .giftsvgmobile img:last-child{
+    transform: translate(10px, -1px);
+
   }
 }
 @media(min-width:1101px) and (max-width: 1396px){
@@ -274,6 +291,12 @@
     font-size: 18px;
   }
   .learnmore {
+    font-size: 18px;
+  }
+}
+
+@media(min-width:415px) and (max-width:500px){
+  .text{
     font-size: 18px;
   }
 }

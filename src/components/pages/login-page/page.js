@@ -8,6 +8,7 @@ import { loginTranslation } from '@/locales';
 // import cookieService from '@/services/auth';
 import { signIn, signOut as googleSignOut } from 'next-auth/react';
 import { setUserLoggedInData } from "@/components/service/auth";
+import Link from "next/link";
 
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
@@ -115,7 +116,7 @@ const Login = () => {
               {log.remb}
             </label>
             <span className={styles.psw}>
-              {log.forgot} <a href="#">{log.pass}</a>
+              {log.forgot} <Link href="/forgotpassword">{log.pass}</Link>
             </span>
           </div>
           <p>{log.useSocial}</p>
