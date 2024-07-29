@@ -27,6 +27,10 @@
     color: white;
     font-weight: 700;
     opacity: 1;
+    font-size: 15px;
+    position: relative;
+    top: 3px;
+  
   }
   .arrowContainer:before, .arrowContainer:before {
     font-family: 'Calistoga' !important;
@@ -34,6 +38,9 @@
     color: white;
     font-weight: 700;
     opacity: 1;
+    font-size: 15px;
+    position: relative;
+    top: 3px;
 }
   .arrowContainer:hover, .slick-prev:focus, .arrowContainer:hover, .arrowContainer:focus {
     color: #fff !important;
@@ -102,3 +109,11 @@
   }
   }
  
+  @media only screen and (max-width:600px){
+    .arrowContainer:before, .arrowContainer:before {
+   top:4px
+    }
+    .arrowprevContainer:before{
+      top: 3px;
+    }
+  }

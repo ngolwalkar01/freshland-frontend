@@ -97,7 +97,9 @@
   .circleBackground {
     display: none;
   }
-
+.bgcolor{
+  padding: 40px 0px;
+}
 
   .topImageContainer {
 
@@ -108,7 +110,7 @@
 
   .topBarContent {
     position: absolute;
-    top: 50%;
+    top: 56%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 198px;

@@ -164,6 +164,7 @@ function UserAddress({ userAddressProps }) {
             const currentBillingAddress = checkAddress(userAddresses[selectedAddressIndex]);
             setBillingAddress(currentBillingAddress);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [showBillingAddress, selectedAddressIndex, userAddresses, setBillingAddress])
 
     useEffect(() => {

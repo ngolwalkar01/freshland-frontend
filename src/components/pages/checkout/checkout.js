@@ -178,7 +178,7 @@ function Checkout() {
       shipping_address,
     } = cartData;
     const delivery_dates = extensions?.delivery;
-    const currency = totals?.currency_code;
+    const currency = totals?.currency_symbol;
     const currentCoupon = coupons && coupons.length > 0 ? coupons[0]?.code : "";
     const shipping = [
       {
@@ -1568,7 +1568,7 @@ function Checkout() {
                                   </span>
                                 </td>
                                 <td>
-                                  {currency_symbol} {subtotal}
+                                  {subtotal} {currency_symbol}
                                 </td>
                               </tr>
                             );
@@ -1577,7 +1577,7 @@ function Checkout() {
                         <tr>
                           <td>{check.subt}</td>
                           <td>
-                            {currency_symbol} {cartSubTotal}
+                            {cartSubTotal} {currency_symbol} 
                           </td>
                         </tr>
                         {coupons && (
@@ -1589,7 +1589,7 @@ function Checkout() {
                               </span>
                             </td>
                             <td>
-                              {currency} {cartTotalDiscount}
+                              {cartTotalDiscount} {currency} 
                               <span
                                 className={styles.cross}
                                 onClick={() => {

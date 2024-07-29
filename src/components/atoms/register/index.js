@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState } from "react";
 import { homepageTranslation } from '@/locales';
 import { commonTranslation } from '@/locales';
-import klaviyoservice from '@/services/klaviyo'
+import klaviyoservice from '@/services/klaviyo/apiIndex'
 import { toast } from 'react-toastify';
 
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
@@ -54,7 +54,7 @@ const Register = () => {
   const registerform = async (event) => {
     event.preventDefault();
     validate();
-    await klaviyoservice.createProfile(email, firstName);
+    await klaviyoservice.createProfile({ email, firstName });
     toast.success("Your profile is created.", { autoClose: toastTimer });
   }
 
@@ -64,20 +64,20 @@ const Register = () => {
       <div className={registerStyles.gridContainer}>
         <div className={registerStyles.registerWrapper}>
           <Image
-          className={registerStyles.desktopimg}
+            className={registerStyles.desktopimg}
             src="/Images/regitserimg.png"
             alt="rimage"
-             media="(min-width: 640px)"
-           fill
+            media="(min-width: 640px)"
+            fill
           />
-           <Image
+          <Image
             className={registerStyles.responsiveimg}
-          src="/Images/registermedia.png"
-          alt="Harvesting Image"
-          media="(max-width: 639px)"
-          fill
-          
-        />
+            src="/Images/registermedia.png"
+            alt="Harvesting Image"
+            media="(max-width: 639px)"
+            fill
+
+          />
           <div className={registerStyles.innerWrapper}>
             <h2 className={`W-H2 ${registerStyles.heading}`}>{hpt.subscribeNewsletter}</h2>
             <p className={registerStyles.text}>{hpt.getNotified}</p>
@@ -91,8 +91,8 @@ const Register = () => {
                     name="text"
                     placeholder="First Name"
                     value={firstName}
-                    onInput={(e) => setFirstName(e.target.value)}                  
-                />
+                    onInput={(e) => setFirstName(e.target.value)}
+                  />
                   {errors.firstName && (
                     <span className={registerStyles.errorMessage}>
                       {errors.firstName}
@@ -108,7 +108,7 @@ const Register = () => {
                     name="email"
                     placeholder="Email"
                     value={email}
-                    onInput={(e) => setEmail(e.target.value)}   
+                    onInput={(e) => setEmail(e.target.value)}
                   />
                   {errors.email && (
                     <span className={registerStyles.errorMessage}>
@@ -120,26 +120,26 @@ const Register = () => {
                 <button className={registerStyles.registerButton} type="submit" onClick={registerform}>
                   {hpt.register}
                 </button>
-               
+
               </div>
               <div className={registerStyles.checkboxContainer}>
-                  <input
-                    type="checkbox"
-                    className={registerStyles.checkbox}
-                    checked={isChecked}
-                    onChange={(e) => setIsChecked(e.target.checked)}
-                    id="terms"
-                  />
-                  <label htmlFor="terms" className={registerStyles.checkboxLabel}>
-                    {hpt.iAgree}
-                  </label>
-                
-                </div>
-                {errors.isChecked && (
-                  <span className={registerStyles.errorMessage}>
-                    {errors.isChecked}
-                  </span>
-                )}
+                <input
+                  type="checkbox"
+                  className={registerStyles.checkbox}
+                  checked={isChecked}
+                  onChange={(e) => setIsChecked(e.target.checked)}
+                  id="terms"
+                />
+                <label htmlFor="terms" className={registerStyles.checkboxLabel}>
+                  {hpt.iAgree}
+                </label>
+
+              </div>
+              {errors.isChecked && (
+                <span className={registerStyles.errorMessage}>
+                  {errors.isChecked}
+                </span>
+              )}
             </form>
           </div>
         </div>

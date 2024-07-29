@@ -59,6 +59,7 @@
 
 .image {
   border-radius: 12px;
+  object-fit: cover;
 }
 
 .overlay {
@@ -103,12 +104,14 @@
   background-color: var(--blue);
 }
 .button:hover{
-  background-color: transparent;
-  color: var(--blue);
+  background-color: #2a5e88;
+  border-color: #2a5e88;
 }
 .button:active{
-  transform: scale(0.98); 
+  transform: scale(0.98);
 }
+
+
 
 /* .signupButton {
   color: #fff;
@@ -199,6 +202,9 @@
   padding: 11px 27px;
   font-size: 14px;
 }
+.sliderContainer{
+  margin: 24px 0px;
+}
     
 }
 @media (min-width: 370px) and (max-width: 550px) {
@@ -245,6 +251,9 @@
  .description{
   display: none;
  }
+ .sliderContainer{
+  margin: 24px 0px;
+}
 }
 
 @media (min-width: 380px) and (max-width: 550px){

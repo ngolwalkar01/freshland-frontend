@@ -23,7 +23,7 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
   const router = useRouter();
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [showPrevArrow, setShowPrevArrow] = useState(false);
+  const [showPrevArrow, setShowPrevArrow] = useState(true);
 
   const settings = {
     infinite: true,

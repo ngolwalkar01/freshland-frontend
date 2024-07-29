@@ -90,9 +90,16 @@
   box-shadow: 0px 6.24px 12.47px 0px rgba(33, 144, 41, 0.25);
 }
 .learnmore:hover{
-  background-color: transparent;
-  color: var(--green);
+  background: #32a33a;
+  transform: scale(1.05);
+  border-color: #32a33a;
 }
+
+.learnmore:active{
+  transform: scale(0.98); 
+}
+
+
 .mobileviewimg{
   display: none;
 }

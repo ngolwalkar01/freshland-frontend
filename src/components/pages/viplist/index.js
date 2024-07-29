@@ -141,7 +141,7 @@ const Vip = ({ vipPageData }) => {
                   )}
                 </div>
                 <div>
-                  <label htmlFor="email">E-mailE-post</label>
+                  <label htmlFor="email">E-mail</label>
                   <input
                     className={style.inputField}
                     type="text"

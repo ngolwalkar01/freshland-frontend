@@ -504,21 +504,22 @@ letter-spacing: normal;
 }
 
 .wrapper input[type="text"]::placeholder {
-  color: #2c2c2c;
+  color: #a7a7a7;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
     sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
+
 }
 
 .wrapper input[type="email"]::placeholder {
-  color: #2c2c2c;
+  color: #a7a7a7;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
     sans-serif;
   font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: normal;
+  font-size: 14px;
 }
 
 .wrapper select {
@@ -659,10 +660,31 @@ letter-spacing: normal;
 
   .rightContainer {
     max-width: 100%;
+    padding: 20px 28px 50px 28px;
+  }
+  .table th,
+  .table td{
+  font-size: 13px;
+  }
+  
+  .table label{
+    font-size: 13px;
   }
   .wrapperskl{
     flex-direction: column;
   }
+
+  .wrapper label, .terms{
+    font-size: 13px;
+  }
+
+.textarea::placeholder,
+.wrapper input[type="text"]::placeholder,
+.wrapper input[type="email"]::placeholder ,
+.wrapper select{
+  font-size: 13px;
+}
+
 }
 
 @media (min-width: 600px) and (max-width: 900px) {

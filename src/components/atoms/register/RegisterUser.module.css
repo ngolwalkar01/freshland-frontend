@@ -205,6 +205,12 @@
 .responsiveimg{
   display: none;
 }
+@media(min-width:320px) and (max-width:370px){
+  .registerButton,
+  .textField{
+    max-width: 313px !important;
+  }
+}
 
 @media (min-width: 320px) and (max-width: 601px) {
   .gridContainer {

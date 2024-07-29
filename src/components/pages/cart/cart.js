@@ -68,6 +68,7 @@ function Cart() {
   const cartTotalDiscount = getCorrectPrice(parseInt(totals?.total_discount) + parseInt(totals?.total_discount_tax));
   const cartTotal = totals?.total_price;
   const tax = totals?.total_tax;
+  
   const currency_symbol = currency;
 
   const setCartDataByCartData = (cartData) => {
@@ -83,7 +84,7 @@ function Cart() {
       billing_address,
     } = cartData;
     const delivery_dates = extensions?.delivery;
-    const currency = totals?.currency_code;
+    const currency = totals?.currency_symbol;
     const currentCoupon = coupons && coupons.length > 0 ? coupons[0]?.code : "";
     const shipping = [
       {
@@ -341,7 +342,7 @@ function Cart() {
                                   <p className={`${styles.productTitle}`}>
                                     {cartItem.name} <br />{" "}
                                     <span>
-                                      {currency_symbol} {subtotal}
+                                      {subtotal} {currency_symbol}
                                     </span>
                                   </p>
                                 </Link>
@@ -425,7 +426,7 @@ function Cart() {
                             <div className={styles.subtotalLeft}>
                               <p>{ct.subTotal}</p>
                               <p>
-                                {currency_symbol} {itemsSubTotal}
+                                {itemsSubTotal} {currency_symbol}
                               </p>
                             </div>
                           </Fragment>
@@ -474,7 +475,7 @@ function Cart() {
                       <div className={styles.subtotal}>
                         <p>{ct.subTotal}</p>
                         <p>
-                          {currency_symbol} {cartSubTotal}
+                          {cartSubTotal} {currency_symbol} 
                         </p>
                       </div>
                       {coupons && (
@@ -485,7 +486,7 @@ function Cart() {
                           </div>
                           <div className={styles.discountAmount}>
                             <label>
-                              {currency} {cartTotalDiscount}
+                              {cartTotalDiscount} {currency_symbol} 
                             </label>
                             <span
                               onClick={() => {
@@ -560,11 +561,11 @@ function Cart() {
                             <div className={styles.include}>
                               <p>{ct.total}</p>
                               <h4>
-                                {currency} {getCorrectPrice(totals?.total_price)}
+                                {getCorrectPrice(totals?.total_price)} {currency_symbol} 
                               </h4>
                             </div>
                             <p className={styles.tax}>
-                              ({ct.include} {currency} {getCorrectPrice(totals?.total_tax)} {ct.tax})
+                              ({ct.include} {getCorrectPrice(totals?.total_tax)} {ct.tax}) {currency_symbol}
                             </p>
                           </div>
                         </>

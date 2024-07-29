@@ -1,9 +1,20 @@
 import axios from '@/utils/axios';
-const Klaviyo_API_BASE_URL = `/wp-json/klaviyo/v1/profile`;
+const Klaviyo_API_BASE_URL = `/wp-json/klaviyo/v1`;
+
+const createProfile = async (obj) => {
+    try {
+        const url = `${Klaviyo_API_BASE_URL}/profile-create`;
+        const response = await axios.post(url, obj);
+        return response.data;
+    } catch (error) {
+        console.error('Error in creating profile :', error);
+        throw error;
+    }
+};
 
 const linkProfileToList = async (obj) => {
     try {
-        const url = `${Klaviyo_API_BASE_URL}`;
+        const url = `${Klaviyo_API_BASE_URL}/profile`;
         const response = await axios.post(url, obj);
         return response.data;
     } catch (error) {
@@ -13,7 +24,8 @@ const linkProfileToList = async (obj) => {
 };
 
 const KlaviyoAPI = {
-    linkProfileToList
+    linkProfileToList,
+    createProfile
 };
 
 export default KlaviyoAPI;

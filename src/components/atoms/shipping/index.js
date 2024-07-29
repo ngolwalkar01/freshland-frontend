@@ -21,7 +21,7 @@ const TotalPrice = ({ shData, styles, total_tax, currency_code, total_price, isM
         <tr>
             <td>{isMainShipping ? ct.total : "Recurring Total"}</td>
             <td>
-                {currency_code} {total_price} <br />
+                {total_price} {currency_code}  <br />
                 <p style={{ fontWeight: 100 }}>(incl. {total_tax} {currency_code} VAT)</p>
 
                 {shData && <BillingPeriod shData={shData} styles={styles} />}
@@ -35,7 +35,7 @@ const ShippingOptions = ({ shippingData, setNamePrefix, setCartShipment, styles,
         <>
             {shippingData.map((shData, index) => {
                 const { shipping, totals, isMainShipping } = shData;
-                let { currency_code = "", total_items = "", total_price = "", total_tax } = totals || {};
+                let { currency_symbol: currency_code = "", total_items = "", total_price = "", total_tax } = totals || {};
                 total_items = getCorrectPrice(total_items);
                 total_price = getCorrectPrice(total_price);
                 total_tax = getCorrectPrice(total_tax);
@@ -52,7 +52,7 @@ const ShippingOptions = ({ shippingData, setNamePrefix, setCartShipment, styles,
                                                 !isMainShipping &&
                                                 <tr>
                                                     <td>{ct.subTotal}</td>
-                                                    <td>{currency_code} {getCorrectPrice(total_items)}
+                                                    <td>{getCorrectPrice(total_items)} {currency_code}
                                                         <BillingPeriod shData={shData} styles={styles} />
                                                     </td>
                                                 </tr>

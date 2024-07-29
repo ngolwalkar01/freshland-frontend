@@ -92,6 +92,10 @@
   cursor: pointer;
   display: flex;
 }
+.hearticon i::before{
+  position: relative;
+  top: -1px;
+}
 
  .default{
   color: #BFBFBF;
@@ -291,6 +295,7 @@
   .gridContainer {
     gap: 12px;
     justify-content: center;
+    margin-bottom: 40px;
   }
   .gridItem{
     padding: 8px 8px 12px 8px;
