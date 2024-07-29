@@ -51,11 +51,20 @@ const Register = () => {
     return isValid;
   };
 
+  const reset = () => {
+    setFirstName("");
+    setEmail("");
+    setIsChecked(false);
+    setErrors({})
+  }
+
   const registerform = async (event) => {
     event.preventDefault();
-    validate();
-    await klaviyoservice.createProfile({ email, firstName });
-    toast.success("Your profile is created.", { autoClose: toastTimer });
+    if (validate()) {
+      await klaviyoservice.createProfile({ email, firstName });
+      toast.success("Your profile is created.", { autoClose: toastTimer });
+      reset();
+    }
   }
 
 

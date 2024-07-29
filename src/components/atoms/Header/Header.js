@@ -195,7 +195,7 @@ const Header = () => {
                   </Link>
                 </div>
                 <div className={styles.headerIconWrapper}>
-                  <Link href="/wishlist">
+                  <Link href="/favourites">
                     <Image src="/Images/heart.svg" alt="Wish List" fill />
                   </Link>
                 </div>

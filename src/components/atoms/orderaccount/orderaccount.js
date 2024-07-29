@@ -14,7 +14,7 @@ const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, orderDates, isUserLoggedIn }) {
   const mat = myaccountTranslation[lang];
   const [showRequest, setShowRequest] = useState();
-  
+
   const handleRequest = () => {
     window.scrollTo({
       top: 0,
@@ -87,30 +87,42 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
               </thead>
               <tbody>
                 {
-                  orders && orders.length > 0 && orders.map((od, i) => (
-                    <tr key={i}>
-                      <td onClick={() => handleViewClick(od.order_number)} style={{ cursor: 'pointer' }}>#{od.order_number}</td>
-                      <td>{od.order_date}</td>
-                      <td>{od.delivery_date}</td>
-                      <td>{od.order_status}</td>
-                      <td>{od.order_total}</td>
-                      <td className={styles.btnlink}>
-                        <Link
-                          href="#"
-                          className={styles.view}
-                          onClick={() => handleViewClick(od.order_number)}
-                        >
-                          {mat.view}
-                        </Link>
-                        <Link href="#" className={styles.pdf} onClick={() => downloadInvoicePdf(od.order_number)}>
-                          {mat.pDFInvoice}
-                        </Link>
-                        <Link href="#" className={styles.request}>
-                          {mat.requestaComplaint}
-                        </Link>
-                      </td>
-                    </tr>
-                  ))
+                  orders && orders.length > 0 ?
+                    (
+                      <>
+                        {
+                          orders.map((od, i) => (
+                            <tr key={i}>
+                              <td onClick={() => handleViewClick(od.order_number)} style={{ cursor: 'pointer' }}>#{od.order_number}</td>
+                              <td>{od.order_date}</td>
+                              <td>{od.delivery_date}</td>
+                              <td>{od.order_status}</td>
+                              <td>{od.order_total}</td>
+                              <td className={styles.btnlink}>
+                                <Link
+                                  href="#"
+                                  className={styles.view}
+                                  onClick={() => handleViewClick(od.order_number)}
+                                >
+                                  {mat.view}
+                                </Link>
+                                <Link href="#" className={styles.pdf} onClick={() => downloadInvoicePdf(od.order_number)}>
+                                  {mat.pDFInvoice}
+                                </Link>
+                                <Link href="#" className={styles.request}>
+                                  {mat.requestaComplaint}
+                                </Link>
+                              </td>
+                            </tr>
+                          ))
+                        }
+                      </>
+                    ) : (
+                      <tr>
+                        <td colSpan="6" style={{ textAlign: 'center', display: 'table-cell' }}>No order found</td>
+                      </tr>
+                    )
+
                 }
               </tbody>
             </table>
@@ -237,24 +249,29 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
         </section>
       )}
 
-<div className={styles.mobileviewtableCards}>
-      {!showOrderView && orders && orders.length > 0 && orders.map((od, i) => (
-        <div key={i} className={styles.mobileviewtable} onClick={() => handleViewClick(od.order_number)}>
-          <div className={styles.tablecard}>
-            <div className={styles.ordercarddetail}>
-              <div className={styles.order_number}>
-                <p>{mat.orderNo} <span className={styles.status}>#{od.order_number}</span></p>
-                <p className={styles.status}>{od.order_status}</p>
-              </div>
-              <div className={styles.date}>
-                <p>{od.order_date}</p>
-                <p>{od.order_total}</p>
+      <div className={styles.mobileviewtableCards}>
+        {!showOrderView && orders && orders.length > 0 && orders.map((od, i) => (
+          <div key={i} className={styles.mobileviewtable} onClick={() => handleViewClick(od.order_number)}>
+            <div className={styles.tablecard}>
+              <div className={styles.ordercarddetail}>
+                <div className={styles.order_number}>
+                  <p>{mat.orderNo} <span className={styles.status}>#{od.order_number}</span></p>
+                  <p className={styles.status}>{od.order_status}</p>
+                </div>
+                <div className={styles.date}>
+                  <p>{od.order_date}</p>
+                  <p>{od.order_total}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
-</div>
+        ))}
+        {!showOrderView && !(orders && orders.length > 0) && (
+          <div className={styles.mobileviewtable}>
+            No order found
+          </div>
+        )}
+      </div>
       <button style={{ display: showRequest ? 'block' : 'none' }} onClick={handleGoBack} className={styles.gobackbtn}><i className="fa-solid fa-circle-arrow-left"></i></button>
 
       {showRequest && <OrderProcess />}
