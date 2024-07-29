@@ -33,7 +33,7 @@ export default function Home() {
         productService.getProducts(),
         productService.getSessionalProducts(),
         shippingService.getShippingMethods(),
-        vipPagesService.getVipPages(),
+        vipPagesService.getVipPages(10),
         deliveryCycleAPI.getcuttoffday()
       ]);
 

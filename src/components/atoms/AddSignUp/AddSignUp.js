@@ -110,7 +110,7 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
                 <div className={styles.imageContainer}>
                   <Image
                     className={styles.image}
-                    src={data.thumbnail && false ? data.thumbnail : '/mockImage/viporange.png'}
+                    src={data.thumbnail ? data.thumbnail : '/mockImage/viporange.png'}
                     alt={`Slide ${index}`}
                     width={343}
                     height={350}
