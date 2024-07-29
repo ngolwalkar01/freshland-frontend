@@ -2,7 +2,7 @@
 
   background-repeat: no-repeat;
   background-size: cover;
-  height: 74vh;
+  height: 75vh;
   /* display: flex;
   align-items: center;
   justify-content: center;
@@ -15,6 +15,7 @@
 
 .bgcolor{
   background: #f4fff7;
+  padding: 60px 0px;
 }
 .topBarContent {
   display: flex;
@@ -25,8 +26,10 @@
   gap: 24px;
   position: relative;
   max-width: 500px;
-  top: 18%;
-  left: 9%;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translate(0%, -50%);
 }
 .orderOnline{
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
@@ -78,9 +81,12 @@
 
 
 @media (min-width: 320px) and (max-width: 375px) {
-.topBarContent{
-  left: 9% !important;
-}
+/* .topBarContent{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
@@ -101,9 +107,10 @@
   }
 
   .topBarContent {
-    top: 14%;
-    left: 15%;
-    transform: translate(20%, 0%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 198px;
     text-align: center;
   }
@@ -129,7 +136,11 @@
   .topImageContainer {
     height: 473px;
   }
-
+  .topBarContent {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
  
 
 }
@@ -138,7 +149,9 @@
   .topBarContent h1{
     font-size: 80px;
    }
-   .topBarContent {
-    top: 22%;
-  }
+   /* .topBarContent {
+    top: 50%;
+    left: 19%;
+    transform: translate(0%, -50%);
+  } */
 }

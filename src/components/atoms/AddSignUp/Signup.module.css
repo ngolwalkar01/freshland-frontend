@@ -102,6 +102,13 @@
   text-align: center;
   background-color: var(--blue);
 }
+.button:hover{
+  background-color: transparent;
+  color: var(--blue);
+}
+.button:active{
+  transform: scale(0.98); 
+}
 
 /* .signupButton {
   color: #fff;

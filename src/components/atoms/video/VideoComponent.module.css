@@ -89,6 +89,10 @@
   z-index: 5;
   box-shadow: 0px 6.24px 12.47px 0px rgba(33, 144, 41, 0.25);
 }
+.learnmore:hover{
+  background-color: transparent;
+  color: var(--green);
+}
 .mobileviewimg{
   display: none;
 }
@@ -150,7 +154,7 @@
         text-align: center;
   }
   .text{
-    font-size: 20px;
+    font-size: 16px;
   }
   .videoContainer{
     padding: 40px 0px 0px 0px;

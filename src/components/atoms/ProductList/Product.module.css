@@ -14,10 +14,8 @@
 
 .heading {
   color: forestgreen;
-  font-weight: 800;
   text-align: center;
   font-family: Calistoga;
-  padding-top: 100px;
   padding-bottom: 60px;
 
   font-size: 72px;
@@ -92,7 +90,7 @@
 .hearticon{
   font-size: 38px;
   cursor: pointer;
-  display: inline-block;
+  display: flex;
 }
 
  .default{
@@ -316,7 +314,6 @@
   }
 
   .heading {
-    padding-top: 40px;
     padding-bottom: 24px;
     font-size: 40px;
   }
@@ -458,8 +455,15 @@
     width: 150px;
   }
 }
-@media (max-width: 475px) {
-
+@media (max-width: 370px) {
+  .transparentCard {
+    height: 180px;
+    width: 126px;
+  }
+  .gridContainer {
+    gap: 8px;
+    justify-content: center;
+  }
 }
 
 .skeletonContainer {

@@ -214,7 +214,7 @@
   }
 
   .checkboxLabel {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .gridItem {
@@ -228,18 +228,23 @@
   .registerButton,
   .textField {
     height: 53px;
-    font-size: 20px;
-    width: 100%;
-    max-width: 100%;
-
+    font-size: 14px;
+    max-width: 320px;
+    padding: 15px 26px;
 
   }
+
+  .textField::placeholder {
+    font-size: 14px;
+  }
+
   .formLabel{
     font-size: 14px;
 
   }
   .registerButton{
     margin: 0px;
+    width: 100%;
   }
 
   .errorMessage {

@@ -154,7 +154,7 @@ const Header = () => {
               <Link href="/">
                 <Image
                   className={styles.freshland}
-                  src="/Images/Freshland.svg"
+                  src="/Images/Freshland.png"
                   alt="Freshland logo"
                   width={117}
                   height={30}
@@ -195,7 +195,7 @@ const Header = () => {
                   </Link>
                 </div>
                 <div className={styles.headerIconWrapper}>
-                  <Link href="/favourites">
+                  <Link href="/wishlist">
                     <Image src="/Images/heart.svg" alt="Wish List" fill />
                   </Link>
                 </div>

@@ -1,6 +1,4 @@
-.seeproduct{
-  padding-bottom: 100px;
-}
+
 
 .seeAllButton{
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
@@ -40,10 +38,5 @@
       font-weight: 400;
     }
 
-    .seeproduct{
-      padding-bottom:40px;;
-  
-    }
-  
 
   }

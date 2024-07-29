@@ -21,13 +21,34 @@ const Footer = () => {
       <footer className={styles.footerwrap}>
         <div className={styles.footercontainer}>
           <div className={styles.footerlogo}>
-            <Image
-              src="/Images/Fresh4.png"
-              alt="freh4"
-              width={158}
-              height={57}
-              loading="eager"
-            ></Image>
+            <div className={styles.footerlogoImg}>
+              <Image
+                src="/Images/FreshlandFooterLogo.png"
+                alt="freh4"
+                fill
+                quality={100}
+                sizes="none"
+                // width={180}
+                // height={64}
+                loading="eager"
+              ></Image>
+            </div>
+  
+              <div className={styles.thelegalconutry}>
+                  <button onClick={handleChangeCountry}>
+                    <div className={styles.thelegalconutryImg}>
+                    <Image
+                      src="/Images/changecountry.svg"
+                      alt="logo"
+                      fill
+                      // width={24}
+                      // height={24}
+                    ></Image>
+                    </div>
+
+                    {hpt.changeCountry}
+                  </button>
+                </div>
 
             <div className={styles.footercountries}>
               {showcountry && (
@@ -79,18 +100,7 @@ const Footer = () => {
                   <li><Link href="/se/faq/#right-withdraw">{hpt.rightWithdraw}</Link></li>
                 </ul>
 
-                <div className={styles.thelegalconutry}>
-                  <button onClick={handleChangeCountry}>
-                    <Image
-                      src="/Images/changecountry.svg"
-                      alt="logo"
-                      width={24}
-                      height={24}
-                    ></Image>
-
-                    {hpt.changeCountry}
-                  </button>
-                </div>
+                
               </div>
               <div>
                 <p>{hpt.weSupport}</p>
