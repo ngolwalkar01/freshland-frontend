@@ -4,6 +4,7 @@ import { checkoutTranslation, cartTranslation, commonTranslation } from "@/local
 import Telephone from "@/components/atoms/Telephone/Telephone";
 import { getUserAddresses, setUserAddressesAsync, saveUserAddresses } from '@/components/service/cart';
 import Image from 'next/image';
+import { applyLoader } from "@/helper/loader";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
@@ -72,7 +73,9 @@ function UserAddress({ userAddressProps }) {
         errors, setErrors,
         cartData,
         isSubmit, setIsSubmit,
-        validateUserAddress
+        validateUserAddress,
+        setOlLoader,
+        setCartDataByCartData
     } = userAddressProps;
 
     const check = checkoutTranslation[lang];
@@ -84,6 +87,7 @@ function UserAddress({ userAddressProps }) {
     const [selectedAddress, setSelectedAddress] = useState(null);
     const [newAddressAdded, setNewAddressAdded] = useState(false);
     const [showSaveButton, setShowSaveButton] = useState(false);
+    const [isAddressEdit, setIsAddressEdit] = useState(false);
 
     const cart_shipping_address = (token && userAddresses
         && userAddresses.length > 0)
@@ -267,10 +271,14 @@ function UserAddress({ userAddressProps }) {
     };
 
     const fetchData1 = async () => {
-        if (!validateUserAddress()) {
+        if (!validateUserAddress() && isAddressEdit) {
             const preventAuthRedirect = "preventAuthRedirect";
-            await setCustomerDetail(firstName, lastName, userAddresses, selectedAddressIndex, preventAuthRedirect);
-            await updateLocalStorageCartData();
+            const cartData = await applyLoader(setOlLoader, setCustomerDetail, [
+                firstName, lastName, userAddresses, selectedAddressIndex, preventAuthRedirect
+            ]);
+            setCartDataByCartData(cartData);
+            // await applyLoader(setOlLoader, updateLocalStorageCartData, []);
+            setIsAddressEdit(false);
         }
     }
 
@@ -329,6 +337,7 @@ function UserAddress({ userAddressProps }) {
         userAdd[currentIndex].errors = errorData.isValid ? null : errorData.errors
         setUserAddresses(userAdd);
         setSelectedAddress({ ...userAdd[currentIndex] });
+        setIsAddressEdit(true);
     }
 
     const handleShippingSuggestion = (e) => {
@@ -340,6 +349,7 @@ function UserAddress({ userAddressProps }) {
         newBillingAddress[column] = e.target.value;
         const currentBillingAddress = checkAddress(newBillingAddress);
         setBillingAddress(currentBillingAddress);
+        setIsAddressEdit(true);
     }
 
     const handleBillingSuggestion = (e) => {
@@ -411,7 +421,11 @@ function UserAddress({ userAddressProps }) {
                                         {(x.address_1 || firstName || lastName) ? (
                                             <div key={i} className={`${styles.addresscontainer} ${isError ? styles.error_border : ''}`}>
                                                 <div className={styles.selectAddress}>
-                                                    <input type="radio" id="user_address" checked={x.selected} name="user_address" value="user_address" onChange={() => updateUserAddress(i)} />
+                                                    <input type="radio" id="user_address" checked={x.selected} name="user_address" value="user_address" onChange={async () => {
+                                                        await applyLoader(setOlLoader, updateUserAddress, [
+                                                            i
+                                                        ]);
+                                                    }} />
                                                     <div className={styles.address}>
                                                         <p className="M-Body-Medium">{firstName} {lastName}</p>
                                                         <p className="M-Caption">

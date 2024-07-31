@@ -106,6 +106,7 @@ function Checkout() {
   const [streetValue, setStreetValue] = useState("");
   const [addnewaddress, setAddNewAddress] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
+  const [isOrderStart, setIsOrderStart] = useState(false);
 
   const [userAddresses, setUserAddresses] = useState([]);
   const [enableEditableMode, setEditableMode] = useState({
@@ -247,6 +248,7 @@ function Checkout() {
         console.log(error);
       } finally {
         setIsCheckoutReady(true);
+        setIsOrderStart(false);
       }
     };
     checkoutInit();
@@ -562,6 +564,7 @@ function Checkout() {
     };
     const data = await setCustomerDetails(customerInfo, stopRedirectToLogin);
     updateCartData(data);
+    return data;
   };
 
   const orderObj = () => {
@@ -608,11 +611,15 @@ function Checkout() {
   };
 
   const callBackAfterOrder = (order_id) => {
-    setCartData(INTIAL_CART_DATA);
-    resetCheckoutPage();
-    setLoading(false);
-    setIsCheckoutReady(true);
-    router.push(`order/${order_id}`);
+    try {
+      setCartData(INTIAL_CART_DATA);
+      resetCheckoutPage();
+      setLoading(false);
+      setIsCheckoutReady(true);
+      router.push(`order/${order_id}`);
+    } catch (error) {
+      setIsOrderStart(false);
+    }
   };
 
   const failedCallBack = async (data, cart_key) => {
@@ -620,11 +627,13 @@ function Checkout() {
       let odID = data.order_id;
       await recoverUserCart(odID, cart_key);
       setIsCheckoutReady(true);
+      setIsOrderStart(false);
     } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
       setIsCheckoutReady(true);
+      setIsOrderStart(false);
     }
   };
 
@@ -650,6 +659,7 @@ function Checkout() {
       if (validate()) {
         setLoading(true);
         setIsCheckoutReady(false);
+        setIsOrderStart(true);
         const { crtKey, cartData } = getCartKey();
         await setCustomerDetail(
           firstName,
@@ -673,6 +683,7 @@ function Checkout() {
       }
     } catch (error) {
       setIsCheckoutReady(true);
+      setIsOrderStart(false);
     } finally {
       setLoading(false);
     }
@@ -730,7 +741,9 @@ function Checkout() {
     setErrors,
     cartData,
     isSubmit, setIsSubmit,
-    validateUserAddress
+    validateUserAddress,
+    setOlLoader,
+    setCartDataByCartData
   };
 
   return (
@@ -741,7 +754,7 @@ function Checkout() {
         </>
       ) : null}
       {olLoader && <OverLayLoader />}
-      {isCheckoutReady ? (
+      {!isOrderStart && isCheckoutReady ? (
         <div className={styles.Checkoutcontainer}>
           <Header />
           {cartItems && cartItems.length > 0 ? (
@@ -1578,7 +1591,7 @@ function Checkout() {
                         <tr>
                           <td>{check.subt}</td>
                           <td>
-                            {cartSubTotal} {currency_symbol} 
+                            {cartSubTotal} {currency_symbol}
                           </td>
                         </tr>
                         {coupons && (
@@ -1590,7 +1603,7 @@ function Checkout() {
                               </span>
                             </td>
                             <td>
-                              {cartTotalDiscount} {currency} 
+                              {cartTotalDiscount} {currency}
                               <span
                                 className={styles.cross}
                                 onClick={() => {
