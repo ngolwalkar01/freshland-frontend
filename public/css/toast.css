@@ -8,13 +8,20 @@
 }
 
 .Toastify__toast-container {
-  width: 455px!important;
+  width: 400px !important;
 }
 
 @media only screen and (max-width:600px){
   .Toastify__toast-theme--light {
     font-size: 14px;
-    width: 371px;
+    width: 371px !important;
   }
 
+
+}
+@media (min-width:400px) and (max-width:600px){
+  .Toastify__toast-theme--light{
+    width: 427px !important;
+  }
+ 
 }

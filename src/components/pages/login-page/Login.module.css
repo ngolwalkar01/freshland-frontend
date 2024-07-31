@@ -102,6 +102,9 @@ span.psw {
 }
 .socialmedia .google{
   background-color: #4285f4;
+  display: flex;
+    align-items: center;
+    gap: 6px;
 }
 .modalContent p{
   padding: 15px 16px;
@@ -124,5 +127,8 @@ span.psw {
   }
   .cancelbtn {
      width: 100%;
+  }
+  .socialmedia a{
+    font-size: 12px;
   }
 }

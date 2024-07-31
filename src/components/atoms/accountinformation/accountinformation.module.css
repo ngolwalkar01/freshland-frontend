@@ -78,7 +78,7 @@
 }
 
 .wrapper input[type="text"]::placeholder {
-    color: #2C2C2C;
+    color: #a7a7a7;
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -86,7 +86,7 @@
 }
 
 .wrapper input[type="email"]::placeholder {
-    color: #2C2C2C;
+    color: #a7a7a7;
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -130,6 +130,15 @@
     letter-spacing: normal;
     cursor: pointer;
 }
+
+.fieldsRow button:active {
+    transform: scale(0.98);
+  }
+  
+  .fieldsRow button:hover {
+    background-color: #27aa30;
+  }
+  
 .accountinfo hr{
     border: 1px solid  rgba(0, 0, 0, 0.2);
     margin: 40px 0px;

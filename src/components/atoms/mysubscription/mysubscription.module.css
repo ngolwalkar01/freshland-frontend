@@ -402,7 +402,6 @@
 .addresscontainer{
     display: grid;
     grid-template-columns: auto;
-    align-items: center;
     max-width: 650px;
     margin: 20px 18px;
     column-gap: 40px;

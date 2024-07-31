@@ -31,7 +31,8 @@
 
 .gridContainer {
   justify-content: center;
-  gap: 20px;
+  column-gap: 20px;
+  row-gap: 48px;
   padding-inline: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -66,8 +67,8 @@
 .imgContainer {
   position: relative;
   cursor: pointer;
-  height: 159px;
-  max-height: 160px;
+  height: 185px;
+  max-height: 195px;
 }
 
 .cardTopImage {

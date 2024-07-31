@@ -75,7 +75,7 @@ const OrderDeadline = ({ shippingMethods, enableMockData, cutOffDaysDetail }) =>
               <div className={styles.deadlinedata}>
                 <div className={styles.deadlineContainer}>
                 <h2 className={styles.next}>{data.orderCard1?.headCard1}</h2>
-                <p className={styles.deliveryweek}>For delivery the following week</p>
+                <p className={styles.deliveryweek}>For next delivery</p>
                 {/* <h3 className={`W-H3 ${styles.contentCard1}`}>{timer}</h3> */}
                 <div className={styles.contentCard1}>
                 {/* <h1 className={``}>{timer}</h1> */}

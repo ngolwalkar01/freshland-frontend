@@ -93,7 +93,7 @@
 }
 
 .textField::placeholder {
-  color: #212121;
+  color: #a7a7a7;
   font-size: 20px;
 }
 
@@ -102,11 +102,11 @@
   color: #ffffff;
   border-radius: 10px;
   padding: 17px 0px;
-  margin: 38px 0px 0px 0px;
+  margin: 33px 0px 0px 0px;
   border: none;
   width: 230px;
   max-width: 230px;
-  height: 74px;
+  height: 73px;
   max-height: 75px;
   font-size: 20px;
   cursor: pointer;
@@ -159,7 +159,7 @@
 
 .checkboxLabel {
   color: #ffffff;
-  font-size: 20px;
+  font-size: 18px;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
 }
 

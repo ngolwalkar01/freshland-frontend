@@ -687,6 +687,7 @@
   .rightContainer {
     font-size: 13px;
     gap: 13px;
+    width: 100%;
   }
 
   .firstHeading {

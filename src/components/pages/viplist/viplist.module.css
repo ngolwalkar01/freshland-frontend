@@ -36,6 +36,10 @@
 .juicy h4{
     color: var(--green);
 }
+.juicy h3{
+    color: var(--green);
+}
+
 .juicy p{
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
     sans-serif;

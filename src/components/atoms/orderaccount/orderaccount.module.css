@@ -463,8 +463,7 @@ border-radius: 5px;
     /* addresscontainer css */
 .addresscontainer {
   display: grid;
-  grid-template-columns: auto auto;
-  align-items: center;
+  grid-template-columns: auto auto;  
   max-width: 650px;
   margin: 15px 0px;
   column-gap: 40px;

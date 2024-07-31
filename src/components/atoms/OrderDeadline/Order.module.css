@@ -34,7 +34,7 @@
 }
 .timeUnit span:last-child{
   color: rgba(33, 33, 33, 0.7);
-    font-size: 24px;
+    font-size: 20px;
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 .next_order{
@@ -72,13 +72,17 @@
   align-items: center;
   justify-content: center;
   height: 71px;
-  font-size: 18px;
+  font-size: 20px;
   width: 232px;
   gap: 5px;
   cursor: pointer;
 }
-.nextorder_deadline .contentCard1{
 
+.orderNow:active{
+  transform: scale(0.98); 
+}
+.orderNow:hover{
+  background-color: #f78176d9;
 }
 
 .contentCard1 h2 {
@@ -160,6 +164,7 @@
   background-image: linear-gradient(98.89deg, #FF5F6D 0%, #FFC371 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 40px;
  }
  .dkcost{
   background-color: #fff;
@@ -173,6 +178,7 @@
  .Freight p{
   padding: 16px 0px 0px 0px;
   color: rgba(33, 33, 33, 0.7);
+  font-size: 18px;
  }
 
  @media (min-width: 318px) and (max-width: 350px)

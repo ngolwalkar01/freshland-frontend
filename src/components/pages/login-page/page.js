@@ -3,15 +3,15 @@ import Header from "@/components/atoms/Header/Header";
 import styles from "./Login.module.css";
 import { toast } from "react-toastify";
 import authService from "@/services/auth";
-import { useRouter } from 'next/navigation';
-import { loginTranslation } from '@/locales';
+import { useRouter } from "next/navigation";
+import { loginTranslation } from "@/locales";
 // import cookieService from '@/services/auth';
-import { signIn, signOut as googleSignOut } from 'next-auth/react';
+import { signIn, signOut as googleSignOut } from "next-auth/react";
 import { setUserLoggedInData } from "@/components/service/auth";
 import Link from "next/link";
-
+import Image from "next/image";
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 
 const expires = parseInt(process.env.NEXT_PUBLIC_CART_KEY_EXPIRY);
 // const TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Byb3pvbmVkLmNvbS9mcmVzaC1sYW5kIiwiaWF0IjoxNzE2OTAxMzk4LCJleHAiOjE3MTY5MDQ5OTgsImRhdGEiOnsidXNlciI6eyJpZCI6MTZ9fX0.V0XQTF1fUA1FEHZce3J2tX6MPy7x9vOaavN26fldnzg';
@@ -32,7 +32,7 @@ const Login = () => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -127,11 +127,21 @@ const Login = () => {
             <a href="#" className={styles.twitter}>
               <i className="fa-brands fa-twitter"></i> {log.logt}
             </a> */}
-            <a href="#" onClick={async (e) => {
-              e.preventDefault();
-              signIn('google');
-            }} className={`${styles.google} login-with-google-button`}>
-              <i className="fa-brands fa-google"></i> {log.logg}
+            <a
+              href="#"
+              onClick={async (e) => {
+                e.preventDefault();
+                signIn("google");
+              }}
+              className={`${styles.google} login-with-google-button`}
+            >
+              <Image
+                src="/Images/googleiconimg.png"
+                alt="Solar Impulse"
+                width={28}
+                height={28}
+              />
+              {log.logg}
             </a>
           </div>
         </form>
@@ -141,3 +151,4 @@ const Login = () => {
 };
 
 export default Login;
+

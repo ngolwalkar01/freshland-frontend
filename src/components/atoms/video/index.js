@@ -11,6 +11,7 @@ const VideoComponent = () => {
     <div className={videoStyles.containerbgcolor}>
       <div className={videoStyles.container}>
         <div className={videoStyles.card}>
+          <div className={videoStyles.mainContainer}>
           <div className={videoStyles.content}>
             <h1 className={videoStyles.heading}>{hpt.commonFront}</h1>
             <div className={videoStyles.textContainer}>
@@ -25,6 +26,7 @@ const VideoComponent = () => {
               Learn more
             </Link>
           </div>
+         </div>
           <div className={videoStyles.videoContainer}>
             <div className={videoStyles.videoPosition}>
             <LazyYoutube videoId="MrvUKufzTXA" />

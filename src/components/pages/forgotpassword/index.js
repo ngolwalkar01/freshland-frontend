@@ -44,7 +44,7 @@ const Forgot = () => {
             forgot
           </p>
           <form>
-            <label for="userlogin">EMAIL
+            <label htmlFor="userlogin">EMAIL
             </label>
             <input type="text" value={email} onChange={(e) => { setEmail(e.target.value); }} name="userlogin" id="userlogin" className={style.inputFeild} />
             {errors?.email && <div style={{ color: 'red' }}>{errors?.email}</div>}

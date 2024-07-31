@@ -573,7 +573,7 @@ main{
   margin-bottom: 40px;
 }
 
-.textWrapperTxt {
+.featuresWrapper p {
   display: flex;
   justify-content: center;
   align-items: center;

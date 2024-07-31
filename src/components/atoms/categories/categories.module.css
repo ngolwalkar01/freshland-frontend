@@ -10,6 +10,7 @@
   }
   .mainContainer h1{
     color: var(--green);
+    font-size: 72px;
   }
   
 .categoriesName{

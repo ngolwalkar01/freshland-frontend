@@ -180,7 +180,7 @@ const Header = () => {
                 </div>
                 <Link href="/seasonoverview" className={isActive('/seasonoverview')}>{hpt.seasonOverview}</Link>
                 <Link href="/farmer" className={isActive('/farmer')}>{hpt.farmers}</Link>
-                <Link href="/faq" className={isActive('/faq')}>{hpt.faq}</Link>
+                <Link href="/se/faq" className={isActive('/se/faq')}>{hpt.faq}</Link>
                 <Link href="/about" className={isActive('/about')}>{hpt.aboutUs}</Link>
              
               </div>

@@ -14,7 +14,7 @@
 
 /* Heading wrapper */
 .headingWrapper {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   text-align: center;
   color: #219029;
   font-weight: 700;
@@ -76,7 +76,7 @@
 /* Image heading */
 .headingWrapper h1 {
   font-family: Calistoga;
-  font-size: 68px;
+  font-size: 100px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -104,7 +104,6 @@
   /* Styles for the goods card */
   margin-inline: auto;
   margin-top: 40px;
-  margin-bottom: 120px;
 }
 
 .comingSoon {

@@ -101,7 +101,7 @@ const Reset = () => {
             <p>Enter a new password below</p>
             <form className={style.formConatainer}>
               <div>
-                <label for="NewPassword">New Password</label>
+                <label htmlFor="NewPassword">New Password</label>
                 <div className={style.inputConatiner}>
                   <input
                     value={currentpasswordData}
@@ -124,7 +124,7 @@ const Reset = () => {
                 </div>
               </div>
               <div className={style.inputConatiner}>
-                <label for="ConfirmPassword">Confirm New Password</label>
+                <label htmlFor="ConfirmPassword">Confirm New Password</label>
                 <input
                   value={confirmPasswordData}
                   onChange={handleConfirmInput}

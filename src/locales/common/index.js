@@ -5,7 +5,7 @@ export const commonTranslation = {
         add: 'ADD',
         save: 'Save',
         addToBasket: 'Add to Basket',
-        firstName: "First Name",
+        firstName: "Name",
     },
     dk: {
         disruptTheFoodIndustry: 'Disrupt the food industry',
@@ -13,7 +13,7 @@ export const commonTranslation = {
         add: 'ADD',
         save: 'Save',
         addToBasket: 'Add to Basket',
-        firstName: "First Name",
+        firstName: "Name",
     },
     fi: {
         disruptTheFoodIndustry: 'Disrupt the food industry',
@@ -21,7 +21,7 @@ export const commonTranslation = {
         add: 'ADD',
         save: 'Save',
         addToBasket: 'Add to Basket',
-        firstName: "First Name",
+        firstName: "Name",
     },
     se: {
         disruptTheFoodIndustry: 'Disrupt the food industry',
@@ -29,6 +29,6 @@ export const commonTranslation = {
         add: 'ADD',
         save: 'Save',
         addToBasket: 'Add to Basket',
-        firstName: "First Name",
+        firstName: "Name",
     }
 }

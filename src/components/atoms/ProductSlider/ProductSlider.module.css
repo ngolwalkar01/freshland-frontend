@@ -6,7 +6,7 @@
 }
 
 .boxContainer h1{
-  margin: 20px 0px 40px 0px;
+  margin: 40px 0px 40px 0px;
   font-size: 72px;
   color: var(--blue);
 }
@@ -116,7 +116,7 @@ cursor: pointer;
     margin: 0px 0px 0px 0px !important;
   }
 }
-@media (min-width:320px) and (max-width:377px){
+@media (min-width:320px) and (max-width:411px){
  
   .image{
     width: 100%;
@@ -148,7 +148,7 @@ cursor: pointer;
 }
 
 
-@media (min-width: 380px) and (max-width: 550px)  {
+@media (min-width: 411px) and (max-width: 550px)  {
   .slide{
     width: 280px;
     max-height: 412px;

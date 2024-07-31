@@ -24,7 +24,7 @@ export const homepageTranslation = {
         unitedNations: "United Nations Good For All Winner",
         subscribeNewsletter: "Subscribe to newsletter",
         getNotified: "Get notified when your favorite product is in season",
-        email: "Email ID",
+        email: "Email",
         register: "Register",
         iAgree: "I agree to the terms and conditions",
         contactUs: "Contact Us",

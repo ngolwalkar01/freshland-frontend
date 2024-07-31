@@ -141,17 +141,19 @@ const Footer = () => {
 
                 </ul>
               </div>
-              <div>
+             
+            </div>
+            <div>
                 <p>{hpt.socialMedia}</p>
                 <ul className={styles.carddataimg}>
 
                   <li>
                     <Link href="#">
                       <Image
-                        src="/Images/footericon.png"
+                        src="/Images/facebook.png"
                         alt="facebook"
-                        width={32}
-                        height={32}
+                        width={48}
+                        height={48}
                       /></Link>
 
                   </li>
@@ -160,28 +162,18 @@ const Footer = () => {
                       <Image
                         src="/Images/linkedinicon.png"
                         alt="facebook"
-                        width={32}
-                        height={32}
+                        width={48}
+                        height={48}
                       /></Link>
 
                   </li>
                   <li>
                     <Link href='https://www.instagram.com'>
                       <Image
-                        src="/Images/instaicon.png"
+                        src="/Images/insta.png"
                         alt="facebook"
-                        width={32}
-                        height={32}
-                      /></Link>
-
-                  </li>
-                  <li>
-                    <Link href="https://twitter.com/">
-                      <Image
-                        src="/Images/twittericon.png"
-                        alt="facebook"
-                        width={32}
-                        height={32}
+                        width={48}
+                        height={48}
                       /></Link>
 
                   </li>
@@ -190,15 +182,25 @@ const Footer = () => {
                       <Image
                         src="/Images/youtubeicon.png"
                         alt="facebook"
-                        width={32}
-                        height={32}
+                        width={48}
+                        height={48}
                       /></Link>
 
                   </li>
+                  <li>
+                    <Link href="https://www.youtube.com/">
+                      <Image
+                        src="/Images/pinteresticon.png"
+                        alt=" pinterest"
+                        width={48}
+                        height={48}
+                      /></Link>
+
+                  </li>
+                 
 
                 </ul>
               </div>
-            </div>
           </div>
           <div>
             <div className={styles.footercopyright}>
