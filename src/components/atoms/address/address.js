@@ -33,7 +33,7 @@ export const AddressInfo = ({ address }) => {
       <p>{address_1}</p>
       <p>{city}, {state} {postcode}</p>
       <p>{country}</p>
-      <p>{email ? email : "N/A"}</p>
+      <p>{email ? email : ""}</p>
     </div>
   )
 }

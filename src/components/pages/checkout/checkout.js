@@ -611,6 +611,7 @@ function Checkout() {
     setCartData(INTIAL_CART_DATA);
     resetCheckoutPage();
     setLoading(false);
+    setIsCheckoutReady(true);
     router.push(`order/${order_id}`);
   };
 
@@ -618,10 +619,12 @@ function Checkout() {
     try {
       let odID = data.order_id;
       await recoverUserCart(odID, cart_key);
+      setIsCheckoutReady(true);
     } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
+      setIsCheckoutReady(true);
     }
   };
 
@@ -656,7 +659,6 @@ function Checkout() {
         );
         const orderPayload = orderObj();
         const data = await createNewOrder(orderPayload);
-        setIsCheckoutReady(true);
         if (paymentOption === "klarna_payments") {
           handleKlarnaAuthorization(
             data,
@@ -670,9 +672,8 @@ function Checkout() {
         }
       }
     } catch (error) {
-      console.log(error);
-    } finally {
       setIsCheckoutReady(true);
+    } finally {
       setLoading(false);
     }
   };
