@@ -234,6 +234,9 @@ function Checkout() {
     const getpaymentMethodsData = async () => {
       const data = await getpaymentMethods();
       setPaymentMethods([...data]);
+      if (data && data.length > 0) {
+        setPaymentOption(data[0].id);
+      }
     };
 
     const getCart = async () => {

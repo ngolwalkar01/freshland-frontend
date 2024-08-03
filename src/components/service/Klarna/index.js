@@ -89,12 +89,11 @@ export const updateSessionInOrder = async (order_id, session_id) => {
   await KlarnaAPI.updateOrderKlarnaSession(order_id, session_id);
 };
 
-export const fetchClientToken = async (order_id, payload) => {
+export const fetchClientToken = async (order_id, payload, callBack) => {
   try {
     const { data } = await axios.post("/api/klarnaSession", payload);
+    callBack(data.session_id);
     initializeKlarna(data.client_token);
-    await updateSessionInOrder(order_id, data.session_id);
-    return data.session_id;
   } catch (error) {
     console.log(error);
   }
@@ -175,25 +174,27 @@ export const handleKlarnaAuthorization = async (
 ) => {
   const orderId = orderData.order_id;
   const payload = createKlarnaPayload(cartData);
-  const sessionId = await fetchClientToken(orderData.order_id, payload);
-  window.Klarna.Payments.authorize(
-    {
-      // payment_method_category: selectedOption // Assuming this maps directly to Klarna's expected identifiers
-    },
-    async (res) => {
-      console.log("Authorization response:", res);
-      if (res.approved) {
-        await finalizePurchase(
-          res.authorization_token,
-          sessionId,
-          orderId,
-          payload
-        ); // Custom function to finalize the purchase on your backend
-        callBack(orderId);
-      } else {
-        failedCallBack(orderData, cartKey);
-        console.error("Authorization failed:", res.error);
+  await fetchClientToken(orderData.order_id, payload, async (sessionId) => {
+    await updateSessionInOrder(orderId, sessionId);
+    window.Klarna.Payments.authorize(
+      {
+        // payment_method_category: selectedOption // Assuming this maps directly to Klarna's expected identifiers
+      },
+      async (res) => {
+        console.log("Authorization response:", res);
+        if (res.approved) {
+          await finalizePurchase(
+            res.authorization_token,
+            sessionId,
+            orderId,
+            payload
+          ); // Custom function to finalize the purchase on your backend
+          callBack(orderId);
+        } else {
+          failedCallBack(orderData, cartKey);
+          console.error("Authorization failed:", res.error);
+        }
       }
-    }
-  );
+    );
+  });
 };

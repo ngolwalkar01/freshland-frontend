@@ -40,6 +40,11 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
     }
   }, [productInCart])
 
+  useEffect(() => {
+    if (product?.is_favorite) 
+      setIsClicked(true);
+  }, [product])
+
   return (
     <div key={product.id} className={styles.gridItem}>
       <div className={styles.transparentCard}>
