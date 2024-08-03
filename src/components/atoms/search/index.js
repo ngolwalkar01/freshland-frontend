@@ -9,6 +9,7 @@ const Search = ({ cardHeading, productData, overRideClass = false }) => {
     const st = shopTranslation[lang];
     return (
         <>
+        <div className={styles.categoryContainer}>
             <ProductList
                 overRideClass={overRideClass}
                 cardHeading={cardHeading}
@@ -22,6 +23,7 @@ const Search = ({ cardHeading, productData, overRideClass = false }) => {
                     {st.ourProductComingSoon} <br />{st.stayTuned}
                 </p>
             )}
+            </div>
         </>
     );
 };

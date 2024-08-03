@@ -469,15 +469,24 @@ cursor: pointer;
 .productDescription {
   max-width: 1200px;
   margin: 0 auto;
-  padding-block: 80px;
+  padding-block: 60px;
   padding-inline: 60px;
-}
 
-.productDescription h2 {
+}
+.productDescription ol{
+  padding: 20px 30px;
+}
+.productDescription ul{
+  padding: 20px 30px;
+}
+.productDescription a{
+  color: var(--blue);
+}
+.descripTion  {
   text-align: center;
   font-weight: 700;
-  margin-bottom: 40px;
   color: var(--blue);
+  padding: 60px 0px 0px 0px;
 }
 .productDescription p{
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
@@ -567,8 +576,18 @@ letter-spacing: normal;
   padding-left: 1px;
 }
 
-.tableData tr {
-  margin-block: 5px;
+.productDescription table tbody tr td {
+  padding: 10px 0px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+  sans-serif;
+font-size: 20px;
+font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: 1.56;
+letter-spacing: normal;
+padding-right: 50px;
+
 }
 .productDescription table tr td strong{
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
@@ -644,6 +663,7 @@ padding-right: 30px;
   margin:20px 0px;
 }
 @media (min-width: 601px) and (max-width: 767px) {
+ 
   .productSection {
     flex-direction: column;
     margin-left: 0;
@@ -695,6 +715,11 @@ padding-right: 30px;
 }
 
 @media (max-width: 600px) {
+  .productDescription  img{
+    width: 345px !important;
+    height: 345px !important;
+  }
+  
   .productSection {
     flex-direction: column;
     margin-left: 0;

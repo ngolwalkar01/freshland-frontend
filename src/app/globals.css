@@ -554,6 +554,9 @@ main{
 /*
  *  Product detail dynamic content start
 */
+.cst-img{
+  margin: 20px 0px;
+}
 .featuresWrapper {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   font-size: 13px;

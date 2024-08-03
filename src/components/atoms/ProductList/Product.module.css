@@ -16,8 +16,6 @@
   color: forestgreen;
   text-align: center;
   font-family: Calistoga;
-  padding-bottom: 60px;
-
   font-size: 72px;
 }
 
@@ -38,7 +36,7 @@
   flex-wrap: wrap;
   grid-template-columns: repeat(auto-fit, 306px);
   grid-template-rows: repeat(auto-fit, 409px);
-  margin: 0px 0px 60px 0px;
+  margin: 60px 0px 60px 0px;
 }
 .gridItem{
   background-color: #fff;
@@ -296,7 +294,7 @@
   .gridContainer {
     gap: 12px;
     justify-content: center;
-    margin-bottom: 40px;
+    margin: 40px 0px;
   }
   .gridItem{
     padding: 8px 8px 12px 8px;
@@ -320,7 +318,6 @@
   }
 
   .heading {
-    padding-bottom: 24px;
     font-size: 40px;
   }
 

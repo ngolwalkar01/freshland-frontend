@@ -258,7 +258,9 @@ const Description = ({ productDetailProps }) => {
         </div>
         <LazyLoad height={200} offset={100}>
           <div className={styles.wrapper}>
+          <h2 className={styles.descripTion}>DESCRIPTION</h2>
             <section className={styles.productDescription} dangerouslySetInnerHTML={{ __html: productDetail?.description }} />
+           
             {/* <h2>{pdt.description}</h2>
               <div className={styles.mainDescription}>
                 <div className={styles.storageWrapper}>
