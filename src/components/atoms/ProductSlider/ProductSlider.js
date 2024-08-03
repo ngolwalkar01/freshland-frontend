@@ -93,12 +93,12 @@ const ProductSlider = () => {
               <div className={styles.slide}>
                 <div className={styles.customername}>
                   <Image
-                  src="/mockImage/Testimonialavtra1.png"
-                  width={30}
-                  height={30}
+                   src={`/${data.profile}`}
+                  width={40}
+                  height={40}
                   alt="testimonial"
                   />
-                  <p>Patricia</p>
+                  <p>{data.name}</p>
                 </div>
               <Image
                 className={styles.image}
@@ -123,7 +123,7 @@ const ProductSlider = () => {
                   alt="testimonial"
                />
               </div>
-              <p className={styles.testimonialspeech}>The worlds best and juiciest oranges and mandarins!!</p>
+              <p className={styles.testimonialspeech}>{data.testimonials}</p>
               </div>
             </div>
           ))}

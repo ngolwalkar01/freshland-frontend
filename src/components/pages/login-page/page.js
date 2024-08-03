@@ -52,8 +52,8 @@ const Login = () => {
       // localStorage.setItem("token", `Bearer ${TOKEN}`);
       // cookieService.setCookie("token", `Bearer ${TOKEN}`, expires);
       // router.push("/account");
-      toast.error(
-        "Login attempt was unsuccessful. Please check your credentials and try again.",
+      const msg = error?.response?.data?.message || "Login attempt was unsuccessful. Please check your credentials and try again.";
+      toast.error(msg,
         { autoClose: toastTimer }
       );
     }

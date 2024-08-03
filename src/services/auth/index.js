@@ -10,7 +10,7 @@ const Auth_API_BASE_URL = `/wp-json/fl-cart/v1/cart`;
 const login = async (userCredentials) => {
     try {
         const config = getHeaders();
-        const response = await axios.post(`${Auth_API_BASE_URL}/fl-login`, userCredentials);
+        const response = await axiosApi.post(`${Auth_API_BASE_URL_OAUTH}/fl-login`, userCredentials);
         return response.data;
     } catch (error) {
         console.error('Error fetching products:');

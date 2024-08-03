@@ -58,7 +58,7 @@ const Order = ({ orderId }) => {
         cartSubTotal,
         cartTotalDiscount,
         shippingTotal,
-        currency: orderData?.totals?.currency_code
+        currency: orderData?.totals?.currency_suffix
       });
     }
   }, [orderData]);

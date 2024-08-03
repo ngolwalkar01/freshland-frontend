@@ -1500,11 +1500,30 @@ function Checkout() {
                         onChange={(e) => setStandardOrderNote(e.target.value)}
                         id="setStandardOrderNote"
                       >
-                        <option value="Place at the door">
-                          {check.placed}
+                        <option value=""></option>
+                        <option value=" Placed at the front door - Placed at the front door">
+                          Placed at the front door - Placed at the front door
                         </option>
-                        <option value="Leave at reception">
-                          {check.leaveat}
+                        <option value="Drop by mailbox - Drop by mailbox">
+                          Drop by mailbox - Drop by mailbox
+                        </option>
+                        <option value="Put in the carport - Put in the carport">
+                          Put in the carport - Put in the carport
+                        </option>
+                        <option value="Place at the back door - Place at the back door">
+                          Place at the back door - Place at the back door
+                        </option>
+                        <option value="Place inside the basement shaft">
+                          Place inside the basement shaft
+                        </option>
+                        <option value="Place under a half roof - Place under a half roof">
+                          Place under a half roof - Place under a half roof
+                        </option>
+                        <option value="Place inside the shed">
+                          Place inside the shed
+                        </option>
+                        <option value="Custom notes only">
+                          Custom notes only
                         </option>
                       </select>
                       <span className={styles.customArrow}></span>
@@ -1594,6 +1613,26 @@ function Checkout() {
                             {cartSubTotal} {currency_symbol}
                           </td>
                         </tr>
+                        <Shipping
+                          shipping={shipping}
+                          subscriptionShipping={subscriptionShipping}
+                          setCartShipment={(shipmentOpt, packageId) => {
+                            if (shipmentOpt && (packageId || packageId === 0))
+                              applyLoader(setOlLoader, setCartShipment, [
+                                shipmentOpt,
+                                packageId,
+                              ]);
+                          }}
+                          styles={styles}
+                          getCorrectPrice={getCorrectPrice}
+                        />
+                        <tr>
+                          {errors.shipmentVal && (
+                            <p className={styles.errorMessage}>
+                              {errors.shipmentVal}
+                            </p>
+                          )}
+                        </tr>
                         {coupons && (
                           <tr>
                             <td>
@@ -1617,26 +1656,6 @@ function Checkout() {
                             </td>
                           </tr>
                         )}
-                        <Shipping
-                          shipping={shipping}
-                          subscriptionShipping={subscriptionShipping}
-                          setCartShipment={(shipmentOpt, packageId) => {
-                            if (shipmentOpt && (packageId || packageId === 0))
-                              applyLoader(setOlLoader, setCartShipment, [
-                                shipmentOpt,
-                                packageId,
-                              ]);
-                          }}
-                          styles={styles}
-                          getCorrectPrice={getCorrectPrice}
-                        />
-                        <tr>
-                          {errors.shipmentVal && (
-                            <p className={styles.errorMessage}>
-                              {errors.shipmentVal}
-                            </p>
-                          )}
-                        </tr>
                       </tbody>
                     </table>
                     <div className={styles.paymentSection}>

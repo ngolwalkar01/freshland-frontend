@@ -39,7 +39,6 @@ const ShippingOptions = ({ shippingData, setNamePrefix, setCartShipment, styles,
                 total_items = getCorrectPrice(total_items);
                 total_price = getCorrectPrice(total_price);
                 total_tax = getCorrectPrice(total_tax);
-
                 return <Fragment key={`setNamePrefix-${index}`}>
                     {
                         shipping && shipping.length > 0 && shipping.map((sh, i) => {
@@ -76,7 +75,7 @@ const ShippingOptions = ({ shippingData, setNamePrefix, setCartShipment, styles,
                                                                 <label htmlFor={shipping_rate.method_id} onClick={(e) => e.stopPropagation()}>
                                                                     {shipping_rate.name}
                                                                     {/* <span className={styles.black}>(SUBSCRIPTION):{shipping_rate.currency_code} */}
-                                                                    <span className={styles.black}> {shipping_rate.currency_code}
+                                                                    <span className={styles.black}> {`${currency_code} `}
                                                                         {getCorrectPrice(parseInt(shipping_rate?.price) + parseInt(shipping_rate.taxes))}</span>
                                                                     <BillingPeriod shData={shData} styles={styles} />
                                                                 </label>

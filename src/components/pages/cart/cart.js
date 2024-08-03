@@ -304,6 +304,7 @@ function Cart() {
                         return (
                           <Fragment key={i}>
                             <div className={styles.productSection}>
+                              <div className={styles.cartpageSection}>
                               <span
                                 className={styles.closebtn}
                                 onClick={(e) => {
@@ -329,18 +330,19 @@ function Cart() {
                                   <Link href={`/product/${productId}`}>
                                     <Image
                                       src={currentImage}
-                                      width={141}
-                                      height={141}
+                                      width={100}
+                                      height={100}
                                       alt="Main Image"
                                       priority
                                     />
                                   </Link>
                                 </div>
                               </div>
+                             
                               <div>
                                 <Link href={`/product/${productId}`}>
-                                  <p className={`${styles.productTitle}`}>
-                                    {cartItem.name} <br />{" "}
+                                  <p className={`${styles.productTitle} W-Body-Medium `}>
+                                    {cartItem.name}{" "}
                                     <span>
                                       {subtotal} {currency_symbol}
                                     </span>
@@ -348,7 +350,7 @@ function Cart() {
                                 </Link>
                                 <div className={styles.addToBasket}>
                                   <button
-                                    className={`${styles.valueButton} ${styles.decreaseButton}`}
+                                    className={`${styles.valueButton} ${styles.decreaseButton} W-Body-Large-Regular`}
                                     onClick={() =>
                                       applyLoader(
                                         setOlLoader,
@@ -374,7 +376,7 @@ function Cart() {
                                   ></input>
                                   {/* <p className={styles.number}>{count}</p> */}
                                   <button
-                                    className={`${styles.valueButton} ${styles.increaseButton}`}
+                                    className={`${styles.valueButton} ${styles.increaseButton} W-Body-Large-Regular`}
                                     onClick={() =>
                                       applyLoader(
                                         setOlLoader,
@@ -391,6 +393,13 @@ function Cart() {
                                   </button>
                                 </div>
                               </div>
+                             </div>
+                                <div className={styles.cartpageSutotal}>
+                              <p className="W-Body-Large-Bold">{ct.subTotal}</p>
+                              <p className="W-Body-Large-Medium">
+                                {itemsSubTotal} {currency_symbol}
+                              </p>
+                            </div>
                             </div>
                             {subscription_schemes?.is_subscription && (
                               <div
@@ -422,32 +431,33 @@ function Cart() {
                                 <span className={styles.customArrow}></span>
                               </div>
                             )}
-
+{/* 
                             <div className={styles.subtotalLeft}>
                               <p>{ct.subTotal}</p>
                               <p>
                                 {itemsSubTotal} {currency_symbol}
                               </p>
-                            </div>
+                            </div> */}
                           </Fragment>
                         );
                       })}
 
+                           <div className={styles.subtotalLeft}>
+                              <p>{ct.subtotals}</p>
+                              <p className="W-Body-Large-Bold">
+                              {cartSubTotal}   {currency_symbol}
+                              </p>
+                            </div> 
+                            <div className={`W-Body-Large-Bold ${styles.redeemDiscount}`}>
+                              <p>Redeem discount code</p> 
                     <div
-                      className={`${styles.discountcol} ${styles.fieldColumn}`}
+                      className={`${styles.discountcol}`}
                     >
                       <div className={styles.discount}>
-                        {" "}
-                        <Image
-                          src="/Images/discount-box-outline.svg"
-                          alt="discount"
-                          width={26}
-                          height={25}
-                        />{" "}
                         <input
                           type="text"
                           name="name"
-                          placeholder="Discount"
+                          placeholder="Enter Discount Code"
                           value={coupon || ""}
                           onChange={(e) => {
                             setCoupon(e.target.value);
@@ -467,6 +477,7 @@ function Cart() {
                       >
                         {ct.applyDisscount}
                       </button>
+                    </div>
                     </div>
                   </section>
                   <aside className={styles.rightContainer}>

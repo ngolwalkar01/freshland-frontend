@@ -50,7 +50,7 @@
   flex-direction: column;
   gap: 24px;
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
   position: relative;
   /*Left container font*/
 
@@ -68,7 +68,24 @@
 .productSection {
   display: flex;
   justify-content: left;
+  gap: 40px;
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  padding-top: 24px;
+}
+.productSection:first-child{
+ border-top: none;
+}
+.cartpageSection{
+  display: flex;
+  align-items: flex-start;
+  justify-content: left;
   gap: 23px;
+  max-width: 351px;
+}
+.cartpageSutotal{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .leftSide {
@@ -107,7 +124,7 @@
   background-color: var(--green);
   border-radius: 5px;
   padding: 13px 7px;
-  height: 48px;
+  height: 47px;
 }
 
 .addToBasket .valueButton:hover {
@@ -163,16 +180,13 @@
   gap: 40px;
 }
 
-.productTitle {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
-    sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  letter-spacing: normal;
-}
 
+.productTitle{
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-bottom: 14px;
+}
 .productTitle span {
   color: var(--green);
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
@@ -182,7 +196,6 @@
   font-stretch: normal;
   font-style: normal;
   letter-spacing: normal;
-  line-height: 3;
 }
 
 .subtotalLeft {
@@ -264,9 +277,7 @@
 }
 
 .discountcol {
-  border: 1.41066px dashed #e7e7e7;
-  height: 78px;
-  padding: 0px 11px;
+  display: flex;
 }
 
 .fieldColumn {
@@ -288,11 +299,20 @@
 
 .discount input {
   font-size: 18px;
-  border: none;
-  background: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px;
+  width: 295px;
+  height: 59px;
+  border: 1px solid #E7E7E7;
+  border-radius: 5px;
   outline: none;
-  width: 100%;
-  max-width: 200px;
+}
+.redeemDiscount{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 .discount input::placeholder {
   color: #2c2c2c;
@@ -306,8 +326,17 @@
 }
 
 .applydiscount {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px;
+gap: 10px;
+width: 133px;
+height: 59px;
+background: #EFEFEF;
+border-radius: 5px;
   border: none;
-  background: transparent;
   cursor: pointer;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
     sans-serif;
@@ -315,7 +344,10 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 27px;
-  color: #1d405c;
+  color: var(--text-light);
+}
+.redeemDiscount p{
+  color: var(--blue);
 }
 .discount > p {
   font-weight: 500;
@@ -447,16 +479,10 @@
   display: flex;
   justify-content: space-between;
 }
-.discountcol .discount{
-  max-width: 220px;
-  width: 100%;
+.discountcol{
+  gap: 16px;
 }
-.discount {
-  display: flex;
-  gap: 6px;
-  width: 100%;
 
-}
 .discountHeader span {
   margin-left: 7px;
   color: #219029;
@@ -578,6 +604,9 @@
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
+  .cartpageSutotal{
+    display: none;
+  }
   .wrapper {
     flex-direction: column;
     align-items: center;
@@ -761,9 +790,7 @@
   .applydiscount {
     font-size: 13px;
   }
-  .discountcol .discount{
-    max-width: 140px;
-  }
+ 
   .discountHeader span{
     font-size: 13px;
   }
@@ -781,6 +808,9 @@
     height: 38px !important;
   }
 
+  .subtotalLeft p{
+    font-size: 13px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 375px) {

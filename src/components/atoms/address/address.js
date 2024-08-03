@@ -24,16 +24,18 @@ export const AddressInfo = ({ address }) => {
     last_name,
     postcode,
     country,
-    state
+    state,
+    phone
   } = address ? address : {};
 
   return (
     <div>
       <p>{first_name} {last_name}</p>
       <p>{address_1}</p>
-      <p>{city}, {state} {postcode}</p>
+      <p>{city ? `${city} ,` : ""} {state} {postcode}</p>
       <p>{country}</p>
       <p>{email ? email : ""}</p>
+      <p>{phone ? phone : ""}</p>
     </div>
   )
 }

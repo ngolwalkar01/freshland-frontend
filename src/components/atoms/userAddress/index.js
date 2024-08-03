@@ -272,13 +272,16 @@ function UserAddress({ userAddressProps }) {
 
     const fetchData1 = async () => {
         if (!validateUserAddress() && isAddressEdit) {
-            const preventAuthRedirect = "preventAuthRedirect";
-            const cartData = await applyLoader(setOlLoader, setCustomerDetail, [
-                firstName, lastName, userAddresses, selectedAddressIndex, preventAuthRedirect
-            ]);
-            setCartDataByCartData(cartData);
-            // await applyLoader(setOlLoader, updateLocalStorageCartData, []);
-            setIsAddressEdit(false);
+            try {
+                const preventAuthRedirect = "preventAuthRedirect";
+                const cartData = await applyLoader(setOlLoader, setCustomerDetail, [
+                    firstName, lastName, userAddresses, selectedAddressIndex, preventAuthRedirect
+                ]);
+                setCartDataByCartData(cartData);
+                setIsAddressEdit(false);
+            } catch (error) {
+                await applyLoader(setOlLoader, updateLocalStorageCartData, []);
+            }
         }
     }
 
@@ -641,7 +644,7 @@ function UserAddress({ userAddressProps }) {
                     {!showBillingAddress && (
                         <div
                             className={styles.shippingAdd}
-                            style={{ display: "checkbox" ? "block" : "none" }}
+                            style={{ display: "checkbox" ? "flex" : "none" }}
                         >
                             <label>
                                 <strong>BILLING ADDRESS</strong>

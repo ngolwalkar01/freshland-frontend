@@ -32,6 +32,7 @@
     padding: 20px 20px 9px 20px;
     margin: 0px 0px 0px 24px;
     border-radius: 10px;
+    height: 592px;
 }
 
 .customername{
@@ -46,7 +47,7 @@ gap: 16px;
   font-weight: bold;
 }
 .customername img{
-  border-radius: 15px;
+  border-radius: 50px;
 }
 .image {
   float: left;
@@ -68,7 +69,7 @@ gap: 16px;
   color:#2C3B29;
 }
 .testimonialspeech{
-  font-size: 24px;
+  font-size: 20px;
     color: var(--blue);
     font-weight: 500;
     text-align: left;
@@ -110,12 +111,26 @@ justify-content: center;
 width: 46px;
 cursor: pointer;
 }
-
-@media(max-width:325px){
+@media only screen and (max-width:600px){
   .slide{
-    margin: 0px 0px 0px 0px !important;
+    margin: auto;
+    width: 280px;
+    max-height: 470px;
+    padding: 17px 17px;
+
+  }
+  .image{
+    width: 245px;
+    height: 245px;
+
+  }
+  .testimonialspeech{
+    font-size: 16px;
+    text-align: left;
+
   }
 }
+
 @media (min-width:320px) and (max-width:411px){
  
   .image{
@@ -124,10 +139,7 @@ cursor: pointer;
     object-fit: cover;
   }
   .slide{
-    width: 260px;
-    max-height: 412px;
-    padding: 17px 17px;
-    margin: 0px 0px 0px 17px;
+    margin: auto;
   }
    
   .boxContainer h1{
@@ -149,16 +161,7 @@ cursor: pointer;
 
 
 @media (min-width: 411px) and (max-width: 550px)  {
-  .slide{
-    width: 280px;
-    max-height: 412px;
-    padding: 17px 17px;
-    margin: 0px 50px;
-  }
-  .image{
-    width: 248px;
-    object-fit: cover;
-  }
+ 
   .slidercontainer{
     margin: auto 0px 0px 0px;
   }
@@ -166,10 +169,6 @@ cursor: pointer;
     margin: 0px 0px 0px 30px ;
   }
  
-  .image{
-    width: 100%;
-  
-  }
   .boxContainer{
     padding: 40px 10px;
   }
@@ -186,26 +185,14 @@ cursor: pointer;
     margin: 0px 35px 24px 35px;
     font-size: 40px;
   }
-  .testimonialspeech{
-    font-size: 18px;
-    text-align: left;
-
-  }
+ 
  
  
 }
 
 @media(min-width:550px) and (max-width:600px){
-  .slide{
-    margin: 0px 0px 0px 58px !important;
-    width: 400px;
-    padding: 8px 20px;
-
-  }
-  .testimonialspeech{
-    font-size: 20px;
-    text-align: left;
-  }
+ 
+  
   .boxContainer h1{
     font-size: 40px;
   }

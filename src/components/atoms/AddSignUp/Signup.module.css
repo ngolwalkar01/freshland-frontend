@@ -158,10 +158,18 @@
   transform: scale(0.98); 
 }
 
+@media only screen and (max-width:600px){
+  .imageContainer{
+    margin: auto;
+    padding: 14px 14px;
+  }
+  .image{
+    border-radius: 8px;
+    object-fit: cover;
+  }
+}
 @media (min-width: 320px) and (max-width: 370px) {
  .imageContainer{
-  margin: 0px 0px 0px 0px !important;
-  padding: 14px 16px !important;
   width: 250px !important;
 
 }
@@ -226,9 +234,7 @@
   }
   
   .imageContainer{
-    margin: 0px 0px 0px 23px;
     width: 260px;
-    padding: 14px 17px;
   }
   .imageContainer img{
       width: 100%;
@@ -266,7 +272,7 @@
 @media(min-width:550px) and (max-width:650px){
   .imageContainer{
     width: 400px;
-    margin: 0px 60px 0px 60px;
+   
   }
   .heading{
     font-size: 35px;
