@@ -1,22 +1,22 @@
 export const shopTranslation = {
-    en: {
-        allGoods: "All Goods",
-        ourProductComingSoon: "Our product catalog is coming soon.",
-        stayTuned: "Stay tuned!",
+    "en": {
+        "allGoods": "All Goods",
+        "ourProductComingSoon": "Our product catalog is coming soon.",
+        "stayTuned": "Stay tuned!"
     },
-    dk: {
-        allGoods: "All Goods",
-        ourProductComingSoon: "Our product catalog is coming soon.",
-        stayTuned: "Stay tuned!",
+    "dk": {
+        "allGoods": "Alle produkter",
+        "ourProductComingSoon": "Vores varekatalog kommer snart",
+        "stayTuned": "Følg med!"
     },
-    fi: {
-        allGoods: "All Goods",
-        ourProductComingSoon: "Our product catalog is coming soon.",
-        stayTuned: "Stay tuned!",
+    "fi": {
+        "allGoods": "",
+        "ourProductComingSoon": "",
+        "stayTuned": ""
     },
-    se: {
-        allGoods: "All Goods",
-        ourProductComingSoon: "Our product catalog is coming soon.",
-        stayTuned: "Stay tuned!",
+    "se": {
+        "allGoods": "Alla produkter",
+        "ourProductComingSoon": "Vår produktkatalog kommer snart",
+        "stayTuned": "Håll utkik!"
     }
 }

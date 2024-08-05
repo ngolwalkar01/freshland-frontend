@@ -1,18 +1,18 @@
 export const nutsTranslation = {
-    en: {
-         categoryName: 'Nuts & Snack',
-         Addbtn: 'Add to Basket'
-    },
-    dk: {
-         categoryName: 'Nødder & Snack',
-         Addbtn: 'Tilføj til kurv'
-    },
-    fi: {
-         categoryName: 'Pähkinät & Välipalat',
-         Addbtn: 'Lisää koriin'
-    },
-    se: {
-         categoryName: 'Nötter & Snacks',
-         Addbtn: 'Lägg i korgen'
-    },
+     "en": {
+          "categoryName": "Nuts & Snack",
+          "Addbtn": "Add to Basket"
+      },
+      "dk": {
+          "categoryName": "Nødder & snacks",
+          "Addbtn": "Tilføj til kurv"
+      },
+      "fi": {
+          "categoryName": "",
+          "Addbtn": ""
+      },
+      "se": {
+          "categoryName": "Nötter & snacks",
+          "Addbtn": "Lägg till i varukorgen"
+      }
 }

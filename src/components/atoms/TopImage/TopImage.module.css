@@ -50,7 +50,7 @@
 .topBarContent h1 {
   letter-spacing: 1px;
   color: #fff;
-  font-size: 90px;
+  font-size: 72px;
   /* -webkit-text-stroke: 2px var(--blue); */
   text-shadow: 0px 0px 20px rgba(29, 64, 92, 0.4);
 }

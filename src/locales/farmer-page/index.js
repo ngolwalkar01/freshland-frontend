@@ -1,18 +1,18 @@
 export const farmerTranslation = {
-    en: {
-        farmer: 'Farmers',
-        weShorten: 'We shorten and digitize the food supply chain'
+    "en": {
+        "farmer": "Farmers",
+        "weShorten": "We shorten and digitize the food supply chain"
     },
-    dk: {
-        farmer: 'dk Farmers',
-        weShorten: 'We shorten and digitize the food supply chain'
+    "dk": {
+        "farmer": "Landmænd",
+        "weShorten": "Vi forkorter og digitaliserer fødevareforsyningskæden"
     },
-    fi: {
-        farmer: 'fi Farmers',
-        weShorten: 'We shorten and digitize the food supply chain'
+    "fi": {
+        "farmer": "",
+        "weShorten": ""
     },
-    se: {
-        farmer: 'se Farmers',
-        weShorten: 'We shorten and digitize the food supply chain'
+    "se": {
+        "farmer": "Bönder",
+        "weShorten": "Vi förkortar och digitaliserar livsmedelsförsörjningskedjan"
     }
 }
