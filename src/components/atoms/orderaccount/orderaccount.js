@@ -233,14 +233,14 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
                   <h4>{mat.billingAddress}</h4>
                   <div>
                     {orderobj.billing_address && (
-                      <AddressInfo address={orderobj.billing_address} />
+                      <AddressInfo address={orderobj.billing_address} email={orderobj.billing_address?.email} />
                     )}
                   </div>
                 </div>
                 <div>
                   <h4>{mat.deliveryAddress}</h4>
                   <div>
-                    {orderobj.shipping_address && <AddressInfo address={orderobj.shipping_address} />}
+                    {orderobj.shipping_address && <AddressInfo address={orderobj.shipping_address} email={orderobj.billing_address?.email} />}
                   </div>
                 </div>
               </div>

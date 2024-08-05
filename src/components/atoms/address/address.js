@@ -8,7 +8,7 @@ import AccountAPI from "@/services/account";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 
-export const AddressInfo = ({ address }) => {
+export const AddressInfo = ({ address, email }) => {
   if (!address)
     return (
       <div>
@@ -19,7 +19,6 @@ export const AddressInfo = ({ address }) => {
   const {
     address_1,
     city,
-    email,
     first_name,
     last_name,
     postcode,
@@ -99,7 +98,7 @@ function Address({
                     {mat.edit}
                   </Link>}
                 </div>
-                {billingAddress && <AddressInfo address={billingAddress} />}
+                {billingAddress && <AddressInfo address={billingAddress} email={billingAddress?.email} />}
               </div>
               <div>
                 <div className={styles.editaddress}>
@@ -108,7 +107,7 @@ function Address({
                     {mat.edit}
                   </Link>}
                 </div>
-                {shippingAddress && <AddressInfo address={shippingAddress} />}
+                {shippingAddress && <AddressInfo address={shippingAddress} email={billingAddress?.email} />}
               </div>
             </div>
           </div>

@@ -169,13 +169,13 @@ const Order = ({ orderId }) => {
                   <div>
                     <h4>{oct.billingAddress}</h4>
                     <div>
-                      {orderData.billing_address && <AddressInfo address={orderData.billing_address} />}
+                      {orderData.billing_address && <AddressInfo address={orderData.billing_address} email={orderData.billing_address?.email} />}
                     </div>
                   </div>
                   <div>
                     <h4>{oct.deliveryAddress}</h4>
                     <div>
-                      {orderData.shipping_address && <AddressInfo address={orderData.shipping_address} />}
+                      {orderData.shipping_address && <AddressInfo address={orderData.shipping_address} email={orderData.billing_address?.email} />}
                     </div>
                   </div>
                 </div>
