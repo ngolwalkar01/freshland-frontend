@@ -320,6 +320,8 @@ function UserAddress({ userAddressProps }) {
 
         if (!(fields.phone && fields.phone.trim())) {
             errors.phone = 'Phone number is required';
+        } else if(fields.phone.length < 9) {
+            errors.phone = 'Invalid Phone number';
         }
 
         return {

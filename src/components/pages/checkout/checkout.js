@@ -39,6 +39,7 @@ import UserAddress from "@/components/atoms/userAddress";
 import { applyLoader } from "@/helper/loader";
 import OverLayLoader from "@/components/atoms/overLayLoader";
 import ShippingBillingAddress from "@/components/atoms/shippingBillingAddress";
+import klaviyoservice from "@/services/klaviyo/apiIndex";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
@@ -440,7 +441,7 @@ function Checkout() {
 
   const validateUserAddress = () => {
     const { address_1, city, postcode, phone } = billingAddress;
-    const isNotValidBillingAddress = !(address_1 && city && postcode && phone);
+    const isNotValidBillingAddress = !(address_1 && city && postcode && phone && phone.length > 9);
     return isNotValidBillingAddress || (userAddresses && userAddresses.length > 0 && userAddresses.some(item => item.errors && typeof item.errors === 'object' && item.errors !== null && Object.keys(item.errors).length > 0));
   }
 
@@ -495,12 +496,14 @@ function Checkout() {
       isValid = false;
     }
 
-    if (!(paymentMethods && paymentMethods.length > 0)) {
-      errors.paymentVal = "Payment method not available for this location.";
-      isValid = false;
-    } else if (!paymentOption) {
-      errors.paymentVal = "Please select payment method";
-      isValid = false;
+    if (cartTotal > 0) {
+      if (!(paymentMethods && paymentMethods.length > 0)) {
+        errors.paymentVal = "Payment method not available for this location.";
+        isValid = false;
+      } else if (!paymentOption) {
+        errors.paymentVal = "Please select payment method";
+        isValid = false;
+      }
     }
 
     if (!deliveryDate) {
@@ -613,9 +616,12 @@ function Checkout() {
     };
   };
 
-  const callBackAfterOrder = (order_id) => {
+  const callBackAfterOrder = async (order_id) => {
     try {
       setCartData(INTIAL_CART_DATA);
+      if(receiveUpdates) {
+        await klaviyoservice.createProfile({ email, firstName });
+      }
       resetCheckoutPage();
       setLoading(false);
       setIsCheckoutReady(true);
@@ -672,7 +678,7 @@ function Checkout() {
         );
         const orderPayload = orderObj();
         const data = await createNewOrder(orderPayload);
-        if (paymentOption === "klarna_payments") {
+        if (cartTotal > 0 && paymentOption === "klarna_payments") {
           handleKlarnaAuthorization(
             data,
             crtKey,
@@ -681,7 +687,7 @@ function Checkout() {
             failedCallBack
           );
         } else {
-          callBackAfterOrder();
+          callBackAfterOrder(data.order_id);
         }
       }
     } catch (error) {
@@ -1661,98 +1667,102 @@ function Checkout() {
                         )}
                       </tbody>
                     </table>
-                    <div className={styles.paymentSection}>
-                      {paymentMethods &&
-                        paymentMethods.length > 0 &&
-                        paymentMethods.map((x, i) => {
-                          return (
-                            <Fragment key={i}>
-                              <div className={styles.paymentcard}>
-                                <input
-                                  type="radio"
-                                  id={x.id}
-                                  name="paymentOption"
-                                  value={x.id}
-                                  checked={paymentOption === x.id}
-                                  onChange={() => setPaymentOption(x.id)}
-                                />
-                                <label htmlFor={x.id}>{x.title}</label>
-                              </div>
-                              {x.id == "bacs" && (
-                                <div className={styles.cards}>
-                                  <Image
-                                    src="/Images/Dkfooter.png"
-                                    alt="Dk"
-                                    height={20}
-                                    width={32}
-                                  />
-                                  <Image
-                                    src="/Images/mobilepay.png"
-                                    alt="mobilepay"
-                                    height={20}
-                                    width={32}
-                                  />
-                                  <Image
-                                    src="/Images/visa.png"
-                                    alt="visa"
-                                    height={20}
-                                    width={32}
-                                  />
-                                  <Image
-                                    src="/Images/mastercard.png"
-                                    alt="mastercard"
-                                    height={20}
-                                    width={32}
-                                  />
-                                </div>
-                              )}
-                              {x.id === "stripe" &&
-                                paymentOption === "stripe" && (
-                                  <div>
-                                    <form
-                                      onSubmit={handleSubmit}
-                                      autoComplete="off"
-                                    >
-                                      <div autoComplete="off">
-                                        <label>
-                                          {check.cardNo}
-                                          <CardNumberElement
-                                            options={CARD_ELEMENT_OPTIONS}
-                                          />
-                                        </label>
-                                      </div>
-
-                                      <label>
-                                        {check.expDate}
-                                        <CardExpiryElement
-                                          options={CARD_ELEMENT_OPTIONS}
-                                        />
-                                      </label>
-                                      <label>
-                                        {check.cvc}
-                                        <CardCvcElement
-                                          options={CARD_ELEMENT_OPTIONS}
-                                        />
-                                      </label>
-                                      <button type="submit" disabled={!stripe}>
-                                        {check.pay}
-                                      </button>
-                                    </form>
+                    {
+                      cartTotal > 0 && (
+                        <div className={styles.paymentSection}>
+                          {paymentMethods &&
+                            paymentMethods.length > 0 &&
+                            paymentMethods.map((x, i) => {
+                              return (
+                                <Fragment key={i}>
+                                  <div className={styles.paymentcard}>
+                                    <input
+                                      type="radio"
+                                      id={x.id}
+                                      name="paymentOption"
+                                      value={x.id}
+                                      checked={paymentOption === x.id}
+                                      onChange={() => setPaymentOption(x.id)}
+                                    />
+                                    <label htmlFor={x.id}>{x.title}</label>
                                   </div>
-                                )}
-                            </Fragment>
-                          );
-                        })}
-                      {errors.paymentVal && (
-                        <p className={styles.errorMessage}>
-                          {errors.paymentVal}
-                        </p>
-                      )}
-                      <div
-                        id="klarna-payments-container"
-                        style={{ minHeight: "200px", display: "none" }}
-                      ></div>
-                    </div>
+                                  {x.id == "bacs" && (
+                                    <div className={styles.cards}>
+                                      <Image
+                                        src="/Images/Dkfooter.png"
+                                        alt="Dk"
+                                        height={20}
+                                        width={32}
+                                      />
+                                      <Image
+                                        src="/Images/mobilepay.png"
+                                        alt="mobilepay"
+                                        height={20}
+                                        width={32}
+                                      />
+                                      <Image
+                                        src="/Images/visa.png"
+                                        alt="visa"
+                                        height={20}
+                                        width={32}
+                                      />
+                                      <Image
+                                        src="/Images/mastercard.png"
+                                        alt="mastercard"
+                                        height={20}
+                                        width={32}
+                                      />
+                                    </div>
+                                  )}
+                                  {x.id === "stripe" &&
+                                    paymentOption === "stripe" && (
+                                      <div>
+                                        <form
+                                          onSubmit={handleSubmit}
+                                          autoComplete="off"
+                                        >
+                                          <div autoComplete="off">
+                                            <label>
+                                              {check.cardNo}
+                                              <CardNumberElement
+                                                options={CARD_ELEMENT_OPTIONS}
+                                              />
+                                            </label>
+                                          </div>
+
+                                          <label>
+                                            {check.expDate}
+                                            <CardExpiryElement
+                                              options={CARD_ELEMENT_OPTIONS}
+                                            />
+                                          </label>
+                                          <label>
+                                            {check.cvc}
+                                            <CardCvcElement
+                                              options={CARD_ELEMENT_OPTIONS}
+                                            />
+                                          </label>
+                                          <button type="submit" disabled={!stripe}>
+                                            {check.pay}
+                                          </button>
+                                        </form>
+                                      </div>
+                                    )}
+                                </Fragment>
+                              );
+                            })}
+                          {errors.paymentVal && (
+                            <p className={styles.errorMessage}>
+                              {errors.paymentVal}
+                            </p>
+                          )}
+                          <div
+                            id="klarna-payments-container"
+                            style={{ minHeight: "200px", display: "none" }}
+                          ></div>
+                        </div>
+                      )
+                    }
 
                     {/* <div className={styles.paymentSection}>
                     <div className={styles.paymentcard}>
