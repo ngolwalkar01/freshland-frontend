@@ -15,7 +15,7 @@ const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
-const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProducts, setOlLoader }) => {
+const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProducts, setOlLoader, reload }) => {
   const cmt = commonTranslation[lang];
   const productInCart = cartProducts.find(x => x.id === product.id);
   const [quantityValue, setQuantityValue] = useState(1);
@@ -29,6 +29,7 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
       [product.id]
     )
     setIsClicked(!isClicked);
+    reload();
   };
   useEffect(() => {
     if (productInCart) {
@@ -41,7 +42,7 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
   }, [productInCart])
 
   useEffect(() => {
-    if (product?.is_favorite) 
+    if (product?.is_favorite)
       setIsClicked(true);
   }, [product])
 
@@ -51,14 +52,15 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
         <div className={styles.cardContent}>
           <div>
             <div className={styles.newStatus}>
-              <p>New</p>
-              <Image
+              {product?.is_new && <p>New</p>}
+              {product?.is_organic && <Image
                 className={styles.cardTopImage}
                 src="/Images/productTop.png"
                 alt=""
                 width={40}
                 height={10}
-              />
+              />}
+
             </div>
             <div>
               <Link href={`/product/${product.id}`}>
@@ -154,7 +156,7 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
     </div>
   )
 }
-const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, removeCartItem, overRideClass = false }) => {
+const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, removeCartItem, overRideClass = false, reload = () => { } }) => {
   const [cartProducts, setCartProducts] = useState([]);
   const data = productData;
   const [loading, setLoading] = useState(false);
@@ -246,7 +248,8 @@ const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, 
         <div className={styles.gridWrapper}>
           <div className={styles.gridContainer}>
             {data && data.map((product, i) => (
-              <ProductCard key={i} setOlLoader={setOlLoader} cartProducts={cartProducts} product={product} debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} />
+              <ProductCard key={i} setOlLoader={setOlLoader} cartProducts={cartProducts} product={product}
+                debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} reload={reload} />
             ))}
           </div>
         </div>

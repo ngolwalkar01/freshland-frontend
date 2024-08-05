@@ -12,23 +12,27 @@ const Favourites = () => {
     const [loading, setLoading] = useState(false);
     const [productData, setProductData] = useState([]);
 
-    useEffect(() => {
-        const getSearchedProducts = async () => {
-            try {
-                setLoading(true);
+    const getSearchedProducts = async () => {
+        try {
+            setLoading(true);
 
-                const data = await productService.getFavoritesProducts();
-                setProductData(data && data.length > 0 ? data : []);
-                getCartData();
-            } catch (error) {
-                console.log(error);
-            } finally {
-                setLoading(false);
-            }
+            const data = await productService.getFavoritesProducts();
+            setProductData(data && data.length > 0 ? data : []);
+            getCartData();
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
         }
+    }
 
+    useEffect(() => {
         getSearchedProducts();
     }, [])
+
+    const reload = async () => {
+        await getSearchedProducts();
+    }
 
     return (
         <>
@@ -38,6 +42,7 @@ const Favourites = () => {
                     <CategoryProducts
                         cardHeading={"Favorites Products"}
                         productData={productData}
+                        reload={reload}
                     />
                 </>}
             </Layout>

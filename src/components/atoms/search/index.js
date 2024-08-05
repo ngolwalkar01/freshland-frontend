@@ -5,24 +5,25 @@ import styles from "@/components/pages/shop/AllGoods.module.css";
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 
-const Search = ({ cardHeading, productData, overRideClass = false }) => {
+const Search = ({ cardHeading, productData, overRideClass = false, reload = () => { } }) => {
     const st = shopTranslation[lang];
     return (
         <>
-        <div className={styles.categoryContainer}>
-            <ProductList
-                overRideClass={overRideClass}
-                cardHeading={cardHeading}
-                productData={productData}
-                addToCart={addToCart}
-                updateCartQuantity={updateCartQuantity}
-                removeCartItem={removeCartItem}
-            />
-            {!(productData && productData.length > 0) && (
-                <p className={styles.comingSoon} style={{ textAlign: 'center' }}>
-                    {st.ourProductComingSoon} <br />{st.stayTuned}
-                </p>
-            )}
+            <div className={styles.categoryContainer}>
+                <ProductList
+                    overRideClass={overRideClass}
+                    cardHeading={cardHeading}
+                    productData={productData}
+                    addToCart={addToCart}
+                    updateCartQuantity={updateCartQuantity}
+                    removeCartItem={removeCartItem}
+                    reload={reload}
+                />
+                {!(productData && productData.length > 0) && (
+                    <p className={styles.comingSoon} style={{ textAlign: 'center' }}>
+                        {st.ourProductComingSoon} <br />{st.stayTuned}
+                    </p>
+                )}
             </div>
         </>
     );

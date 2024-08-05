@@ -206,6 +206,9 @@ function Cart() {
         setLoading(true);
         const data = await addCouponCart(coupon);
         setCartDataByCartData(data);
+        if(!(data?.coupons && data?.coupons.length > 0)) {
+          toast.error("Discount coupon can not be applied", { autoClose: toastTimer });
+        }
       } else {
         toast.error("Discount coupon is required", { autoClose: toastTimer });
       }

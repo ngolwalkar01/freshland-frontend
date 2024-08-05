@@ -1,5 +1,6 @@
 export const myaccountTranslation = {
     en: {
+        shipment: "Shipment",
         pageHeading: "My Account",
         ordersHeading: "Orders",
         subscriptionHeading: "My Subscription",
