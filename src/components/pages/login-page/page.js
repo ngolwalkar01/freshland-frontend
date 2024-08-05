@@ -116,7 +116,7 @@ const Login = () => {
               {log.remb}
             </label>
             <span className={styles.psw}>
-              {log.forgot} <Link href="/forgotpassword">{log.pass}</Link>
+             <Link href="/forgotpassword"> {log.forgot} {log.pass}</Link>
             </span>
           </div>
           <p>{log.useSocial}</p>

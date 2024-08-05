@@ -567,10 +567,20 @@ letter-spacing: normal;
   .orderbtn .requestbtn{
     font-size: 10px;
   }
-
+  .orderbtn{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+ 
  } 
 
   @media (min-width:360px) and (max-width:600px){
+    .orderbtn{
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+  
     .viewtabledetail{
       display: none;
     }

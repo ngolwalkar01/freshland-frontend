@@ -554,6 +554,9 @@ main{
 /*
  *  Product detail dynamic content start
 */
+.juicy p img{
+  align-items: center;
+}
 .cst-img{
   margin: 20px 0px;
 }

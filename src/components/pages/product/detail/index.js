@@ -302,7 +302,7 @@ const Description = ({ productDetailProps }) => {
                     {pdt.category} {joinedCategories}
                   </p>
                   <p className={`W-Body-Regular ${styles.ordertime}`}>
-                    Order before 1 Days 08 Hours 30 Mine 36 Seconds collection /
+                    Order before <strong>1 Days 08 Hours 30 Mine 36 Seconds</strong> collection /
                     delivery Wednesday next week.
                   </p>
                 </div>

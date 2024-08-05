@@ -266,7 +266,7 @@
 .ovFlow_scroll {
   overflow: auto;
   height: 485px;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 @media (min-width: 320px) and (max-width: 750px) {
@@ -376,6 +376,7 @@
   .closebtn {
     top: 12px;
     right: 37px;
+    z-index: 1;
   }
 
   .looking {

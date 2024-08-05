@@ -48,5 +48,8 @@
     .forgotPassword{
         padding: 40px;
     }
+    .inputFeild{
+      width: 100%;
+    }
     
   }

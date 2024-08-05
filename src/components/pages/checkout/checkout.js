@@ -1610,7 +1610,7 @@ function Checkout() {
                             );
                           })}
 
-                        <tr>
+                        <tr >
                           <td>{check.subt}</td>
                           <td>
                             {cartSubTotal} {currency_symbol}

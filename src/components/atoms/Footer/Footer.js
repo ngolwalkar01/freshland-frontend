@@ -25,11 +25,11 @@ const Footer = () => {
               <Image
                 src="/Images/footerlogo.png"
                 alt="freh4"
-                fill
+               
                 quality={100}
                 sizes="none"
-                // width={180}
-                // height={64}
+                width={158}
+                height={48}
                 loading="eager"
               ></Image>
             </div>

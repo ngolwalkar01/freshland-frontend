@@ -8,6 +8,11 @@
 .vipmain{
     padding: 50px;
 }
+.juicy p img{
+    display: flex;
+   margin: auto;
+   height: 100%;
+  }
 .viplistConatiner{
     display: flex;
     align-items: center;
