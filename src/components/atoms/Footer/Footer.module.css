@@ -10,13 +10,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .footerlogoImg {
   position: relative;
   object-fit: contain;
-  width: 247px;
-  height: 89px;
+  width: 158px;
+  height: 56px;
 }
 
 .hrgradient {

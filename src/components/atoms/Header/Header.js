@@ -154,10 +154,10 @@ const Header = () => {
               <Link href="/">
                 <Image
                   className={styles.freshland}
-                  src="/Images/Freshland.png"
+                  src="/Images/freshlandnewlog.png"
                   alt="Freshland logo"
                   width={117}
-                  height={30}
+                  height={35}
                   loading="eager"
                 />
               </Link>

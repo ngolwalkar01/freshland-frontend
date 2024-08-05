@@ -137,17 +137,26 @@ const OrderDeadline = ({ shippingMethods, enableMockData, cutOffDaysDetail }) =>
                 <p className="W-Body-Large-Regular">{hpt.weDeliverTo}</p>
                 </div>
                 <div className={styles.shippingPrice}>
-                {shippingMethods && shippingMethods.map((x, i) => {
+                  <div className={styles.dkcost}>
+                  <h4>Fri frakt</h4>
+                  <p>För beställningar över 699 kr</p>
+                  </div>
+                  <div className={styles.dkcost}>
+                  <h4>59 kr</h4>
+                  <p>Standardfrakt</p>
+                  </div>
+                {/* {shippingMethods && shippingMethods.map((x, i) => {
                   return <Fragment key={i}>
 
                     <div className={styles.dkcost}>
                     <h4 className="W-H3">SEK {x.cost}</h4>
                     <p>{x.title}</p>
+                    
                     </div>
 
                     {i < (shippingMethods.length - 1) && (<hr className={styles.hr} />)}
                   </Fragment>
-                })}
+                })} */}
                  </div>
               </div>
             )}

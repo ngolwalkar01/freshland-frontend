@@ -217,7 +217,7 @@
 
 .addToBasket .number {
   font-size: 18px;
-  color: white;
+  color: white !important;
   appearance: none;
   width: 30px;
   height: 34px;

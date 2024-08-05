@@ -557,6 +557,10 @@ main{
 .cst-img{
   margin: 20px 0px;
 }
+.cst-img img{
+  height: 100%;
+  width: 100%;
+}
 .featuresWrapper {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   font-size: 13px;
@@ -570,7 +574,6 @@ main{
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 40px;
 }
 
 .featuresWrapper p {

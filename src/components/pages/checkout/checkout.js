@@ -1503,7 +1503,7 @@ function Checkout() {
                         onChange={(e) => setStandardOrderNote(e.target.value)}
                         id="setStandardOrderNote"
                       >
-                        <option value=""></option>
+                        <option value="">Select an option</option>
                         <option value=" Placed at the front door - Placed at the front door">
                           Placed at the front door - Placed at the front door
                         </option>

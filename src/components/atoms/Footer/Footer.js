@@ -23,7 +23,7 @@ const Footer = () => {
           <div className={styles.footerlogo}>
             <div className={styles.footerlogoImg}>
               <Image
-                src="/Images/FreshlandFooterLogo.png"
+                src="/Images/footerlogo.png"
                 alt="freh4"
                 fill
                 quality={100}

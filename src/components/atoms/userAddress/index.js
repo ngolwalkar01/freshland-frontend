@@ -460,6 +460,7 @@ function UserAddress({ userAddressProps }) {
                     className={styles.editcontent}
                     style={{ display: "editshow" ? "block" : "none" }}
                 >
+                    
                     {(!token || enableEditableMode.status) && (
                         <div className={styles.shippingAdd}>
                             <div className={styles.fieldsRow}>
@@ -537,6 +538,7 @@ function UserAddress({ userAddressProps }) {
                             )} */}
                                 <Suggestions styles={styles} handleSelectSuggestion={handleShippingSelectSuggestion} suggestions={suggestions} />
                             </div>
+                            
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
                                     <label htmlFor="Street_Name_and_Number">
@@ -611,6 +613,7 @@ function UserAddress({ userAddressProps }) {
                                     )}
                                 </div>
                             </div>
+                            
                             {token && showSaveButton && (
                                 <div className={styles.fieldsRow}>
                                     <div className={styles.newAddCover}>
@@ -628,7 +631,7 @@ function UserAddress({ userAddressProps }) {
                     )}
 
                     {/*  */}
-                    <div className={styles.sendaddress}>
+                    <div className={`${styles.sendaddress} ${styles.useBilling}`}>
                         <input
                             type="checkbox"
                             checked={showBillingAddress}
@@ -769,6 +772,19 @@ function UserAddress({ userAddressProps }) {
                         </button>
                     </div>
                 )}
+  {/* for mobile version only */}
+  <div className={styles.newAddressbtn}>
+<div className={styles.sendaddress}>
+                        <input
+                            type="checkbox"
+                            checked={showBillingAddress}
+                            onChange={(e) => { setShowBillingAddress(e.target.checked); }}
+                        />
+                        <label htmlFor="Send_to_another_address">
+                            Use same address for billing
+                        </label>
+                    </div>
+                    </div>
             </div>
         </>
     );

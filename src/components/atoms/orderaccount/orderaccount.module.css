@@ -536,9 +536,7 @@ letter-spacing: normal;
   .viewinvoice{
     display: block;
   }
-  .orderbtn{
-    display: none;
-  }
+ 
   .orderviewdetail{
     flex-direction: column;
     align-items: center;
@@ -565,6 +563,9 @@ letter-spacing: normal;
   }
   .date{
     font-size: 13px;
+  }
+  .orderbtn .requestbtn{
+    font-size: 10px;
   }
 
  } 
@@ -593,9 +594,7 @@ letter-spacing: normal;
     .viewinvoice{
       display: block;
     }
-    .orderbtn{
-      display: none;
-    }
+   
     .orderviewdetail{
       flex-direction: column;
       align-items: center;

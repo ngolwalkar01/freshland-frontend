@@ -38,7 +38,7 @@
 }
 
 .wrapper {
-  max-width: 1204px;
+  max-width: 1304px;
   margin: 60px auto;
   padding-inline: 24px;
   display: flex;
@@ -50,7 +50,7 @@
   flex-direction: column;
   gap: 24px;
   width: 100%;
-  max-width: 500px;
+  /* max-width: 500px; */
   position: relative;
   /*Left container font*/
 
@@ -80,7 +80,9 @@
   align-items: flex-start;
   justify-content: left;
   gap: 23px;
-  max-width: 351px;
+  width: 100%;
+  max-width: 350px;
+
 }
 .cartpageSutotal{
   display: flex;
@@ -202,7 +204,6 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 443px;
   margin-bottom: 10px;
 }
 
@@ -365,10 +366,10 @@ border-radius: 5px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
   max-width: 498px;
   height: fit-content;
   background: rgba(29, 64, 92, 0.05);
-
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
     sans-serif;
   font-size: 16px;
