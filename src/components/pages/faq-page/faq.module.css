@@ -3,7 +3,8 @@
 }
 .faqscontainer a{
   color: #1D405C;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 500;
 }
 .faqscontainer a:hover{
   color: #1468a0;

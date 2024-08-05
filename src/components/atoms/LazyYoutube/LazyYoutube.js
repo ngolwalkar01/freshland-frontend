@@ -32,8 +32,8 @@ const LazyYoutube = ({ videoId, className }) => {
       {load ? (
         <iframe
         className={Styles.iframe}
-          width="440px"
-          height="256"
+          width="479px"
+          height="275"
           src={`https://www.youtube.com/embed/${videoId}`}
           title="YouTube video player"
           frameBorder="0"

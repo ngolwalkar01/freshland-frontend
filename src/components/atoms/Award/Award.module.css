@@ -27,6 +27,7 @@
     margin: 70px 0px 48px 0px;
     font-family: 'Calistoga';
     color: var(--green);
+    font-size: 72px;
   }
   
   .gridContainer {
@@ -71,9 +72,14 @@
     .gridItem {
       padding: 0 15px;
   }
+  .heading{
+    font-size: 40px;
+  }
 }
   @media (min-width: 320px) and (max-width: 600px) {
-    
+    .heading{
+      font-size: 40px;
+    }
     .name{
       font-weight: 500;
     font-size: 13px;

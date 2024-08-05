@@ -94,8 +94,8 @@ const ProductSlider = () => {
                 <div className={styles.customername}>
                   <Image
                    src={`/${data.profile}`}
-                  width={40}
-                  height={40}
+                  width={50}
+                  height={50}
                   alt="testimonial"
                   />
                   <p>{data.name}</p>
@@ -108,7 +108,7 @@ const ProductSlider = () => {
                 height={345}
                 
               />
-              <div className={styles.groupicon}>
+              {/* <div className={styles.groupicon}>
               <i class="fa-regular fa-heart"></i>
                <Image
                src="/Images/message.svg"
@@ -122,7 +122,7 @@ const ProductSlider = () => {
                height={21}
                   alt="testimonial"
                />
-              </div>
+              </div> */}
               <p className={styles.testimonialspeech}>{data.testimonials}</p>
               </div>
             </div>

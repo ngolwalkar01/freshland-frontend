@@ -16,9 +16,8 @@
   }
 .timer{
   display: flex;
- align-items: center;
  justify-content: center;
- gap: 14px;
+ gap: 20px;
 }
 .timeUnit{
   display: flex;
@@ -32,10 +31,23 @@
   font-size: 120px;
   font-family: 'Calistoga';
 }
-.timeUnit span:last-child{
+
+.hurstime{
   color: rgba(33, 33, 33, 0.7);
-    font-size: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+ 
+}
+.timeUnit .coln{
+  background-image: linear-gradient(98.89deg, #FF5F6D 0%, #FFC371 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 120px;
+  font-family: 'Calistoga';
+}
+.coln{
+  position: relative;
+  top: -11px;
 }
 .next_order{
   position: relative;
@@ -59,6 +71,7 @@
 }
 .nextorder_deadline .next{
   color:#544131;
+  font-size: 72px;
 }
 .orderNow{
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
@@ -76,6 +89,7 @@
   width: 232px;
   gap: 5px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .orderNow:active{
@@ -209,9 +223,7 @@
   .timeUnit span:first-child{
     font-size: 50px;
   }
-  .timeUnit span:last-child{
-    font-size: 12px;
-  }
+  
   .deliveryweek{
     font-size: 12px;
   }
@@ -241,7 +253,7 @@
     margin: 0px 90px;
   }
   .Freight h4{
-    font-size: 12px;
+    font-size: 16px;
   }
   .freightdiv{
     margin: 0px 0px 24px 0px;
@@ -256,6 +268,13 @@
   .freightConatiner{
     background-color: rgba(246, 233, 221, 1);;
   }
+  .hurstime{
+    font-size: 14px;
+  }
+  .coln{
+    position: relative;
+    top: -5px;
+  }
  }
 
  
@@ -263,9 +282,7 @@
   .timeUnit span:first-child{
     font-size: 70px;
   }
-  .timeUnit span:last-child{
-    font-size: 16px;
-  }
+
 
   .nextorder_deadline .next{
   font-size: 30px;
@@ -278,6 +295,13 @@
   }
   .shippingPrice{
     gap: 23px;
+  }
+  .hurstime{
+    font-size: 14px;
+  }
+  .coln{
+    position: relative;
+    top: -3px;
   }
 }
 
@@ -296,5 +320,9 @@
   }
   .Freight h4 {
     font-size: 32px;
+  }
+  .coln{
+    position: relative;
+    top: -3px;
   }
 }

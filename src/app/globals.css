@@ -584,7 +584,7 @@ main{
 }
 
 .descriptionWrapper {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 16px;
 }

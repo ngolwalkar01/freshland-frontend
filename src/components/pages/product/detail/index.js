@@ -4,14 +4,19 @@ import ProductList from "../../../atoms/ProductList/ProductList";
 import Header from "@/components/atoms/Header/Header";
 import TextWrapper from "@/components/atoms/TextWrapper/TextWrapper";
 import Image from "next/image";
-import { addToCart, updateCartQuantity, removeCartItem, getSubscriptionOptions } from "@/components/service/cart";
+import {
+  addToCart,
+  updateCartQuantity,
+  removeCartItem,
+  getSubscriptionOptions,
+} from "@/components/service/cart";
 import LazyLoad from "react-lazyload"; // Import LazyLoad component
-import { productdetailTranslation } from '@/locales';
+import { productdetailTranslation } from "@/locales";
 import Link from "next/link";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import Loader from "@/components/atoms/loader/loader";
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 
 const Description = ({ productDetailProps }) => {
   const router = useRouter();
@@ -20,8 +25,11 @@ const Description = ({ productDetailProps }) => {
   const [subscriptionOpt, setSubcriptionOpt] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const { productDetail: originalProductDetail, relatedProducts, productId } =
-    productDetailProps;
+  const {
+    productDetail: originalProductDetail,
+    relatedProducts,
+    productId,
+  } = productDetailProps;
   const enableMockData = process.env.NEXT_PUBLIC_ENABLE_MOCK_DATA === "true";
 
   const productDetail = originalProductDetail;
@@ -32,7 +40,7 @@ const Description = ({ productDetailProps }) => {
     enableMockData,
     addToCart,
     updateCartQuantity,
-    removeCartItem
+    removeCartItem,
   };
 
   const handleAddToCart = async () => {
@@ -41,7 +49,7 @@ const Description = ({ productDetailProps }) => {
       await addToCart(
         productDetail.id.toString(),
         quantity.toString(),
-        isOneTimePurchaseActive ? "" : deliveryOption,
+        isOneTimePurchaseActive ? "" : deliveryOption
       );
     } catch (error) {
       console.log(error);
@@ -80,17 +88,24 @@ const Description = ({ productDetailProps }) => {
       setSubcriptionOpt(opts);
 
       if (opts && opts.is_subscription) {
-        const currentDeliveryOpt = opts?.subscription_schemes && opts?.subscription_schemes.length > 0 ? opts?.subscription_schemes[0].id : "";
+        const currentDeliveryOpt =
+          opts?.subscription_schemes && opts?.subscription_schemes.length > 0
+            ? opts?.subscription_schemes[0].id
+            : "";
         setDeliveryOption(currentDeliveryOpt);
       }
-    }
+    };
 
     getSubOptions();
   }, [productId]);
 
   const categories = productDetailProps?.productDetail?.categories ?? [];
-  const joinedCategories = categories.join(',');
+  const joinedCategories = categories.join(",");
+  const [checked, setChecked] = useState(true);
 
+  const handleCheckboxChange = () => {
+    setChecked(!checked);
+  };
   return (
     <>
       <div className={styles.containerBody}>
@@ -121,16 +136,17 @@ const Description = ({ productDetailProps }) => {
                   height={78}
                 />
               </div>
-              {productDetail && <div className={styles.mainImage}>
-                <Image
-                  src={productDetail.thumbnail}
-                  alt="Main Image"
-                  width={584}
-                  height={584}
-                  priority
-                />
-              </div>
-              }
+              {productDetail && (
+                <div className={styles.mainImage}>
+                  <Image
+                    src={productDetail.thumbnail}
+                    alt="Main Image"
+                    width={584}
+                    height={584}
+                    priority
+                  />
+                </div>
+              )}
             </div>
             <div className={styles.rightSide}>
               <div className={`${styles.productTitle}`}>
@@ -144,67 +160,85 @@ const Description = ({ productDetailProps }) => {
                 /> */}
                 </div>
 
-                {productDetail && <h5 dangerouslySetInnerHTML={{ __html: productDetail.price }} />}
-
-
-              </div>
-
-
-              {productDetail?.excerpt && <div className={styles.productDetails} dangerouslySetInnerHTML={{ __html: productDetail?.excerpt }}>
-              </div>
-
-              }
-              <div className={styles.boxWrapper}>
-
-                {subscriptionOpt && subscriptionOpt.is_subscription && subscriptionOpt.subscription_schemes && subscriptionOpt.subscription_schemes.length > 0 && (
-                  <>
-                    <div className={styles.purchaseBtnWrapper}>
-                      <label
-                        className={
-                          isOneTimePurchaseActive ? styles.active : styles.inactive
-                        }
-                      >
-                        <input
-                          type="radio"
-                          name="purchaseOption"
-                          checked={isOneTimePurchaseActive}
-                          onChange={handleOneTimePurchaseClick}
-                        />
-                        {pdt.oneTimePurchase}
-                      </label>
-                      <label
-                        className={
-                          !isOneTimePurchaseActive ? styles.active : styles.inactive
-                        }
-                      >
-                        <input
-                          type="radio"
-                          name="purchaseOption"
-                          checked={!isOneTimePurchaseActive}
-                          onChange={handleSubscribeClick}
-                        />
-                        {pdt.subscribe}
-                      </label>
-                    </div>
-                    <div
-                      className={`${styles.fieldColumn} ${styles.fieldColumnDelivery
-                        } ${isOneTimePurchaseActive ? styles.hidden : styles.show}`}
-                    >
-                      <label htmlFor="selectDelivery">{pdt.delivery}</label>
-                      <select
-                        id="selectDelivery"
-                        value={deliveryOption}
-                        onChange={(e) => setDeliveryOption(e.target.value)}
-                        className={styles.selectbox}
-                      >
-                        {subscriptionOpt.subscription_schemes && Array.isArray(subscriptionOpt.subscription_schemes) && subscriptionOpt.subscription_schemes.map((x, i) =>
-                          <option key={i} value={x.id}>{x.title ? x.title : x.id}</option>
-                        )}
-                      </select>
-                      <span className={styles.customArrow}></span>
-                    </div>
-                  </>
+                {productDetail && (
+                  <h5
+                    dangerouslySetInnerHTML={{ __html: productDetail.price }}
+                  />
                 )}
+              </div>
+
+              {productDetail?.excerpt && (
+                <div
+                  className={styles.productDetails}
+                  dangerouslySetInnerHTML={{ __html: productDetail?.excerpt }}
+                ></div>
+              )}
+              <div className={styles.boxWrapper}>
+                {subscriptionOpt &&
+                  subscriptionOpt.is_subscription &&
+                  subscriptionOpt.subscription_schemes &&
+                  subscriptionOpt.subscription_schemes.length > 0 && (
+                    <>
+                      <div className={styles.purchaseBtnWrapper}>
+                        <label
+                          className={
+                            isOneTimePurchaseActive
+                              ? styles.active
+                              : styles.inactive
+                          }
+                        >
+                          <input
+                            type="radio"
+                            name="purchaseOption"
+                            checked={isOneTimePurchaseActive}
+                            onChange={handleOneTimePurchaseClick}
+                          />
+                          {pdt.oneTimePurchase}
+                        </label>
+                        <label
+                          className={
+                            !isOneTimePurchaseActive
+                              ? styles.active
+                              : styles.inactive
+                          }
+                        >
+                          <input
+                            type="radio"
+                            name="purchaseOption"
+                            checked={!isOneTimePurchaseActive}
+                            onChange={handleSubscribeClick}
+                          />
+                          {pdt.subscribe}
+                        </label>
+                      </div>
+                      <div
+                        className={`${styles.fieldColumn} ${
+                          styles.fieldColumnDelivery
+                        } ${
+                          isOneTimePurchaseActive ? styles.hidden : styles.show
+                        }`}
+                      >
+                        <label htmlFor="selectDelivery">{pdt.delivery}</label>
+                        <select
+                          id="selectDelivery"
+                          value={deliveryOption}
+                          onChange={(e) => setDeliveryOption(e.target.value)}
+                          className={styles.selectbox}
+                        >
+                          {subscriptionOpt.subscription_schemes &&
+                            Array.isArray(
+                              subscriptionOpt.subscription_schemes
+                            ) &&
+                            subscriptionOpt.subscription_schemes.map((x, i) => (
+                              <option key={i} value={x.id}>
+                                {x.title ? x.title : x.id}
+                              </option>
+                            ))}
+                        </select>
+                        <span className={styles.customArrow}></span>
+                      </div>
+                    </>
+                  )}
 
                 {/* <div className={styles.purchaseBtnWrapper}>
                   <button
@@ -227,40 +261,114 @@ const Description = ({ productDetailProps }) => {
                       className={`${styles.valueButton} ${styles.decreaseButton}`}
                       onClick={decreaseQuantity}
                     >
-                      <i className="fa-solid fa-minus" aria-label="Decrease quantity"></i>{" "}
+                      <i
+                        className="fa-solid fa-minus"
+                        aria-label="Decrease quantity"
+                      ></i>{" "}
                     </button>
                     <p className={styles.number}>{quantity}</p>
                     <button
                       className={`${styles.valueButton} ${styles.increaseButton}`}
                       onClick={increaseQuantity}
                     >
-                      <i className="fa-solid fa-plus" aria-label="Increase quantity" ></i>
+                      <i
+                        className="fa-solid fa-plus"
+                        aria-label="Increase quantity"
+                      ></i>
                     </button>
                   </div>
                   <div className={`M-Body-Large ${styles.basketWrapper}`}>
-
-                    <span
-                      onClick={handleAddToCart}
-                    >
+                    <span onClick={handleAddToCart}>
                       {loading ? <Loader /> : null}
                       {isOneTimePurchaseActive ? "Add To Basket" : "Subscribe"}
                     </span>
                   </div>
                 </div>
                 <div className={styles.itemCatagory}>
+                  <div className={styles.checkboxContainer}>
+                    <input
+                      type="checkbox"
+                      id="checkbox"
+                      checked={checked}
+                      onChange={handleCheckboxChange}
+                      className={styles.checkboxInput}
+                    />
+                    <label htmlFor="checkbox" className={styles.checkboxLabel}>
+                      Send to another address?
+                    </label>
+                  </div>
                   <p>
-                    {pdt.itemNumberSKU} F176 <br />{pdt.category} {joinedCategories}
+                    {pdt.itemNumberSKU} F176 <br />
+                    {pdt.category} {joinedCategories}
+                  </p>
+                  <p className={`W-Body-Regular ${styles.ordertime}`}>
+                    Order before 1 Days 08 Hours 30 Mine 36 Seconds collection /
+                    delivery Wednesday next week.
                   </p>
                 </div>
               </div>
             </div>
           </section>
+          {/* USPS icons */}
+          <div className={styles.uspsIcon}>
+            <div className={styles.productIcons}>
+              <div className={styles.textConatainer}>
+                <Image
+                  src="\Images\naturalproduct.svg"
+                  width={24}
+                  height={24}
+                  alt="naturalproduct"
+                />
+                <p className="W-Body-Large-Medium">Natural products</p>
+              </div>
+
+              <p className="W-Body-Regular">
+                All products are chemical-free and sent to you without any
+                unnecessary packaging and with less food waste.
+              </p>
+            </div>
+            <div className={styles.productIcons}>
+              <div className={styles.textConatainer}>
+                <Image src="/Images/straight.svg" width={24} height={24} alt="straight"/>
+                <p className="W-Body-Large-Medium">Straight from the farm</p>
+              </div>
+
+              <p className="W-Body-Regular">
+                Skip up to 5 middlemen and have your products delivered to you
+                straight from the farm.
+              </p>
+            </div>
+            <div className={styles.productIcons}>
+              <div className={styles.textConatainer}>
+                <Image src="/Images/freeshipping.svg" width={24} height={24}  alt="freeshipping"/>
+                <p className="W-Body-Large-Medium">Free Shipping</p>
+              </div>
+
+              <p className="W-Body-Regular">
+                Shipping is free for all orders over DKK 699.
+              </p>
+            </div>
+            <div className={styles.productIcons}>
+              <div className={styles.textConatainer}>
+                <Image src="/Images/fast.svg" width={24} height={24} alt="fast"/>
+                <p className="W-Body-Large-Medium">Fast Delivery</p>
+              </div>
+
+              <p className="W-Body-Regular">
+                Order before Wednesday 24:00 and have your goods delivered the
+                following week.
+              </p>
+            </div>
+          </div>
         </div>
         <LazyLoad height={200} offset={100}>
           <div className={styles.wrapper}>
-          <h2 className={styles.descripTion}>DESCRIPTION</h2>
-            <section className={styles.productDescription} dangerouslySetInnerHTML={{ __html: productDetail?.description }} />
-           
+            <h2 className={styles.descripTion}>DESCRIPTION</h2>
+            <section
+              className={styles.productDescription}
+              dangerouslySetInnerHTML={{ __html: productDetail?.description }}
+            />
+
             {/* <h2>{pdt.description}</h2>
               <div className={styles.mainDescription}>
                 <div className={styles.storageWrapper}>

@@ -282,7 +282,7 @@
   .goodsItem {
     margin-bottom: 40px;
     position: relative;
-    padding-top: 80px;
+    padding-top: 60px;
   }
 
   .imageContainer {
@@ -324,7 +324,7 @@
   .imageHeading {
     /* Styles for the image heading */
 
-    margin-top: 65px;
+    margin-top: 50px;
     position: absolute;
     font-weight: 700;
     z-index: 2;
@@ -366,6 +366,9 @@
   .headingSkeleton{
     width:170px !important;
     height: 40px !important;
+  }
+  .comingSoon{
+    padding-bottom: 0px;
   }
 
 }

@@ -24,15 +24,15 @@
 
 .slide {
   position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    justify-content: center;
-    border: 1px solid var(--blue);
-    padding: 20px 20px 9px 20px;
-    margin: 0px 0px 0px 24px;
-    border-radius: 10px;
-    height: 592px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  border: 1px solid var(--blue);
+  padding: 20px 20px 20px 20px;
+  margin: 0px 0px 0px 24px;
+  border-radius: 10px;
+  height: 538px;
 }
 
 .customername{
@@ -48,6 +48,8 @@ gap: 16px;
 }
 .customername img{
   border-radius: 50px;
+  object-fit: cover;
+  object-position: top;
 }
 .image {
   float: left;
@@ -115,7 +117,7 @@ cursor: pointer;
   .slide{
     margin: auto;
     width: 280px;
-    max-height: 470px;
+    height: 434px;
     padding: 17px 17px;
 
   }
@@ -134,8 +136,6 @@ cursor: pointer;
 @media (min-width:320px) and (max-width:411px){
  
   .image{
-    width: 100%;
-    height: 100%;
     object-fit: cover;
   }
   .slide{
@@ -155,7 +155,7 @@ cursor: pointer;
     margin: 0px 0px 0px 30px;
   }
  .boxContainer{
-  padding: 12px 10px 40px 10px;
+  padding: 40px 10px 40px 10px;
  }
 }
 

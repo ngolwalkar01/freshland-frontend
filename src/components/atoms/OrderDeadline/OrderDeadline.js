@@ -81,16 +81,24 @@ const OrderDeadline = ({ shippingMethods, enableMockData, cutOffDaysDetail }) =>
                 {/* <h1 className={``}>{timer}</h1> */}
                 <div className={styles.timer}>
                     <div className={styles.timeUnit}>
-                      <span>{days}:</span>
-                      <span>Days</span>
+                      <span>{days}</span>
+                      <span className={styles.hurstime}>Days</span>
                     </div>
                     <div className={styles.timeUnit}>
-                      <span>{hours}:</span>
-                      <span>Hours</span>
+                      <span className={styles.coln}>:</span>
+                      
+                    </div>
+                    <div className={styles.timeUnit}>
+                      <span>{hours}</span>
+                      <span className={styles.hurstime}>Hours</span>
+                    </div>
+                    <div className={styles.timeUnit}>
+                      <span className={styles.coln}>:</span>
+                      
                     </div>
                     <div className={styles.timeUnit}>
                       <span>{minutes}</span>
-                      <span>Minutes</span>
+                      <span className={styles.hurstime}>Minutes</span>
                     </div>
                   
                   </div>
