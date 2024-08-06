@@ -122,8 +122,9 @@ function UserAddress({ userAddressProps }) {
             isNewAddress: isNewlyAddress ? isNewlyAddress : isNewAddress,
             phone
         }
-        setUserAddresses([{ ...obj }]);
-        setSelectedAddress({ ...obj });
+        const validAddress = checkAddress(obj);
+        setUserAddresses([{ ...validAddress }]);
+        setSelectedAddress({ ...validAddress });
         setSelectedAddressIndex(0);
         setEditableMode({ index: 0, status: true });
     }
@@ -145,9 +146,13 @@ function UserAddress({ userAddressProps }) {
             if (userAddress && userAddress.length > 0) {
                 isNewAddress = false;
                 const selectedIndex = userAddress && userAddress.length > 0 && userAddress.findIndex(x => x.selected);
-                setUserAddresses(userAddress);
+                const validateUserAddress = userAddress.map((x) => {
+                    const validAddress = checkAddress(x);
+                    return validAddress;
+                })
+                setUserAddresses(validateUserAddress);
                 setSelectedAddressIndex(selectedIndex);
-                setShowSaveButton(userAddress.length > 0);
+                setShowSaveButton(validateUserAddress.length > 0);
                 return;
             }
         }
@@ -251,8 +256,9 @@ function UserAddress({ userAddressProps }) {
         let index = userAddresses.findIndex(x => x.isNewAddress);
         if (index === -1) {
             const newAdd = { ...INTIAL_ADDRESS, isNewAddress: true };
+            const validAddress = checkAddress(newAdd);
             index = userAddresses.length;
-            setUserAddresses([...userAddresses, newAdd]);
+            setUserAddresses([...userAddresses, validAddress]);
         }
         setNewAddressAdded(true);
         // setSelectedAddressIndex(index);
@@ -320,7 +326,7 @@ function UserAddress({ userAddressProps }) {
 
         if (!(fields.phone && fields.phone.trim())) {
             errors.phone = 'Phone number is required';
-        } else if(fields.phone.length < 9) {
+        } else if (fields.phone.length < 9) {
             errors.phone = 'Invalid Phone number';
         }
 
@@ -372,6 +378,8 @@ function UserAddress({ userAddressProps }) {
         userAdd[currIndex]['city'] = city;
         userAdd[currIndex]['postcode'] = postcode;
         userAdd[currIndex]['country'] = country;
+        const errorData = isAddressValid(userAdd[currIndex]);
+        userAdd[currIndex].errors = errorData.isValid ? null : errorData.errors
         setUserAddresses(userAdd);
         setSuggestions([]);
         setSelectedAddress({ ...userAdd[currIndex] });
@@ -420,7 +428,7 @@ function UserAddress({ userAddressProps }) {
                     <>
                         {
                             userAddresses && userAddresses.length > 0 && userAddresses.filter(x => !x.isNewAddress).map((x, i) => {
-                                const isError = x?.errors ? Object.keys(errors).length === 0 : false
+                                const isError = isSubmit && x?.errors ? Object.keys(errors).length : false
                                 return (
                                     <>
                                         {(x.address_1 || firstName || lastName) ? (
@@ -462,7 +470,7 @@ function UserAddress({ userAddressProps }) {
                     className={styles.editcontent}
                     style={{ display: "editshow" ? "block" : "none" }}
                 >
-                    
+
                     {(!token || enableEditableMode.status) && (
                         <div className={styles.shippingAdd}>
                             <div className={styles.fieldsRow}>
@@ -540,7 +548,7 @@ function UserAddress({ userAddressProps }) {
                             )} */}
                                 <Suggestions styles={styles} handleSelectSuggestion={handleShippingSelectSuggestion} suggestions={suggestions} />
                             </div>
-                            
+
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
                                     <label htmlFor="Street_Name_and_Number">
@@ -615,7 +623,7 @@ function UserAddress({ userAddressProps }) {
                                     )}
                                 </div>
                             </div>
-                            
+
                             {token && showSaveButton && (
                                 <div className={styles.fieldsRow}>
                                     <div className={styles.newAddCover}>
@@ -774,9 +782,9 @@ function UserAddress({ userAddressProps }) {
                         </button>
                     </div>
                 )}
-  {/* for mobile version only */}
-  <div className={styles.newAddressbtn}>
-<div className={styles.sendaddress}>
+                {/* for mobile version only */}
+                <div className={styles.newAddressbtn}>
+                    <div className={styles.sendaddress}>
                         <input
                             type="checkbox"
                             checked={showBillingAddress}
@@ -786,7 +794,7 @@ function UserAddress({ userAddressProps }) {
                             Use same address for billing
                         </label>
                     </div>
-                    </div>
+                </div>
             </div>
         </>
     );
