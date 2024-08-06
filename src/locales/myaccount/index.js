@@ -105,6 +105,7 @@ export const myaccountTranslation = {
         "additional": "Additional Comments"
     },
     "dk": {
+        "shipment": "Shipment",
         "pageHeading": "Min konto",
         "ordersHeading": "Ordrer",
         "subscriptionHeading": "Mine abonnementer",
@@ -209,6 +210,7 @@ export const myaccountTranslation = {
         "additional": "Øvrige kommentarer"
     },
     "fi": {
+        "shipment": "Shipment",
         "pageHeading": "",
         "ordersHeading": "",
         "subscriptionHeading": "",
@@ -313,6 +315,7 @@ export const myaccountTranslation = {
         "additional": ""
     },
     "se": {
+        "shipment": "Shipment",
         "pageHeading": "Mitt konto",
         "ordersHeading": "Ordrar",
         "subscriptionHeading": "Mina prenumerationer",

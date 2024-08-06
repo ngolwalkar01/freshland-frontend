@@ -159,8 +159,8 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
               <div className={styles.orderDetail}>
                 <p className={styles.label}>{mat.total}</p>
                 <p className={styles.ordertotal}>
-                  {orderobj.totals.currency_symbol}
                   <span> {getCorrectPrice(orderobj.totals.total_price, orderobj.totals.currency_minor_unit)}</span>
+                  {" "}{orderobj.totals.currency_symbol}
                 </p>
               </div>
               <div className={styles.orderDetail}>
@@ -191,20 +191,23 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
                           {item.name} <span>x {item.quantity}</span>
                         </td>
                         <td>
-                          {orderobj.totals.currency_symbol} {getCorrectPrice(parseInt(item.totals.line_subtotal) + parseInt(item.totals.line_subtotal_tax), item.totals.currency_minor_unit)}
+                          {getCorrectPrice(parseInt(item.totals.line_subtotal) + parseInt(item.totals.line_subtotal_tax), item.totals.currency_minor_unit)}
+                          {" "}{orderobj.totals.currency_symbol}
                         </td>
                       </tr>
                     ))}
                     <tr>
                       <td>{mat.subTotal}</td>
                       <td>
-                        {orderobj.totals.currency_symbol} {getCorrectPrice(orderobj.totals.total_items, orderobj.totals.currency_minor_unit)}
+                        {getCorrectPrice(orderobj.totals.total_items, orderobj.totals.currency_minor_unit)}
+                        {" "}{orderobj.totals.currency_symbol} 
                       </td>
                     </tr>
                     <tr>
                       <td>{mat.shipment}</td>
                       <td>
-                        {orderobj.totals.currency_symbol} {getCorrectPrice(orderobj.totals.total_shipping, orderobj.totals.currency_minor_unit)}
+                        {getCorrectPrice(orderobj.totals.total_shipping, orderobj.totals.currency_minor_unit)}
+                        {" "}{orderobj.totals.currency_symbol}
                       </td>
                     </tr>
                     <tr>
@@ -212,7 +215,8 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
                         <label>{mat.total}</label>
                       </td>
                       <td>
-                        {orderobj.totals.currency_symbol} {getCorrectPrice(orderobj.totals.total_price, orderobj.totals.currency_minor_unit)}
+                        {getCorrectPrice(orderobj.totals.total_price, orderobj.totals.currency_minor_unit)}
+                        {" "}{orderobj.totals.currency_symbol}
                       </td>
                     </tr>
                   </tbody>

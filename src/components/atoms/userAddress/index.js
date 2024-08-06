@@ -483,7 +483,7 @@ function UserAddress({ userAddressProps }) {
                                         placeholder="First Name"
                                         onChange={(e) => { setFirstName(e.target.value) }}
                                         name="First_Name"
-                                        onBlur={fetchData1}
+                                        onBlur={() => setTimeout(fetchData1, 100)}
                                     />
                                     {isSubmit && errors.firstName && (
                                         <span className={styles.errorMessage}>
@@ -500,7 +500,7 @@ function UserAddress({ userAddressProps }) {
                                         placeholder="Last Name"
                                         onChange={(e) => { setLastName(e.target.value) }}
                                         name="Last_Name"
-                                        onBlur={fetchData1}
+                                        onBlur={() => setTimeout(fetchData1, 100)}
                                     />
                                     {isSubmit && errors.lastName && (
                                         <span className={styles.errorMessage}>
@@ -520,7 +520,7 @@ function UserAddress({ userAddressProps }) {
                                     name="Street_Name_and_Number"
                                     value={selectedAddress?.address_1 || ""}
                                     onChange={(e) => { onUpdateShippingAddress(e, 'address_1'); }}
-                                    onBlur={fetchData1}
+                                    onBlur={() => setTimeout(fetchData1, 100)}
                                 />
                                 {isSubmit && selectedAddress?.errors?.address_1 && (
                                     <span className={styles.errorMessage}>
@@ -561,7 +561,7 @@ function UserAddress({ userAddressProps }) {
                                         name="address"
                                         value={selectedAddress?.address_2 || ""}
                                         onChange={(e) => { onUpdateShippingAddress(e, 'address_2'); }}
-                                        onBlur={fetchData1}
+                                        onBlur={() => setTimeout(fetchData1, 100)}
                                     />
                                 </div>
                             </div>
@@ -576,7 +576,7 @@ function UserAddress({ userAddressProps }) {
                                         name="Zip code"
                                         value={selectedAddress?.postcode || ""}
                                         onChange={(e) => { onUpdateShippingAddress(e, 'postcode'); }}
-                                        onBlur={fetchData1}
+                                        onBlur={() => setTimeout(fetchData1, 100)}
                                     />
                                     {isSubmit && selectedAddress?.errors?.postcode && (
                                         <span className={styles.errorMessage}>
@@ -595,7 +595,7 @@ function UserAddress({ userAddressProps }) {
                                                 }
                                             }, 'phone');
                                         }}
-                                        onBlur={fetchData1}
+                                        onBlur={() => setTimeout(fetchData1, 100)}
                                     />
                                     {isSubmit && selectedAddress?.errors?.phone && (
                                         <span className={styles.errorMessage}>
@@ -614,7 +614,7 @@ function UserAddress({ userAddressProps }) {
                                         name="city"
                                         value={selectedAddress?.city || ""}
                                         onChange={(e) => { onUpdateShippingAddress(e, 'city'); }}
-                                        onBlur={fetchData1}
+                                        onBlur={() => setTimeout(fetchData1, 100)}
                                     />
                                     {isSubmit && selectedAddress?.errors?.city && (
                                         <span className={styles.errorMessage}>

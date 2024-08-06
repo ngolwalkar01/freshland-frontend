@@ -29,7 +29,7 @@ const ShippingOptions = ({
     <>
       {shippingData?.map((shData, index) => {
         const { shipping, totals, isMainShipping } = shData;
-        let { currency_code = "", total_items = "", total_price = "", total_tax } = totals || {};
+        let { currency_symbol: currency_code = "", total_items = "", total_price = "", total_tax } = totals || {};
         total_items = getCorrectPrice(total_items);
         total_price = getCorrectPrice(total_price);
         total_tax = getCorrectPrice(total_tax);
@@ -45,7 +45,7 @@ const ShippingOptions = ({
                       <div className={styles.subtotal}>
                         <p>{ct.subtotal}</p>
                         <p>
-                          {currency_code} {total_items}
+                          {total_items} {currency_code} 
                           <BillingPeriod shData={shData} styles={styles} />
                         </p>
                       </div>
@@ -87,8 +87,8 @@ const ShippingOptions = ({
                                       <span
                                         className={`${styles.black} ${styles.newstyle}`}
                                       >
-                                        {shipping_rate.currency_code}{" "}
                                         {getCorrectPrice(parseInt(shipping_rate?.price) + parseInt(shipping_rate.taxes))}
+                                        {" "}{shipping_rate.currency_symbol}
                                       </span>
                                       <BillingPeriod
                                         shData={shData}
@@ -121,11 +121,11 @@ const ShippingOptions = ({
                       <div className={styles.include}>
                         <p>{isMainShipping ? ct.total : "Recurring Total"}</p>
                         <h4>
-                          {currency_code} {total_price}
+                          {total_price} {currency_code} 
                         </h4>
                       </div>
                       <p className={styles.tax}>
-                        ({ct.include} {currency_code} {total_tax} {ct.tax})
+                        ({ct.include} {total_tax} {currency_code} {ct.tax})
                       </p>
                     </div>
                   </Fragment>
