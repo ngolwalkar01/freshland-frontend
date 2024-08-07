@@ -34,7 +34,21 @@ export const productdetailTranslation = {
         "byStoring": "By storing the fruits at different temperatures you can do your part to manage their shelf life in a way that allows you to enjoy them all in the best possible way. Some can be refrigerated for shelf life while others can be at room temperature to bring out the flavor. Because our citrus fruits are completely natural and without surface treatment they have a shorter shelf life than surface-treated fruits but on the other hand every single part of the fruit can be used - from the outside to the inside.",
         "ourEconomy": "Our Economy range",
         "oneOfour": "One of our big wishes is that good fresh organic ingredients should be more available. It is among other things therefore that we work directly with our various farmers without intermediaries. Our economy boxes offer larger quantities where the content e.g. may vary slightly more in size - but they still go through the same quality as all other products in our range. The economy boxes are perfect for sharing with others and are also obvious if you like to pickle bake ferment. Delicious freshly harvested ingredients that inspire in the kitchen and create joy on the dining table.",
-        "orangeThrive": "These oranges thrive in the summer but exactly how long we can enjoy is hard to say. The orange season usually kicks off during late summer."
+        "orangeThrive": "These oranges thrive in the summer but exactly how long we can enjoy is hard to say. The orange season usually kicks off during late summer.",
+       "sendAnother":" Send to another address?",
+       " orderbefore":" Order before",
+       "time":"1 Days 08 Hours 30 Mine 36 Seconds",
+       "collection":"collection /delivery Wednesday next week.",
+       "naturalproducts":"Natural products",
+      "allProduct": " All products are chemical-free and sent to you without any unnecessary packaging and with less food waste.",
+      "StraightFrom":"Straight from the farm",
+      "skip":"Skip up to 5 middlemen and have your products delivered to you straight from the farm.",
+      "freeShipping":"Free Shipping",
+      "shiipingOrder":"Shipping is free for all orders over DKK 699.",
+      "fastDeliver":"Fast Delivery",
+      "orderTime":" Order before Wednesday 24:00 and have your goods delivered the following week.",
+      "descriptionHeading":"DESCRIPTION"
+    
     },
     "dk": {
         "freeShippingOver": "📦 Gratis fragt ved bestilling på over 699 kr",
@@ -71,7 +85,20 @@ export const productdetailTranslation = {
         "byStoring": "Ved at opbevare frugterne ved forskellige temperaturer kan du gøre dit til at styre deres holdbarhed på en måde, der giver dig mulighed for at få mest mulig glæde af dem alle. Nogle af frugterne kan opbevares på køl, mens andre kan opbevares ved stuetemperatur for at fremhæve smagen. Fordi vores citrusfrugter er helt naturlige og uden overfladebehandling, har de en kortere holdbarhed end overfladebehandlede frugter, men til gengæld kan alle dele af frugten bruges - fra yderst til inderst.",
         "ourEconomy": "Vores økonomi-sortiment ",
         "oneOfour": "Et af vores store ønsker er at gode, friske økologiske råvarer skal være mere tilgængelige. Det er blandt andet derfor, vi arbejder direkte med vores forskellige landmænd uden mellemled. Vores økonomikasser tilbyder større mængder, hvor indholdet f.eks. kan variere lidt mere i størrelse - men de gennemgår stadig den samme kvalitetskontrol som alle andre produkter i vores sortiment. Økonomikasserne er perfekte til at dele med andre og er også oplagte, hvis du kan lide at sylte, bage og fermentere. Lækre friskhøstede råvarer, der inspirerer i køkkenet og skaber glæde på spisebordet.",
-        "orangeThrive": "Appelsinerne trives godt om sommeren, men det er svært at sige præcis, hvor længe vi kan nyde dem. Appelsinsæsonen starter normalt sidst på sommeren."
+        "orangeThrive": "Appelsinerne trives godt om sommeren, men det er svært at sige præcis, hvor længe vi kan nyde dem. Appelsinsæsonen starter normalt sidst på sommeren.",
+        "sendAnother":" Send to another address?",
+        " orderbefore":" Order before",
+        "time":"1 Days 08 Hours 30 Mine 36 Seconds",
+        "collection":"collection /delivery Wednesday next week.",
+        "naturalproducts":"Natural products",
+       "allProduct": " All products are chemical-free and sent to you without any unnecessary packaging and with less food waste.",
+       "StraightFrom":"Straight from the farm",
+       "skip":"Skip up to 5 middlemen and have your products delivered to you straight from the farm.",
+       "freeShipping":"Free Shipping",
+       "shiipingOrder":"Shipping is free for all orders over DKK 699.",
+       "fastDeliver":"Fast Delivery",
+       "orderTime":" Order before Wednesday 24:00 and have your goods delivered the following week.",
+       "descriptionHeading":"DESCRIPTION"
     },
     "fi": {
         "freeShippingOver": "",
@@ -108,7 +135,20 @@ export const productdetailTranslation = {
         "byStoring": "",
         "ourEconomy": "",
         "oneOfour": "",
-        "orangeThrive": ""
+        "orangeThrive": "",
+        "sendAnother":" Send to another address?",
+        " orderbefore":" Order before",
+        "time":"1 Days 08 Hours 30 Mine 36 Seconds",
+        "collection":"collection /delivery Wednesday next week.",
+        "naturalproducts":"Natural products",
+       "allProduct": " All products are chemical-free and sent to you without any unnecessary packaging and with less food waste.",
+       "StraightFrom":"Straight from the farm",
+       "skip":"Skip up to 5 middlemen and have your products delivered to you straight from the farm.",
+       "freeShipping":"Free Shipping",
+       "shiipingOrder":"Shipping is free for all orders over DKK 699.",
+       "fastDeliver":"Fast Delivery",
+       "orderTime":" Order before Wednesday 24:00 and have your goods delivered the following week.",
+       "descriptionHeading":"DESCRIPTION"
     },
     "se": {
         "freeShippingOver": "📦 Gratis frakt vid beställning över 699 kr",
@@ -145,6 +185,19 @@ export const productdetailTranslation = {
         "byStoring": "Genom att förvara frukterna i olika temperaturer kan du bidra till att styra deras hållbarhet på ett sätt som gör att du får ut det mesta av dem alla. Vissa av frukterna kan förvaras kallt, medan andra kan förvaras i rumstemperatur för att framhäva smaken. Eftersom våra citrusfrukter är helt naturliga och utan ytbehandling har de en kortare hållbarhet än ytbehandlade frukter, dock kan alla delar av frukten användas – från utsidan till insidan.",
         "ourEconomy": "Vårt ekonomisortiment",
         "oneOfour": "En av våra stora önskningar är att bra och färska ekologiska råvaror ska vara mer tillgängliga. Det är bland annat därför vi arbetar direkt med våra olika odlare utan mellanhänder. Vårt ekonomipaket erbjuder större mängder där innehållet kan variera något i storlek, men de genomgår fortfarande samma kvalitetskontroll som alla andra produkter i vårt sortiment. Ekonomipaketen är perfekta att dela med andra och är också utmärkta om du gillar att göra sylt, baka och fermentera. Läckra färskplockade råvaror som inspirerar i köket och skapar glädje vid matbordet.",
-        "orangeThrive": "Apelsinerna trivs bra under sommaren, men det är svårt att säga exakt hur länge vi kan njuta av dem. Säsongen börjar normalt sett i slutet av sommaren."
+        "orangeThrive": "Apelsinerna trivs bra under sommaren, men det är svårt att säga exakt hur länge vi kan njuta av dem. Säsongen börjar normalt sett i slutet av sommaren.",
+        "sendAnother":" Send to another address?",
+        " orderbefore":" Order before",
+        "time":"1 Days 08 Hours 30 Mine 36 Seconds",
+        "collection":"collection /delivery Wednesday next week.",
+        "naturalproducts":"Natural products",
+       "allProduct": " All products are chemical-free and sent to you without any unnecessary packaging and with less food waste.",
+       "StraightFrom":"Straight from the farm",
+       "skip":"Skip up to 5 middlemen and have your products delivered to you straight from the farm.",
+       "freeShipping":"Free Shipping",
+       "shiipingOrder":"Shipping is free for all orders over DKK 699.",
+       "fastDeliver":"Fast Delivery",
+       "orderTime":" Order before Wednesday 24:00 and have your goods delivered the following week.",
+       "descriptionHeading":"DESCRIPTION"
     }
 }

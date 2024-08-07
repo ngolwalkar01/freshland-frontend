@@ -37,10 +37,12 @@ const Category = () => {
             <Layout>
                 {loading ? <Shopskeleton /> : <>
                     <Header />
+                    <div id='categoryContainer'>
                     <CategoryProducts
                         cardHeading={category}
                         productData={productData}
                     />
+                    </div>
                 </>}
             </Layout>
         </>

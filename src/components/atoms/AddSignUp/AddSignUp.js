@@ -100,7 +100,7 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
     <div className={styles.Boxconatiner}>
       <div className={styles.container}>
         <h2 className={styles.heading}>{hpt.benefitsVIP}</h2>
-        <p className={styles.description}>Be the first to know when you favorite products are in season</p>
+        <p className={styles.description}>{hpt.beFirstToKnow}</p>
         <div className={styles.sliderContainer}>
           <Slider {...settings}>
 

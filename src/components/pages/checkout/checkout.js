@@ -784,11 +784,10 @@ function Checkout() {
                     <div className={styles.fieldsRow}>
                       <div className={styles.fieldColumn}>
                         <label htmlFor="Email">
-                          <strong className="W-Body-Large-Medium">Contact information</strong>
+                          <strong className="W-Body-Large-Medium">{check.contactInformation}</strong>
                         </label>
                         <label>
-                          We use this email to send you details and updates
-                          about your order.
+                       {check.emailUsage}
                         </label>
                         <input
                           className={styles.inputField}
@@ -814,7 +813,7 @@ function Checkout() {
                           id="createAccount"
                         />
                         <label htmlFor="createAccount">
-                          Do you want to create Account ?
+                        {check.wantAccount}
                         </label>
                       </div>
                     }
@@ -1068,7 +1067,7 @@ function Checkout() {
                       <div className={styles.fieldsRow}>
                         <div className={styles.fieldColumn}>
                           <label htmlFor="comp_name">
-                            <strong className="W-Body-Large-Medium">Billing Company Name</strong>
+                            <strong className="W-Body-Large-Medium">{check.billingCompanyName}</strong>
                           </label>
                           <input
                             className={styles.inputField}
@@ -1509,30 +1508,30 @@ function Checkout() {
                         onChange={(e) => setStandardOrderNote(e.target.value)}
                         id="setStandardOrderNote"
                       >
-                        <option value="">Select an option</option>
+                        <option value="">{check.selectAnOption}</option>
                         <option value=" Placed at the front door - Placed at the front door">
-                          Placed at the front door - Placed at the front door
+                         {check.placedAtFrontDoor}
                         </option>
                         <option value="Drop by mailbox - Drop by mailbox">
-                          Drop by mailbox - Drop by mailbox
+                         {check.dropByMailbox}
                         </option>
                         <option value="Put in the carport - Put in the carport">
-                          Put in the carport - Put in the carport
+                        {check.putInCarport}
                         </option>
                         <option value="Place at the back door - Place at the back door">
-                          Place at the back door - Place at the back door
+                        {check.placeAtBackDoor}
                         </option>
                         <option value="Place inside the basement shaft">
-                          Place inside the basement shaft
+                        {check.placeInsideBasementShaft}
                         </option>
                         <option value="Place under a half roof - Place under a half roof">
-                          Place under a half roof - Place under a half roof
+                          {check.placeUnderHalfRoof}
                         </option>
                         <option value="Place inside the shed">
-                          Place inside the shed
+                          {check.placeInsideShed}
                         </option>
                         <option value="Custom notes only">
-                          Custom notes only
+                         {check.customNotesOnly}
                         </option>
                       </select>
                       <span className={styles.customArrow}></span>

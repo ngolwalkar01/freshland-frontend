@@ -6,8 +6,12 @@ import { seasonproductslider } from "@/mockdata/seasonproductslider";
 import styles from "./ProductSlider.module.css";
 import Image from 'next/image'
 import { CustomPrevArrow, CustomNextArrow } from "@/components/atoms/customearrow"
+import { homepageTranslation } from "@/locales";
+
+const lang = process.env.NEXT_PUBLIC_LANG || "dk";
 
 const ProductSlider = () => {
+  const hpt = homepageTranslation[lang];
   const sliderRef = useRef(null);
   const images = seasonproductslider;
    const [showPrevArrow, setShowPrevArrow] = useState(true);
@@ -85,7 +89,7 @@ const ProductSlider = () => {
 
   return (
     <div className={styles.boxContainer}>
-      <h1>What our customers say</h1>
+      <h1>{hpt.whatCustomersSay}</h1>
       <div className={styles.slidercontainer}>
         <Slider {...settings} ref={sliderRef} className={styles.slickslider}>
           {images[0].imagesData.map((data, index) => (

@@ -5,7 +5,17 @@ export const commonTranslation = {
         "add": "ADD",
         "save": "Save",
         "addToBasket": "Add to Basket",
-        "firstName": "First Name"
+        "firstName": "First Name",
+        "categories": "Categories",
+        "favoritesProducts":"Favorites Products",
+        "noFavorites":"No favorites yet.",
+        "manageconsent":"Manage consent to cookies",
+        "toProvide":"To provide a good user experience, we use technology such as cookies to store and/or access device information. When you consent to these technologies, we may process information such as browsing behavior or a unique identifier on this website. If you do not give your consent or withdraw your consent, it may negatively affect some features.",
+        "alwaysActive":"Always active",
+        "refuse":"REFUSE",
+        "saveSetting":"SAVE SETTING",
+        "Accept":"ACCEPT",
+        "personalData":"Personal data policy"
     },
     "dk": {
         "disruptTheFoodIndustry": "Disrupt fødevareindustrien",
@@ -13,7 +23,16 @@ export const commonTranslation = {
         "add": "TILFØJ",
         "save": "Gem",
         "addToBasket": "Tilføj til kurv",
-        "firstName": "Fornavn"
+        "firstName": "Fornavn",
+         "favoritesProducts":"Favorites Products",
+        "noFavorites":"No favorites yet.",
+        "manageconsent":"Manage consent to cookies",
+        "toProvide":"To provide a good user experience, we use technology such as cookies to store and/or access device information. When you consent to these technologies, we may process information such as browsing behavior or a unique identifier on this website. If you do not give your consent or withdraw your consent, it may negatively affect some features.",
+        "alwaysActive":"Always active",
+        "refuse":"REFUSE",
+        "saveSetting":"SAVE SETTING",
+        "Accept":"ACCEPT",
+        "personalData":"Personal data policy"
     },
     "fi": {
         "disruptTheFoodIndustry": "",
@@ -21,7 +40,16 @@ export const commonTranslation = {
         "add": "",
         "save": "",
         "addToBasket": "",
-        "firstName": ""
+        "firstName": "",
+         "favoritesProducts":"Favorites Products",
+        "noFavorites":"No favorites yet.",
+        "manageconsent":"Manage consent to cookies",
+        "toProvide":"To provide a good user experience, we use technology such as cookies to store and/or access device information. When you consent to these technologies, we may process information such as browsing behavior or a unique identifier on this website. If you do not give your consent or withdraw your consent, it may negatively affect some features.",
+        "alwaysActive":"Always active",
+        "refuse":"REFUSE",
+        "saveSetting":"SAVE SETTING",
+        "Accept":"ACCEPT",
+        "personalData":"Personal data policy"
     },
     "se": {
         "disruptTheFoodIndustry": "Disrupta livsmedelsindustrin",
@@ -29,6 +57,15 @@ export const commonTranslation = {
         "add": "LÄGG TILL",
         "save": "Spara",
         "addToBasket": "Lägg till i varukorgen",
-        "firstName": "Förnamn"
+        "firstName": "Förnamn",
+         "favoritesProducts":"Favorites Products",
+        "noFavorites":"No favorites yet.",
+        "manageconsent":"Manage consent to cookies",
+        "toProvide":"To provide a good user experience, we use technology such as cookies to store and/or access device information. When you consent to these technologies, we may process information such as browsing behavior or a unique identifier on this website. If you do not give your consent or withdraw your consent, it may negatively affect some features.",
+        "alwaysActive":"Always active",
+        "refuse":"REFUSE",
+        "saveSetting":"SAVE SETTING",
+        "Accept":"ACCEPT",
+        "personalData":"Personal data policy"
     }
 };

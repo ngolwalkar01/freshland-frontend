@@ -11,7 +11,8 @@ import {productdetailTranslation} from './productdetail';
 import {seasonTranslation} from './seasonoverview';
 import {shopTranslation} from './shop';
 import {loginTranslation} from './login'
-
+import { termTranslation } from './term';
+import { policyTranslation } from './personaldata';
 export {
     aboutTranslation,
     commonTranslation,
@@ -25,5 +26,7 @@ export {
     productdetailTranslation,
     seasonTranslation,
     shopTranslation,
-    loginTranslation
+    loginTranslation,
+    termTranslation,
+    policyTranslation
 }

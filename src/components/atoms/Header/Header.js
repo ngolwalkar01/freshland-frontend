@@ -163,7 +163,7 @@ const Header = () => {
               </Link>
               <div className={Mobile ? `${styles.navlinksmobile}` : `${styles.linkdescription}`}>
                 <div className={`${styles.store} ${isActive('/shop')}`} ref={menuRef}>
-                  <Link href="/shop">Store</Link>
+                  <Link href="/shop">{hpt.storeDropdown}</Link>
                   <span className="chevrondown" onClick={handleStoreClick}>
                     <i className="fa-solid fa-chevron-down"></i>
                   </span>

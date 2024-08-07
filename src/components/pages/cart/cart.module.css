@@ -67,8 +67,7 @@
 
 .productSection {
   display: flex;
-  justify-content: left;
-  gap: 40px;
+  gap: 80px;
   border-top: 2px solid rgba(0, 0, 0, 0.2);
   padding-top: 24px;
 }
@@ -88,6 +87,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
+  max-width: 330px;
 }
 
 .leftSide {
@@ -204,7 +205,12 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 10px;
+  margin: 10px 0px;
+}
+
+.subtotalLeft p:last-child{
+  width: 100%;
+    max-width: 336px;
 }
 
 .formTitle {
@@ -316,7 +322,7 @@
   gap: 16px;
 }
 .discount input::placeholder {
-  color: #2c2c2c;
+  color: #ccc;
   font-weight: 500;
 }
 .discountcoupon{
@@ -573,9 +579,13 @@ border-radius: 5px;
   .discount {
     grid-template-columns: 15px 50px;
   }
+  .subtotalLeft p:last-child{
+    width: auto;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 1022px) {
+
   .wrapper {
     flex-direction: column;
     padding-inline: 0;
@@ -585,6 +595,10 @@ border-radius: 5px;
 
   .leftContainer {
     margin-inline: auto;
+    max-width: 500px;
+  }
+  .applydiscount{
+    width: 100%;
   }
 
   .table {
@@ -605,7 +619,9 @@ border-radius: 5px;
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
- 
+  .subtotalLeft p:last-child{
+    width: auto;
+  }
   .wrapper {
     flex-direction: column;
     align-items: center;
@@ -831,4 +847,31 @@ border-radius: 5px;
   }
 }
 
+@media (min-width: 1023px) and (max-width: 1350px){
+  .subtotalLeft p:last-child {
+      width: 100%;
+      max-width: 105px;
+  }
+  .productSection{
+    justify-content: space-between;
+  }
+  .cartpageSutotal{
+    width: auto;
+  }
+}  
 
+
+
+@media (min-width: 601px) and (max-width: 1022px){
+  .productSection{
+      justify-content: space-between;
+  }
+  .cartpageSutotal{
+      width: auto;
+  }
+  
+  .subtotalLeft p:last-child {
+      width: 100%;
+      max-width: 101px;
+  }
+}  

@@ -262,18 +262,16 @@
 }
 
 
-@media (min-width: 380px) and (max-width: 600px) {
+@media (min-width: 320px) and (max-width: 600px) {
   .footerlogoImg {
   width: 157px;
-  height: 57px;
+  height: auto;
+}
+.footerlogo{
+  margin: auto 9px;
+  gap: 36px;
 }
 }
 
 
-@media (min-width: 320px) and (max-width: 380px) {
-  .footerlogoImg {
-  width: 140px;
-  height: 50px;
-}
-}
 

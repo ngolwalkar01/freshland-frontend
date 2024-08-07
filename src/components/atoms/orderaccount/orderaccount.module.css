@@ -571,6 +571,9 @@ letter-spacing: normal;
     flex-direction: column;
     align-items: flex-start;
   }
+  .orderbtn button{
+    max-width: 100%;
+  }
  
  } 
 
@@ -579,7 +582,9 @@ letter-spacing: normal;
       flex-direction: column;
       align-items: flex-start;
     }
-  
+    .orderbtn button{
+      max-width: 100%;
+    }
   
     .viewtabledetail{
       display: none;

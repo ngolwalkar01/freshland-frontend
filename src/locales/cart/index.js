@@ -7,7 +7,7 @@ export const cartTranslation = {
       "everyWs": "Every 3 weeks",
       "everyWks": "Every 4 weeks",
       "deliveryTag": "Delivery",
-      "subTotal": "Subtotal",
+      "subTotal": "SubTotal",
       "applyDisscount": "Apply Discount Coupon",
       "dis": "Discount",
       "totalAmount": "Total amount in basket",
@@ -21,7 +21,8 @@ export const cartTranslation = {
       "gotoCheckout": "Go to Checkout",
       "continueShop": "Continue Shopping",
       "yourBasket": "Your basket is empty.",
-      "backTop": "Back to shop"
+      "backTop": "Back to shop",
+       "redeem": "Redeem"
   },
   "dk": {
       "shCart": "Indkøbskurv",
@@ -45,7 +46,8 @@ export const cartTranslation = {
       "gotoCheckout": "Gå til kassen",
       "continueShop": "Fortsæt med at handle",
       "yourBasket": "Din indkøbskurv er tom",
-      "backTop": "Tilbage"
+      "backTop": "Tilbage",
+      "redeem": "Redeem"
   },
   "fi": {
       "shCart": "",
@@ -69,7 +71,8 @@ export const cartTranslation = {
       "gotoCheckout": "",
       "continueShop": "",
       "yourBasket": "",
-      "backTop": ""
+      "backTop": "",
+         "redeem": "Redeem"
   },
   "se": {
       "shCart": "Varukorg",
@@ -93,6 +96,7 @@ export const cartTranslation = {
       "gotoCheckout": "Till kassan",
       "continueShop": "Fortsätt handla",
       "yourBasket": "Din varukorg är tom",
-      "backTop": "Tillbaka"
+      "backTop": "Tillbaka",
+         "redeem": "Redeem"
   }
 };

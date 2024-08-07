@@ -56,7 +56,7 @@ const ShippingBillingAddress = () => {
             <div className={styles.fieldsRow}>
               <div className={styles.fieldColumn}>
                 <label htmlFor="Street_Name_and_Number">
-                  Apartment, Suite, Unit, Etc. (optional)
+                  {check.apartmentSuiteUnitEtc}
                 </label>
                 <input
                   className={styles.inputField}
@@ -73,7 +73,7 @@ const ShippingBillingAddress = () => {
             </div>
             <div className={styles.fieldsRow}>
               <div className={styles.fieldColumn}>
-                <label htmlFor="Zip">Postcode/Zip*</label>
+                <label htmlFor="Zip">{check.PostcodeZip}*</label>
                 <input
                   className={styles.inputField}
                   type="text"
@@ -99,7 +99,7 @@ const ShippingBillingAddress = () => {
             </div>
             <div className={styles.fieldsRow}>
               <div className={styles.fieldColumn}>
-                <label htmlFor="city">Town/City*</label>
+                <label htmlFor="city">{check.townCity}*</label>
                 <input
                   className={styles.inputField}
                   type="text"
@@ -146,7 +146,7 @@ const ShippingBillingAddress = () => {
             <div className={styles.fieldsRow}>
               <div className={styles.fieldColumn}>
                 <label htmlFor="Street_Name_and_Number">
-                  Apartment, Suite, Unit, Etc. (optional)
+                {check.apartmentSuiteUnitEtc}
                 </label>
                 <input
                   className={styles.inputField}
@@ -163,7 +163,7 @@ const ShippingBillingAddress = () => {
             </div>
             <div className={styles.fieldsRow}>
               <div className={styles.fieldColumn}>
-                <label htmlFor="Zip">Postcode/Zip*</label>
+                <label htmlFor="Zip">{check.PostcodeZip}*</label>
                 <input
                   className={styles.inputField}
                   type="text"
@@ -189,7 +189,7 @@ const ShippingBillingAddress = () => {
             </div>
             <div className={styles.fieldsRow}>
               <div className={styles.fieldColumn}>
-                <label htmlFor="city">Town/City*</label>
+                <label htmlFor="city">{check.townCity}*</label>
                 <input
                   className={styles.inputField}
                   type="text"

@@ -294,7 +294,7 @@ const Description = ({ productDetailProps }) => {
                       className={styles.checkboxInput}
                     />
                     <label htmlFor="checkbox" className={styles.checkboxLabel}>
-                      Send to another address?
+                     {pdt.sendAnother}
                     </label>
                   </div>
                   <p>
@@ -302,8 +302,7 @@ const Description = ({ productDetailProps }) => {
                     {pdt.category} {joinedCategories}
                   </p>
                   <p className={`W-Body-Regular ${styles.ordertime}`}>
-                    Order before <strong>1 Days 08 Hours 30 Mine 36 Seconds</strong> collection /
-                    delivery Wednesday next week.
+                   {pdt.orderbefore} <strong>{pdt.time}</strong> {pdt.collection}
                   </p>
                 </div>
               </div>
@@ -319,51 +318,48 @@ const Description = ({ productDetailProps }) => {
                   height={24}
                   alt="naturalproduct"
                 />
-                <p className="W-Body-Large-Medium">Natural products</p>
+                <p className="W-Body-Large-Medium">{pdt.naturalproducts}</p>
               </div>
 
               <p className="W-Body-Regular">
-                All products are chemical-free and sent to you without any
-                unnecessary packaging and with less food waste.
+               {pdt.allProduct}
               </p>
             </div>
             <div className={styles.productIcons}>
               <div className={styles.textConatainer}>
                 <Image src="/Images/straight.svg" width={24} height={24} alt="straight"/>
-                <p className="W-Body-Large-Medium">Straight from the farm</p>
+                <p className="W-Body-Large-Medium">{pdt.StraightFrom}</p>
               </div>
 
               <p className="W-Body-Regular">
-                Skip up to 5 middlemen and have your products delivered to you
-                straight from the farm.
+              {pdt.skip}
               </p>
             </div>
             <div className={styles.productIcons}>
               <div className={styles.textConatainer}>
                 <Image src="/Images/freeshipping.svg" width={24} height={24}  alt="freeshipping"/>
-                <p className="W-Body-Large-Medium">Free Shipping</p>
+                <p className="W-Body-Large-Medium">{pdt.freeShipping}</p>
               </div>
 
               <p className="W-Body-Regular">
-                Shipping is free for all orders over DKK 699.
+               {pdt.shiipingOrder}
               </p>
             </div>
             <div className={styles.productIcons}>
               <div className={styles.textConatainer}>
                 <Image src="/Images/fast.svg" width={24} height={24} alt="fast"/>
-                <p className="W-Body-Large-Medium">Fast Delivery</p>
+                <p className="W-Body-Large-Medium">{pdt.fastDeliver}</p>
               </div>
 
               <p className="W-Body-Regular">
-                Order before Wednesday 24:00 and have your goods delivered the
-                following week.
+               {pdt.orderTime}
               </p>
             </div>
           </div>
         </div>
         <LazyLoad height={200} offset={100}>
           <div className={styles.wrapper}>
-            <h2 className={styles.descripTion}>DESCRIPTION</h2>
+            <h2 className={styles.descripTion}>{pdt.descriptionHeading}</h2>
             <section
               className={styles.productDescription}
               dangerouslySetInnerHTML={{ __html: productDetail?.description }}

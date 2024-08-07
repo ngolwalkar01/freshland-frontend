@@ -57,7 +57,16 @@ export const homepageTranslation = {
         "drink": "Drinks",
         "gift": "Gift Cards",
         "seasonOverview": "Season Overview",
-        "whatAre": "What are you looking for?"
+        "whatAre": "What are you looking for?",
+        "storeDropdown": "store",
+        "forNextDelivery": "For next delivery",
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "orderNow": "order Now",
+        "beFirstToKnow": "Be the first to know when your favorite products are in season",
+        "learnMore": "learn more",
+        "whatCustomersSay": "What our customers say",
     },
     "dk": {
         "freshlyHarvested": "Friskhøstet frugt & grønt",

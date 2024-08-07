@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import styles from "./managecookies.module.css";
 import Link from "next/link";
+import { commonTranslation} from '@/locales';
+const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 const ManageCookies = () => {
-  
+  const cmt = commonTranslation[lang];
  const [showsetting , setShowSetting] = useState(false);
   const accordionData = [
     {
@@ -34,16 +36,11 @@ const ManageCookies = () => {
   return (
     <>
       <div className={styles.mainContainer}>
-        <p className={styles.manageCookies}>Manage consent to cookies</p>
+        <p className={styles.manageCookies}>{cmt.manageconsent}</p>
         <div className={styles.scrollConatiner}>
           <div>
             <p className={styles.provide}>
-              To provide a good user experience, we use technology such as
-              cookies to store and/or access device information. When you
-              consent to these technologies, we may process information such as
-              browsing behavior or a unique identifier on this website. If you
-              do not give your consent or withdraw your consent, it may
-              negatively affect some features.
+              {cmt.toProvide}
             </p>
           </div>
           {showsetting && (
@@ -57,7 +54,7 @@ const ManageCookies = () => {
                   {item.title}
                   <div>
                       {index === 0 ? (
-                        <span className={styles.alwaysActive}>Always active</span>
+                        <span className={styles.alwaysActive}>{cmt.alwaysActive}</span>
                       ) : (
                         <label className={styles.switch}>
                           <input type="checkbox" />
@@ -89,11 +86,11 @@ const ManageCookies = () => {
 
         </div>
         <div className={styles.settingbtn}>
-          <button>ACCEPT</button>
-          <button className={styles.refuse}>REFUSE</button>
-          <button onClick={toggleSettings} className={styles.refuse}>SAVE SETTING</button>
+          <button>{cmt.Accept}</button>
+          <button className={styles.refuse}>{cmt.refuse}</button>
+          <button onClick={toggleSettings} className={styles.refuse}>{cmt.saveSetting}</button>
         </div>
-        <Link href="#">Personal data policy</Link>
+        <Link href="#">{cmt.personalData}</Link>
       </div>
     </>
   );

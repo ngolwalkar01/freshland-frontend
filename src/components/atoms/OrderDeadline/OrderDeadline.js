@@ -77,14 +77,14 @@ const OrderDeadline = ({ shippingMethods, enableMockData, cutOffDaysDetail }) =>
               <div className={styles.deadlinedata}>
                 <div className={styles.deadlineContainer}>
                   <h2 className={styles.next}>{data.orderCard1?.headCard1}</h2>
-                  <p className={styles.deliveryweek}>For next delivery</p>
+                  <p className={styles.deliveryweek}>{hpt.forNextDelivery}</p>
                   {/* <h3 className={`W-H3 ${styles.contentCard1}`}>{timer}</h3> */}
                   <div className={styles.contentCard1}>
                     {/* <h1 className={``}>{timer}</h1> */}
                     <div className={styles.timer}>
                       <div className={styles.timeUnit}>
                         <span>{days}</span>
-                        <span className={styles.hurstime}>Days</span>
+                        <span className={styles.hurstime}>{hpt.days}</span>
                       </div>
                       <div className={styles.timeUnit}>
                         <span className={styles.coln}>:</span>
@@ -92,7 +92,7 @@ const OrderDeadline = ({ shippingMethods, enableMockData, cutOffDaysDetail }) =>
                       </div>
                       <div className={styles.timeUnit}>
                         <span>{hours}</span>
-                        <span className={styles.hurstime}>Hours</span>
+                        <span className={styles.hurstime}>{hpt.hours}</span>
                       </div>
                       <div className={styles.timeUnit}>
                         <span className={styles.coln}>:</span>
@@ -100,14 +100,14 @@ const OrderDeadline = ({ shippingMethods, enableMockData, cutOffDaysDetail }) =>
                       </div>
                       <div className={styles.timeUnit}>
                         <span>{minutes}</span>
-                        <span className={styles.hurstime}>Minutes</span>
+                        <span className={styles.hurstime}>{hpt.minutes}</span>
                       </div>
 
                     </div>
                     {/* <h4 className={`W-Body-Regular ${styles.timeCard1}`}>{data.orderCard1?.timeCard1}</h4> */}
                   </div>
                 </div>
-                <Link href="/shop" className={styles.orderNow}>Order Now</Link>
+                <Link href="/shop" className={styles.orderNow}>{hpt.orderNow}</Link>
               </div>
             </div>
           </div>

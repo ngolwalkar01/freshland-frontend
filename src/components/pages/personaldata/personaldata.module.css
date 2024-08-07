@@ -1,46 +1,66 @@
-.container{
+.container {
     padding: 0px 50px;
 }
-.mainContent{
+
+.mainContent {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 50px 0px;
-   
+
 }
-.mainContent h1{
+
+.mainContent h1 {
     text-align: center;
 }
-.container p{
+
+.container p {
     line-height: 1.5;
     margin-bottom: 1.25rem;
 }
-.container h4{
+
+.container h4 {
     margin: 16px 0px;
 }
-.container a{
+
+.container a {
     color: #1D405C;
     font-size: 16px;
     font-weight: 500;
 }
-.container a:hover{
+
+.container a:hover {
     color: #1468a0;
 }
-@media  (min-width:319px) and (max-width:600px){
-    .mainContent h1{
+
+.time p {
+    margin: 0px;
+}
+
+.address {
+    margin: 10px 0px;
+}
+
+.address p {
+    margin: 0px;
+}
+
+@media (min-width:319px) and (max-width:600px) {
+    .mainContent h1 {
         font-size: 30px;
         padding: 0px 59px;
     }
-    .container{
+
+    .container {
         padding: 0px 21px;
 
     }
-   
+
 
 }
 
-@media  (min-width:600px) and (max-width:900px){
-    .mainContent h1{
+@media (min-width:600px) and (max-width:900px) {
+    .mainContent h1 {
         font-size: 48px;
         padding: 0px 40px;
     }

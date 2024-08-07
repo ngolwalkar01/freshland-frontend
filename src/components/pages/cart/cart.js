@@ -446,7 +446,7 @@ function Cart() {
                       })}
 
                            <div className={styles.subtotalLeft}>
-                              <p>{ct.subtotals}</p>
+                              <p className={styles.bottomSubtotal}>{ct.subTotal}</p>
                               <p className="W-Body-Large-Bold">
                               {cartSubTotal}   {currency_symbol}
                               </p>
@@ -478,7 +478,7 @@ function Cart() {
                           )
                         }}
                       >
-                        {ct.applyDisscount}
+                        {ct.redeem}
                       </button>
                     </div>
                     </div>

@@ -3,8 +3,12 @@ import styles from "./categories.module.css";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import productService from '@/services/product';
+import { commonTranslation} from '@/locales';
 
+const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 const Categories = () => {
+  const cmt = commonTranslation[lang];
+
   const router = useRouter();
   const [categories, setCategories] = useState([]);
 
@@ -26,7 +30,7 @@ const Categories = () => {
       {
         categories && categories.length > 0 && (
           <div className={styles.mainContainer}>
-            <h1>Categories</h1>
+            <h1>{cmt.categories}</h1>
             <div className={styles.categoriesName}>
               {
                 categories && categories.length > 0 && categories.map((x, i) => {
@@ -48,7 +52,7 @@ const Categories = () => {
               <button
                 className={styles.seeAllButton}
                 onClick={() => router.push(`/shop`)}
-              >See All Products</button>
+              >{cmt.seeAllProducts}</button>
             </div>
           </div>
         )

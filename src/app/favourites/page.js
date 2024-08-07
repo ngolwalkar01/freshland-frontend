@@ -7,8 +7,10 @@ import Shopskeleton from "@/components/skeleton/shopskeleton";
 import productService from '@/services/product';
 import CategoryProducts from '@/components/atoms/search';
 import Header from '@/components/atoms/Header/Header';
-
+import { commonTranslation} from '@/locales';
+const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 const Favourites = () => {
+    const cmt = commonTranslation[lang];
     const [loading, setLoading] = useState(false);
     const [productData, setProductData] = useState([]);
 
@@ -39,11 +41,14 @@ const Favourites = () => {
             <Layout>
                 {loading ? <Shopskeleton /> : <>
                     <Header />
+                    <div id='categoryContainer'>
                     <CategoryProducts
-                        cardHeading={"Favorites Products"}
+                        cardHeading={cmt.favoritesProducts}
                         productData={productData}
                         reload={reload}
+                        nofavoriteMessage={cmt.noFavorites}
                     />
+                    </div>
                 </>}
             </Layout>
         </>

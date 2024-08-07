@@ -5,7 +5,7 @@ import styles from "@/components/pages/shop/AllGoods.module.css";
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
 
-const Search = ({ cardHeading, productData, overRideClass = false, reload = () => { } }) => {
+const Search = ({ cardHeading, productData, overRideClass = false, reload = () => { } ,nofavoriteMessage }) => {
     const st = shopTranslation[lang];
     return (
         <>
@@ -21,7 +21,8 @@ const Search = ({ cardHeading, productData, overRideClass = false, reload = () =
                 />
                 {!(productData && productData.length > 0) && (
                     <p className={styles.comingSoon} style={{ textAlign: 'center' }}>
-                        {st.ourProductComingSoon} <br />{st.stayTuned}
+                   {nofavoriteMessage || `${st.ourProductComingSoon}  ${st.stayTuned}`}
+
                     </p>
                 )}
             </div>
