@@ -18,7 +18,7 @@ import AuthAPI from "@/services/auth";
 import { getCheckoutOrderById, getOrderDates } from "@/components/service/account";
 import { signOut as googleSignOut } from 'next-auth/react';
 
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
 function Account({ orders }) {
   const mat = myaccountTranslation[lang];

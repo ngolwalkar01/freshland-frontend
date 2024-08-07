@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ourmission.module.css";
 import { aboutTranslation} from '@/locales';
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Ourmission = () => {
   const mission = aboutTranslation[lang];

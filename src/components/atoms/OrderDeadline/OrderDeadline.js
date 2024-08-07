@@ -4,7 +4,7 @@ import Image from "next/image";
 import { headingsData } from "@/mockdata/headingData";
 import { homepageTranslation } from '@/locales';
 import Link from "next/link";
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 
 const OrderDeadline = ({ shippingMethods, enableMockData, cutOffDaysDetail }) => {

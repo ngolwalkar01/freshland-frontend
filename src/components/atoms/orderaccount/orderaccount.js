@@ -9,7 +9,7 @@ import { AddressInfo } from "@/components/atoms/address/address";
 
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, orderDates, isUserLoggedIn }) {
   const mat = myaccountTranslation[lang];

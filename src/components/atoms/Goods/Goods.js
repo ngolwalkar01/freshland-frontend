@@ -15,7 +15,7 @@ import debounce, { quantityDebounce } from '@/helper/debounce';
 import { applyLoader } from "@/helper/loader";
 import OverLayLoader from '@/components/atoms/overLayLoader';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProducts, setOlLoader }) => {
   const productInCart = cartProducts.find(x => x.id === product.id);

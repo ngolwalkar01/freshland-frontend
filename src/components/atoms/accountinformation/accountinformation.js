@@ -7,7 +7,7 @@ import AccountAPI from "@/services/account";
 import { toast } from "react-toastify";
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
 function Accountinformation({ isUserLoggedIn }) {
   const token = isUserLoggedIn();

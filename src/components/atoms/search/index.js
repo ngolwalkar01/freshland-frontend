@@ -3,7 +3,7 @@ import ProductList from '../ProductList/ProductList';
 import { shopTranslation } from '@/locales';
 import styles from "@/components/pages/shop/AllGoods.module.css";
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Search = ({ cardHeading, productData, overRideClass = false, reload = () => { } ,nofavoriteMessage }) => {
     const st = shopTranslation[lang];

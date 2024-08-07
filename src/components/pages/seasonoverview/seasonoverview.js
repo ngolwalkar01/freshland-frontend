@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { seasonTranslation} from '@/locales';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const SeasonOverview = () => {
   const sea = seasonTranslation[lang];
 

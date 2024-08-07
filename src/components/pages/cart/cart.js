@@ -21,7 +21,7 @@ import CartShipping from "@/components/atoms/cartshiiping";
 import { applyLoader } from "@/helper/loader";
 import OverLayLoader from '@/components/atoms/overLayLoader';
 
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 
 const INTIAL_CART_DATA = {
@@ -568,7 +568,7 @@ function Cart() {
                       ) : (
                         <>
                           <div className={styles.subtotal} style={{ gap: 'inherit' }}>
-                            <p>Subtotal</p>
+                            <p>{ct.subTotal}</p>
                             <p style={{ fontWeight: 100 }}>{ct.shipPing}</p>
                           </div>
                           <div className={styles.totalprice}>

@@ -3,7 +3,7 @@ import videoStyles from "./VideoComponent.module.css";
 import Image from "next/image";
 import { homepageTranslation } from "@/locales";
 import Link from "next/link";
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
 const VideoComponent = () => {
   const hpt = homepageTranslation[lang];

@@ -10,7 +10,7 @@ import { applyLoader } from "@/helper/loader";
 import OverLayLoader from '@/components/atoms/overLayLoader';
 import productService from '@/services/product';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;

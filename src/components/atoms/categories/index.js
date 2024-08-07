@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import productService from '@/services/product';
 import { commonTranslation} from '@/locales';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const Categories = () => {
   const cmt = commonTranslation[lang];
 

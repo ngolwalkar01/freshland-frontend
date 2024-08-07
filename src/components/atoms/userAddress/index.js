@@ -6,7 +6,7 @@ import { getUserAddresses, setUserAddressesAsync, saveUserAddresses } from '@/co
 import Image from 'next/image';
 import { applyLoader } from "@/helper/loader";
 
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
 const INTIAL_ADDRESS = {
@@ -477,7 +477,7 @@ function UserAddress({ userAddressProps }) {
                                 <div className={styles.fieldColumn}>
                                     <label htmlFor="First_Name">{check.fName}*</label>
                                     <input
-                                        className={styles.inputField} 
+                                        className={styles.inputField}
                                         type="text"
                                         value={firstName}
                                         placeholder="First Name"

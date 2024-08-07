@@ -126,7 +126,16 @@ export const homepageTranslation = {
         "drink": "Drikke",
         "gift": "Gavekort",
         "seasonOverview": "Sæsonoversigt",
-        "whatAre": "Hvad leder du efter?"
+        "whatAre": "Hvad leder du efter?",
+        "storeDropdown": "store",
+        "forNextDelivery": "For next delivery",
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "orderNow": "order Now",
+        "beFirstToKnow": "Be the first to know when your favorite products are in season",
+        "learnMore": "learn more",
+        "whatCustomersSay": "What our customers say",
     },
     "fi": {
         "freshlyHarvested": "Tuoreena korjatut hedelmät & vihannekset",
@@ -186,7 +195,16 @@ export const homepageTranslation = {
         "drink": "Juomat",
         "gift": "Lahjakortti",
         "seasonOverview": "Sesonkikatsaus",
-        "whatAre": "Mitä etsit?"
+        "whatAre": "Mitä etsit?",
+        "storeDropdown": "store",
+        "forNextDelivery": "For next delivery",
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "orderNow": "order Now",
+        "beFirstToKnow": "Be the first to know when your favorite products are in season",
+        "learnMore": "learn more",
+        "whatCustomersSay": "What our customers say",
     },
     "se": {
         "freshlyHarvested": "Färskt skördad frukt & grönt",
@@ -246,6 +264,15 @@ export const homepageTranslation = {
         "drink": "Drycker",
         "gift": "Presentkort",
         "seasonOverview": "Säsongsöversikt",
-        "whatAre": "Vad letar du efter?"
+        "whatAre": "Vad letar du efter?",
+        "storeDropdown": "store",
+        "forNextDelivery": "For next delivery",
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "orderNow": "order Now",
+        "beFirstToKnow": "Be the first to know when your favorite products are in season",
+        "learnMore": "learn more",
+        "whatCustomersSay": "What our customers say",
     }
 }

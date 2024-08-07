@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { homepageTranslation } from '@/locales';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const Footer = () => {
   const hpt = homepageTranslation[lang];
 

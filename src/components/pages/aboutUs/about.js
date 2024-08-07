@@ -9,7 +9,7 @@ import Producttase from '@/components/atoms/producttaste/producttaste';
 import Prices from '@/components/atoms/prices/prices';
 import { aboutTranslation} from '@/locales';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const About = () => {
   const at = aboutTranslation[lang];

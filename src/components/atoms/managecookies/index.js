@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./managecookies.module.css";
 import Link from "next/link";
 import { commonTranslation} from '@/locales';
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const ManageCookies = () => {
   const cmt = commonTranslation[lang];
  const [showsetting , setShowSetting] = useState(false);

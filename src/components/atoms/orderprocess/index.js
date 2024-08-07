@@ -3,7 +3,7 @@ import styles from "./orderprocess.module.css";
 import Image from "next/image";
 import ImageUploader from "../uploadimage";
 import { myaccountTranslation } from '@/locales';
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const OrderProcess = () => {
   const mat = myaccountTranslation[lang];

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { myaccountTranslation } from '@/locales';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Payment = () =>{
   const mat = myaccountTranslation[lang];

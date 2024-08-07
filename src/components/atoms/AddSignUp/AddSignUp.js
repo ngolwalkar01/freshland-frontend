@@ -13,7 +13,7 @@ import Link from "next/link";
 import { CustomPrevArrow, CustomNextArrow } from "@/components/atoms/customearrow"
 import { useRouter } from 'next/navigation';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 
 const AddSignUp = ({ vipPages, enableMockData }) => {

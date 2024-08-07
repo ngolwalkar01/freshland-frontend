@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./producttaste.module.css";
 import Image from "next/image";
 import { aboutTranslation} from '@/locales';
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Producttase = () => {
   const taste = aboutTranslation[lang];

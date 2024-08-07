@@ -11,7 +11,7 @@ import { setUserLoggedInData } from "@/components/service/auth";
 import Link from "next/link";
 import Image from "next/image";
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
 const expires = parseInt(process.env.NEXT_PUBLIC_CART_KEY_EXPIRY);
 // const TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Byb3pvbmVkLmNvbS9mcmVzaC1sYW5kIiwiaWF0IjoxNzE2OTAxMzk4LCJleHAiOjE3MTY5MDQ5OTgsImRhdGEiOnsidXNlciI6eyJpZCI6MTZ9fX0.V0XQTF1fUA1FEHZce3J2tX6MPy7x9vOaavN26fldnzg';

@@ -7,7 +7,7 @@ import { getOrderDetailById, getOrderDates } from "@/components/service/account"
 import { AddressInfo } from "@/components/atoms/address/address";
 import Orderskeleton from "@/components/skeleton/orderskeleton";
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Order = ({ orderId }) => {
   const oct = orderconfirmationTranslation[lang];

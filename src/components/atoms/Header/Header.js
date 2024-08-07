@@ -11,7 +11,7 @@ import Productsearch from '@/components/atoms/search';
 import productService from '@/services/product';
 import productCategoryService from "@/services/productCategories";
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
 const Header = () => {

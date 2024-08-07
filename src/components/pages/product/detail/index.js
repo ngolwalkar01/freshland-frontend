@@ -16,7 +16,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/atoms/loader/loader";
 
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
 const Description = ({ productDetailProps }) => {
   const router = useRouter();
@@ -285,7 +285,7 @@ const Description = ({ productDetailProps }) => {
                   </div>
                 </div>
                 <div className={styles.itemCatagory}>
-                  <div className={styles.checkboxContainer}>
+                  {/* <div className={styles.checkboxContainer}>
                     <input
                       type="checkbox"
                       id="checkbox"
@@ -300,7 +300,7 @@ const Description = ({ productDetailProps }) => {
                   <p>
                     {pdt.itemNumberSKU} F176 <br />
                     {pdt.category} {joinedCategories}
-                  </p>
+                  </p> */}
                   <p className={`W-Body-Regular ${styles.ordertime}`}>
                    {pdt.orderbefore} <strong>{pdt.time}</strong> {pdt.collection}
                   </p>

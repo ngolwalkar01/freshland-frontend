@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { CustomPrevArrow, CustomNextArrow } from "@/components/atoms/customearrow"
 import { homepageTranslation } from "@/locales";
 
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
 const ProductSlider = () => {
   const hpt = homepageTranslation[lang];

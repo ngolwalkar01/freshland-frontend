@@ -3,7 +3,7 @@ import styles from "./freshness.module.css";
 import Header from "@/components/atoms/Header/Header";
 import Image from "next/image";
 import { aboutTranslation} from '@/locales';
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Freshness = () => {
   const fresh = aboutTranslation[lang];

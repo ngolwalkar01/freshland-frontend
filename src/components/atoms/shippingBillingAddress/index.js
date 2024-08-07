@@ -3,7 +3,7 @@ import { checkoutTranslation } from "@/locales";
 import Telephone from "@/components/atoms/Telephone/Telephone";
 import styles from "@/components/pages/checkout/Checkout.module.css";
 
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
 const ShippingBillingAddress = () => {
   const [activeTab, setActiveTab] = useState("shipping");

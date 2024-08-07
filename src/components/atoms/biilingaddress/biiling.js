@@ -3,7 +3,7 @@ import styles from "./biiling.module.css";
 import { checkoutTranslation } from "@/locales";
 import Telephone from "@/components/atoms/Telephone/Telephone";
 
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
 function Billing({ billingAddressProp }) {
   const check = checkoutTranslation[lang];

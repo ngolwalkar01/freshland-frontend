@@ -2,7 +2,7 @@ import awardStyles from "./Award.module.css";
 import Image from 'next/image'
 import { homepageTranslation } from '@/locales';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Awardlogo = () => {
   const hpt = homepageTranslation[lang];

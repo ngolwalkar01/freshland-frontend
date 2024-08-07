@@ -3,7 +3,7 @@ import styles from "./faq.module.css";
 import Header from "@/components/atoms/Header/Header";
 import Link from "next/link";
 import { faqTranslation } from '@/locales';
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const faq = faqTranslation[lang];
 
 const Faq = ({ heading, accordionData }) => {

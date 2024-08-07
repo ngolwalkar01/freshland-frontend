@@ -6,7 +6,7 @@ import ProductList from "@/components/atoms/ProductList/ProductList";
 import Seeallbtn from "../seeallbtn/seeallbtn";
 import { homepageTranslation } from '@/locales';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 
 const TopImage = ({ farmProductProps }) => {

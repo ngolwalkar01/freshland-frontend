@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { cartTranslation } from "@/locales";
 
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 const ct = cartTranslation[lang];
 const BillingPeriod = ({ shData, styles }) => {
     const { billing_period = "", billing_interval = "" } = shData;

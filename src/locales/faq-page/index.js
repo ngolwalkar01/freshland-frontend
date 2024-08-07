@@ -5,7 +5,11 @@ export const faqTranslation = {
         "info": "info@fresh.land",
         "num": "53 79 07 07",
         "indikaj": "Indiakaj 20 2100 Copenhagen Ø 🇩🇰",
-        "faqdelivery": "Delivery"
+        "faqdelivery": "Delivery",
+        "faqOrdering":"Ordering",
+        "faqProduct":"Product",
+        "faqOrganic":"Organic",
+         "faqcustServ":"Customer service and contact"
     },
     "dk": {
         "fq": "FAQ",
@@ -13,7 +17,11 @@ export const faqTranslation = {
         "info": "info@fresh.land",
         "num": "53 79 07 07",
         "indikaj": "Rahbeks Allé 21, 1801 Frederiksberg C",
-        "faqdelivery": "Levering"
+        "faqdelivery": "Levering",
+        "faqOrdering":"Ordering",
+         "faqProduct":"Product",
+         "faqOrganic":"Organic",
+         "faqcustServ":"Customer service and contact"
     },
     "fi": {
         "fq": "",
@@ -21,7 +29,11 @@ export const faqTranslation = {
         "info": "",
         "num": "",
         "indikaj": "",
-        "faqdelivery": ""
+        "faqdelivery": "",
+        "faqOrdering":"Ordering",
+         "faqProduct":"Product",
+         "faqOrganic":"Organic",
+          "faqcustServ":"Customer service and contact"
     },
     "se": {
         "fq": "FAQ",
@@ -29,6 +41,10 @@ export const faqTranslation = {
         "info": "info@fresh.land",
         "num": "53 79 07 07",
         "indikaj": "Rahbeks Allé 21, 1801 Frederiksberg C",
-        "faqdelivery": "Leverans"
+        "faqdelivery": "Leverans",
+        "faqOrdering":"Beställning",
+         "faqProduct":"Produkt",
+         "faqOrganic":"Ekologiskt",
+        "faqcustServ":"Kundservice och kontakt"
     }
 }

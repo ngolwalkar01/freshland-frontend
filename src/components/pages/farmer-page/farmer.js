@@ -6,7 +6,7 @@ import Farmervideo from "@/components/atoms/farmervideo/farmervideo";
 import Head from "next/head";
 import { farmerTranslation} from '@/locales';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Farmers = () => {
   const far = farmerTranslation[lang];

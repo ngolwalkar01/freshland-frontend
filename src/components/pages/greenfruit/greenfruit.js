@@ -5,7 +5,7 @@ import Link from "next/link";
 import { productData } from "@/mockdata/productData";
 import Header from "@/components/atoms/Header/Header";
 import {greenTranslation} from "@/locales/greenfruit";
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Greenfruit = () => {
   const green =  greenTranslation[lang];

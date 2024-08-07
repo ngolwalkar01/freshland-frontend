@@ -6,7 +6,7 @@ import subscriptionService from "@/services/subscriptions";
 import { toast } from 'react-toastify';
 import { myaccountTranslation } from '@/locales';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 const Subscription = ({ newsubscriptionProducts: products, onClose, subDetail, token }) => {
   const mat = myaccountTranslation[lang];

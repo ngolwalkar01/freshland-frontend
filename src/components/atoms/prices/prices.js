@@ -3,7 +3,7 @@ import styles from "./prices.module.css";
 import Image from "next/image";
 import { aboutTranslation} from '@/locales';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Prices = () => {
   const price = aboutTranslation[lang];

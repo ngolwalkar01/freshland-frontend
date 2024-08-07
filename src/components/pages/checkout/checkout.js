@@ -41,7 +41,7 @@ import OverLayLoader from "@/components/atoms/overLayLoader";
 import ShippingBillingAddress from "@/components/atoms/shippingBillingAddress";
 import klaviyoservice from "@/services/klaviyo/apiIndex";
 
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
 const CARD_ELEMENT_OPTIONS = {

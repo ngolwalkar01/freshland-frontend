@@ -8,7 +8,7 @@ import klaviyoservice from '@/services/klaviyo/apiIndex'
 import { toast } from 'react-toastify';
 
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 
 const Register = () => {

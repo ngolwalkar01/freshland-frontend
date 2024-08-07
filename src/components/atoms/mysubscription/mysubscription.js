@@ -10,7 +10,7 @@ import { getLocalStorage } from '@/services/local-storage';
 import { toast } from 'react-toastify';
 
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
 function Mysubscription({ showOrderView, setShowOrderView, isUserLoggedIn, setLoading, showOrderViewTab }) {
   const [subscriptionshow, setSubscriptionShow] = useState(false);

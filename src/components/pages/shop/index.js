@@ -9,7 +9,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { shopTranslation } from '@/locales';
 
-const lang = process.env.NEXT_PUBLIC_LANG || 'dk';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const AllItems = ({ categoryWithProducts }) => {
   const st = shopTranslation[lang];

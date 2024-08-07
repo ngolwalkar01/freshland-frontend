@@ -6,7 +6,7 @@ import Biiling from "../biilingaddress/biiling";
 import Shipping from "@/components/atoms/shippingaddress/shipping";
 import AccountAPI from "@/services/account";
 
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
 export const AddressInfo = ({ address, email }) => {
   if (!address)

@@ -4,7 +4,7 @@ import Telephone from "@/components/atoms/Telephone/Telephone";
 import Link from "next/link";
 import { checkoutTranslation } from "@/locales";
 
-const lang = process.env.NEXT_PUBLIC_LANG || "dk";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
 function Shipping({ shippingAddressProp }) {
   const check = checkoutTranslation[lang];
