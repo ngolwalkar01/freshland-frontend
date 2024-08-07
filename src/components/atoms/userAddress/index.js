@@ -477,7 +477,7 @@ function UserAddress({ userAddressProps }) {
                                 <div className={styles.fieldColumn}>
                                     <label htmlFor="First_Name">{check.fName}*</label>
                                     <input
-                                        className={styles.inputField}
+                                        className={styles.inputField} 
                                         type="text"
                                         value={firstName}
                                         placeholder="First Name"
