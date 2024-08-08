@@ -47,7 +47,7 @@ export const cartTranslation = {
       "continueShop": "Fortsæt med at handle",
       "yourBasket": "Din indkøbskurv er tom",
       "backTop": "Tilbage",
-      "redeem": "Redeem"
+      "redeem": "Indløs"
   },
   "fi": {
       "shCart": "",
@@ -61,7 +61,7 @@ export const cartTranslation = {
       "applyDisscount": "",
       "dis": "",
       "totalAmount": "",
-      "shipMent": "",
+      "shipMent": "Toimitus",
       "homeDelivery": "",
       "localPickup": "",
       "shipPing": "",
@@ -97,6 +97,6 @@ export const cartTranslation = {
       "continueShop": "Fortsätt handla",
       "yourBasket": "Din varukorg är tom",
       "backTop": "Tillbaka",
-         "redeem": "Redeem"
+         "redeem": "Lös in"
   }
 };

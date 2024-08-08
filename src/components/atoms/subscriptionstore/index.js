@@ -4,13 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import subscriptionService from "@/services/subscriptions";
 import { toast } from 'react-toastify';
-import { myaccountTranslation } from '@/locales';
+import { myaccountTranslation , serviceTranslation } from '@/locales';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 const Subscription = ({ newsubscriptionProducts: products, onClose, subDetail, token }) => {
   const mat = myaccountTranslation[lang];
-
+  const service = serviceTranslation[lang];
   const onAddSubscription = async (product_id) => {
     const prop = `convert_to_sub_${product_id}`;
     const { billing_interval, billing_period, id: sub_id } = subDetail
@@ -20,7 +20,7 @@ const Subscription = ({ newsubscriptionProducts: products, onClose, subDetail, t
       [prop]: `${billing_interval}_${billing_period}`
     }
     const response = await subscriptionService.addPRoductTosubscription(data, token)
-    toast.success(response.message ? response.message: "Your request is processed", { autoClose: toastTimer });
+    toast.success(response.message ? response.message: service.requestProcessed, { autoClose: toastTimer });
   }
 
   return (

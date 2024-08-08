@@ -42,10 +42,9 @@
     }
     .allcontent{
         flex-direction: column;
-        max-width: 326px;
         margin: auto;
         gap: 16px;
-        padding: 40px 0px;
+        padding: 40px 24px;
     }
     .tastepng img{
         width:100%;

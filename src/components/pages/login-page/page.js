@@ -4,7 +4,7 @@ import styles from "./Login.module.css";
 import { toast } from "react-toastify";
 import authService from "@/services/auth";
 import { useRouter } from "next/navigation";
-import { loginTranslation } from "@/locales";
+import { loginTranslation, serviceTranslation } from "@/locales";
 // import cookieService from '@/services/auth';
 import { signIn, signOut as googleSignOut } from "next-auth/react";
 import { setUserLoggedInData } from "@/components/service/auth";
@@ -18,7 +18,7 @@ const expires = parseInt(process.env.NEXT_PUBLIC_CART_KEY_EXPIRY);
 
 const Login = () => {
   const log = loginTranslation[lang];
-
+  const service = serviceTranslation[lang];
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -52,7 +52,7 @@ const Login = () => {
       // localStorage.setItem("token", `Bearer ${TOKEN}`);
       // cookieService.setCookie("token", `Bearer ${TOKEN}`, expires);
       // router.push("/account");
-      const msg = error?.response?.data?.message || "Login attempt was unsuccessful. Please check your credentials and try again.";
+      const msg = error?.response?.data?.message || service.loginAttempt;
       toast.error(msg,
         { autoClose: toastTimer }
       );
@@ -87,7 +87,7 @@ const Login = () => {
             </label>
             <input
               type="text"
-              placeholder="Enter Username"
+              placeholder={log.usern}
               name="uname"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -99,7 +99,7 @@ const Login = () => {
             </label>
             <input
               type="password"
-              placeholder="Enter Password"
+              placeholder={log.password}
               name="psw"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

@@ -5,8 +5,11 @@ import { toast } from 'react-toastify';
 import authService from '@/services/auth';
 import { SessionProvider } from "next-auth/react";
 import { setUserLoggedInData } from "@/components/service/auth";
+import { serviceTranslation } from '@/locales';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const AuthHandler = ({ stopRedirect, activateApis }) => {
+    const service = serviceTranslation[lang];
     const { data: session, status } = useSession();
     const router = useRouter();
     const toastTimer = 5000;
@@ -30,7 +33,7 @@ const AuthHandler = ({ stopRedirect, activateApis }) => {
                 }
             } catch (error) {
                 console.error("Authentication error:", error);
-                toast.error("Failed to fetch user data.", { autoClose: toastTimer });
+                toast.error(service.failedFetchUserData, { autoClose: toastTimer });
             }
 
             activateCall();

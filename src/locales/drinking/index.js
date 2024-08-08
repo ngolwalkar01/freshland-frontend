@@ -5,7 +5,7 @@ export const drinkingTranslation = {
      },
      "dk": {
          "categoryName": "Drikke",
-         "Addbtn": "Tilføj til kurv"
+         "Addbtn": "Tilføj"
      },
      "fi": {
          "categoryName": "",
@@ -13,6 +13,6 @@ export const drinkingTranslation = {
      },
      "se": {
          "categoryName": "Drycker",
-         "Addbtn": "Lägg till i varukorgen"
+         "Addbtn": "Lägg till"
      }
  };

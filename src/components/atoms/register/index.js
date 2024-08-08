@@ -2,14 +2,14 @@ import registerStyles from "./RegisterUser.module.css";
 import Link from "next/link";
 import Image from 'next/image';
 import { useState } from "react";
-import { homepageTranslation } from '@/locales';
+import { homepageTranslation, serviceTranslation } from '@/locales';
 import { commonTranslation } from '@/locales';
 import klaviyoservice from '@/services/klaviyo/apiIndex'
 import { toast } from 'react-toastify';
 
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
-
+const service = serviceTranslation[lang];
 
 const Register = () => {
   const cmt = commonTranslation[lang];
@@ -62,7 +62,7 @@ const Register = () => {
     event.preventDefault();
     if (validate()) {
       await klaviyoservice.createProfile({ email, firstName });
-      toast.success("You have successfully signed up for the newsletter", { autoClose: toastTimer });
+      toast.success(service.profileCreated, { autoClose: toastTimer });
       reset();
     }
   }
@@ -98,7 +98,7 @@ const Register = () => {
                     type="text"
                     className={registerStyles.textField}
                     name="text"
-                    placeholder="First Name"
+                    placeholder={cmt.firstName}
                     value={firstName}
                     onInput={(e) => setFirstName(e.target.value)}
                   />
@@ -115,7 +115,7 @@ const Register = () => {
                     type="email"
                     className={registerStyles.textField}
                     name="email"
-                    placeholder="Email"
+                    placeholder={hpt.email}
                     value={email}
                     onInput={(e) => setEmail(e.target.value)}
                   />

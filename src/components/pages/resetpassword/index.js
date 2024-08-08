@@ -7,7 +7,9 @@ import AccountAPI from "@/services/account";
 import toast from "@/helper/toast";
 import { useSearchParams, useRouter } from 'next/navigation';
 import Layout from '@/components/layout';
+import { serviceTranslation,myaccountTranslation } from '@/locales';
 
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const Reset = () => {
   const [loading, setloading] = useState(true);
   const router = useRouter();
@@ -15,7 +17,8 @@ const Reset = () => {
   const key = searchParams.get('key');
   const login = searchParams.get('login');
   const [routeData, setRouteData] = useState(null);
-
+  const service = serviceTranslation[lang];
+  const mat =  myaccountTranslation
   useEffect(() => {
     if (!key || !login) {
       router.push('/');
@@ -84,10 +87,10 @@ const Reset = () => {
           "confirm_password": confirmPasswordData
         }
         await AccountAPI.resetPassword(obj);
-        toast.success("Your password is updated.")
+        toast.success(service.couponRequired)
         resetData();
       } catch (error) {
-        toast.error(error?.data?.message ? error?.data?.message : "Something went wrong!")
+        toast.error(error?.data?.message ? error?.data?.message : service.somethingWentWrong)
       }
     }
   }

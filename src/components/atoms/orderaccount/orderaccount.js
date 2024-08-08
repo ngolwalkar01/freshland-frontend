@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./orderaccount.module.css";
 import Link from "next/link";
-import { myaccountTranslation } from '@/locales';
+import { myaccountTranslation, serviceTranslation } from '@/locales';
 import OrderProcess from "../orderprocess";
 import accountApi from "@/services/account";
 import { toast } from 'react-toastify';
@@ -13,6 +13,7 @@ const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, orderDates, isUserLoggedIn }) {
   const mat = myaccountTranslation[lang];
+  const service = serviceTranslation[lang];
   const [showRequest, setShowRequest] = useState();
 
   const handleRequest = () => {
@@ -36,17 +37,17 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
         const newWindow = window.open(data.download_link, '_blank');
 
         if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-          toast.error("Popup was blocked by the browser. Please allow popups for this website and try again.", {
+          toast.error(service.popupBlocked, {
             autoClose: toastTimer,
           });
         }
       } else {
-        toast.error("Failed to get the download link. Please try again later.", {
+        toast.error(service.failedDownloadLink, {
           autoClose: toastTimer,
         });
       }
     } catch (error) {
-      toast.error("There was an error while trying to fetch the invoice. Please check your connection and try again.", {
+      toast.error(service.errorFetchingInvoice, {
         autoClose: toastTimer,
       });
       // if (data.download_link) {
@@ -119,7 +120,7 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
                       </>
                     ) : (
                       <tr>
-                        <td colSpan="6" style={{ textAlign: 'center', display: 'table-cell' }}>No order found</td>
+                        <td colSpan="6" style={{ textAlign: 'center', display: 'table-cell' }}>{mat.noOrderFound}</td>
                       </tr>
                     )
 
@@ -272,7 +273,7 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
         ))}
         {!showOrderView && !(orders && orders.length > 0) && (
           <div className={styles.mobileviewtable}>
-            No order found
+          {mat.noOrderFound}
           </div>
         )}
       </div>

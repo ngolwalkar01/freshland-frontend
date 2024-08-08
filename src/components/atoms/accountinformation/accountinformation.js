@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./accountinformation.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { myaccountTranslation } from "@/locales";
+import { myaccountTranslation , serviceTranslation } from "@/locales";
 import AccountAPI from "@/services/account";
 import { toast } from "react-toastify";
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
@@ -12,7 +12,7 @@ const lang = process.env.NEXT_PUBLIC_LANG || "se";
 function Accountinformation({ isUserLoggedIn }) {
   const token = isUserLoggedIn();
   const mat = myaccountTranslation[lang];
-
+  const service = serviceTranslation[lang];
   const [passwordData, setPasswordData] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [confirmPasswordData, setConfirmPasswordData] = useState("");
@@ -118,7 +118,7 @@ function Accountinformation({ isUserLoggedIn }) {
       }
       const data = await AccountAPI.saveUpdateCustomerAddress(token, obj);
       resetForm();
-      toast.success("Your account information is updated.", { autoClose: toastTimer });
+      toast.success(service.accountUpdated, { autoClose: toastTimer });
     }
   };
 
@@ -148,7 +148,7 @@ function Accountinformation({ isUserLoggedIn }) {
                     className={styles.inputField}
                     type="text"
                     value={profile?.first_name}
-                    placeholder="First Name"
+                    placeholder={mat.firstName}
                     onChange={(e) => updateUserProfile(e, "first_name")}
                   />
                   {errors?.firstName && (
@@ -163,7 +163,7 @@ function Accountinformation({ isUserLoggedIn }) {
                     className={styles.inputField}
                     type="text"
                     value={profile?.last_name}
-                    placeholder="Last Name"
+                    placeholder={mat.lastName}
                     onChange={(e) => updateUserProfile(e, "last_name")}
                   />
                   {errors?.lastName && (
@@ -195,7 +195,7 @@ function Accountinformation({ isUserLoggedIn }) {
                     className={styles.inputField}
                     type="email"
                     value={profile?.email}
-                    placeholder="Email"
+                    placeholder={mat.emailAddress}
                     onChange={(e) => updateUserProfile(e, "email")}
                     disabled
                   />

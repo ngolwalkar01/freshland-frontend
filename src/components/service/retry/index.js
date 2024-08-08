@@ -2,8 +2,11 @@ import { toast } from 'react-toastify';
 import cookieService from '@/services/cookie';
 import { removeLocalStorage } from '@/services/local-storage';
 import Router from "next/router";
+import { serviceTranslation } from '@/locales';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
+const service = serviceTranslation[lang];
 
 export const retryCall = async (method, parameters, errorMessage = "", count = 0, redirect = "") => {
     try {
@@ -23,7 +26,7 @@ export const retryCall = async (method, parameters, errorMessage = "", count = 0
                 return retryCall(method, parameters, count + 1);
             }
         } else {
-            toast.error((error?.data?.message ? error.data.message : (errorMessage ? errorMessage : "Something went wrong")), { autoClose: toastTimer });
+            toast.error((error?.data?.message ? error.data.message : (errorMessage ? errorMessage : service.somethingWentWrong)), { autoClose: toastTimer });
         }
         throw error;
     }

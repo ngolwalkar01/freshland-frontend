@@ -8,10 +8,13 @@ import {
   getLocalStorage,
 } from "@/services/local-storage";
 import { retryCall } from "../retry";
+import { serviceTranslation } from '@/locales';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const cartCookieKey = process.env.NEXT_PUBLIC_CART_COOKIE;
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
+const service = serviceTranslation[lang];
 
 export const checkTokenExists = (cartData) => {
   return localStorage.getItem('token') && localStorage.getItem('userId');
@@ -51,7 +54,7 @@ const storeTempState = () => {
 export const getCartData = async () => {
   try {
     const errorMessage =
-      "There was an issue in fetching cart data. Please try again.";
+      service.fetchCartDataIssue;
     const cartData = await retryCall(cartService.getCartData, [], errorMessage);
     updateCartData(cartData);
     return cartData;
@@ -67,13 +70,13 @@ export const addToCart = async (
 ) => {
   try {
     const errorMessage =
-      "There was an issue adding the product to your cart. Please try again.";
+      service.addProductToCartError;
     const productAddedToCart = await retryCall(
       cartService.addProductToCart,
       [productId, quantity, subscription_scheme],
       errorMessage
     );
-    toast.success("Product has been successfully added to your cart.", {
+    toast.success(service.productAddedToCart , {
       autoClose: toastTimer,
     });
     updateCartData(productAddedToCart);
@@ -86,7 +89,7 @@ export const addToCart = async (
 export const updateCartQuantity = async (itemKey, quantity) => {
   try {
     const errorMessage =
-      "There was an issue in updating quantity. Please try again.";
+      service.updateQuantityIssue;
     const data = await retryCall(
       cartService.updateCartQuantity,
       [itemKey, quantity],
@@ -101,7 +104,7 @@ export const updateCartQuantity = async (itemKey, quantity) => {
 
 export const removeCartItem = async (itemKey) => {
   const errorMessage =
-    "There was an issue removing the product from your cart. Please try again.";
+    service.removeProductFromCartIssue;
   const data = await retryCall(
     cartService.removeItemFromCart,
     [itemKey],
@@ -113,7 +116,7 @@ export const removeCartItem = async (itemKey) => {
 
 export const addCouponCart = async (coupon_code) => {
   const errorMessage =
-    "There was an issue in applying coupon on cart item. Please try again.";
+    service.applyCouponIssue;
   const data = await retryCall(
     cartService.addCouponCart,
     [coupon_code],
@@ -125,7 +128,7 @@ export const addCouponCart = async (coupon_code) => {
 
 export const removeCouponCart = async (coupon_code) => {
   const errorMessage =
-    "There was an issue in applying coupon on cart item. Please try again.";
+  service.applyCouponIssue;
   const data = await retryCall(
     cartService.removeCouponCart,
     [coupon_code],
@@ -138,7 +141,7 @@ export const removeCouponCart = async (coupon_code) => {
 export const addShippingCart = async (shipping_method) => {
   const cartKey = cookieService.getCookie(cartCookieKey);
   const errorMessage =
-    "There was an issue in applying coupon on cart item. Please try again.";
+  service.applyCouponIssue;
   await retryCall(
     cartService.addShipping,
     [cartKey, shipping_method],
@@ -149,7 +152,7 @@ export const addShippingCart = async (shipping_method) => {
 
 export const createNewOrder = async (orderData) => {
   const errorMessage =
-    "There was an issue in applying coupon on cart item. Please try again.";
+  service.applyCouponIssue;
   const data = await retryCall(
     cartService.createNewOrder,
     [orderData],
@@ -157,7 +160,7 @@ export const createNewOrder = async (orderData) => {
   );
   storeTempState();
   removeLocalStorage(cartDataStorage);
-  toast.success("Your order is in process.", { autoClose: toastTimer });
+  toast.success(service.yourOrderProcess, { autoClose: toastTimer });
   return data;
 };
 
@@ -166,7 +169,7 @@ export const updateCartSubscriptionFrequency = async (
   subscription_scheme
 ) => {
   const errorMessage =
-    "There was an issue in updating cart subscription frequency. Please try again.";
+   service.updateCartSubscriptionFreqIssue;
   await retryCall(
     cartService.updateCartSubscriptionFrequency,
     [cart_item_key, subscription_scheme],
@@ -178,7 +181,7 @@ export const updateCartSubscriptionFrequency = async (
 export const setCustomerDetails = async (customerInfo, stopRedirectToLogin) => {
   stopRedirectToLogin = stopRedirectToLogin || "";
   const errorMessage =
-    "There was an issue in saving customer detail. Please try again.";
+   service.saveCustomerDetailIssue;
   const data = await retryCall(
     cartService.setCustomerDetails,
     [customerInfo, stopRedirectToLogin],
@@ -190,7 +193,7 @@ export const setCustomerDetails = async (customerInfo, stopRedirectToLogin) => {
 
 export const getSubscriptionOptions = async (product_id) => {
   const errorMessage =
-    "There was an issue in fetching subscription detail. Please try again.";
+    service.fetchSubscriptionDetailIssue;
   return await retryCall(
     cartService.getSubscriptionOptions,
     [product_id],
@@ -200,7 +203,7 @@ export const getSubscriptionOptions = async (product_id) => {
 
 export const recoverUserCart = async (order_id, cart_key) => {
   const errorMessage =
-    "There was an issue in fetching recover user cart. Please try again.";
+   service.recoverUserCartIssue;
   await retryCall(
     cartService.recoverUserCart,
     [order_id, cart_key],
@@ -218,7 +221,7 @@ export const getUserAddresses = async () => {
     return [];
   } catch (error) {
     toast.error(
-      "There was an issue in fetching recover user cart. Please try again.",
+      service.recoverUserCartIssue,
       { autoClose: toastTimer }
     );
   }
@@ -233,7 +236,7 @@ export const setUserAddressesAsync = async (index) => {
     return [];
   } catch (error) {
     toast.error(
-      "There was an issue in fetching recover user cart. Please try again.",
+      service.recoverUserCartIssue,
       { autoClose: toastTimer }
     );
   }
@@ -248,7 +251,7 @@ export const saveUserAddresses = async (userAdds) => {
     return [];
   } catch (error) {
     toast.error(
-      "There was an issue in fetching recover user cart. Please try again.",
+      service.recoverUserCartIssue,
       { autoClose: toastTimer }
     );
     throw error;

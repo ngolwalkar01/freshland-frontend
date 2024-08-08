@@ -102,10 +102,16 @@ export const myaccountTranslation = {
         "howwould": "How would you like to be compensated for the reported issue?",
         "coupon": "Coupon",
         "couponCode": "💡 A coupon code will be sent to you which you can use in the next order.",
-        "additional": "Additional Comments"
+        "additional": "Additional Comments",
+        "notAvailable":"Not available",
+         "getFirstPayLater":"Complete Purchase",
+         "completePurchase":"Køb i alt",
+         "directPayment":"Direct Payment",
+         "noOrderFound":"No order found",
+         "chooseImage":"Choose an Image"
     },
     "dk": {
-        "shipment": "Shipment",
+        "shipment": "Forsendelse",
         "pageHeading": "Min konto",
         "ordersHeading": "Ordrer",
         "subscriptionHeading": "Mine abonnementer",
@@ -207,10 +213,16 @@ export const myaccountTranslation = {
         "howwould": "Hvordan ønsker du at bliver kompenseret for den indsendte reklamation?",
         "coupon": "Rabatkupon",
         "couponCode": "💡En rabatkupon til brug ved din næste ordre vil blive sendt til dig",
-        "additional": "Øvrige kommentarer"
+        "additional": "Øvrige kommentarer",
+         "notAvailable":"Ikke tilgængelig",
+          "getFirstPayLater":"Få først. Betal senere",
+          "completePurchase":"Køb i alt",
+           "directPayment":"Direkte betaling",
+            "noOrderFound":"Ingen ordre fundet",
+               "chooseImage":"Vælg et billede"
     },
     "fi": {
-        "shipment": "Shipment",
+        "shipment": "Toimitus",
         "pageHeading": "",
         "ordersHeading": "",
         "subscriptionHeading": "",
@@ -312,10 +324,18 @@ export const myaccountTranslation = {
         "howwould": "",
         "coupon": "",
         "couponCode": "",
-        "additional": ""
+        "additional": "",
+        "notAvailable":"",
+         "getFirstPayLater":"",
+         "completePurchase":"",
+           "directPayment":"",
+           
+           "noOrderFound":"",
+           "chooseImage":""
+        
     },
     "se": {
-        "shipment": "Shipment",
+        "shipment": "Frakt",
         "pageHeading": "Mitt konto",
         "ordersHeading": "Ordrar",
         "subscriptionHeading": "Mina prenumerationer",
@@ -417,6 +437,12 @@ export const myaccountTranslation = {
         "howwould": "Hur önskar du att bli kompenserad för den inskickade reklamationen?",
         "coupon": "Rabattkupong",
         "couponCode": "💡 En rabattkupong för ditt nästa köp kommer att skickas till dig",
-        "additional": "Övriga kommentarer"
+        "additional": "Övriga kommentarer",
+        "notAvailable":"IEj tillgänglig",
+        "getFirstPayLater":"Få först. Betala senare",
+        "completePurchase":"Slutför köp",
+          "directPayment":"Direktbetalning",
+            "noOrderFound":"Ingen beställning hittades",
+            "chooseImage":"Välj en bild"
     }
 };

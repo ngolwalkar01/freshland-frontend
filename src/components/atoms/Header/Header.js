@@ -226,7 +226,7 @@ const Header = () => {
             <div className={styles.overlayContent}>
               <p className={styles.looking}>{hpt.whatAre}</p>
               <form>
-                <input type="text" placeholder="search items.." value={searchTxt}
+                <input type="text" placeholder={hpt.searchItem} value={searchTxt}
                   onChange={(e) => setSearchTxt(e.target.value)} name="search" className={styles.overlayInput} />
                 <button type="button" onClick={onSearch} className={styles.overlayButton}><i className="fa fa-search"></i></button>
               </form>

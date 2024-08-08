@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Image from "next/image";
-
+import { myaccountTranslation } from "@/locales";
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
 const createKlarnaPayload = () => {
@@ -38,6 +39,7 @@ const createKlarnaPayload = () => {
 }
 
 const KlarnaCheckout = ({ styles }) => {
+    const mat = myaccountTranslation[lang];
     const [clientToken, setClientToken] = useState('');
     const [selectedOption, setSelectedOption] = useState("");
 
@@ -134,7 +136,7 @@ const KlarnaCheckout = ({ styles }) => {
                                 checked={selectedOption === "direct"}
                                 onChange={handleOptionChange}
                             />
-                            <label htmlFor="direct">Direct Payment</label>
+                            <label htmlFor="direct">{mat.directPayment}</label>
                         </div>
                         <p>Klarna.</p>
                     </div>
@@ -188,7 +190,7 @@ const KlarnaCheckout = ({ styles }) => {
                                 checked={selectedOption === "later"}
                                 onChange={handleOptionChange}
                             />
-                            <label htmlFor="later">Get First. Pay Later.</label>
+                            <label htmlFor="later">{mat.getFirstPayLater}</label>
                         </div>
                         <p>Klarna.</p>
                     </div>
@@ -204,7 +206,7 @@ const KlarnaCheckout = ({ styles }) => {
                 </div>
             </div>
             {
-                selectedOption && <button onClick={handleAuthorization}>Complete Purchase</button>
+                selectedOption && <button onClick={handleAuthorization}>{mat.completePurchase}</button>
             }
         </div>
     );

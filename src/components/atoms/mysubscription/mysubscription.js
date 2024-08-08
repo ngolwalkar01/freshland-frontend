@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import styles from "./mysubscription.module.css";
 import Link from "next/link";
-import { myaccountTranslation } from "@/locales";
+import { myaccountTranslation, serviceTranslation } from "@/locales";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import Subscription from "../subscriptionstore";
@@ -113,6 +113,7 @@ function Mysubscription({ showOrderView, setShowOrderView, isUserLoggedIn, setLo
     setShowPopup(false);
   };
   const mat = myaccountTranslation[lang];
+  const service = serviceTranslation[lang];
   // const [showOrderView, setShowOrderView] = useState(false);
 
   const handleViewClick = (id) => {
@@ -161,7 +162,7 @@ function Mysubscription({ showOrderView, setShowOrderView, isUserLoggedIn, setLo
     const data = await subscriptionService.skipNextDeliveryDate(subscriptionDetail.id, token);
     await toggleSubView(subscriptionDetail.id, true);
     handleClosepopup();
-    toast.success("Your subscription is now suspended and will be activated on the date selected.", { autoClose: toastTimer });
+    toast.success(service.subscriptionSuspended, { autoClose: toastTimer });
   }
 
   const setDeliveryDate = async () => {
@@ -171,7 +172,7 @@ function Mysubscription({ showOrderView, setShowOrderView, isUserLoggedIn, setLo
       await toggleSubView(subscriptionDetail.id, true);
       handleclosecalenderpopup();
       setLoading(false);
-      toast.success("Your subscription has been put on hold.", { autoClose: toastTimer });
+      toast.success(service.subscriptionOnHold, { autoClose: toastTimer });
     } catch (error) {
       console.log(error);
     } finally {

@@ -5,7 +5,7 @@ export const greenTranslation = {
       },
       "dk": {
           "categoryName": "Grønt",
-          "Addbtn": "Tilføj til kurv"
+          "Addbtn": "Tilføj"
       },
       "fi": {
           "categoryName": "",
@@ -13,6 +13,6 @@ export const greenTranslation = {
       },
       "se": {
           "categoryName": "Grönsaker",
-          "Addbtn": "Lägg i varukorgen"
+          "Addbtn": "Lägg till"
       }
 }

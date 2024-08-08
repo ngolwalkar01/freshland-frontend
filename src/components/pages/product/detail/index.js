@@ -35,7 +35,7 @@ const Description = ({ productDetailProps }) => {
   const productDetail = originalProductDetail;
 
   const relatedProductProps = {
-    cardHeading: "Related Items",
+    cardHeading: pdt.relItem,
     productData: relatedProducts,
     enableMockData,
     addToCart,
@@ -280,7 +280,7 @@ const Description = ({ productDetailProps }) => {
                   <div className={`M-Body-Large ${styles.basketWrapper}`}>
                     <span onClick={handleAddToCart}>
                       {loading ? <Loader /> : null}
-                      {isOneTimePurchaseActive ? "Add To Basket" : "Subscribe"}
+                      {isOneTimePurchaseActive ? `${pdt.addToBasket}`: `${pdt.subscribe}`}
                     </span>
                   </div>
                 </div>

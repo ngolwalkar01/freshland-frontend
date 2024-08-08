@@ -9,7 +9,10 @@ export const loginTranslation = {
     "useSocial": "Use a social account for faster login or easy registration.",
     "logfb": "Login with Facebook",
     "logt": "Login with Twitter",
-    "logg": "Login with Google+"
+    "logg": "Login with Google+",
+    "lostPasswordPrompt": "Lost your password? Please enter your username or email address. You will receive a link via e-mail to create a new password.",
+    "resetPassword": "Reset Password",
+     "email": "E-mail",
 },
 "dk": {
     "login": "Login",
@@ -21,7 +24,10 @@ export const loginTranslation = {
     "useSocial": "Login eller opret hurtigere med sociale medier",
     "logfb": "Login med Facebook",
     "logt": "-",
-    "logg": "Login med Google+"
+    "logg": "Login med Google+",
+    "lostPasswordPrompt": "Lost your password? Please enter your username or email address. You will receive a link via e-mail to create a new password.",
+    "resetPassword": "Reset Password",
+   "email": "E-mail",
 },
 "fi": {
     "login": "",
@@ -33,7 +39,10 @@ export const loginTranslation = {
     "useSocial": "",
     "logfb": "",
     "logt": "",
-    "logg": ""
+    "logg": "",
+    "lostPasswordPrompt": "Lost your password? Please enter your username or email address. You will receive a link via e-mail to create a new password.",
+    "resetPassword": "Reset Password",
+    "email": "E-post",
 },
 "se": {
     "login": "Inloggning",
@@ -45,6 +54,9 @@ export const loginTranslation = {
     "useSocial": "Logga in eller registrera dig snabbare med sociala medier",
     "logfb": "Logga in med Facebook",
     "logt": "-",
-    "logg": "Logga in med Google+"
+    "logg": "Logga in med Google+",
+    "lostPasswordPrompt": "Lost your password? Please enter your username or email address. You will receive a link via e-mail to create a new password.",
+    "resetPassword": "Reset Password",
+    "email": "E-post",
 }
 }

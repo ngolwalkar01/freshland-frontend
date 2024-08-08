@@ -48,6 +48,9 @@ export const productdetailTranslation = {
       "fastDeliver":"Fast Delivery",
       "orderTime":" Order before Wednesday 24:00 and have your goods delivered the following week.",
       "descriptionHeading":"DESCRIPTION",
+      "addToBasket": "Add to Basket",
+      "relItem":"Related Items",
+      
      
     
     },
@@ -98,8 +101,10 @@ export const productdetailTranslation = {
        "freeShipping":"Free Shipping",
        "shiipingOrder":"Shipping is free for all orders over DKK 699.",
        "fastDeliver":"Fast Delivery",
-       "orderTime":" Order before Wednesday 24:00 and have your goods delivered the following week.",
-       "descriptionHeading":"DESCRIPTION"
+       "orderTime":"Bestil onsdag før kl. 24, og få din levering ugen efter.",
+       "descriptionHeading":"BESKRIVELSE",
+       "addToBasket": "Tilføj",
+        "relItem":"Related Items"
     },
     "fi": {
         "freeShippingOver": "",
@@ -148,8 +153,10 @@ export const productdetailTranslation = {
        "freeShipping":"Free Shipping",
        "shiipingOrder":"Shipping is free for all orders over DKK 699.",
        "fastDeliver":"Fast Delivery",
-       "orderTime":" Order before Wednesday 24:00 and have your goods delivered the following week.",
-       "descriptionHeading":"DESCRIPTION"
+       "orderTime":"Tilaa ennen keskiviikon puolta yötä ja saat tuotteet kotiintoimitettuna seuraavalla viikolla.",
+       "descriptionHeading":"TUOTEKUVAUS",
+       "addToBasket": "Add to Basket",
+        "relItem":"Related Items"
     },
     "se": {
         "freeShippingOver": "📦 Gratis frakt vid beställning över 699 kr",
@@ -187,18 +194,20 @@ export const productdetailTranslation = {
         "ourEconomy": "Vårt ekonomisortiment",
         "oneOfour": "En av våra stora önskningar är att bra och färska ekologiska råvaror ska vara mer tillgängliga. Det är bland annat därför vi arbetar direkt med våra olika odlare utan mellanhänder. Vårt ekonomipaket erbjuder större mängder där innehållet kan variera något i storlek, men de genomgår fortfarande samma kvalitetskontroll som alla andra produkter i vårt sortiment. Ekonomipaketen är perfekta att dela med andra och är också utmärkta om du gillar att göra sylt, baka och fermentera. Läckra färskplockade råvaror som inspirerar i köket och skapar glädje vid matbordet.",
         "orangeThrive": "Apelsinerna trivs bra under sommaren, men det är svårt att säga exakt hur länge vi kan njuta av dem. Säsongen börjar normalt sett i slutet av sommaren.",
-        "sendAnother":" Send to another address?",
-        "orderbefore":" Order before",
-        "time":"1 Days 08 Hours 30 Mine 36 Seconds",
-        "collection":"collection / delivery Wednesday next week.",
-        "naturalproducts":"Natural products",
-       "allProduct": " All products are chemical-free and sent to you without any unnecessary packaging and with less food waste.",
-       "StraightFrom":"Straight from the farm",
-       "skip":"Skip up to 5 middlemen and have your products delivered to you straight from the farm.",
-       "freeShipping":"Free Shipping",
-       "shiipingOrder":"Shipping is free for all orders over DKK 699.",
-       "fastDeliver":"Fast Delivery",
-       "orderTime":" Order before Wednesday 24:00 and have your goods delivered the following week.",
-       "descriptionHeading":"DESCRIPTION"
+        "sendAnother":" Skicka till en annan adress?",
+        "orderbefore":"Beställ före",
+        "time":"1 dag 08 timmar 30 minuter 36 sekunder",
+        "collection":"upphämtning / leverans onsdag nästa vecka",
+        "naturalproducts":"Naturliga produkter",
+       "allProduct": "Alla produkter är fria från kemikalier och skickas till dig utan onödiga förpackningar och med mindre matsvinn.",
+       "StraightFrom":"Direkt från gården,",
+       "skip":"Hoppa över upp till 5 mellanhänder och få dina produkter levererade direkt från gården.",
+       "freeShipping":"Fri frakt,",
+       "shiipingOrder":"Frakt är gratis för alla beställningar över 699 DKK.",
+       "fastDeliver":"Snabb leverans",
+       "orderTime":"Beställ före onsdag 24:00 och få dina varor levererade veckan därpå.",
+       "descriptionHeading":"BESKRIVNING",
+       "addToBasket": "Lägg till",
+        "relItem":"Related Items"
     }
 }

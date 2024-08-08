@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import Styles from './farmervideo.module.css';
+import { commonTranslation} from '@/locales';
 
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 // Change the component name to PascalCase
 const FarmerVideo = ({ videoId, className }) => {
+  const cmt = commonTranslation[lang];
   const [load, setLoad] = useState(false);
   const videoRef = useRef(null);
 
@@ -40,7 +43,7 @@ const FarmerVideo = ({ videoId, className }) => {
           allowFullScreen
         ></iframe>
       ) : (
-        <div>Loading...</div>
+        <div>{cmt.loading}</div>
       )}
     </div>
   );

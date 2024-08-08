@@ -5,7 +5,7 @@ export const basisTranslation = {
      },
      "dk": {
          "categoryName": "Basis",
-         "Addbtn": "Tilføj til kurv"
+         "Addbtn": "Tilføj"
      },
      "fi": {
          "categoryName": "",
@@ -13,6 +13,6 @@ export const basisTranslation = {
      },
      "se": {
          "categoryName": "Basvaror",
-         "Addbtn": "Lägg till i kundvagnen"
+         "Addbtn": "Lägg till"
      }
  };

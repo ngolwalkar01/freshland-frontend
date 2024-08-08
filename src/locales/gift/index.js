@@ -5,7 +5,7 @@ export const giftTranslation = {
      },
      "dk": {
          "categoryName": "Gavekort",
-         "Addbtn": "Tilføj til kurv"
+         "Addbtn": "Tilføj"
      },
      "fi": {
          "categoryName": "",
@@ -13,6 +13,6 @@ export const giftTranslation = {
      },
      "se": {
          "categoryName": "Presentkort",
-         "Addbtn": "Lägg i varukorgen"
+         "Addbtn": "Lägg till"
      }
  };

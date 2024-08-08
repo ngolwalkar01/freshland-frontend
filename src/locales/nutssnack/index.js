@@ -5,7 +5,7 @@ export const nutsTranslation = {
       },
       "dk": {
           "categoryName": "Nødder & snacks",
-          "Addbtn": "Tilføj til kurv"
+          "Addbtn": "Tilføj"
       },
       "fi": {
           "categoryName": "",
@@ -13,6 +13,6 @@ export const nutsTranslation = {
       },
       "se": {
           "categoryName": "Nötter & snacks",
-          "Addbtn": "Lägg till i varukorgen"
+          "Addbtn": "Lägg till"
       }
 }

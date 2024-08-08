@@ -2,11 +2,12 @@ import cartService from '@/services/cart'
 import { toast } from 'react-toastify';
 import cookieService from '@/services/cookie';
 import { setLocalStorage, removeLocalStorage } from '@/services/local-storage';
-
+import { serviceTranslation } from '@/locales';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const cartCookieKey = process.env.NEXT_PUBLIC_CART_COOKIE;
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
-
+const service = serviceTranslation[lang];
 const updateCartData = (cartData) => {
     setLocalStorage(cartDataStorage, cartData);
 }
@@ -18,7 +19,7 @@ export const getCartData = async () => {
         updateCartData(cartData);
         return cartData;
     } catch (error) {
-        toast.error("There was an issue in fetching cart data. Please try again.", { autoClose: toastTimer });
+        toast.error(service.fetchCartDataIssue, { autoClose: toastTimer });
     }
 };
 
@@ -29,11 +30,11 @@ export const addToCart = async (productId, quantity = "1") => {
         const { cart_key } = productAddedToCart;
         const expires = parseInt(process.env.NEXT_PUBLIC_CART_KEY_EXPIRY);
         cookieService.setCookie(cartCookieKey, cart_key, expires);
-        toast.success("Product has been successfully added to your cart.", { autoClose: toastTimer });
+        toast.success(service.productAddedToCartSuccess, { autoClose: toastTimer });
         await getCartData(cart_key);
         return productAddedToCart;
     } catch (error) {
-        toast.error("There was an issue adding the product to your cart. Please try again.", { autoClose: toastTimer });
+        toast.error(service.addProductToCartError, { autoClose: toastTimer });
     }
 };
 
@@ -43,7 +44,7 @@ export const updateCartQuantity = async (itemKey, quantity) => {
         await cartService.updateCartQuantity(cartKey, itemKey, quantity);
         return await getCartData();
     } catch (error) {
-        toast.error("There was an issue in updating quantity. Please try again.", { autoClose: toastTimer });
+        toast.error(service.updateQuantityIssue, { autoClose: toastTimer });
     }
 };
 
@@ -53,7 +54,7 @@ export const removeCartItem = async (itemKey) => {
         await cartService.removeItemFromCart(cartKey, itemKey);
         return await getCartData(cartKey);
     } catch (error) {
-        toast.error("There was an issue removing the product from your cart. Please try again.", { autoClose: toastTimer });
+        toast.error(service.removeProductFromCartIssue, { autoClose: toastTimer });
     }
 };
 
@@ -63,7 +64,7 @@ export const addCouponCart = async (coupon_code) => {
         await cartService.addCouponCart(cartKey, coupon_code);
         return await getCartData(cartKey);
     } catch (error) {
-        toast.error("There was an issue in applying coupon on cart item. Please try again.", { autoClose: toastTimer });
+        toast.error(service.applyCouponIssue, { autoClose: toastTimer });
     }
 };
 
@@ -73,7 +74,7 @@ export const removeCouponCart = async (coupon_code) => {
         await cartService.removeCouponCart(cartKey, coupon_code);
         return await getCartData(cartKey);
     } catch (error) {
-        toast.error("There was an issue in applying coupon on cart item. Please try again.", { autoClose: toastTimer });
+        toast.error(service.applyCouponIssue, { autoClose: toastTimer });
     }
 };
 
@@ -83,7 +84,7 @@ export const addShippingCart = async (shipping_method) => {
         await cartService.addShipping(cartKey, shipping_method);
         return await getCartData(cartKey);
     } catch (error) {
-        toast.error("There was an issue in applying coupon on cart item. Please try again.", { autoClose: toastTimer });
+        toast.error(service.applyCouponIssue, { autoClose: toastTimer });
     }
 };
 
@@ -94,8 +95,8 @@ export const createNewOrder = async (shipping_method) => {
         await cartService.createNewOrder(orderData);
         removeLocalStorage(cartDataStorage);
         cookieService.removeCookie(cartCookieKey);
-        toast.success("Your order has been placed.", { autoClose: toastTimer });
+        toast.success(service.yourOrderPlaced, { autoClose: toastTimer });
     } catch (error) {
-        toast.error("There was an issue in applying coupon on cart item. Please try again.", { autoClose: toastTimer });
+        toast.error(service.applyCouponIssue, { autoClose: toastTimer });
     }
 };

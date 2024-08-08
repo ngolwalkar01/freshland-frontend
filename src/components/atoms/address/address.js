@@ -12,7 +12,7 @@ export const AddressInfo = ({ address, email }) => {
   if (!address)
     return (
       <div>
-        <p>Not available !</p>
+        <p>{mat.notAvailable} !</p>
       </div>
     )
 

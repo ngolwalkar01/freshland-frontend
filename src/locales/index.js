@@ -13,6 +13,7 @@ import {shopTranslation} from './shop';
 import {loginTranslation} from './login'
 import { termTranslation } from './term';
 import { policyTranslation } from './personaldata';
+import {serviceTranslation} from './services'
 export {
     aboutTranslation,
     commonTranslation,
@@ -28,5 +29,6 @@ export {
     shopTranslation,
     loginTranslation,
     termTranslation,
-    policyTranslation
+    policyTranslation,
+    serviceTranslation
 }

@@ -793,7 +793,7 @@ function Checkout() {
                           className={styles.inputField}
                           type="email"
                           value={email}
-                          placeholder="Email Address"
+                          placeholder={check.eName}
                           onChange={(e) => setEmail(e.target.value)}
                           name="Email"
                         />

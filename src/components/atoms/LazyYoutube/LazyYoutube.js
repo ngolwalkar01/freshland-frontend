@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import Styles from './LazyYoutube.module.css'
+import { commonTranslation} from '@/locales';
 
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const LazyYoutube = ({ videoId, className }) => {
+  const cmt = commonTranslation[lang];
   const [load, setLoad] = useState(false);
   const videoRef = useRef(null);
 
@@ -41,7 +44,7 @@ const LazyYoutube = ({ videoId, className }) => {
           allowFullScreen
         ></iframe>
       ) : (
-        <div>Loading...</div>
+        <div>{cmt.loading}</div>
       )}
     </div>
   );

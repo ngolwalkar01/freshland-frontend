@@ -6,8 +6,12 @@ import Link from "next/link";
 import Telephone from "@/components/atoms/Telephone/Telephone";
 import klaviyoService from '@/services/klaviyo/apiIndex';
 import toast from "@/helper/toast";
+import { commonTranslation, serviceTranslation } from '@/locales';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Vip = ({ vipPageData }) => {
+  const cmt = commonTranslation[lang];
+  const service = serviceTranslation[lang];
   const [vipData, setVipData] = useState(null);
   const [errors, setErrors] = useState({});
 
@@ -72,9 +76,9 @@ const Vip = ({ vipPageData }) => {
         const obj = { ...vipData, phone_number: addPlusPrefix(vipData.phone_number) }
         const data = await klaviyoService.linkProfileToList(obj);
         resetForm();
-        toast.success("Profile linked to list.");
+        toast.success(service.profileLinkedToList);
       } catch (error) {
-        toast.error((error?.data?.message ? error.data.message : (errorMessage ? errorMessage : "Something went wrong")));
+        toast.error((error?.data?.message ? error.data.message : (errorMessage ? errorMessage : service.somethingWentWrong)));
       }
     }
   }
@@ -116,11 +120,9 @@ const Vip = ({ vipPageData }) => {
               </div> */}
                 <div className={style.juicy}>
                   <div className={style.signUpvip}>
-                    <p>Sign up for the VIP list</p>
+                    <p>{cmt.signUpVIP}</p>
                     <p>
-                      By signing up to our VIP list, you get access to the first
-                      harvest a day before everyone else - so you can order with
-                      peace of mind.
+                     {cmt.vipDescription}
                     </p>
                   </div>
                   <div className={style.productimg}>
@@ -134,7 +136,7 @@ const Vip = ({ vipPageData }) => {
                 </div>
                 <div className={style.formFeild}>
                   <div>
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">{cmt.firstName}</label>
                     <input
                       className={style.inputField}
                       type="text"
@@ -150,7 +152,7 @@ const Vip = ({ vipPageData }) => {
                     )}
                   </div>
                   <div>
-                    <label htmlFor="email">E-mail</label>
+                    <label htmlFor="email">{cmt.email}</label>
                     <input
                       className={style.inputField}
                       type="text"
@@ -180,21 +182,22 @@ const Vip = ({ vipPageData }) => {
                 </div>
                 <div>
                   <p className={style.msgInfo}>
-                    I would like to receive emails and SMS/calls from Fresh.land
-                    with marketing about Fresh.land and their{" "}
-                    <Link href="#">product offerings</Link> , events, contests and
-                    their{" "}
+                  {cmt.marketingConsent}{" "}
+                    <Link href="#">{cmt.productoffer}</Link>,{cmt.event} 
+                    {" "}
                     <Link href="#">
-                      Less Waste Friendships initiative with partners
+                      {cmt.lessWaste}
                     </Link>{" "}
-                    . I accept that my data is processed for this purpose.
+                    . {cmt.acceptDataProcessing}.
                   </p>
                 </div>
                 <p className={style.msgInfo}>
-                  You can always withdraw your consent, see how to do it{" "}
-                  <Link href="#">here</Link>. You can read in our
+                {cmt.withdrawConsent} <Link  href="#">{cmt.here}</Link> 
+                 {cmt.privacyPolicyInfo} <Link href="#"> {cmt.privacypolicy} </Link>
+                 {cmt.weProcess}
+                  {/* <Link href="#">here</Link>. You can read in our
                   <Link href="#"> privacy policy </Link> how we process
-                  information about you.
+                  information about you. */}
                 </p>
                 <div>
                   <button onClick={submit} className={style.submit}>Submit</button>

@@ -15,7 +15,7 @@ import {
   updateCartSubscriptionFrequency,
 } from "@/components/service/cart";
 import Loader from "@/components/atoms/loader/loader";
-import { cartTranslation } from "@/locales";
+import { cartTranslation, serviceTranslation } from "@/locales";
 import { setShippingMethod } from "@/components/service/shipping";
 import CartShipping from "@/components/atoms/cartshiiping";
 import { applyLoader } from "@/helper/loader";
@@ -42,6 +42,7 @@ function Cart() {
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const ct = cartTranslation[lang];
+  const service = serviceTranslation[lang];
   const [olLoader, setOlLoader] = useState(false);
 
   const [cartData, setCartData] = useState(INTIAL_CART_DATA);
@@ -145,7 +146,7 @@ function Cart() {
     try {
       let newQuantity = incrementQuantity + currentQuantity;
       if (currentQuantity == 1 && newQuantity < 1) {
-        toast.error("Product must have atleast 1 quantity.", {
+        toast.error(service.productQuantityRequired, {
           autoClose: toastTimer,
         });
         return;
@@ -207,10 +208,10 @@ function Cart() {
         const data = await addCouponCart(coupon);
         setCartDataByCartData(data);
         if(!(data?.coupons && data?.coupons.length > 0)) {
-          toast.error("Discount coupon can not be applied", { autoClose: toastTimer });
+          toast.error(service.couponNotApplied, { autoClose: toastTimer });
         }
       } else {
-        toast.error("Discount coupon is required", { autoClose: toastTimer });
+        toast.error(service.couponRequired, { autoClose: toastTimer });
       }
     } catch (error) {
       console.log(error);

@@ -167,7 +167,12 @@ const Faqs = () => {
         <div className={styles.faqscontainer}>
           <h2>{faq.fq}&#x275C;S</h2>
           <div className={styles.faqsdelivery}>
-            <div className={styles.contactcontainer}>
+            {
+              faqData && faqData.length > 0 && faqData.map((x, i) => {
+                return <Faq key={i} heading={x.heading} accordionData={x.accordionData} />
+              })
+            }
+             <div className={styles.contactcontainer}>
               <h3 className={styles.contactus}>{faq.contact}</h3>
               <p className={styles.emailnumber}>
                 <Link href="mailto:info@fresh.land.com">{faq.info}</Link>
@@ -177,11 +182,6 @@ const Faqs = () => {
               </p>
               <p className={styles.dk}>{faq.indikaj}</p>
             </div>
-            {
-              faqData && faqData.length > 0 && faqData.map((x, i) => {
-                return <Faq key={i} heading={x.heading} accordionData={x.accordionData} />
-              })
-            }
           </div>
         </div>
       </section>

@@ -36,7 +36,7 @@ function Billing({ billingAddressProp }) {
                       className={styles.inputField}
                       type="text"
                       value={billingAddress?.first_name}
-                      placeholder="First Name"
+                      placeholder={check.firstName}
                       onChange={(e) => updateBillingAddress(e, "first_name")}
                       name="First_Name"
                     />
@@ -48,7 +48,7 @@ function Billing({ billingAddressProp }) {
                     className={styles.inputField}
                     type="text"
                     value={billingAddress?.last_name}
-                    placeholder="Last Name"
+                    placeholder={check.lastName}
                     onChange={(e) => updateBillingAddress(e, "last_name")}
                     name="Last_Name"
                   />
@@ -71,7 +71,7 @@ function Billing({ billingAddressProp }) {
                   <input
                     className={styles.inputField}
                     type="text"
-                    placeholder="House No and Street Name"
+                    placeholder= {check.streetAdd}
                     name="House No and Street Name"
                     value={billingAddress?.address_1}
                     onChange={(e) => updateBillingAddress(e, "address_1")}
@@ -91,7 +91,7 @@ function Billing({ billingAddressProp }) {
                     <input
                       className={styles.inputField}
                       type="text"
-                      placeholder="Town"
+                      placeholder={check.town}
                       value={billingAddress?.city}
                       onChange={(e) => updateBillingAddress(e, "city")}
                       name="text"
@@ -104,7 +104,7 @@ function Billing({ billingAddressProp }) {
                     <input
                       className={styles.inputField}
                       type="text"
-                      placeholder="Country Option"
+                      placeholder={check.state}
                       value={billingAddress?.state}
                       onChange={(e) => updateBillingAddress(e, "state")}
                       name="text"
@@ -172,7 +172,7 @@ function Billing({ billingAddressProp }) {
                     <input
                       className={styles.inputField}
                       type="email"
-                      placeholder="Email Address"
+                      placeholder={check.emailAddress}
                       value={billingAddress?.email}
                       onChange={(e) => updateBillingAddress(e, "email")}
                       name="Email"

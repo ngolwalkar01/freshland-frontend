@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import styles from './upload.module.css';
 import Image from 'next/image';
+import { myaccountTranslation } from '@/locales';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const ImageUploader = () => {
+    const mat = myaccountTranslation[lang];
     const [imageSrc, setImageSrc] = useState(null);
 
     const handleImageUpload = (event) => {
@@ -23,7 +26,7 @@ const ImageUploader = () => {
                         <div className={styles.uploadIcon}>
                         <i class="fa-regular fa-image"></i>
                         </div>
-                        Choose an Image
+                        {mat.chooseImage}
                     </label>
                     <input type="file" id='image-upload' className={styles.uploadInput} accept="image/*" onChange={handleImageUpload} />
                 </div>

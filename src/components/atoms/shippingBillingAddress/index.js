@@ -31,7 +31,7 @@ const ShippingBillingAddress = () => {
             onClick={() => setActiveTab("billing")}
             disabled={useSameAddress}
           >
-            Billing Address
+            {check.billingAdd}
           </button>
         </div>
 
@@ -45,7 +45,7 @@ const ShippingBillingAddress = () => {
               <input
                 className={styles.inputField}
                 type="text"
-                placeholder="Street Name and Number"
+                placeholder={check.street}
                 name="Street_Name_and_Number"
                 onChange={(e) => {}}
               />
@@ -61,7 +61,7 @@ const ShippingBillingAddress = () => {
                 <input
                   className={styles.inputField}
                   type="text"
-                  placeholder="Apartment, suite"
+                  placeholder={check.apartmentSuiteUnitEtc}
                   name="address"
                   value={""}
                   onChange={() => {}}
@@ -77,7 +77,7 @@ const ShippingBillingAddress = () => {
                 <input
                   className={styles.inputField}
                   type="text"
-                  placeholder="Zip code"
+                  placeholder={check.PostcodeZip}
                   name="Zip code"
                   value={""}
                   onChange={(e) => {}}
@@ -103,7 +103,7 @@ const ShippingBillingAddress = () => {
                 <input
                   className={styles.inputField}
                   type="text"
-                  placeholder="City"
+                  placeholder={check.townCity}
                   name="city"
                 />
               </div>
@@ -119,7 +119,7 @@ const ShippingBillingAddress = () => {
                     else setActiveTab("billing");
                   }}
                 />
-                <label>Use same address for billing</label>
+                <label>{check.useSameAddressForBilling}</label>
 
             </div>
           </div>
@@ -128,14 +128,14 @@ const ShippingBillingAddress = () => {
         {!useSameAddress && activeTab === "billing" && (
           <div className={styles.shippingAdd}>
             <label>
-              <strong>BILLING ADDRESS</strong>
+              <strong>{check.billingAdd}</strong>
             </label>
             <div className={styles.fieldColumn}>
               <label htmlFor="Street_Name_and_Number">{check.street}*</label>
               <input
                 className={styles.inputField}
                 type="text"
-                placeholder="Street Name and Number"
+                placeholder={check.street}
                 name="Street_Name_and_Number"
                 onChange={(e) => {}}
               />
@@ -151,7 +151,7 @@ const ShippingBillingAddress = () => {
                 <input
                   className={styles.inputField}
                   type="text"
-                  placeholder="Apartment, suite"
+                  placeholder={check.apartmentSuiteUnitEtc}
                   name="address"
                   value={""}
                   onChange={() => {}}
@@ -167,7 +167,7 @@ const ShippingBillingAddress = () => {
                 <input
                   className={styles.inputField}
                   type="text"
-                  placeholder="Zip code"
+                  placeholder={check.PostcodeZip}
                   name="Zip code"
                   value={""}
                   onChange={(e) => {}}
@@ -193,7 +193,7 @@ const ShippingBillingAddress = () => {
                 <input
                   className={styles.inputField}
                   type="text"
-                  placeholder="City"
+                  placeholder={check.townCity}
                   name="city"
                 />
                 <p className={styles.errorMessagePopup}>
@@ -208,12 +208,12 @@ const ShippingBillingAddress = () => {
         <button
             className={styles.closeButton}
           >
-            Close
+           {check.close}
           </button>
         <button
             className={styles.saveButton}
           >
-            Save
+            {check.save}
           </button>
         </div>
       </div>
