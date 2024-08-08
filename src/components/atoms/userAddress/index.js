@@ -596,7 +596,7 @@ function UserAddress({ userAddressProps }) {
                                                                 </div>
                                                             </div>
 
-                                                            {token && showSaveButton && (
+                                                            {token && (
                                                                 <>
                                                                     <div className={styles.fieldsRow}>
                                                                         <div className={styles.newAddCover}>
@@ -642,8 +642,25 @@ function UserAddress({ userAddressProps }) {
                     style={{ display: "editshow" ? "block" : "none" }}
                 >
 
-                    {(!token || enableEditableMode.status) && selectedAddress.isNewAddress && (
+                    {(!selectedAddress?.isNewAddress) && (
+                        <div className={styles.newAddCover}>
+                            <button
+                                type="button"
+                                className={styles.newAddBtn}
+                                onClick={addNewAddress}
+                            >
+                                {check.addTo}
+                            </button>
+                        </div>
+                    )}
+
+                    {(!token || enableEditableMode.status) && selectedAddress?.isNewAddress && (
                         <div className={styles.shippingAdd}>
+                            {token &&
+                                <label>
+                                    <strong>Add new address</strong>
+                                </label>
+                            }
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
                                     <label htmlFor="First_Name">{check.fName}*</label>
@@ -795,18 +812,31 @@ function UserAddress({ userAddressProps }) {
                                 </div>
                             </div>
 
-                            {token && showSaveButton && (
-                                <div className={styles.fieldsRow}>
-                                    <div className={styles.newAddCover}>
-                                        <button
-                                            type="button"
-                                            className={styles.newAddBtn}
-                                            onClick={savedAddress}
-                                        >
-                                            {co.save}
-                                        </button>
+                            {token && (
+                                <>
+                                    <div className={styles.fieldsRow}>
+                                        <div className={styles.newAddCover}>
+                                            <button
+                                                type="button"
+                                                className={styles.newAddBtn}
+                                                onClick={savedAddress}
+                                            >
+                                                {co.save}
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div className={styles.fieldsRow}>
+                                        <div className={styles.newAddCover}>
+                                            <button
+                                                type="button"
+                                                className={styles.newAddBtn}
+                                                onClick={resetForm}
+                                            >
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </>
                             )}
                         </div>
                     )}
@@ -942,17 +972,7 @@ function UserAddress({ userAddressProps }) {
                     )}
                 </div>
 
-                {(!selectedAddress?.isNewAddress) && showSaveButton && (
-                    <div className={styles.newAddCover}>
-                        <button
-                            type="button"
-                            className={styles.newAddBtn}
-                            onClick={addNewAddress}
-                        >
-                            {check.addTo}
-                        </button>
-                    </div>
-                )}
+
                 {/* for mobile version only */}
                 <div className={styles.newAddressbtn}>
                     <div className={styles.sendaddress}>
