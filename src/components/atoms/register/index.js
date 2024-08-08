@@ -62,7 +62,7 @@ const Register = () => {
     event.preventDefault();
     if (validate()) {
       await klaviyoservice.createProfile({ email, firstName });
-      toast.success("Your profile is created.", { autoClose: toastTimer });
+      toast.success("You have successfully signed up for the newsletter", { autoClose: toastTimer });
       reset();
     }
   }

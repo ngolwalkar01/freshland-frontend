@@ -432,29 +432,200 @@ function UserAddress({ userAddressProps }) {
                                 return (
                                     <>
                                         {(x.address_1 || firstName || lastName) ? (
-                                            <div key={i} className={`${styles.addresscontainer} ${isError ? styles.error_border : ''}`}>
-                                                <div className={styles.selectAddress}>
-                                                    <input type="radio" id="user_address" checked={x.selected} name="user_address" value="user_address" onChange={async () => {
-                                                        await applyLoader(setOlLoader, updateUserAddress, [
-                                                            i
-                                                        ]);
-                                                    }} />
-                                                    <div className={styles.address}>
-                                                        <p className="M-Body-Medium">{firstName} {lastName}</p>
-                                                        <p className="M-Caption">
-                                                            {x.address_1}
-                                                        </p>
+                                            <>
+                                                <div key={i} className={`${styles.addresscontainer} ${isError ? styles.error_border : ''}`}>
+                                                    <div className={styles.selectAddress}>
+                                                        <input type="radio" id="user_address" checked={x.selected} name="user_address" value="user_address" onChange={async () => {
+                                                            await applyLoader(setOlLoader, updateUserAddress, [
+                                                                i
+                                                            ]);
+                                                        }} />
+                                                        <div className={styles.address}>
+                                                            <p className="M-Body-Medium">{firstName} {lastName}</p>
+                                                            <p className="M-Caption">
+                                                                {x.address_1}
+                                                            </p>
+                                                        </div>
                                                     </div>
+                                                    <p onClick={() => { editAddress(x, i); }}>
+                                                        <Image
+                                                            src="/Images/lucide_edit.png"
+                                                            width={20}
+                                                            height={20}
+                                                            alt="google"
+                                                        ></Image>
+                                                    </p>
                                                 </div>
-                                                <p onClick={() => { editAddress(x, i); }}>
-                                                    <Image
-                                                        src="/Images/lucide_edit.png"
-                                                        width={20}
-                                                        height={20}
-                                                        alt="google"
-                                                    ></Image>
-                                                </p>
-                                            </div>
+
+                                                <div
+                                                    className={styles.editcontent}
+                                                    style={{ display: "editshow" ? "block" : "none" }}
+                                                >
+
+                                                    {(enableEditableMode.index === i && enableEditableMode.status) && (
+                                                        <div className={styles.shippingAdd}>
+                                                            <div className={styles.fieldsRow}>
+                                                                <div className={styles.fieldColumn}>
+                                                                    <label htmlFor="First_Name">{check.fName}*</label>
+                                                                    <input
+                                                                        className={styles.inputField}
+                                                                        type="text"
+                                                                        value={firstName}
+                                                                        placeholder="First Name"
+                                                                        onChange={(e) => { setFirstName(e.target.value) }}
+                                                                        name="First_Name"
+                                                                        onBlur={() => setTimeout(fetchData1, 100)}
+                                                                    />
+                                                                    {isSubmit && errors.firstName && (
+                                                                        <span className={styles.errorMessage}>
+                                                                            {errors.firstName}
+                                                                        </span>
+                                                                    )}
+                                                                </div>
+                                                                <div className={styles.fieldColumn}>
+                                                                    <label htmlFor="Last_Name">{check.lName}*</label>
+                                                                    <input
+                                                                        className={styles.inputField}
+                                                                        type="text"
+                                                                        value={lastName}
+                                                                        placeholder="Last Name"
+                                                                        onChange={(e) => { setLastName(e.target.value) }}
+                                                                        name="Last_Name"
+                                                                        onBlur={() => setTimeout(fetchData1, 100)}
+                                                                    />
+                                                                    {isSubmit && errors.lastName && (
+                                                                        <span className={styles.errorMessage}>
+                                                                            {errors.lastName}
+                                                                        </span>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                            <div className={styles.fieldColumn}>
+                                                                <label htmlFor="Street_Name_and_Number">
+                                                                    {check.street}*
+                                                                </label>
+                                                                <input
+                                                                    className={styles.inputField}
+                                                                    type="text"
+                                                                    placeholder="Street Name and Number"
+                                                                    name="Street_Name_and_Number"
+                                                                    value={selectedAddress?.address_1 || ""}
+                                                                    onChange={(e) => { onUpdateShippingAddress(e, 'address_1'); }}
+                                                                    onBlur={() => setTimeout(fetchData1, 100)}
+                                                                />
+                                                                {isSubmit && selectedAddress?.errors?.address_1 && (
+                                                                    <span className={styles.errorMessage}>
+                                                                        {selectedAddress?.errors.address_1}
+                                                                    </span>
+                                                                )}
+                                                                <Suggestions styles={styles} handleSelectSuggestion={handleShippingSelectSuggestion} suggestions={suggestions} />
+                                                            </div>
+
+                                                            <div className={styles.fieldsRow}>
+                                                                <div className={styles.fieldColumn}>
+                                                                    <label htmlFor="Street_Name_and_Number">
+                                                                        Apartment, Suite, Unit, Etc. (optional)
+                                                                    </label>
+                                                                    <input
+                                                                        className={styles.inputField}
+                                                                        type="text"
+                                                                        placeholder="Apartment,suite"
+                                                                        name="address"
+                                                                        value={selectedAddress?.address_2 || ""}
+                                                                        onChange={(e) => { onUpdateShippingAddress(e, 'address_2'); }}
+                                                                        onBlur={() => setTimeout(fetchData1, 100)}
+                                                                    />
+                                                                </div>
+                                                            </div>
+
+                                                            <div className={styles.fieldsRow}>
+                                                                <div className={styles.fieldColumn}>
+                                                                    <label htmlFor="Zip">Postcode/Zip*</label>
+                                                                    <input
+                                                                        className={styles.inputField}
+                                                                        type="text"
+                                                                        placeholder="Zip code"
+                                                                        name="Zip code"
+                                                                        value={selectedAddress?.postcode || ""}
+                                                                        onChange={(e) => { onUpdateShippingAddress(e, 'postcode'); }}
+                                                                        onBlur={() => setTimeout(fetchData1, 100)}
+                                                                    />
+                                                                    {isSubmit && selectedAddress?.errors?.postcode && (
+                                                                        <span className={styles.errorMessage}>
+                                                                            {selectedAddress?.errors.postcode}
+                                                                        </span>
+                                                                    )}
+                                                                </div>
+                                                                <div className={styles.fieldColumn}>
+                                                                    <label>{check.cPhone}*</label>
+                                                                    <Telephone
+                                                                        value={selectedAddress?.phone || ""}
+                                                                        onChange={(e) => {
+                                                                            onUpdateShippingAddress({
+                                                                                target: {
+                                                                                    value: e
+                                                                                }
+                                                                            }, 'phone');
+                                                                        }}
+                                                                        onBlur={() => setTimeout(fetchData1, 100)}
+                                                                    />
+                                                                    {isSubmit && selectedAddress?.errors?.phone && (
+                                                                        <span className={styles.errorMessage}>
+                                                                            {selectedAddress?.errors.phone}
+                                                                        </span>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                            <div className={styles.fieldsRow}>
+                                                                <div className={styles.fieldColumn}>
+                                                                    <label htmlFor="city">Town/City*</label>
+                                                                    <input
+                                                                        className={styles.inputField}
+                                                                        type="text"
+                                                                        placeholder="City"
+                                                                        name="city"
+                                                                        value={selectedAddress?.city || ""}
+                                                                        onChange={(e) => { onUpdateShippingAddress(e, 'city'); }}
+                                                                        onBlur={() => setTimeout(fetchData1, 100)}
+                                                                    />
+                                                                    {isSubmit && selectedAddress?.errors?.city && (
+                                                                        <span className={styles.errorMessage}>
+                                                                            {selectedAddress?.errors.city}
+                                                                        </span>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+
+                                                            {token && showSaveButton && (
+                                                                <>
+                                                                    <div className={styles.fieldsRow}>
+                                                                        <div className={styles.newAddCover}>
+                                                                            <button
+                                                                                type="button"
+                                                                                className={styles.newAddBtn}
+                                                                                onClick={savedAddress}
+                                                                            >
+                                                                                {co.save}
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className={styles.fieldsRow}>
+                                                                        <div className={styles.newAddCover}>
+                                                                            <button
+                                                                                type="button"
+                                                                                className={styles.newAddBtn}
+                                                                                onClick={resetForm}
+                                                                            >
+                                                                                Cancel
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </>
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </>
                                         ) : (
                                             <></>
                                         )}
@@ -471,7 +642,7 @@ function UserAddress({ userAddressProps }) {
                     style={{ display: "editshow" ? "block" : "none" }}
                 >
 
-                    {(!token || enableEditableMode.status) && (
+                    {(!token || enableEditableMode.status) && selectedAddress.isNewAddress && (
                         <div className={styles.shippingAdd}>
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
