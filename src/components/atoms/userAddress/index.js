@@ -5,6 +5,7 @@ import Telephone from "@/components/atoms/Telephone/Telephone";
 import { getUserAddresses, setUserAddressesAsync, saveUserAddresses } from '@/components/service/cart';
 import Image from 'next/image';
 import { applyLoader } from "@/helper/loader";
+import { deepCopyArray } from "@/helper/deepCopy";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
@@ -88,6 +89,7 @@ function UserAddress({ userAddressProps }) {
     const [newAddressAdded, setNewAddressAdded] = useState(false);
     const [showSaveButton, setShowSaveButton] = useState(false);
     const [isAddressEdit, setIsAddressEdit] = useState(false);
+    const [originalUserAddresses, setOriginalUserAddresses] = useState([]);
 
     const cart_shipping_address = (token && userAddresses
         && userAddresses.length > 0)
@@ -139,6 +141,11 @@ function UserAddress({ userAddressProps }) {
         setShowSaveButton(false);
     }
 
+    const onCancel = () => {
+        setUserAddresses([...originalUserAddresses]);
+        resetForm();
+    }
+
     const checkIfUserHaveAddress = useCallback(async () => {
         let isNewAddress = true;
         if (token) {
@@ -146,13 +153,14 @@ function UserAddress({ userAddressProps }) {
             if (userAddress && userAddress.length > 0) {
                 isNewAddress = false;
                 const selectedIndex = userAddress && userAddress.length > 0 && userAddress.findIndex(x => x.selected);
-                const validateUserAddress = userAddress.map((x) => {
+                const validUserAddresses = userAddress.map((x) => {
                     const validAddress = checkAddress(x);
                     return validAddress;
                 })
-                setUserAddresses(validateUserAddress);
+                setUserAddresses(validUserAddresses);
+                setOriginalUserAddresses(deepCopyArray(validUserAddresses));
                 setSelectedAddressIndex(selectedIndex);
-                setShowSaveButton(validateUserAddress.length > 0);
+                setShowSaveButton(validUserAddresses.length > 0);
                 return;
             }
         }
@@ -227,6 +235,7 @@ function UserAddress({ userAddressProps }) {
     };
 
     const editAddress = (address, index) => {
+        onCancel();
         const prevAddress = { ...enableEditableMode };
         if (prevAddress.index === -1 || index === prevAddress.index) {
             setEditableMode({ index, status: !prevAddress.status });
@@ -422,7 +431,7 @@ function UserAddress({ userAddressProps }) {
     }
 
     const triggerFocusOut = () => {
-        if(!token) {
+        if (!token) {
             setTimeout(fetchData1, 100)
         }
     }
@@ -625,7 +634,7 @@ function UserAddress({ userAddressProps }) {
                                                                             <button
                                                                                 type="button"
                                                                                 className={styles.newAddBtn}
-                                                                                onClick={resetForm}
+                                                                                onClick={onCancel}
                                                                             >
                                                                                 Cancel
                                                                             </button>
@@ -843,7 +852,7 @@ function UserAddress({ userAddressProps }) {
                                             <button
                                                 type="button"
                                                 className={styles.newAddBtn}
-                                                onClick={resetForm}
+                                                onClick={onCancel}
                                             >
                                                 Cancel
                                             </button>
