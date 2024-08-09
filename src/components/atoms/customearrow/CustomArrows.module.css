@@ -19,6 +19,7 @@
     background-color: var(--blue);
     border-radius: 10px;
     cursor: pointer;
+    
   }
  
   .arrowprevContainer:before{
@@ -79,7 +80,7 @@
   }
   
   .arrowprevContainer{
-    left: 3px;
+    left: 10px;
   }
   
   .arrowContainer {
@@ -91,15 +92,15 @@
     right: 50px;
 
    }
-   .arrowprevContainer{
+   /* .arrowprevContainer{
     display: none !important;
-  }
+  } */
   }
 @media(max-width:550px){
 
-  .arrowprevContainer{
+  /* .arrowprevContainer{
     display: none !important;
-  }
+  } */
 }
   /* You can add custom styles to the arrows if needed */
   @media (min-width: 320px) and (max-width: 460px)  {
@@ -107,16 +108,16 @@
   .arrowContainer {
     right: 10px;
   }
-  .arrowprevContainer{
+  /* .arrowprevContainer{
     display: none !important;
-  }
+  } */
   }
  
   @media only screen and (max-width:600px){
     .arrowContainer:before, .arrowContainer:before {
    top:4px
     }
-    .arrowprevContainer:before{
+    /* .arrowprevContainer:before{
       top: 3px;
-    }
+    } */
   }

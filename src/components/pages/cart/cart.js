@@ -453,7 +453,7 @@ function Cart() {
                               </p>
                             </div> 
                             <div className={`W-Body-Large-Bold ${styles.redeemDiscount}`}>
-                              <p>Redeem discount code</p> 
+                              <p>{ct.redeemCode}</p> 
                     <div
                       className={`${styles.discountcol}`}
                     >

@@ -6,7 +6,7 @@ import Telephone from "@/components/atoms/Telephone/Telephone";
 import Image from "next/image";
 import Link from "next/link";
 import Loader from "@/components/atoms/loader/loader";
-import { checkoutTranslation, cartTranslation } from "@/locales";
+import { checkoutTranslation, cartTranslation, errorTranslation } from "@/locales";
 import { useRouter } from "next/navigation";
 import Shipping from "@/components/atoms/shipping";
 import CheckoutSkeleton from "@/components/skeleton/checkoutskeleton/checkoutskeleton";
@@ -81,7 +81,7 @@ const INTIAL_CART_DATA = {
 function Checkout() {
   const check = checkoutTranslation[lang];
   const ct = cartTranslation[lang];
-
+  const errormsg = errorTranslation[lang];
   const [olLoader, setOlLoader] = useState(false);
   const [isCheckoutReady, setIsCheckoutReady] = useState(false);
   const [firstName, setFirstName] = useState("");
@@ -451,20 +451,20 @@ function Checkout() {
     setIsSubmit(true);
 
     if (!firstName.trim()) {
-      errors.firstName = "First Name is required";
+      errors.firstName = errormsg.firstNameRequired;
       isValid = false;
     }
 
     if (!lastName.trim()) {
-      errors.lastName = "Last Name is required";
+      errors.lastName = errormsg.lastNameRequired;
       isValid = false;
     }
 
     if (!email.trim()) {
-      errors.email = "Email is required";
+      errors.email = errormsg.emailRequired;
       isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      errors.email = "Email is invalid";
+      errors.email = errormsg.emailInvalid;
       isValid = false;
     }
     // if (!phone.trim()) {
@@ -472,12 +472,12 @@ function Checkout() {
     //   isValid = false;
     // }
     if (validateUserAddress()) {
-      errors.userAddresses = "Please complete addresses";
+      errors.userAddresses = errormsg.enterCompleteAddress;
       isValid = false;
     }
 
     if (!acceptTerms) {
-      errors.term = "Please accept the terms and conditions";
+      errors.term = errormsg.acceptTermsAndConditions;
       isValid = false;
     }
     // if (!streetValue?.tekst) {
@@ -489,30 +489,30 @@ function Checkout() {
     const shpOpt = checkSelectedMethods(shipping);
 
     if (!(shippingRates && shippingRates.length > 0)) {
-      errors.shipmentVal = "Please enter the correct shipping address to get the shipping methods";
+      errors.shipmentVal = errormsg.correctShippingAddressRequired;
       isValid = false;
     } else if (!shpOpt) {
-      errors.shipmentVal = "Please select shipment";
+      errors.shipmentVal = errormsg.selectShipment;
       isValid = false;
     }
 
     if (cartTotal > 0) {
       if (!(paymentMethods && paymentMethods.length > 0)) {
-        errors.paymentVal = "Payment method not available for this location.";
+        errors.paymentVal = errormsg.paymentMethodNotAvailable;
         isValid = false;
       } else if (!paymentOption) {
-        errors.paymentVal = "Please select payment method";
+        errors.paymentVal = errormsg.selectPaymentMethod;
         isValid = false;
       }
     }
 
     if (!deliveryDate) {
-      errors.deliveryDateVal = "Please select delivery date";
+      errors.deliveryDateVal = errormsg.selectDeliveryDate;
       isValid = false;
     }
 
     if (isBusinessAddress && !billingAddress?.company) {
-      errors.billing_company = "Billing Company is required";
+      errors.billing_company = errormsg.billingCompanyRequired;
     }
     // Add more validation rules for other fields if needed
 
@@ -1073,7 +1073,7 @@ function Checkout() {
                             className={styles.inputField}
                             type="text"
                             value={billingAddress?.company}
-                            placeholder="Billing Company Name"
+                            placeholder={check.billingCompanyName}
                             onChange={(e) => {
                               setBillingAddress({
                                 ...billingAddress,

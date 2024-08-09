@@ -111,14 +111,15 @@
 
   .topBarContent {
     position: absolute;
-    top: 56%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 198px;
+    top: 50%;
+    left: 0;
+    transform: translate(0, 0);
     text-align: center;
+    padding: 0px 16px;
   }
  .topBarContent h1{
   font-size: 40px;
+  padding: 0px 16px;
  }
   .topBarContent p {
     font-size: 18px;
@@ -139,11 +140,11 @@
   .topImageContainer {
     height: 473px;
   }
-  .topBarContent {
+  /* .topBarContent {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+  } */
  
 
 }

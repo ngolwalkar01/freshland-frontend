@@ -3,22 +3,22 @@ import Header from "@/components/atoms/Header/Header";
 import style from "./forgot.module.css";
 import AccountAPI from "@/services/account";
 import toast from "@/helper/toast";
-import { loginTranslation, serviceTranslation} from '@/locales';
+import { loginTranslation, serviceTranslation, errorTranslation} from '@/locales';
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const Forgot = () => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
   const log = loginTranslation[lang];
   const service = serviceTranslation[lang];
-
+  const errormsg = errorTranslation[lang];
   const validate = () => {
     let isValid = true;
     const errors = {}
     if (!email.trim()) {
-      errors.email = "Email is required";
+      errors.email = errormsg.emailRequired;
       isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      errors.email = "Email is invalid";
+      errors.email = errormsg.emailInvalid;
       isValid = false;
     }
     setErrors(errors);

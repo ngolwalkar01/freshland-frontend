@@ -50,6 +50,7 @@ export const productdetailTranslation = {
       "descriptionHeading":"DESCRIPTION",
       "addToBasket": "Add to Basket",
       "relItem":"Related Items",
+      "goBack":"Go Back",
       
      
     
@@ -104,7 +105,8 @@ export const productdetailTranslation = {
        "orderTime":"Bestil onsdag før kl. 24, og få din levering ugen efter.",
        "descriptionHeading":"BESKRIVELSE",
        "addToBasket": "Tilføj",
-        "relItem":"Related Items"
+        "relItem":"Related Items",
+        "goBack":"Go Back",
     },
     "fi": {
         "freeShippingOver": "",
@@ -156,7 +158,8 @@ export const productdetailTranslation = {
        "orderTime":"Tilaa ennen keskiviikon puolta yötä ja saat tuotteet kotiintoimitettuna seuraavalla viikolla.",
        "descriptionHeading":"TUOTEKUVAUS",
        "addToBasket": "Add to Basket",
-        "relItem":"Related Items"
+        "relItem":"Samankaltaisia tuotteita",
+        "goBack":"Mene takaisin",
     },
     "se": {
         "freeShippingOver": "📦 Gratis frakt vid beställning över 699 kr",
@@ -208,6 +211,7 @@ export const productdetailTranslation = {
        "orderTime":"Beställ före onsdag 24:00 och få dina varor levererade veckan därpå.",
        "descriptionHeading":"BESKRIVNING",
        "addToBasket": "Lägg till",
-        "relItem":"Related Items"
+        "relItem":"Relaterade artiklar",
+        "goBack":"Gå tillbaka",
     }
 }

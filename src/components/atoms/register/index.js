@@ -2,7 +2,7 @@ import registerStyles from "./RegisterUser.module.css";
 import Link from "next/link";
 import Image from 'next/image';
 import { useState } from "react";
-import { homepageTranslation, serviceTranslation } from '@/locales';
+import { homepageTranslation, serviceTranslation, errorTranslation } from '@/locales';
 import { commonTranslation } from '@/locales';
 import klaviyoservice from '@/services/klaviyo/apiIndex'
 import { toast } from 'react-toastify';
@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const service = serviceTranslation[lang];
+const errormsg = errorTranslation[lang];
 
 const Register = () => {
   const cmt = commonTranslation[lang];
@@ -28,21 +29,21 @@ const Register = () => {
     let isValid = true;
 
     if (!firstName.trim()) {
-      errors.firstName = "First Name is required";
+      errors.firstName = errormsg.firstNameRequired;
       isValid = false;
     }
 
     if (!email.trim()) {
-      errors.email = "Email is required";
+      errors.email = errormsg.lastNameRequired;
       isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      errors.email = "Email is invalid";
+      errors.email = errormsg.emailInvalid;
       isValid = false;
     }
 
 
     if (!isChecked) {
-      errors.isChecked = "You must agree to the terms and conditions";
+      errors.isChecked = errormsg.agreeToTerms;
       isValid = false;
     }
     // Add more validation rules for other fields if needed

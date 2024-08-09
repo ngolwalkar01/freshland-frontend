@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./accountinformation.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { myaccountTranslation , serviceTranslation } from "@/locales";
+import { myaccountTranslation , serviceTranslation,errorTranslation } from "@/locales";
 import AccountAPI from "@/services/account";
 import { toast } from "react-toastify";
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
@@ -13,6 +13,7 @@ function Accountinformation({ isUserLoggedIn }) {
   const token = isUserLoggedIn();
   const mat = myaccountTranslation[lang];
   const service = serviceTranslation[lang];
+  const errormsg = errorTranslation[lang];
   const [passwordData, setPasswordData] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [confirmPasswordData, setConfirmPasswordData] = useState("");
@@ -50,43 +51,43 @@ function Accountinformation({ isUserLoggedIn }) {
     let isValid = true;
     const { first_name, last_name, email, display_name } = profile;
     if (!first_name.trim()) {
-      errors.firstName = "First Name is required";
+      errors.firstName = errormsg.firstNameRequired;
       isValid = false;
     }
 
     if (!last_name.trim()) {
-      errors.lastName = "Last Name is required";
+      errors.lastName = errormsg.lastNameRequired;
       isValid = false;
     }
 
     if (!email.trim()) {
-      errors.email = "Email is required";
+      errors.email = errormsg.emailRequired;
       isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      errors.email = "Email is invalid";
+      errors.email = errormsg.emailInvalid;
       isValid = false;
     }
 
     if (!display_name.trim()) {
-      errors.displayName = "Display Name is required";
+      errors.displayName = errormsg.displayNameRequired;
       isValid = false;
     }
 
     if (!passwordData.trim()) {
-      errors.passwordData = "password is required";
+      errors.passwordData = errormsg.passwordRequired;
       isValid = false;
     } else if (passwordData.length < 6) {
-      errors.passwordData = "password should be at least 6 char";
+      errors.passwordData = errormsg.passwordMinLength;
       isValid = false;
     }
 
     if (!currentpasswordData.trim()) {
-      errors.currentpasswordData = "current password is required";
+      errors.currentpasswordData = errormsg.currentPasswordRequired;
       isValid = false;
     }
 
     if (confirmPasswordData !== passwordData) {
-      errors.confirmPasswordData = "password not matched";
+      errors.confirmPasswordData = errormsg.passwordNotMatched;
       isValid = false;
     }
 

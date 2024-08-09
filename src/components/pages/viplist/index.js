@@ -6,12 +6,13 @@ import Link from "next/link";
 import Telephone from "@/components/atoms/Telephone/Telephone";
 import klaviyoService from '@/services/klaviyo/apiIndex';
 import toast from "@/helper/toast";
-import { commonTranslation, serviceTranslation } from '@/locales';
+import { commonTranslation, serviceTranslation, errorTranslation } from '@/locales';
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Vip = ({ vipPageData }) => {
   const cmt = commonTranslation[lang];
   const service = serviceTranslation[lang];
+  const errormsg = errorTranslation[lang];
   const [vipData, setVipData] = useState(null);
   const [errors, setErrors] = useState({});
 
@@ -41,20 +42,20 @@ const Vip = ({ vipPageData }) => {
     const { name, email, phone_number } = vipData || {};
 
     if (!(name && name.trim())) {
-      errors.name = "Name is required";
+      errors.name = errormsg.firstNameRequired;
       isValid = false;
     }
 
     if (!(email && email.trim())) {
-      errors.email = "Email is required";
+      errors.email = errormsg.emailRequired;
       isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      errors.email = "Email is invalid";
+      errors.email = errormsg.emailInvalid;
       isValid = false;
     }
 
     if (!(phone_number && phone_number.trim())) {
-      errors.phone_number = "Phone number is required";
+      errors.phone_number = errormsg.phoneNumberRequired;
       isValid = false;
     }
 

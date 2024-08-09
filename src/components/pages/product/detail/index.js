@@ -118,7 +118,7 @@ const Description = ({ productDetailProps }) => {
               width={24}
               height={24}
             ></Image>
-            <p>Go Back</p>
+            <p>{pdt.goBack}</p>
           </div>
           <section className={styles.productSection}>
             {/* <div className={`${styles.productTitleMob}`}>

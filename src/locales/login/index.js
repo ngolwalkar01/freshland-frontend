@@ -40,8 +40,8 @@ export const loginTranslation = {
     "logfb": "",
     "logt": "",
     "logg": "",
-    "lostPasswordPrompt": "Lost your password? Please enter your username or email address. You will receive a link via e-mail to create a new password.",
-    "resetPassword": "Reset Password",
+    "lostPasswordPrompt": "Unohditko salasanasi? Syötä käyttäjänimesi tai sähköpostiosoitteesi, niin lähetämme salasanan palautuslinkin sähköpostiisi.",
+    "resetPassword": "Palauta salasana",
     "email": "E-post",
 },
 "se": {
@@ -55,8 +55,8 @@ export const loginTranslation = {
     "logfb": "Logga in med Facebook",
     "logt": "-",
     "logg": "Logga in med Google+",
-    "lostPasswordPrompt": "Lost your password? Please enter your username or email address. You will receive a link via e-mail to create a new password.",
-    "resetPassword": "Reset Password",
+    "lostPasswordPrompt": "Har du glömt ditt lösenord? Ange ditt användarnamn eller e-postadress. Du kommer att få en länk via e-post för att skapa ett nytt lösenord.",
+    "resetPassword": "Återställ lösenord",
     "email": "E-post",
 }
 }

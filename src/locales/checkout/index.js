@@ -82,7 +82,8 @@ export const checkoutTranslation = {
       "apartmentSuiteUnitEtc": "Apartment, Suite, Unit, Etc. (optional)",
         "useSameAddressForBilling":"Use same address for billing",
         "save":"Save",
-        "close":"Close"
+        "close":"Close",
+        "shippingAddress":"SHIPPING ADDRESS"
     },
     "dk": {
         "box": "Kasse",
@@ -167,7 +168,8 @@ export const checkoutTranslation = {
       "apartmentSuiteUnitEtc": "Etage/dør",
       "useSameAddressForBilling":"Brug samme adresse til fakturering",
       "save":"Gem",
-       "close":"Close"
+       "close":"Close",
+       "shippingAddress":"SHIPPING ADDRESS"
     },
     "fi": {
         "box": "",
@@ -236,8 +238,8 @@ export const checkoutTranslation = {
         "whereCan": "",
         "contactInformation": "Contact information",
         "emailUsage": "Vi bruge denne e-mailadresse til at sende dig information og opdateringer vedrrørende din ordre.",
-       "wantAccount":" Do you want to create Account ?",
-       "billingCompanyName": "Billing Company Name",
+       "wantAccount":"Haluatko luoda tilin?",
+       "billingCompanyName": "Laskutettavan yrityksen nimi",
        "selectAnOption": "Select an option",
        "placedAtFrontDoor": "Placed at the front door - Placed at the front door",
        "dropByMailbox": "Drop by mailbox - Drop by mailbox",
@@ -252,7 +254,8 @@ export const checkoutTranslation = {
       "apartmentSuiteUnitEtc": "Apartment, Suite, Unit, Etc. (optional)",
       "useSameAddressForBilling":"Use same address for billing",
       "save":"Tallenna",
-       "close":"Close"
+       "close":"Close",
+       "shippingAddress":"TOIMITUSOSOITE"
     },
     "se": {
         "box": "Kassa",
@@ -321,8 +324,8 @@ export const checkoutTranslation = {
         "whereCan": "VAR KAN VARORNA PLACERAS OM DU INTE ÄR HEMMA? (VALFRITT)",
         "contactInformation": "Kontaktinformation",
         "emailUsage": "Vi använder denna e-post för att skicka dig detaljer och uppdateringar om din beställning.",
-       "wantAccount":" Do you want to create Account ?",
-       "billingCompanyName": "Billing Company Name",
+       "wantAccount":"Vill du skapa ett konto?",
+       "billingCompanyName": "Företagsnamn för fakturering",
        "selectAnOption": "Välj ett alternativ",
        "placedAtFrontDoor": "Placeras vid ytterdörren – Placeras vid ytterdörren",
        "dropByMailbox": "Lämnas vid brevlådan – Lämnas vid brevlådan",
@@ -337,6 +340,7 @@ export const checkoutTranslation = {
       "apartmentSuiteUnitEtc": "Våning/lägenhetsnummer",
       "useSameAddressForBilling":"Använd samma adress för fakturering",
       "save":"Spara",
-       "close":"Close"
+       "close":"Close",
+       "shippingAddress":"LEVERANSADRESS"
     }
 };

@@ -7,7 +7,7 @@ import AccountAPI from "@/services/account";
 import toast from "@/helper/toast";
 import { useSearchParams, useRouter } from 'next/navigation';
 import Layout from '@/components/layout';
-import { serviceTranslation,myaccountTranslation } from '@/locales';
+import { serviceTranslation,myaccountTranslation, errorTranslation } from '@/locales';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const Reset = () => {
@@ -18,6 +18,7 @@ const Reset = () => {
   const login = searchParams.get('login');
   const [routeData, setRouteData] = useState(null);
   const service = serviceTranslation[lang];
+  const errormsg = serviceTranslation[lang];
   const mat =  myaccountTranslation
   useEffect(() => {
     if (!key || !login) {
@@ -61,15 +62,15 @@ const Reset = () => {
     let isValid = true;
 
     if (!(currentpasswordData && currentpasswordData.trim())) {
-      errors.currentpasswordData = "Password is required."
+      errors.currentpasswordData = errormsg.passwordRequired;
       isValid = false;
     }
     if (!(confirmPasswordData && confirmPasswordData.trim())) {
-      errors.confirmPasswordData = "Confirm Password is required."
+      errors.confirmPasswordData = errormsg.confirmPasswordRequired;
       isValid = false;
     }
     if (currentpasswordData && confirmPasswordData && currentpasswordData !== confirmPasswordData) {
-      errors.confirmPasswordData = "Please ensure the passwords match."
+      errors.confirmPasswordData = errormsg.passwordsMustMatch;
       isValid = false;
     }
     setErrors(errors);
@@ -101,10 +102,10 @@ const Reset = () => {
         <main>
           <Header />
           <div className={style.resetPassword}>
-            <p>Enter a new password below</p>
+            <p>{errormsg.enterNewPassword}</p>
             <form className={style.formConatainer}>
               <div>
-                <label htmlFor="NewPassword">New Password</label>
+                <label htmlFor="NewPassword">{errormsg.newPassword}</label>
                 <div className={style.inputConatiner}>
                   <input
                     value={currentpasswordData}

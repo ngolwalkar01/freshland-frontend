@@ -206,10 +206,10 @@
   display: none;
  }
  .button{
-  width: 113px;
+  width: 138px;
   height: 36px;
-  padding: 11px 27px;
-  font-size: 14px;
+  padding: 10px 8px;
+  font-size: 13px;
 }
 .sliderContainer{
   margin: 24px 0px;
@@ -241,10 +241,10 @@
   height: 248px;
   }
   .button{
-    width: 113px;
+    width: 138px;
     height: 36px;
-    padding: 11px 27px;
-    font-size: 14px;
+    padding: 10px 8px;
+    font-size: 13px;
   }
  .signupButton{
   font-size: 14px;

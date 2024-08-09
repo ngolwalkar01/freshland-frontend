@@ -142,7 +142,7 @@ function UserAddress({ userAddressProps }) {
     }
 
     const onCancel = () => {
-        setUserAddresses([...originalUserAddresses]);
+        setUserAddresses(deepCopyArray(originalUserAddresses));
         resetForm();
     }
 

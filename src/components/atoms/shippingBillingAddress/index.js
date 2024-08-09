@@ -24,7 +24,7 @@ const ShippingBillingAddress = () => {
             className={activeTab === "shipping" ? styles.activeTab : ""}
             onClick={() => setActiveTab("shipping")}
           >
-            Shipping Address
+           {check.shippingAddress}
           </button>
           <button
             className={activeTab === "billing" ? styles.activeTab : ""}
@@ -38,7 +38,7 @@ const ShippingBillingAddress = () => {
         {activeTab === "shipping" && (
           <div className={styles.shippingAdd}>
             <label>
-              <strong>SHIPPING ADDRESS</strong>
+              <strong>{check.shippingAddress}</strong>
             </label>
             <div className={styles.fieldColumn}>
               <label htmlFor="Street_Name_and_Number">{check.street}*</label>
