@@ -1491,7 +1491,7 @@ function Checkout() {
                                   </Fragment>
                                 ) : (
                                   <span className={styles.errorMessage}>
-                                    Please enter complete address
+                                    {check.enterCompleteAddress}
                                   </span>
                                 )}
                               </>
@@ -1542,7 +1542,7 @@ function Checkout() {
                         className={styles.textarea}
                         value={orderNote}
                         onChange={(e) => setOrderNote(e.target.value)}
-                        placeholder="Notes about your order, e.g. special notes for delivery."
+                        placeholder={check.orderNotes}
                         name="notes"
                       ></textarea>
                     </div>

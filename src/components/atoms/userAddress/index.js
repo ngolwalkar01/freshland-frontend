@@ -441,7 +441,7 @@ function UserAddress({ userAddressProps }) {
             <div className={styles.fieldColumn}>
                 <div className={styles.shippingAdd}>
                     <label>
-                        <strong>SHIPPING ADDRESS</strong>
+                        <strong>{check.shippingAddress}</strong>
                     </label>
                 </div>
                 {token && (
@@ -491,7 +491,7 @@ function UserAddress({ userAddressProps }) {
                                                                         className={styles.inputField}
                                                                         type="text"
                                                                         value={firstName}
-                                                                        placeholder="First Name"
+                                                                        placeholder={check.fName}
                                                                         onChange={(e) => { setFirstName(e.target.value) }}
                                                                         name="First_Name"
                                                                         onBlur={triggerFocusOut}
@@ -508,7 +508,7 @@ function UserAddress({ userAddressProps }) {
                                                                         className={styles.inputField}
                                                                         type="text"
                                                                         value={lastName}
-                                                                        placeholder="Last Name"
+                                                                        placeholder={check.lName}
                                                                         onChange={(e) => { setLastName(e.target.value) }}
                                                                         name="Last_Name"
                                                                         onBlur={triggerFocusOut}
@@ -527,7 +527,7 @@ function UserAddress({ userAddressProps }) {
                                                                 <input
                                                                     className={styles.inputField}
                                                                     type="text"
-                                                                    placeholder="Street Name and Number"
+                                                                    placeholder={check.street}
                                                                     name="Street_Name_and_Number"
                                                                     value={selectedAddress?.address_1 || ""}
                                                                     onChange={(e) => { onUpdateShippingAddress(e, 'address_1'); }}
@@ -544,12 +544,12 @@ function UserAddress({ userAddressProps }) {
                                                             <div className={styles.fieldsRow}>
                                                                 <div className={styles.fieldColumn}>
                                                                     <label htmlFor="Street_Name_and_Number">
-                                                                        Apartment, Suite, Unit, Etc. (optional)
+                                                                      {check.apartmentSuiteUnitEtc}
                                                                     </label>
                                                                     <input
                                                                         className={styles.inputField}
                                                                         type="text"
-                                                                        placeholder="Apartment,suite"
+                                                                        placeholder={check.apartmentSuiteUnitEtc}
                                                                         name="address"
                                                                         value={selectedAddress?.address_2 || ""}
                                                                         onChange={(e) => { onUpdateShippingAddress(e, 'address_2'); }}
@@ -560,11 +560,11 @@ function UserAddress({ userAddressProps }) {
 
                                                             <div className={styles.fieldsRow}>
                                                                 <div className={styles.fieldColumn}>
-                                                                    <label htmlFor="Zip">Postcode/Zip*</label>
+                                                                    <label htmlFor="Zip">{check.PostcodeZip}*</label>
                                                                     <input
                                                                         className={styles.inputField}
                                                                         type="text"
-                                                                        placeholder="Zip code"
+                                                                        placeholder={check.PostcodeZip}
                                                                         name="Zip code"
                                                                         value={selectedAddress?.postcode || ""}
                                                                         onChange={(e) => { onUpdateShippingAddress(e, 'postcode'); }}
@@ -598,11 +598,11 @@ function UserAddress({ userAddressProps }) {
                                                             </div>
                                                             <div className={styles.fieldsRow}>
                                                                 <div className={styles.fieldColumn}>
-                                                                    <label htmlFor="city">Town/City*</label>
+                                                                    <label htmlFor="city">{check.townCity}</label>
                                                                     <input
                                                                         className={styles.inputField}
                                                                         type="text"
-                                                                        placeholder="City"
+                                                                        placeholder={check.townCity}
                                                                         name="city"
                                                                         value={selectedAddress?.city || ""}
                                                                         onChange={(e) => { onUpdateShippingAddress(e, 'city'); }}
@@ -618,6 +618,7 @@ function UserAddress({ userAddressProps }) {
 
                                                             {token && (
                                                                 <>
+                                                                <div className={styles.savecancelBtn}>
                                                                     <div className={styles.fieldsRow}>
                                                                         <div className={styles.newAddCover}>
                                                                             <button
@@ -636,9 +637,10 @@ function UserAddress({ userAddressProps }) {
                                                                                 className={styles.newAddBtn}
                                                                                 onClick={onCancel}
                                                                             >
-                                                                                Cancel
+                                                                                {check.cancel}
                                                                             </button>
                                                                         </div>
+                                                                    </div>
                                                                     </div>
                                                                 </>
                                                             )}
@@ -678,7 +680,7 @@ function UserAddress({ userAddressProps }) {
                         <div className={styles.shippingAdd}>
                             {token &&
                                 <label>
-                                    <strong>Add new address</strong>
+                                    <strong>{check.addTo}</strong>
                                 </label>
                             }
                             <div className={styles.fieldsRow}>
@@ -688,7 +690,7 @@ function UserAddress({ userAddressProps }) {
                                         className={styles.inputField}
                                         type="text"
                                         value={firstName}
-                                        placeholder="First Name"
+                                        placeholder={check.fName}
                                         onChange={(e) => { setFirstName(e.target.value) }}
                                         name="First_Name"
                                         onBlur={triggerFocusOut}
@@ -705,7 +707,7 @@ function UserAddress({ userAddressProps }) {
                                         className={styles.inputField}
                                         type="text"
                                         value={lastName}
-                                        placeholder="Last Name"
+                                        placeholder={check.lName}
                                         onChange={(e) => { setLastName(e.target.value) }}
                                         name="Last_Name"
                                         onBlur={triggerFocusOut}
@@ -724,7 +726,7 @@ function UserAddress({ userAddressProps }) {
                                 <input
                                     className={styles.inputField}
                                     type="text"
-                                    placeholder="Street Name and Number"
+                                    placeholder={check.street}
                                     name="Street_Name_and_Number"
                                     value={selectedAddress?.address_1 || ""}
                                     onChange={(e) => { onUpdateShippingAddress(e, 'address_1'); }}
@@ -760,12 +762,12 @@ function UserAddress({ userAddressProps }) {
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
                                     <label htmlFor="Street_Name_and_Number">
-                                        Apartment, Suite, Unit, Etc. (optional)
+                                       {check.apartmentSuiteUnitEtc}
                                     </label>
                                     <input
                                         className={styles.inputField}
                                         type="text"
-                                        placeholder="Apartment,suite"
+                                        placeholder={check.apartmentSuiteUnitEtc}
                                         name="address"
                                         value={selectedAddress?.address_2 || ""}
                                         onChange={(e) => { onUpdateShippingAddress(e, 'address_2'); }}
@@ -776,11 +778,11 @@ function UserAddress({ userAddressProps }) {
 
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
-                                    <label htmlFor="Zip">Postcode/Zip*</label>
+                                    <label htmlFor="Zip">{check.PostcodeZip}*</label>
                                     <input
                                         className={styles.inputField}
                                         type="text"
-                                        placeholder="Zip code"
+                                        placeholder={check.PostcodeZip}
                                         name="Zip code"
                                         value={selectedAddress?.postcode || ""}
                                         onChange={(e) => { onUpdateShippingAddress(e, 'postcode'); }}
@@ -814,11 +816,11 @@ function UserAddress({ userAddressProps }) {
                             </div>
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
-                                    <label htmlFor="city">Town/City*</label>
+                                    <label htmlFor="city">{check.townCity}</label>
                                     <input
                                         className={styles.inputField}
                                         type="text"
-                                        placeholder="City"
+                                        placeholder={check.townCity}
                                         name="city"
                                         value={selectedAddress?.city || ""}
                                         onChange={(e) => { onUpdateShippingAddress(e, 'city'); }}
@@ -834,6 +836,7 @@ function UserAddress({ userAddressProps }) {
 
                             {token && (
                                 <>
+                                <div className={styles.cancelbtn}>
                                     <div className={styles.fieldsRow}>
                                         <div className={styles.newAddCover}>
                                             <button
@@ -854,9 +857,10 @@ function UserAddress({ userAddressProps }) {
                                                 className={styles.newAddBtn}
                                                 onClick={onCancel}
                                             >
-                                                Cancel
+                                                {check.cancel}
                                             </button>
                                         </div>
+                                    </div>
                                     </div>
                                 </>
                             )}
@@ -871,7 +875,7 @@ function UserAddress({ userAddressProps }) {
                             onChange={(e) => { setShowBillingAddress(e.target.checked); }}
                         />
                         <label htmlFor="Send_to_another_address">
-                            Use same address for billing
+                           {check.useSameAddressForBilling}
                         </label>
                     </div>
                     {/*  */}
@@ -883,7 +887,7 @@ function UserAddress({ userAddressProps }) {
                             style={{ display: "checkbox" ? "flex" : "none" }}
                         >
                             <label>
-                                <strong>BILLING ADDRESS</strong>
+                                <strong>{check.billingAdd}</strong>
                             </label>
 
                             {/*  */}
@@ -895,7 +899,7 @@ function UserAddress({ userAddressProps }) {
                                 <input
                                     className={styles.inputField}
                                     type="text"
-                                    placeholder="Street Name and Number"
+                                    placeholder={check.street}
                                     name="Street_Name_and_Number"
                                     value={billingAddress?.address_1 ? billingAddress.address_1 : ""}
                                     onChange={(e) => { onUpdateBillingAddress(e, 'address_1'); }}
@@ -929,12 +933,12 @@ function UserAddress({ userAddressProps }) {
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
                                     <label htmlFor="Street_Name_and_Number">
-                                        Apartment, Suite, Unit, Etc. (optional)
+                                       {check.apartmentSuiteUnitEtc}
                                     </label>
                                     <input
                                         className={styles.inputField}
                                         type="text"
-                                        placeholder="Apartment,suite"
+                                        placeholder={check.apartmentSuiteUnitEtc}
                                         name="address"
                                         value={""}
                                         onChange={() => { }}
@@ -944,11 +948,11 @@ function UserAddress({ userAddressProps }) {
 
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
-                                    <label htmlFor="Zip">Postcode/Zip*</label>
+                                    <label htmlFor="Zip">{check.PostcodeZip}*</label>
                                     <input
                                         className={styles.inputField}
                                         type="text"
-                                        placeholder="Zip code"
+                                        placeholder={check.PostcodeZip}
                                         name="Zip code"
                                         value={billingAddress?.postcode ? billingAddress.postcode : ""}
                                         onChange={(e) => { onUpdateBillingAddress(e, 'postcode'); }}
@@ -974,11 +978,11 @@ function UserAddress({ userAddressProps }) {
                             </div>
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
-                                    <label htmlFor="city">Town/City*</label>
+                                    <label htmlFor="city">{check.townCity}</label>
                                     <input
                                         className={styles.inputField}
                                         type="text"
-                                        placeholder="City"
+                                        placeholder={check.townCity}
                                         name="city"
                                         value={billingAddress?.city ? billingAddress.city : ""}
                                         onChange={(e) => { onUpdateBillingAddress(e, 'city'); }}
@@ -1004,7 +1008,7 @@ function UserAddress({ userAddressProps }) {
                             onChange={(e) => { setShowBillingAddress(e.target.checked); }}
                         />
                         <label htmlFor="Send_to_another_address">
-                            Use same address for billing
+                           {check.useSameAddressForBilling}
                         </label>
                     </div>
                 </div>

@@ -83,7 +83,10 @@ export const checkoutTranslation = {
         "useSameAddressForBilling":"Use same address for billing",
         "save":"Save",
         "close":"Close",
-        "shippingAddress":"SHIPPING ADDRESS"
+        "shippingAddress":"SHIPPING ADDRESS",
+        "cancel":"Cancel",
+        "orderNotes":"Notes about your order, e.g. special notes for delivery",
+        "enterCompleteAddress":"Please enter complete address"
     },
     "dk": {
         "box": "Kasse",
@@ -168,8 +171,11 @@ export const checkoutTranslation = {
       "apartmentSuiteUnitEtc": "Etage/dør",
       "useSameAddressForBilling":"Brug samme adresse til fakturering",
       "save":"Gem",
-       "close":"Close",
-       "shippingAddress":"SHIPPING ADDRESS"
+       "close":"luk",
+       "shippingAddress":"SHIPPING ADDRESS",
+       "cancel":"Peruuta",
+       "orderNotes":"Bemærkninger til ordren, f.eks. særlige bemærkninger til levering.",
+       "enterCompleteAddress":"Venligst oplys fuldstændig adresse"
     },
     "fi": {
         "box": "",
@@ -254,8 +260,11 @@ export const checkoutTranslation = {
       "apartmentSuiteUnitEtc": "Apartment, Suite, Unit, Etc. (optional)",
       "useSameAddressForBilling":"Use same address for billing",
       "save":"Tallenna",
-       "close":"Close",
-       "shippingAddress":"TOIMITUSOSOITE"
+       "close":"sulje",
+       "shippingAddress":"TOIMITUSOSOITE",
+       "cancel":"Slet",
+       "orderNotes":"Tietoja tilauksestasi, esimerkiksi erityisohjeistus kuljettajalle.",
+       "enterCompleteAddress":"Syötä kokonainen osoite"
     },
     "se": {
         "box": "Kassa",
@@ -340,7 +349,10 @@ export const checkoutTranslation = {
       "apartmentSuiteUnitEtc": "Våning/lägenhetsnummer",
       "useSameAddressForBilling":"Använd samma adress för fakturering",
       "save":"Spara",
-       "close":"Close",
-       "shippingAddress":"LEVERANSADRESS"
+       "close":"stäng",
+       "shippingAddress":"LEVERANSADRESS",
+       "cancel":"Radera",
+       "orderNotes":"Anteckningar om din beställning, t.ex. speciella instruktioner för leverans.",
+       "enterCompleteAddress":"Vänligen ange fullständig adress"
     }
 };

@@ -84,18 +84,18 @@ export const aboutTranslation = {
       "foodImg": ""
   },
   "fi": {
-      "disruptTheFoodIndustry": "",
-      "foodSupplyChain": "",
-      "justTime": "",
-      "treesAct": "",
-      "naturalStorage": "",
-      "freshNess": "",
+      "disruptTheFoodIndustry": "Haasta elintarviketeollisuus",
+      "foodSupplyChain": "Lyhennämme ja digitalisoimme elintarvikeketjua",
+      "justTime": "Juuri ajoissa",
+      "treesAct": "Puut ovat",
+      "naturalStorage": "luonnollinen kauppamme",
+      "freshNess": "Tuoreudessa ero",
       "freshContent": "",
-      "harvestDate": "",
-      "startedWith": "",
-      "algarveFarm": "",
-      "foodindustry": "",
-      "ourGoal": "",
+      "harvestDate": "Satoaika",
+      "startedWith": "Fresh.Landin ensimmäinen tuote oli appelsiinit Arturilta",
+      "algarveFarm": "Elintarviketeollisuus on vastuussa 26 % maailman",
+      "foodindustry": "Elintarviketeollisuus on vastuussa 26 % maailman",
+      "ourGoal": "Tavoitteenamme on vähentää CO₂-päästöjä",
       "emissionWasted": "",
       "reThink": "",
       "theTaste": "",
@@ -168,3 +168,6 @@ export const aboutTranslation = {
       "foodImg": ""
   }
 };
+
+
+

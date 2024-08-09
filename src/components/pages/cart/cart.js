@@ -461,7 +461,7 @@ function Cart() {
                         <input
                           type="text"
                           name="name"
-                          placeholder="Enter Discount Code"
+                          placeholder={ct.redeemCode}
                           value={coupon || ""}
                           onChange={(e) => {
                             setCoupon(e.target.value);

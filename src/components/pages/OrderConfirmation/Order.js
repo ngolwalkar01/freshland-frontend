@@ -125,7 +125,7 @@ const Order = ({ orderId }) => {
                     <table className={styles.table}>
                       <thead>
                         <tr>
-                          <th className={styles.firstHeading}>Item</th>
+                          <th className={styles.firstHeading}>{oct.item}</th>
                           <th>{oct.total}</th>
                         </tr>
                       </thead>
