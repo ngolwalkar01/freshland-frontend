@@ -691,6 +691,7 @@ padding-right: 30px;
     margin-bottom: 20px;
     margin-top: 24px;
     align-items: center;
+    gap: 40px;
   }
 
   /* .productTitleMob {
@@ -753,6 +754,7 @@ padding-right: 30px;
     margin-top: 24px;
     padding-inline: 28px;
     align-items: center;
+    gap: 40px;
   }
 
   .leftSide {
@@ -770,6 +772,7 @@ padding-right: 30px;
     display: flex;
     flex-direction: column;
     margin-left: 0;
+    gap: 20px;
   }
 /* 
   .rightSide :nth-child(1) {

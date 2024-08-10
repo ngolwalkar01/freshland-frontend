@@ -76,6 +76,8 @@
     margin-bottom: 40px;
     font-family: Calistoga;
     color: #01395e;
+    text-transform: capitalize;
+
   }
   
   .container {

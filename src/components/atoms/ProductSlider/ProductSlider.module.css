@@ -9,6 +9,7 @@
   margin: 40px 0px 40px 0px;
   font-size: 72px;
   color: var(--blue);
+  text-transform: capitalize;
 }
 .sliderContainer {
   width: 100%;

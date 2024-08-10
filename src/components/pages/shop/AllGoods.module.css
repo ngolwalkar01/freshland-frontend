@@ -24,6 +24,7 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  text-transform: capitalize;
 }
 
 .headingWrapper > h1 {
@@ -175,7 +176,7 @@
   justify-content: center;
   align-items: flex-start;
   gap: 16px;
-  max-width: 929px;
+  max-width: 1025px;
   margin: auto;
   margin: 40px auto;
   cursor: pointer;

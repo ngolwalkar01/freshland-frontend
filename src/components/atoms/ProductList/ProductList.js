@@ -50,7 +50,7 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
     <div key={product.id} className={styles.gridItem}>
       <div className={styles.transparentCard}>
         <div className={styles.cardContent}>
-          <div>
+        <div className={`${styles.organicLogo} ${(!product?.is_new && !product?.is_organic) ? styles.noGap : ''}`}>
             <div className={styles.newStatus}>
               {product?.is_new && <p>New</p>}
               {product?.is_organic && <Image

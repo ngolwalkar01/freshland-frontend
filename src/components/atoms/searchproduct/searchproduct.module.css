@@ -11,6 +11,8 @@
     font-family: Calistoga;
     margin-top: 80px;
     margin-bottom: 64px;
+    text-transform: capitalize;
+
   }
   
   .newheading{

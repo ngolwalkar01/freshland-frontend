@@ -39,7 +39,7 @@ const Category = () => {
                     <Header />
                     <div id='categoryContainer'>
                     <CategoryProducts
-                        cardHeading={category}
+                        cardHeading={category ? decodeURIComponent(category) : category}
                         productData={productData}
                     />
                     </div>

@@ -46,6 +46,27 @@ const AllItems = ({ categoryWithProducts }) => {
                 style={{ display: showMenu ? "flex" : "none" }}
               >
                 <ul className={styles.filterList}>
+                <li
+                      
+                        className={styles.filterListLi}
+                        onClick={() => {
+                          setSelectedFilter(null);
+                          setShowMenu(false);
+                        }}
+                      >
+                        <input
+                          className={styles.filterInput}
+                          type="radio"
+                          name="cat-filters"
+                          checked={selectedFilter === null}
+                        />
+                        <label
+                          className={styles.FilterRadioLabel}
+                        
+                        >
+                         {st.allProducts}
+                        </label>
+                      </li>
                   {categoryWithProducts && categoriesWithProducts.map((x, i) => {
                     return (
                       <li
@@ -65,7 +86,7 @@ const AllItems = ({ categoryWithProducts }) => {
                         />
                         <label
                           className={styles.FilterRadioLabel}
-                          htmlFor={x.category.id}
+                       
                         >
                           {x.category.name}
                         </label>
@@ -95,7 +116,7 @@ const AllItems = ({ categoryWithProducts }) => {
                     }}
                   >
                     <label className={styles.FilterRadioLabel}>
-                     All Product
+                    {st.allProducts}
                     </label>
                   </li>
                   {categoryWithProducts && categoriesWithProducts.map((x, i) => {

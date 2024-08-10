@@ -224,7 +224,7 @@ export const homepageTranslation = {
         "lorem": "Färskt skördad frukt & grönt",
         "cardHeading": "Direkt från gården",
         "freight": "Leverans",
-        "weDeliverTo": "Vi levererar till Jylland och de brofasta öarna samt Bornholm",
+        "weDeliverTo": "Dina varor levereras på onsdagar mellan kl 08:00-21:00. Dagen innan leverans får du ett sms med en beräknad leveranstid. I sms:et finns även en länk där du kan ange ytterligare leveransinfo samt följa leveransen i realtid på leveransdagen. Där kan du även ange kommentarer till leverantören.",
         "seasonalGoods": "Säsongens varor",
         "getTheTaste": "Få årstidens godaste smaker levererade direkt till dörren",
         "benefitsVIP": "Få härliga fördelar som VIP!",

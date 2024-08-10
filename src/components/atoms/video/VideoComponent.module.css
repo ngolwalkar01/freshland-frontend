@@ -18,6 +18,10 @@
   position: relative;
   
 }
+
+.mobilebtn{
+  display: none;
+}
 .commonfrontImg{
  
 
@@ -75,9 +79,7 @@
   border: 2px solid var(--green);
   background-color: var(--green);
   text-transform: capitalize;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 18px;
   height: 60px;
   font-size: 17px;
   width: 262px;
@@ -137,10 +139,22 @@
   .videoContainer{
     width: 300px !important;
   }
+  .desktopbtn{
+   display: none;
+  }
+  .mobilebtn{
+display: block;
+ }
 
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
+  .desktopbtn{
+    display: none;
+   }
+   .mobilebtn{
+ display: block;
+  }
   .giftsvg{
     display: none
   }
@@ -201,6 +215,8 @@
     font-size: 14px;
     width: 171px;
     border-radius: 16px;
+    padding: 10px;
+    margin: 40px 0px 0px 0px;
   }
   .textContainer{
     padding: 0px 20px;
@@ -210,8 +226,16 @@
 
 
 @media(min-width:602px) and (max-width: 1100px) {
+  .desktopbtn{
+    display: none;
+   }
+   .mobilebtn{
+ display: block;
+ margin: 40px 0px 0px 0px;
+  }
   .giftsvg{
     display: none
+    
   }
   .giftsvgmobile{
     display: block;
@@ -256,6 +280,7 @@
   }
   .desktopimg{
     display: none;
+    margin: 40px 0px 0px 0px;
   }
   .mobileviewimg{
     display: none;

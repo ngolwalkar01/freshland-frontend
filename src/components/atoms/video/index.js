@@ -22,7 +22,7 @@ const VideoComponent = () => {
                 {hpt.thankYouTommorow}
               </p>
             </div>
-            <Link href="#" className={videoStyles.learnmore}>
+            <Link href="#" className={`${videoStyles.learnmore} ${videoStyles.desktopbtn}`}>
              {hpt.learnMore}
             </Link>
           </div>
@@ -50,6 +50,9 @@ const VideoComponent = () => {
               />
             </div>
           </div>
+          <Link href="#" className={`${videoStyles.learnmore} ${videoStyles.mobilebtn}`}>
+             {hpt.learnMore}
+            </Link>
         </div>
         <div className={videoStyles.commonfrontImg}>
           <Image

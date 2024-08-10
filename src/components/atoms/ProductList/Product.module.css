@@ -17,6 +17,8 @@
   text-align: center;
   font-family: Calistoga;
   font-size: 72px;
+  text-transform: capitalize;
+
 }
 
 .gridWrapper {
@@ -100,6 +102,14 @@
 .clicked {
   color: #EA3C3C;
 }
+.organicLogo{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.noGap{
+  gap: 0px;
+}
 .cardTitle {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   font-size: 18px;
@@ -110,7 +120,6 @@
   letter-spacing: normal;
   cursor: pointer;
   color: var(--blue);
-  margin: 6px 0px;
   text-align: left;
 }
 
@@ -132,7 +141,7 @@
 .addToBasketButton {
   width: 100%;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: 31.21px;
@@ -316,7 +325,7 @@
   }
 
   .heading {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .imgContainer {
@@ -325,7 +334,6 @@
   }
 
   .cardTitle {
-    margin: 3px 0px;
     font-size: 13px;
     font-weight: bold;
     font-stretch: normal;
@@ -350,7 +358,7 @@
   .addToBasketButton {
     /* font-family: HelveticaNeue; */
     font-size: 13px;
-    font-weight: normal;
+    font-weight: bold;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.54;
@@ -380,7 +388,7 @@
     font-size: 20px;
   }
   .cardContent{
-    gap: 0px;
+    gap: 3px;
   }
 
   .skeletonContainer{

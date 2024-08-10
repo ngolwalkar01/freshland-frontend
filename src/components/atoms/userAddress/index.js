@@ -234,8 +234,9 @@ function UserAddress({ userAddressProps }) {
         return addressErrors
     };
 
-    const editAddress = (address, index) => {
-        onCancel();
+    const editAddress = async (address, index) => {
+        await onSelectAddress(index);
+        resetForm();
         const prevAddress = { ...enableEditableMode };
         if (prevAddress.index === -1 || index === prevAddress.index) {
             setEditableMode({ index, status: !prevAddress.status });
@@ -410,18 +411,29 @@ function UserAddress({ userAddressProps }) {
     };
 
     const updateUserAddress = async (i) => {
-        await setUserAddressesAsync(i)
+        await setUserAddressesAsync(i);
         await checkIfUserHaveAddress();
-        await updateLocalStorageCartData();
+    }
+
+    const onSelectAddress = async (i) => {
+        await applyLoader(setOlLoader, updateUserAddress, [
+            i
+        ]);
+        updateLocalStorageCartData();
     }
 
     const savedAddress = async (isNewAddress) => {
         try {
+            const isnew = isNewAddress === "true";
             setOlLoader(true);
-            const addressesToSave = isNewAddress === "true" ? userAddresses : userAddresses.filter(x => !x.isNewAddress);
+            const addressesToSave = isnew? userAddresses : userAddresses.filter(x => !x.isNewAddress);
             await saveUserAddresses(addressesToSave);
             resetForm();
-            await checkIfUserHaveAddress();
+            await setUserAddressesAsync(userAddresses.length - 1);
+            if (isnew) {
+                updateLocalStorageCartData();
+                await checkIfUserHaveAddress();
+            }
             await fetchData1();
             setOlLoader(false);
         } catch (error) {
@@ -456,9 +468,7 @@ function UserAddress({ userAddressProps }) {
                                                 <div key={i} className={`${styles.addresscontainer} ${isError ? styles.error_border : ''}`}>
                                                     <div className={styles.selectAddress}>
                                                         <input type="radio" id="user_address" checked={x.selected} name="user_address" value="user_address" onChange={async () => {
-                                                            await applyLoader(setOlLoader, updateUserAddress, [
-                                                                i
-                                                            ]);
+                                                            await onSelectAddress(i);
                                                         }} />
                                                         <div className={styles.address}>
                                                             <p className="M-Body-Medium">{firstName} {lastName}</p>
@@ -544,7 +554,7 @@ function UserAddress({ userAddressProps }) {
                                                             <div className={styles.fieldsRow}>
                                                                 <div className={styles.fieldColumn}>
                                                                     <label htmlFor="Street_Name_and_Number">
-                                                                      {check.apartmentSuiteUnitEtc}
+                                                                        {check.apartmentSuiteUnitEtc}
                                                                     </label>
                                                                     <input
                                                                         className={styles.inputField}
@@ -618,29 +628,29 @@ function UserAddress({ userAddressProps }) {
 
                                                             {token && (
                                                                 <>
-                                                                <div className={styles.savecancelBtn}>
-                                                                    <div className={styles.fieldsRow}>
-                                                                        <div className={styles.newAddCover}>
-                                                                            <button
-                                                                                type="button"
-                                                                                className={styles.newAddBtn}
-                                                                                onClick={savedAddress}
-                                                                            >
-                                                                                {co.save}
-                                                                            </button>
+                                                                    <div className={styles.savecancelBtn}>
+                                                                        <div className={styles.fieldsRow}>
+                                                                            <div className={styles.newAddCover}>
+                                                                                <button
+                                                                                    type="button"
+                                                                                    className={styles.newAddBtn}
+                                                                                    onClick={savedAddress}
+                                                                                >
+                                                                                    {co.save}
+                                                                                </button>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div className={styles.fieldsRow}>
-                                                                        <div className={styles.newAddCover}>
-                                                                            <button
-                                                                                type="button"
-                                                                                className={styles.newAddBtn}
-                                                                                onClick={onCancel}
-                                                                            >
-                                                                                {check.cancel}
-                                                                            </button>
+                                                                        <div className={styles.fieldsRow}>
+                                                                            <div className={styles.newAddCover}>
+                                                                                <button
+                                                                                    type="button"
+                                                                                    className={styles.newAddBtn}
+                                                                                    onClick={onCancel}
+                                                                                >
+                                                                                    {check.cancel}
+                                                                                </button>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
                                                                     </div>
                                                                 </>
                                                             )}
@@ -762,7 +772,7 @@ function UserAddress({ userAddressProps }) {
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
                                     <label htmlFor="Street_Name_and_Number">
-                                       {check.apartmentSuiteUnitEtc}
+                                        {check.apartmentSuiteUnitEtc}
                                     </label>
                                     <input
                                         className={styles.inputField}
@@ -836,31 +846,31 @@ function UserAddress({ userAddressProps }) {
 
                             {token && (
                                 <>
-                                <div className={styles.cancelbtn}>
-                                    <div className={styles.fieldsRow}>
-                                        <div className={styles.newAddCover}>
-                                            <button
-                                                type="button"
-                                                className={styles.newAddBtn}
-                                                onClick={() => {
-                                                    savedAddress("true")
-                                                }}
-                                            >
-                                                {co.save}
-                                            </button>
+                                    <div className={styles.cancelbtn}>
+                                        <div className={styles.fieldsRow}>
+                                            <div className={styles.newAddCover}>
+                                                <button
+                                                    type="button"
+                                                    className={styles.newAddBtn}
+                                                    onClick={() => {
+                                                        savedAddress("true")
+                                                    }}
+                                                >
+                                                    {co.save}
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className={styles.fieldsRow}>
-                                        <div className={styles.newAddCover}>
-                                            <button
-                                                type="button"
-                                                className={styles.newAddBtn}
-                                                onClick={onCancel}
-                                            >
-                                                {check.cancel}
-                                            </button>
+                                        <div className={styles.fieldsRow}>
+                                            <div className={styles.newAddCover}>
+                                                <button
+                                                    type="button"
+                                                    className={styles.newAddBtn}
+                                                    onClick={onCancel}
+                                                >
+                                                    {check.cancel}
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
                                     </div>
                                 </>
                             )}
@@ -875,7 +885,7 @@ function UserAddress({ userAddressProps }) {
                             onChange={(e) => { setShowBillingAddress(e.target.checked); }}
                         />
                         <label htmlFor="Send_to_another_address">
-                           {check.useSameAddressForBilling}
+                            {check.useSameAddressForBilling}
                         </label>
                     </div>
                     {/*  */}
@@ -933,7 +943,7 @@ function UserAddress({ userAddressProps }) {
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
                                     <label htmlFor="Street_Name_and_Number">
-                                       {check.apartmentSuiteUnitEtc}
+                                        {check.apartmentSuiteUnitEtc}
                                     </label>
                                     <input
                                         className={styles.inputField}
@@ -1008,7 +1018,7 @@ function UserAddress({ userAddressProps }) {
                             onChange={(e) => { setShowBillingAddress(e.target.checked); }}
                         />
                         <label htmlFor="Send_to_another_address">
-                           {check.useSameAddressForBilling}
+                            {check.useSameAddressForBilling}
                         </label>
                     </div>
                 </div>

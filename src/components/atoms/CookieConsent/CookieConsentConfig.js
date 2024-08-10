@@ -98,14 +98,13 @@ const getConfig = () => {
           consentModal: {
             title: 'We use cookies',
             description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+              'För att ge en bra upplevelse använder vi teknik som cookies för att lagra och/eller komma åt enhetsinformation. När du samtycker till dessa tekniker kan vi behandla data som surfbeteende eller unika ID:n på denna webbplats. Om du inte samtycker eller om du återkallar ditt samtycke kan detta påverka vissa funktioner negativt.',
             acceptAllBtn: 'Accept all',
             acceptNecessaryBtn: 'Reject all',
             showPreferencesBtn: 'Manage Individual preferences',
             // closeIconLabel: 'Reject all and close modal',
             footer: `
-                        <a href="#path-to-impressum.html" target="_blank">Impressum</a>
-                        <a href="#path-to-privacy-policy.html" target="_blank">Privacy Policy</a>
+                        <a href="/se/sekretesspolicy">Integritetspolicy</a>
                     `,
           },
           preferencesModal: {

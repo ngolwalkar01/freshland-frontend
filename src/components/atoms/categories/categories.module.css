@@ -30,7 +30,7 @@
 }
 .fruitCategories p{
     position: absolute;
-    font-size: 24px;
+    font-size: 28px;
     color: #fff;
     margin: 0px 0px 0px 24px;
 }
@@ -72,8 +72,8 @@
       height: 101px;
     }
     .fruitCategories p{
-      font-size: 12px;
-      padding: 0px 0px 12px 0px;
+      font-size: 16px;
+     
       margin: 0px 0px 0px 12px;
     }
     .mainContainer{

@@ -28,6 +28,8 @@
     font-family: 'Calistoga';
     color: var(--green);
     font-size: 72px;
+    text-transform: capitalize;
+
   }
   
   .gridContainer {
