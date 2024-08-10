@@ -8,6 +8,7 @@ import productService from '@/services/product';
 import SearchComp from '@/components/atoms/search';
 import Header from '@/components/atoms/Header/Header';
 import { useParams } from 'next/navigation'
+import { decodeString } from '@/helper';
 
 const Search = () => {
     const params = useParams();
@@ -43,7 +44,7 @@ const Search = () => {
                 {loading ? <Shopskeleton /> : <>
                     <Header />
                     <SearchComp
-                        cardHeading={`Search results: "${searchTxt}"`}
+                        cardHeading={decodeString(`Search results: "${searchTxt}"`)}
                         productData={productData}
                     />
                 </>

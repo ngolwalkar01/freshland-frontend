@@ -2,6 +2,7 @@ import { addToCart, updateCartQuantity, removeCartItem } from '@/components/serv
 import ProductList from '../ProductList/ProductList';
 import { shopTranslation } from '@/locales';
 import styles from "@/components/pages/shop/AllGoods.module.css";
+import { decodeString } from '@/helper';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
@@ -12,7 +13,7 @@ const Search = ({ cardHeading, productData, overRideClass = false, reload = () =
             <div className={styles.categoryContainer}>
                 <ProductList
                     overRideClass={overRideClass}
-                    cardHeading={cardHeading}
+                    cardHeading={decodeString(cardHeading)}
                     productData={productData}
                     addToCart={addToCart}
                     updateCartQuantity={updateCartQuantity}

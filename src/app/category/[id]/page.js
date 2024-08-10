@@ -8,6 +8,7 @@ import productService from '@/services/product';
 import CategoryProducts from '@/components/atoms/search';
 import Header from '@/components/atoms/Header/Header';
 import { useParams } from 'next/navigation'
+import { decodeString } from '@/helper';
 
 const Category = () => {
     const params = useParams();
@@ -39,7 +40,7 @@ const Category = () => {
                     <Header />
                     <div id='categoryContainer'>
                     <CategoryProducts
-                        cardHeading={category ? decodeURIComponent(category) : category}
+                        cardHeading={decodeString(category)}
                         productData={productData}
                     />
                     </div>

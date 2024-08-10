@@ -5,6 +5,7 @@ import { useRef } from "react"; // Import useRef hook
 import ProductList from "@/components/atoms/ProductList/ProductList";
 import Seeallbtn from "../seeallbtn/seeallbtn";
 import { homepageTranslation } from '@/locales';
+import { decodeString } from '@/helper';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
@@ -50,7 +51,7 @@ const TopImage = ({ farmProductProps }) => {
         {/* Render your ProductList component here */}
         <div>
           <ProductList
-            cardHeading={hpt.directlyFromFarm}
+            cardHeading={decodeString(hpt.directlyFromFarm)}
             {...farmProductProps}
           />
        <div>

@@ -8,6 +8,8 @@ import productService from '@/services/product';
 import CategoryProducts from '@/components/atoms/search';
 import Header from '@/components/atoms/Header/Header';
 import { commonTranslation} from '@/locales';
+import { decodeString } from '@/helper';
+
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const Favourites = () => {
     const cmt = commonTranslation[lang];
@@ -43,7 +45,7 @@ const Favourites = () => {
                     <Header />
                     <div id='categoryContainer'>
                     <CategoryProducts
-                        cardHeading={cmt.favoritesProducts}
+                        cardHeading={decodeString(cmt.favoritesProducts)}
                         productData={productData}
                         reload={reload}
                         nofavoriteMessage={cmt.noFavorites}
