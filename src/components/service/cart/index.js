@@ -76,7 +76,7 @@ export const addToCart = async (
       [productId, quantity, subscription_scheme],
       errorMessage
     );
-    toast.success(service.productAddedToCart , {
+    toast.success(service.productAddedToCart, {
       autoClose: toastTimer,
     });
     updateCartData(productAddedToCart);
@@ -128,7 +128,7 @@ export const addCouponCart = async (coupon_code) => {
 
 export const removeCouponCart = async (coupon_code) => {
   const errorMessage =
-  service.applyCouponIssue;
+    service.applyCouponIssue;
   const data = await retryCall(
     cartService.removeCouponCart,
     [coupon_code],
@@ -141,7 +141,7 @@ export const removeCouponCart = async (coupon_code) => {
 export const addShippingCart = async (shipping_method) => {
   const cartKey = cookieService.getCookie(cartCookieKey);
   const errorMessage =
-  service.applyCouponIssue;
+    service.applyCouponIssue;
   await retryCall(
     cartService.addShipping,
     [cartKey, shipping_method],
@@ -152,7 +152,7 @@ export const addShippingCart = async (shipping_method) => {
 
 export const createNewOrder = async (orderData) => {
   const errorMessage =
-  service.applyCouponIssue;
+    service.applyCouponIssue;
   const data = await retryCall(
     cartService.createNewOrder,
     [orderData],
@@ -169,7 +169,7 @@ export const updateCartSubscriptionFrequency = async (
   subscription_scheme
 ) => {
   const errorMessage =
-   service.updateCartSubscriptionFreqIssue;
+    service.updateCartSubscriptionFreqIssue;
   await retryCall(
     cartService.updateCartSubscriptionFrequency,
     [cart_item_key, subscription_scheme],
@@ -181,7 +181,7 @@ export const updateCartSubscriptionFrequency = async (
 export const setCustomerDetails = async (customerInfo, stopRedirectToLogin) => {
   stopRedirectToLogin = stopRedirectToLogin || "";
   const errorMessage =
-   service.saveCustomerDetailIssue;
+    service.saveCustomerDetailIssue;
   const data = await retryCall(
     cartService.setCustomerDetails,
     [customerInfo, stopRedirectToLogin],
@@ -203,7 +203,7 @@ export const getSubscriptionOptions = async (product_id) => {
 
 export const recoverUserCart = async (order_id, cart_key) => {
   const errorMessage =
-   service.recoverUserCartIssue;
+    service.recoverUserCartIssue;
   await retryCall(
     cartService.recoverUserCart,
     [order_id, cart_key],
@@ -252,6 +252,22 @@ export const saveUserAddresses = async (userAdds) => {
   } catch (error) {
     toast.error(
       service.recoverUserCartIssue,
+      { autoClose: toastTimer }
+    );
+    throw error;
+  }
+};
+
+
+export const checkZipCode = async (zip) => {
+  try {
+    const data = await cartService.checkZipCode(zip);
+    if (data?.status && data?.message)
+      toast.success(data.message);
+    return data;
+  } catch (error) {
+    toast.error(
+      error?.data?.message || service.somethingWentWrong,
       { autoClose: toastTimer }
     );
     throw error;

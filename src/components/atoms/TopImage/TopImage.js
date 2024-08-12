@@ -6,6 +6,7 @@ import ProductList from "@/components/atoms/ProductList/ProductList";
 import Seeallbtn from "../seeallbtn/seeallbtn";
 import { homepageTranslation } from '@/locales';
 import { decodeString } from '@/helper';
+import ZipCodeChecker from "../ZipCodeChecker";
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
@@ -45,6 +46,7 @@ const TopImage = ({ farmProductProps }) => {
           <h1>{hpt.freshlyHarvested}</h1>
         </div>
       </div>
+      <ZipCodeChecker />
       <div ref={productListRef} className={styles.bgcolor}>
         {" "}
         {/* Add a ref to the ProductList component */}

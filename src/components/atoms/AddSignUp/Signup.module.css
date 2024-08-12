@@ -82,8 +82,7 @@
 
 .text {
   font-family: Calistoga;
-  font-size: 1.6rem;
-  font-size: 31px;
+  font-size: 28px;
   color: var(--blue);
 }
 
@@ -132,18 +131,17 @@
 
 .signupButton {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-  color: var(--blue);
+  color: var(--green);
   border-radius: 25px;
-  border: 2px solid var(--blue);
+  border: 2px solid var(--green);
   margin-top: 64px;
   margin-inline: auto;
-  text-transform: capitalize;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 71px;
   font-size: 17px;
-  width: 203px;
+  width: 237px;
   gap: 5px;
   cursor: pointer;
   text-align: center;
@@ -152,7 +150,7 @@
 }
 
 .signupButton:hover{
-  background-color: var(--blue);
+  background-color: var(--green);
     color: #fff;
 }
 
@@ -184,7 +182,7 @@
 }
 .heading{
   padding: 0px 0px;
-  font-size: 40px;
+  font-size: 30px;
 }
 .Boxconatiner{
   padding: 40px 11px 1px 10px;
@@ -197,9 +195,10 @@
 }
 .signupButton{
   font-size: 14px;
-  width: 171px;
-  margin: 30px auto auto auto;
-  height: 55px;
+  width: 165px;
+        border-radius: 25px;
+        height: 38px;
+        font-size: 12px;
  }
  .text{
   font-size: 24px;
@@ -227,7 +226,7 @@
   }
   .heading{
     padding: 0px 32px;
-    font-size: 40px;
+    font-size: 30px;
   }
   .Boxconatiner{
     padding: 40px 11px 1px 10px;
@@ -250,9 +249,10 @@
   }
  .signupButton{
   font-size: 14px;
-  width: 171px;
-  margin: 30px auto auto auto;
-  height: 55px;
+  width: 165px;
+  border-radius: 25px;
+  height: 38px;
+  font-size: 12px;
  }
  .text{
   font-size: 24px;
@@ -277,7 +277,7 @@
    
   }
   .heading{
-    font-size: 35px;
+    font-size: 30px;
   }
   .description{
     display: none;

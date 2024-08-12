@@ -128,7 +128,7 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
 
           </Slider>
         </div>
-        {/* <Link href ="/shop" className={styles.signupButton}>{hpt.seeVIP}</Link> */}
+        <Link href ="/viplist" className={styles.signupButton}>{hpt.seeVIP}</Link>
       </div>
     </div>
   );

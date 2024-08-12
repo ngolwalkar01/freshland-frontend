@@ -22,7 +22,8 @@ const Search = ({ cardHeading, productData, overRideClass = false, reload = () =
                 />
                 {!(productData && productData.length > 0) && (
                     <p className={styles.comingSoon} style={{ textAlign: 'center' }}>
-                   {nofavoriteMessage || `${st.ourProductComingSoon}  ${st.stayTuned}`}
+                   {/* no need to add coomingsson heading in search */}
+                   {nofavoriteMessage || ``}
 
                     </p>
                 )}

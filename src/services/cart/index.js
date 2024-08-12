@@ -311,6 +311,18 @@ const getVipPageDataById = async (id) => {
     }
 }
 
+const checkZipCode = async (postalcode) => {
+    try {
+        const response = await axios.post(`${INTERNAL_API_BASE_URL}/check-zip`, {
+            postalcode
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Error in checking zip code:', error);
+        throw error;
+    }
+}
+
 const CartAPI = {
     addProductToCart,
     getCartItems,
@@ -330,7 +342,8 @@ const CartAPI = {
     getUserAddresses,
     setUserAddresses,
     saveUserAddresses,
-    getVipPageDataById
+    getVipPageDataById,
+    checkZipCode
 };
 
 export default CartAPI;

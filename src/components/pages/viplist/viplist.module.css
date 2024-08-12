@@ -1,6 +1,7 @@
 .heading h1{
     text-align: center;
     color: var(--green);
+    font-size: 72px;
 }
 .heading{
     padding: 0px 0px 40px 0px;
@@ -12,6 +13,7 @@
     display: flex;
    margin: auto;
    height: 100%;
+   width: 250px;
   }
 .viplistConatiner{
     display: flex;
@@ -97,6 +99,9 @@
     align-items: center;
     justify-content: center;
 }
+.productimg img{
+    width: 250px;
+}
 .signUpvip p:first-child{
  color: var(--green);
  font-family: Calistoga;
@@ -118,7 +123,8 @@
     justify-content: center;
     height: 54px;
     font-size: 17px;
-    width: 203px;
+    width: 134px;
+    font-weight: 600;
     gap: 5px;
     cursor: pointer;
     text-align: center;
@@ -139,6 +145,9 @@
   }
 
 @media only screen and (max-width: 600px){
+    .juicy p:first-child{
+        font-size: 16px;
+    }
     .juicy p{
         font-size: 14px;
     }
@@ -147,5 +156,8 @@
     }
     .heading{
         padding: 20px 0px 20px 0px;
+    }
+    .heading h1{
+        font-size: 30px;
     }
 }

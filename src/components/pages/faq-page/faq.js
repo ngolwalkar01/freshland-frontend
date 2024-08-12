@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import styles from "./faq.module.css";
 import Header from "@/components/atoms/Header/Header";
 import Link from "next/link";
@@ -13,6 +13,15 @@ const Faq = ({ heading, accordionData }) => {
     setOpenAccordionIndex(openAccordionIndex === index ? -1 : index);
   };
 
+  useEffect(() => {
+    const hash = window.location.hash.substring(1); 
+    if (hash) {
+      const index = accordionData.findIndex(item => item.id === hash);
+      if (index !== -1) {
+        setOpenAccordionIndex(index); 
+      }
+    }
+  }, [accordionData]);
   return (
     <>
       <div className={styles.delivery}>
@@ -100,7 +109,7 @@ const faqData = [
         content: "<p>Om du inte kan se någon orderbekräftelse – kika gärna i din skräppost först. Om den inte heller är där kan det bero på två saker – Antingen har din order inte gått igenom eller så har du skrivit in en felaktig mejladress. Kontakta oss gärna på <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> eller ring oss på <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 10 888 57 20</a> så hjälper vi dig.</p>"
     },
     {
-        id: "right-withdraw",
+        id: "angerratt-och-reklamation",
         title: "Ångerrätt och reklamation",
         content: "<p><strong>Ångerrätt </strong></p> <p>Det finns ingen ångerrätt för avtal om leverans av mat, drycker eller andra varor för hushållets nuvarande konsumtion, som levereras fysiskt till ditt hem, bostad eller arbetsplats, som en del av vår ordinarie leverans av varor. Varor på <a href=\"https://fresh.land/se/\">fresh.land/se/</a> som inte är för hushållets nuvarande konsumtion täcks av de allmänna reglerna om ångerrätt.</p> <p><strong>Reklamation </strong></p> <p>Om varan du fick inte lever upp till förväntningarna vill vi gärna kompensera dig. Kontakta oss på <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> senast 3 dagar efter leverans, men gärna så fort som möjligt i samband med leverans.</p>"
     }

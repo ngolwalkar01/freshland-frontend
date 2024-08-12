@@ -52,7 +52,7 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
         <div className={styles.cardContent}>
         <div className={`${styles.organicLogo} ${(!product?.is_new && !product?.is_organic) ? styles.noGap : ''}`}>
             <div className={styles.newStatus}>
-              {product?.is_new && <p>New</p>}
+              {product?.is_new && <p>{cmt.new}</p>}
               {product?.is_organic && <Image
                 className={styles.cardTopImage}
                 src="/Images/productTop.png"

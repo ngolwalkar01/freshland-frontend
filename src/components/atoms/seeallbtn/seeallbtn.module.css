@@ -6,7 +6,6 @@
   border-radius: 25px;
   border: 2px solid var(--green);
   margin-inline: auto;
-  text-transform: capitalize;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -123,7 +123,7 @@ const Vip = ({ vipPageData }) => {
                   <div className={style.signUpvip}>
                     <p>{cmt.signUpVIP}</p>
                     <p>
-                     {cmt.vipDescription}
+                      {cmt.vipDescription}
                     </p>
                   </div>
                   <div className={style.productimg}>
@@ -183,25 +183,25 @@ const Vip = ({ vipPageData }) => {
                 </div>
                 <div>
                   <p className={style.msgInfo}>
-                  {cmt.marketingConsent}{" "}
-                    <Link href="#">{cmt.productoffer}</Link>,{cmt.event} 
+                    {cmt.marketingConsent}{" "}
+                    <Link href="#">{cmt.productoffer}</Link>,{cmt.event}
                     {" "}
                     <Link href="#">
                       {cmt.lessWaste}
                     </Link>{" "}
-                    . {cmt.acceptDataProcessing}.
+                    {cmt.acceptDataProcessing}
                   </p>
                 </div>
                 <p className={style.msgInfo}>
-                {cmt.withdrawConsent} <Link  href="#">{cmt.here}</Link> 
-                 {cmt.privacyPolicyInfo} <Link href="#"> {cmt.privacypolicy} </Link>
-                 {cmt.weProcess}
+                  {cmt.withdrawConsent} <Link href="#">{cmt.here}</Link> <span>.</span>
+                  {cmt.privacyPolicyInfo} <Link href="#"> {cmt.privacypolicy} </Link><span>.</span>
+                  {cmt.weProcess}
                   {/* <Link href="#">here</Link>. You can read in our
                   <Link href="#"> privacy policy </Link> how we process
                   information about you. */}
                 </p>
                 <div>
-                  <button onClick={submit} className={style.submit}>Submit</button>
+                  <button onClick={submit} className={style.submit}>{cmt.sendIn}</button>
                 </div>
               </form>
             </div>

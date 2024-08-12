@@ -92,9 +92,6 @@
 
 @media (min-width: 320px) and (max-width: 600px) {
 
-  .topBarContent h1{
-    -webkit-text-stroke: 1px var(--blue);
-  }
   .circleBackground {
     display: none;
   }

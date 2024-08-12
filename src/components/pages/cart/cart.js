@@ -20,6 +20,7 @@ import { setShippingMethod } from "@/components/service/shipping";
 import CartShipping from "@/components/atoms/cartshiiping";
 import { applyLoader } from "@/helper/loader";
 import OverLayLoader from '@/components/atoms/overLayLoader';
+import { trackAddToCartPage } from "@/components/service/klaviyoTrack";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
@@ -132,6 +133,7 @@ function Cart() {
       try {
         const cartData = await getCartData();
         setCartDataByCartData(cartData);
+        trackAddToCartPage(cartData);
       } catch (error) {
         console.log(error);
       } finally {

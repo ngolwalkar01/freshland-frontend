@@ -8,13 +8,15 @@ import CookieConsentComponent from "@/components/atoms/CookieConsent";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
+  const pubKey = process.env.NEXT_PUBLIC_KLAVIYO_COMPANY;
+  const src = `https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=${pubKey}`;
   return (
     <html lang="en">
       <Head>
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <title>Fresh.Land - Nyhøstet frugt og grøntsager. Bestil nu!</title>
         {/* <script src="https://apis.google.com/js/platform.js" async defer></script> */}
-         {/* <script>
+        {/* <script>
                         {`
               (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -28,6 +30,9 @@ export default function RootLayout({ children }) {
                     </script> */}
       </Head>
       <body className={inter.className}>
+        {pubKey ? (
+          <script type="text/javascript" async="" src={src}></script>
+        ) : ''}
         {children}
         <ToastContainer
           position="top-right"

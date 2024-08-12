@@ -1,0 +1,80 @@
+.zipcodeContainer {
+    padding: 60px 0;
+    background-color: #f3e3db;
+    position: relative;
+}
+
+.zipcodeWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.zipcodeHeader {
+    margin: 0 0 48px;
+}
+
+.headerText {
+    color: #544131;
+}
+
+.subheaderText {
+    color: #9f9f9f;
+}
+
+.zipcodeCheck {
+    display: flex;
+    gap: 60px;
+}
+
+.formWrapper {
+    margin-top: 0;
+}
+
+.formControlBox {
+    width: auto;
+    margin: 45px 0 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.textField {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 21px 37px;
+    border: none;
+    width: 461px;
+    max-width: 461px;
+    height: 75px;
+    max-height: 75px;
+    font-size: 20px;
+}
+
+.submitButton {
+    background-color: #A73C61;
+    color: #fff;
+    border-radius: 10px;
+    padding: 17px 0;
+    margin: 0;
+    border: none;
+    width: 230px;
+    max-width: 230px;
+    height: 73px;
+    max-height: 75px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 12px;
+    text-align: left;
+    margin: -10px 0 10px 0;
+}
+
+.pointer {
+    cursor: pointer;
+}

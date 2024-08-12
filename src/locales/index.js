@@ -15,6 +15,8 @@ import { termTranslation } from './term';
 import { policyTranslation } from './personaldata';
 import {serviceTranslation} from './services';
 import { errorTranslation } from './errormsg';
+import { zipCodeCheckerTranslation } from './home-page/zipCodeChecker';
+
 export {
     aboutTranslation,
     commonTranslation,
@@ -32,5 +34,6 @@ export {
     termTranslation,
     policyTranslation,
     serviceTranslation,
-    errorTranslation
+    errorTranslation,
+    zipCodeCheckerTranslation
 }

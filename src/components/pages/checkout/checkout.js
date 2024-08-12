@@ -40,6 +40,7 @@ import { applyLoader } from "@/helper/loader";
 import OverLayLoader from "@/components/atoms/overLayLoader";
 import ShippingBillingAddress from "@/components/atoms/shippingBillingAddress";
 import klaviyoservice from "@/services/klaviyo/apiIndex";
+import { trackAddToCheckoutPage } from "@/components/service/klaviyoTrack";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
@@ -243,6 +244,7 @@ function Checkout() {
     const getCart = async () => {
       const cartData = await getCartData();
       setCartDataByCartData(cartData);
+      trackAddToCheckoutPage(cartData);
     };
 
     const checkoutInit = async () => {

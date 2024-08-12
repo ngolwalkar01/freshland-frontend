@@ -8,6 +8,7 @@ import Detail from '@/components/pages/product/detail/index';
 import Layout from '@/components/layout';
 import productService from '@/services/product'
 import DescriptionSkeleton from '@/components/skeleton/detailsskeleton'
+import { trackProductDetailPage } from '@/components/service/klaviyoTrack';
 
 const ProductPage = () => {
     const params = useParams();
@@ -19,6 +20,10 @@ const ProductPage = () => {
     const [loading, setLoading] = useState(false);
 
     const productId = params?.id;
+
+    const trackProductDetail = (productDetail) => {
+        trackProductDetailPage(productDetail);
+    }
 
     useEffect(() => {
         async function fetchData() {
@@ -33,6 +38,7 @@ const ProductPage = () => {
                     relatedProducts,
                     productId
                 });
+                trackProductDetail(productDetail);
             } catch (error) {
                 console.log(error);
             } finally {

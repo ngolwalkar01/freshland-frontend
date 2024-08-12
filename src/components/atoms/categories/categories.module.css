@@ -40,7 +40,6 @@
     border-radius: 25px;
     border: 2px solid var(--green);
     margin-inline: auto;
-    text-transform: capitalize;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,7 +84,6 @@
       border-radius: 25px;
       height: 38px;
       font-size: 12px;
-      font-weight: 400;
     }
     .mainContainer h1{
      font-size: 40px;

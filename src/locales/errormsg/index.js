@@ -1,5 +1,6 @@
 export const errorTranslation = {
     "en": {
+        "nameRequired": "Name is required",
         "firstNameRequired": "First Name is required",
         "lastNameRequired": "Last Name is required",
         "emailRequired": "Email is required",
@@ -29,10 +30,10 @@ export const errorTranslation = {
         "passwordsMustMatch": "Please ensure the passwords match",
         "enterNewPassword": "Enter a new password below",
         "newPassword": "New Password",
-        "addressRequired":"Address is required",
-       
+        "addressRequired": "Address is required",
     },
     "dk": {
+        "nameRequired": "Name is required",
         "firstNameRequired": "First Name is required",
         "lastNameRequired": "Last Name is required",
         "emailRequired": "Email is required",
@@ -62,9 +63,9 @@ export const errorTranslation = {
         "passwordsMustMatch": "Please ensure the passwords match",
         "enterNewPassword": "Enter a new password below",
         "newPassword": "New Password",
-       
     },
     "fi": {
+        "nameRequired": "Name is required",
         "firstNameRequired": "First Name is required",
         "lastNameRequired": "Last Name is required",
         "emailRequired": "Email is required",
@@ -94,9 +95,9 @@ export const errorTranslation = {
         "passwordsMustMatch": "Please ensure the passwords match",
         "enterNewPassword": "Enter a new password below",
         "newPassword": "New Password",
-       
     },
     "se": {
+        "nameRequired": "Name is required",
         "firstNameRequired": "First Name is required",
         "lastNameRequired": "Last Name is required",
         "emailRequired": "Email is required",
@@ -126,6 +127,5 @@ export const errorTranslation = {
         "passwordsMustMatch": "Please ensure the passwords match",
         "enterNewPassword": "Enter a new password below",
         "newPassword": "New Password",
-        
     }
 };

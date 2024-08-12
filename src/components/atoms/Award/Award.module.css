@@ -11,17 +11,10 @@
  
 }
 .container {
-  display: inline-flex;
+  width: 100%;
+  max-width: 600px;
   }
-  @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-  
+
   .heading {
     text-align: center;
     margin: 70px 0px 48px 0px;
@@ -36,8 +29,28 @@
    display: flex;
     row-gap: 64px;
     column-gap: 18px;
-    animation: 18s slide infinite linear;
+    animation: 5s slide infinite linear;
     column-gap: 24px;
+    animation-play-state: running; /* Ensure animation runs initially */
+    width: 100%;
+  }
+  
+  .gridContainer:hover {
+    animation-play-state: paused; /* Pause animation on hover */
+   
+    
+  }
+.gridItem:hover{
+  transform: scale(0.98);
+}
+  
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
   
   .gridItem {
@@ -113,7 +126,7 @@
     
     }
     .content{
-      max-width: 213px;
+      max-width: 193px;
     }
     .gridItem{
       max-width: 213px;

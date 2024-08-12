@@ -182,6 +182,7 @@ const Header = () => {
                 <Link href="/farmer" className={isActive('/farmer')}>{hpt.farmers}</Link>
                 <Link href="/se/faq" className={isActive('/se/faq')}>{hpt.faq}</Link>
                 <Link href="/about" className={isActive('/about')}>{hpt.aboutUs}</Link>
+                <Link href="/viplist" className={isActive('/viplist')}>VIP</Link>
              
               </div>
               <div className={styles.flexgrow} />
@@ -232,8 +233,10 @@ const Header = () => {
               </form>
             </div>
             <div className={styles.ovFlow_scroll}>
+              <div className={styles.searchBox}>
               <Productsearch cardHeading=""
                 productData={productData} />
+                </div>
             </div>
           </div>
         </div>

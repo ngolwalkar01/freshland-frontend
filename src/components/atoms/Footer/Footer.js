@@ -56,9 +56,9 @@ const Footer = () => {
                   <i className="fa-solid fa-xmark" onClick={handleClosepopup}></i>
                   <ul>
                     <li><Link href="#">Germany 🇩🇪 | {hpt.clickGermanPage}</Link></li>
-                    <li><Link href="#">Germany 🇩🇪 | {hpt.clickGermanPage}</Link></li>
-                    <li><Link href="#">Germany 🇩🇪 | {hpt.clickGermanPage}</Link></li>
-                    <li><Link href="#">Germany 🇩🇪 | C{hpt.clickGermanPage}</Link></li>
+                    <li><Link href="#">Denmark 🇩🇰 | {hpt.clickGermanPage}</Link></li>
+                    <li><Link href="#">Finland 🇫🇮 | {hpt.clickGermanPage}</Link></li>
+                    <li><Link href="#">Sweden 🇸🇪  | {hpt.clickGermanPage}</Link></li>
 
                   </ul>
                 </div>
@@ -88,7 +88,7 @@ const Footer = () => {
                 <p>{hpt.customerService}</p>
                 <ul>
                   <li><Link href="/se/faq">{hpt.faq}</Link></li>
-                  <li><Link href="/complaint">{hpt.complaint}</Link></li>
+                  <li><Link href="/reklamation">{hpt.complaint}</Link></li>
                   {/* <li><Link href="/media">{hpt.media}</Link></li> */}
                 </ul>
               </div>
@@ -96,8 +96,8 @@ const Footer = () => {
                 <p>{hpt.theLegal}</p>
                 <ul>
                   <li><Link href="/se/kundvillkor">{hpt.terms}</Link></li>
-                  <li><Link href="/se/sekretesspolicy">{hpt.personalData}</Link></li>
-                  <li><Link href="/se/faq/#right-withdraw">{hpt.rightWithdraw}</Link></li>
+                  <li><Link href="/se/integritetspolicy">{hpt.personalData}</Link></li>
+                  <li><Link href="/se/faq/#angerratt-och-reklamation">{hpt.rightWithdraw}</Link></li>
                 </ul>
 
                 
@@ -148,7 +148,7 @@ const Footer = () => {
                 <ul className={styles.carddataimg}>
 
                   <li>
-                    <Link href="#">
+                    <Link href="https://www.facebook.com/www.fresh.land">
                       <Image
                         src="/Images/facebook.png"
                         alt="facebook"
@@ -158,37 +158,37 @@ const Footer = () => {
 
                   </li>
                   <li>
-                    <Link href="https://www.linkedin.com/feed/">
+                    <Link href="https://www.linkedin.com/company/fresh-land/?originalSubdomain=dk">
                       <Image
                         src="/Images/linkedinicon.png"
-                        alt="facebook"
+                        alt="linkedin"
                         width={48}
                         height={48}
                       /></Link>
 
                   </li>
                   <li>
-                    <Link href='https://www.instagram.com'>
+                    <Link href='https://www.instagram.com/fresh.land/'>
                       <Image
                         src="/Images/insta.png"
-                        alt="facebook"
+                        alt="insta"
                         width={48}
                         height={48}
                       /></Link>
 
                   </li>
                   <li>
-                    <Link href="https://www.youtube.com/">
+                    <Link href="https://www.youtube.com/@FreshLand-fh5wi/videos">
                       <Image
                         src="/Images/youtubeicon.png"
-                        alt="facebook"
+                        alt="youtube"
                         width={48}
                         height={48}
                       /></Link>
 
                   </li>
                   <li>
-                    <Link href="https://www.youtube.com/">
+                    <Link href="https://in.pinterest.com/login/">
                       <Image
                         src="/Images/pinteresticon.png"
                         alt=" pinterest"
@@ -205,7 +205,7 @@ const Footer = () => {
           <div>
             <div className={styles.footercopyright}>
               <div>
-                <Link href="#">
+                <Link href="https://www.findsmiley.dk/1448652">
                   <Image
                     src="/Images/footerimg.png"
                     alt="footerimg"
@@ -219,8 +219,8 @@ const Footer = () => {
                 <p>Fresh.Land © 2024</p>
                 <p>CVR 43007106</p>
                 <p>
-                  <Link href="mailto:info@fresh.land.com">{hpt.info}@fresh.land</Link> | <span><Link href="tel:+53790707">53 79 07 07</Link></span></p>
-                <p>{hpt.addressContent} Ø 🇩🇰</p>
+                  <Link href="mailto:hej@fresh.land">{hpt.infoEmail}</Link> | <span><Link href="tel:+46 108 109 689">+46 108 109 689</Link></span></p>
+                <p>{hpt.addressContent} 180<b>1</b> {hpt.addresName} Ø Denmark</p>
               </div>
             </div>
           </div>

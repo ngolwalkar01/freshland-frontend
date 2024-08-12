@@ -109,7 +109,7 @@ const Awardlogo = () => {
       
       
       </div>
-      <div className={awardStyles.gridContainer}>
+      {/* <div className={awardStyles.gridContainer}>
           <div className={awardStyles.gridItem}>
             <div className={awardStyles.card}>
               <Image
@@ -206,7 +206,7 @@ const Awardlogo = () => {
           </div>
       
       
-      </div>
+      </div> */}
     </div>
     </div>
 
