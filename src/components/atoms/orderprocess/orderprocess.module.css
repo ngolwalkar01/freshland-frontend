@@ -87,7 +87,7 @@
     width: 100%;
     background: #219029;
     box-shadow: 0px 4px 8px rgba(33, 144, 41, 0.25);
-    border-radius: 5px;
+    border-radius: 25px;
     border: none;
     color: white;
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
@@ -166,7 +166,7 @@
     width: 100%;
     background-color: #219029;
     box-shadow: 0px 4px 8px rgba(33, 144, 41, 0.25);
-    border-radius: 5px;
+    border-radius: 25px;
     border: none;
     color: white;
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;

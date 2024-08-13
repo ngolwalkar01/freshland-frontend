@@ -18,7 +18,8 @@ export const orderconfirmationTranslation = {
         "plaedAt": "Placed at the front door",
         "addressConatin": "Rahbeks Alle 21 1801 Copenhagen",
         "info": "info",
-        "item":"Item"
+        "item":"Item",
+        "status": "Status",
     },
     "dk": {
         "pageHeadingOrder": "Odrebekræftelse",
@@ -39,7 +40,8 @@ export const orderconfirmationTranslation = {
         "plaedAt": "Stilles ved hoveddør",
         "addressConatin": "Rahbeks Allé 21, 1801 Frederiksberg C",
         "info": "info",
-        "item":"vare"
+        "item":"vare",
+        "status": "Status",
     },
     "fi": {
         "pageHeadingOrder": "",
@@ -60,7 +62,8 @@ export const orderconfirmationTranslation = {
         "plaedAt": "",
         "addressConatin": "",
         "info": "",
-        "item":"tuote"
+        "item":"tuote",
+        "status": "Status",
     },
     "se": {
         "pageHeadingOrder": "Orderbekräftelse",
@@ -81,6 +84,7 @@ export const orderconfirmationTranslation = {
         "plaedAt": "Ställs vid huvuddörren",
         "addressConatin": "Rahbeks Allé 21, 1801 Frederiksberg C",
         "info": "info",
-        "item":"Artikel"
+        "item":"Artikel",
+        "status": "Status",
     }
 }

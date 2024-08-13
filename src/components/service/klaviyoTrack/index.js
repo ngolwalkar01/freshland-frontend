@@ -7,6 +7,10 @@ const getBaseUrl = () => {
     return baseUrl;
 }
 
+export const identifyUser = (email) => {
+    klaviyo.push(['identify', { $email: email }]);
+};
+
 export const trackProductDetailPage = async (productDetail) => {
     try {
         if (productDetail) {

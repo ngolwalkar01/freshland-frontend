@@ -205,7 +205,7 @@
  @media (min-width: 320px) and (max-width: 604px){
   
   .nextorder_deadline .next{
-    font-size: 24px;
+    font-size: 40px;
   }
   .Freight h2{
     font-size: 40px;
@@ -260,7 +260,7 @@
     margin: 0px 0px 24px 0px;
   }
   .deadlineContainer{
-    width: 296px;
+    width: 344px;
     border-radius: 10px;
   }
   .deadlinedata{

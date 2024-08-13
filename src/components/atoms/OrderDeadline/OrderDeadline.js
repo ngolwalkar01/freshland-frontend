@@ -14,6 +14,7 @@ const OrderDeadline = ({ shippingMethods, enableMockData, cutOffDaysDetail }) =>
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
+  
   useEffect(() => {
     if (cutOffDaysDetail) {
       const endDateString = cutOffDaysDetail && cutOffDaysDetail.cutoffday ? cutOffDaysDetail.cutoffday : "2027-05-25";

@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import styles from "./orderprocess.module.css";
 import Image from "next/image";
 import ImageUploader from "../uploadimage";
-import { myaccountTranslation } from '@/locales';
+import { myaccountTranslation, errorTranslation } from '@/locales';
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const OrderProcess = () => {
   const mat = myaccountTranslation[lang];
+  const error = errorTranslation[lang]
   const [selectedOption, setSelectedOption] = useState("product");
   const [step, setStep] = useState(1);
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -203,7 +204,7 @@ const OrderProcess = () => {
 
                         <input
                           type="text"
-                          placeholder="Ex. Some tomatoes had mold on them."
+                          placeholder={error.exampleComplaint}
                         ></input>
                       </div>
 
@@ -224,7 +225,7 @@ const OrderProcess = () => {
 
                         <input
                           type="number"
-                          placeholder="Enter PO Number"
+                          placeholder={error.poNumber}
                           className={styles.numberbox}
                         ></input>
                       </div>
@@ -337,7 +338,7 @@ const OrderProcess = () => {
                 <p className="M-Body-Medium">{mat.additional}</p>
                 <input
                   type="text"
-                  placeholder="Please provide any additional information if you have"
+                  placeholder={error.addInfo}
                 ></input>
               </div>
             </div>

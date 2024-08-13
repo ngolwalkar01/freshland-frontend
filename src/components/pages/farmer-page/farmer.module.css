@@ -96,6 +96,9 @@
  .text{
     font-size: 16px;
  }
+ .farmers h2{
+    font-size: 40px;
+ }
 }
 
 @media (min-width: 701px) and (max-width: 1020px){

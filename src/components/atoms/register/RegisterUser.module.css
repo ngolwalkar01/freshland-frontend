@@ -84,7 +84,7 @@
 
 .textField {
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 25px;
   padding: 21px 37px;
   border: none;
   width: 461px;
@@ -103,7 +103,7 @@
 .registerButton {
   background-color: #01395e;
   color: #ffffff;
-  border-radius: 10px;
+  border-radius: 25px;
   padding: 17px 0px;
   margin: 33px 0px 0px 0px;
   border: none;
@@ -284,6 +284,8 @@
   .formControlBox{
     flex-direction: column;
     margin: 0px 0px 23px 0px;
+    align-items: center;
+
   }
  
   .desktopimg{

@@ -58,7 +58,7 @@
     color: white;
     padding: 17px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
     font-size: 24px;
     width: 100%;
@@ -69,4 +69,10 @@
     margin-top: 26px;
     font-size: 24px;
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .zipRegistrationPopupContent{
+        width: 354px;
+    }
 }

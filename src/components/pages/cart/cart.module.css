@@ -313,7 +313,7 @@
   width: 295px;
   height: 59px;
   border: 1px solid #E7E7E7;
-  border-radius: 5px;
+  border-radius: 8px;
   outline: none;
 }
 .redeemDiscount{
@@ -342,7 +342,7 @@ gap: 10px;
 width: 133px;
 height: 59px;
 background: #EFEFEF;
-border-radius: 5px;
+border-radius: 25px;
   border: none;
   cursor: pointer;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
@@ -430,7 +430,7 @@ border-radius: 5px;
   background: #219029;
   margin: 15px auto;
   box-shadow: 0px 4px 8px rgba(33, 144, 41, 0.25);
-  border-radius: 8px;
+  border-radius: 25px;
   border: none;
   color: white;
 
@@ -538,13 +538,10 @@ border-radius: 5px;
   margin-inline: auto;
   padding: 11.5px 50px;
   width: fit-content;
-
   background: var(--blue);
-
-  border-radius: 5px;
+  border-radius: 25px;
   border: none;
   color: white;
-
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
     sans-serif;
   font-size: 20px;

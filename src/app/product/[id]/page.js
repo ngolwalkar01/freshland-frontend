@@ -8,6 +8,7 @@ import Detail from '@/components/pages/product/detail/index';
 import Layout from '@/components/layout';
 import productService from '@/services/product'
 import DescriptionSkeleton from '@/components/skeleton/detailsskeleton'
+import deliveryCycleAPI from '@/services/deliveryCycle';
 import { trackProductDetailPage } from '@/components/service/klaviyoTrack';
 
 const ProductPage = () => {
@@ -15,7 +16,8 @@ const ProductPage = () => {
     const [data, setData] = useState({
         productDetail: null,
         relatedProducts: [],
-        productId: ''
+        productId: '',
+        cutOffDaysDetail: undefined
     });
     const [loading, setLoading] = useState(false);
 
@@ -29,14 +31,16 @@ const ProductPage = () => {
         async function fetchData() {
             try {
                 setLoading(true);
-                const [productDetail, relatedProducts] = await Promise.all([
+                const [productDetail, relatedProducts, DeliveryCycleResponse] = await Promise.all([
                     productService.getProductDetail(productId),
                     productService.getRelatedProducts(productId),
+                    deliveryCycleAPI.getcuttoffday()
                 ]);
                 setData({
                     productDetail,
                     relatedProducts,
-                    productId
+                    productId,
+                    cutOffDaysDetail: DeliveryCycleResponse || undefined
                 });
                 trackProductDetail(productDetail);
             } catch (error) {

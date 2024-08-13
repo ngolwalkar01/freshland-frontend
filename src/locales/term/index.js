@@ -263,7 +263,7 @@ export const termTranslation = {
       "personalData": "Dina personuppgifter hanteras i enlighet med gällande dataskyddslagstiftning. För mer information, se vår integritetspolicy.",
       "contact": "Kontakt",
       "methods": "Om du har några frågor eller funderingar kan du kontakta oss via:",
-      "chat": "Chatt på webbplatsen",
+      "chat": "Chat på hemsida",
       "email": "E-post",
       "phone": "Telefon",
       "lastUpdated": "Dessa villkor uppdaterades senast den 23 juli 2024.",

@@ -54,9 +54,9 @@ function ZipCodeChecker() {
                                 </button>
                             </div>
                             {showWarning && (
-                                <div className={styles.formControlBox}>
+                                <div className={styles.formControlText}>
                                     <span>{zipLabelsLang.signUpWtList},</span>
-                                    <span className={styles.pointer} onClick={() => {
+                               <span className={styles.pointer} onClick={() => {
                                         setShowPopup(true);
                                     }}>{zipLabelsLang.here}</span>
                                     <span>{zipLabelsLang.notifyDeliverArea}</span>

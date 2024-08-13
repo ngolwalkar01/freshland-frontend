@@ -23,7 +23,8 @@ export const cartTranslation = {
         "yourBasket": "Your basket is empty.",
         "backTop": "Back to shop",
         "redeem": "Redeem",
-        "redeemCode": "Redeem discount code"
+        "redeemCode": "Redeem discount code",
+        "cartTitle":"Your cart"
     },
     "dk": {
         "shCart": "Indkøbskurv",
@@ -49,19 +50,20 @@ export const cartTranslation = {
         "yourBasket": "Din indkøbskurv er tom",
         "backTop": "Tilbage",
         "redeem": "Indløs",
-        "redeemCode": "Redeem discount code"
+        "redeemCode": "Redeem discount code",
+        "cartTitle":"Your cart"
     },
     "fi": {
-        "shCart": "",
-        "oneTime": "",
-        "everyWk": "",
-        "everyW": "",
-        "everyWs": "",
-        "everyWks": "",
-        "deliveryTag": "",
-        "subTotal": "",
-        "applyDisscount": "",
-        "dis": "",
+        "shCart": "Ostoskori  ",
+        "oneTime": "Joka viikko",
+        "everyWk": "Joka viikko",
+        "everyW": "Joka toinen viikko",
+        "everyWs": "Joka kolmas viikko",
+        "everyWks": "Joka neljäs viikko",
+        "deliveryTag": "Toimitus",
+        "subTotal": "Välisumma",
+        "applyDisscount": "Lisää alennuskuponki",
+        "dis": "Alennus",
         "totalAmount": "",
         "shipMent": "Toimitus",
         "homeDelivery": "",
@@ -75,7 +77,8 @@ export const cartTranslation = {
         "yourBasket": "",
         "backTop": "",
         "redeem": "Redeem",
-        "redeemCode": "Lunasta alennuskoodi"
+        "redeemCode": "Lunasta alennuskoodi",
+        "cartTitle":"Your cart"
     },
     "se": {
         "shCart": "Varukorg",
@@ -101,6 +104,7 @@ export const cartTranslation = {
         "yourBasket": "Din varukorg är tom",
         "backTop": "Tillbaka",
         "redeem": "Lös in",
-        "redeemCode": "Lös in rabattkod"
+        "redeemCode": "Lös in rabattkod",
+        "cartTitle":"Din varukorg"
     }
 };

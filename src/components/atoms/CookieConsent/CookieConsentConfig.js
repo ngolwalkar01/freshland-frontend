@@ -82,7 +82,7 @@ const getConfig = () => {
             onReject: () => {},
           },
           youtube: {
-            label: 'Youtube Embed',
+            label: 'Youtube Bädda in',
             onAccept: () => {},
             onReject: () => {},
           },
@@ -96,41 +96,41 @@ const getConfig = () => {
       translations: {
         en: {
           consentModal: {
-            title: 'We use cookies',
+            title: 'Vi använder cookies',
             description:
               'För att ge en bra upplevelse använder vi teknik som cookies för att lagra och/eller komma åt enhetsinformation. När du samtycker till dessa tekniker kan vi behandla data som surfbeteende eller unika ID:n på denna webbplats. Om du inte samtycker eller om du återkallar ditt samtycke kan detta påverka vissa funktioner negativt.',
-            acceptAllBtn: 'Accept all',
-            acceptNecessaryBtn: 'Reject all',
-            showPreferencesBtn: 'Manage Individual preferences',
+            acceptAllBtn: 'Acceptera',
+            acceptNecessaryBtn: 'Neka',
+            showPreferencesBtn: 'Hantera individuella inställningar',
             // closeIconLabel: 'Reject all and close modal',
             footer: `
-                        <a href="/se/sekretesspolicy">Integritetspolicy</a>
+                        <a href="/se/sekretesspolicy">Sekretesspolicy</a>
                     `,
           },
           preferencesModal: {
-            title: 'Manage cookie preferences',
-            acceptAllBtn: 'Accept all',
-            acceptNecessaryBtn: 'Reject all',
-            savePreferencesBtn: 'Accept current selection',
+            title: 'Hantera individuella inställningar',
+            acceptAllBtn: 'Acceptera',
+            acceptNecessaryBtn: 'Neka',
+            savePreferencesBtn: 'Acceptera aktuellt val',
             closeIconLabel: 'Close modal',
             serviceCounterLabel: 'Service|Services',
             sections: [
               {
-                title: 'Your Privacy Choices',
+                title: 'Dina val gällande personlig information',
                 description: `In this panel you can express some preferences related to the processing of your personal information. You may review and change expressed choices at any time by resurfacing this panel via the provided link. To deny your consent to the specific processing activities described below, switch the toggles to off or use the “Reject all” button and confirm you want to save your choices.`,
               },
               {
-                title: 'Strictly Necessary',
+                title: 'Strikt nödvändigt',
                 description:
-                  'These cookies are essential for the proper functioning of the website and cannot be disabled.',
+                  'Dessa cookies är avgörande för att webbplatsen ska fungera korrekt och kan inte inaktiveras.',
 
                 //this field will generate a toggle linked to the 'necessary' category
                 linkedCategory: 'necessary',
               },
               {
-                title: 'Performance and Analytics',
+                title: 'Prestanda och analys',
                 description:
-                  'These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.',
+                  'Dessa cookies samlar in information om hur du använder vår webbplats. Alla data är anonymiserade och kan inte användas för att identifiera dig.',
                 linkedCategory: 'analytics',
                 cookieTable: {
                   caption: 'Cookie table',
@@ -154,15 +154,15 @@ const getConfig = () => {
                 },
               },
               {
-                title: 'Targeting and Advertising',
+                title: 'Inriktning och reklam',
                 description:
-                  'These cookies are used to make advertising messages more relevant to you and your interests. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third party advertisers.',
+                  'Dessa cookies används för att göra reklammeddelanden mer relevanta för dig och dina intressen. Avsikten är att visa annonser som är relevanta och engagerande för den enskilda användaren och därmed mer värdefulla för publicister och tredjepartsannonsörer.',
                 linkedCategory: 'ads',
               },
               {
-                title: 'More information',
+                title: 'Mer information',
                 description:
-                  'For any queries in relation to my policy on cookies and your choices, please <a href="#contact-page">contact us</a>',
+                  'För alla frågor angående min policy om cookies och dina val, vänligen <a href="#contact-page">kontakta oss</a>',
               },
             ],
           },

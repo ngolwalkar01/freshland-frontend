@@ -10,7 +10,7 @@ import { homepageTranslation } from '@/locales';
 import Productsearch from '@/components/atoms/search';
 import productService from '@/services/product';
 import productCategoryService from "@/services/productCategories";
-
+import CartDropdown from "../cartdropdown";
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
@@ -28,7 +28,8 @@ const Header = () => {
   const [productData, setProductData] = useState([]);
   const [searchTxt, setSearchTxt] = useState("");
   const [categories, setCategories] = useState([])
-
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const cartDropdownRef = useRef(null);
   const openSearch = () => {
     setSearchTxt("");
     setOverlayVisible(true);
@@ -92,8 +93,25 @@ const Header = () => {
     }
   };
 
+  const handleClickOutsideCart = (event) => {
+    if (cartDropdownRef.current && !cartDropdownRef.current.contains(event.target)) {
+      setDropdownVisible(false);
+    }
+  };
+
   useEffect(() => {
-    if (showmenu) {
+    if (isDropdownVisible) {
+      document.addEventListener("mousedown", handleClickOutsideCart);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutsideCart);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutsideCart);
+    };
+  }, [isDropdownVisible]);
+  
+  useEffect(() => {
+    if (showmenu ) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -182,7 +200,7 @@ const Header = () => {
                 <Link href="/farmer" className={isActive('/farmer')}>{hpt.farmers}</Link>
                 <Link href="/se/faq" className={isActive('/se/faq')}>{hpt.faq}</Link>
                 <Link href="/about" className={isActive('/about')}>{hpt.aboutUs}</Link>
-                <Link href="/viplist" className={isActive('/viplist')}>VIP</Link>
+                <Link href="/vip" className={isActive('/viplist')}>VIP</Link>
              
               </div>
               <div className={styles.flexgrow} />
@@ -200,7 +218,10 @@ const Header = () => {
                     <Image src="/Images/heart.svg" alt="Wish List" fill />
                   </Link>
                 </div>
-                <div className={styles.headerIconWrapper}>
+                <div className={styles.headerIconWrapper}
+                onMouseEnter={() => setDropdownVisible(true)}
+                
+                >
                   <Link href="/cart" className={styles.cartIcon}>
                     <Image
                       src="/Images/garden-cart.svg"
@@ -210,6 +231,7 @@ const Header = () => {
                     <span>{cartItemCount}</span>
                   </Link>
                 </div>
+         
                 <div className={`${styles.menubar} ${styles.headerIconWrapper}`} onClick={() => setMobile(!Mobile)}>
                   <Image
                     src="/Images/menubar.svg"
@@ -240,6 +262,12 @@ const Header = () => {
             </div>
           </div>
         </div>
+
+        {isDropdownVisible && (
+        <div className={styles.cartDropdownContainer}  ref={cartDropdownRef}>
+          <CartDropdown />
+        </div>
+      )}
       </div>
     </>
   );

@@ -220,7 +220,7 @@ const Footer = () => {
                 <p>CVR 43007106</p>
                 <p>
                   <Link href="mailto:hej@fresh.land">{hpt.infoEmail}</Link> | <span><Link href="tel:+46 108 109 689">+46 108 109 689</Link></span></p>
-                <p>{hpt.addressContent} 180<b>1</b> {hpt.addresName} Ø Denmark</p>
+                <p>{hpt.addressContent}  {hpt.addresName}</p>
               </div>
             </div>
           </div>

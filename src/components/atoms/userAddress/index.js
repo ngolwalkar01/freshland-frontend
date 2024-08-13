@@ -570,7 +570,7 @@ function UserAddress({ userAddressProps }) {
 
                                                             <div className={styles.fieldsRow}>
                                                                 <div className={styles.fieldColumn}>
-                                                                    <label htmlFor="Zip">{check.PostcodeZip}*</label>
+                                                                    <label htmlFor="Zip">{check.PostcodeZip}</label>
                                                                     <input
                                                                         className={styles.inputField}
                                                                         type="text"
@@ -788,7 +788,7 @@ function UserAddress({ userAddressProps }) {
 
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
-                                    <label htmlFor="Zip">{check.PostcodeZip}*</label>
+                                    <label htmlFor="Zip">{check.PostcodeZip}</label>
                                     <input
                                         className={styles.inputField}
                                         type="text"
@@ -958,7 +958,7 @@ function UserAddress({ userAddressProps }) {
 
                             <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
-                                    <label htmlFor="Zip">{check.PostcodeZip}*</label>
+                                    <label htmlFor="Zip">{check.PostcodeZip}</label>
                                     <input
                                         className={styles.inputField}
                                         type="text"

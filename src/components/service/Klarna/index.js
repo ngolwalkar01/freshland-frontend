@@ -189,7 +189,7 @@ export const handleKlarnaAuthorization = async (
             orderId,
             payload
           ); // Custom function to finalize the purchase on your backend
-          callBack(orderId);
+          callBack(orderData);
         } else {
           failedCallBack(orderData, cartKey);
           console.error("Authorization failed:", res.error);

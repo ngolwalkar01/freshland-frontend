@@ -6,10 +6,13 @@ import Link from "next/link";
 import { getOrderDetailById, getOrderDates } from "@/components/service/account"
 import { AddressInfo } from "@/components/atoms/address/address";
 import Orderskeleton from "@/components/skeleton/orderskeleton";
+import { useSearchParams } from 'next/navigation';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Order = ({ orderId }) => {
+  const searchParams = useSearchParams();
+  const order_key = searchParams.get('order_key');
   const oct = orderconfirmationTranslation[lang];
   const [cartData, setCartData] = useState({
     cartSubTotal: 0,
@@ -26,7 +29,7 @@ const Order = ({ orderId }) => {
     try {
       setLoading(true);
       const orderDates = await getOrderDates(orderId)
-      const data = await getOrderDetailById(orderId);
+      const data = await getOrderDetailById(orderId, order_key);
       setOrderDatesData(orderDates);
       setOrderData(data);
     } catch (error) {
@@ -103,7 +106,7 @@ const Order = ({ orderId }) => {
                       <p className={styles.value}>{orderData.id}</p>
                     </div>
                     <div className={styles.orderDetail}>
-                      <p className={styles.label}>{oct.given}</p>
+                      <p className={styles.label}>{oct.status}</p>
                       <p className={styles.value}>{orderData.status}</p>
                     </div>
                     <div className={styles.orderDetail}>

@@ -36,9 +36,9 @@ const getOrdersById = async (id, token) => {
     }
 };
 
-const getOrderDetailById = async (id, token) => {
+const getOrderDetailById = async (id, token, order_key) => {
     try {
-        const response = await axios.get(`${ACCOUNT_API_BASE_URL}/order-received/${id}`);
+        const response = await axios.get(`${ACCOUNT_API_BASE_URL}/order-received/${id}?order_key=${order_key}`);
         return response.data;
     } catch (error) {
         console.error('Error fetching order:');

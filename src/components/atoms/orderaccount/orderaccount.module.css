@@ -225,7 +225,7 @@ border-radius: 5px;
   background: #219029;
   /* button shadow */
   box-shadow: 0px 4px 8px rgba(33, 144, 41, 0.25);
-  border-radius: 8px;
+  border-radius: 25px;
   border: none;
   color: white;
   
@@ -324,7 +324,7 @@ border-radius: 5px;
     max-width: 209px;
     width: 100%;
     background: #219029;
-    border-radius: 12px;
+    border-radius: 25px;
     border: none;
     color: white;
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;

@@ -30,9 +30,9 @@
 .headingWrapper > h1 {
   flex: 2;
 }
-.headingWrapper > div {
+/* .headingWrapper > div {
   flex: 1;
-}
+} */
 
 /* Custom SVG icon */
 .cutsomSvgIcon {
@@ -239,11 +239,41 @@
   
 }
 @media (max-width: 600px) {
-  .filterCover{
+  /* .filterCover{
     display: block;
+  } */
+  .filterButton{
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
   }
   .newfilterlist{
-    display: none;
+    list-style: none;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
+    gap: 7px;
+    /* max-width: 1025px; */
+    margin: auto;
+    margin: 40px 0px 40px 40px;
+    cursor: pointer;
+  }
+  .newfilterListLi{
+    font-weight: 500;
+    color: var(--blue);
+    border: 1px solid var(--blue);
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px 10px;
+    width: 131px;
+    max-width: 413px;
+  }
+  .activeFilter{
+    background-color: var(--blue);
+    color: #fff;
+    cursor: pointer;
   }
   .customContainer {
     padding: 0;
@@ -281,7 +311,7 @@
   .goodsItem {
     margin-bottom: 40px;
     position: relative;
-    padding-top: 60px;
+    padding-top: 8px;
   }
 
   .imageContainer {
@@ -312,7 +342,7 @@
 
   .headingWrapper h1 {
     font-family: Calistoga;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -323,7 +353,7 @@
   .imageHeading {
     /* Styles for the image heading */
 
-    margin-top: 50px;
+    margin-top: 30px;
     position: absolute;
     font-weight: 700;
     z-index: 2;

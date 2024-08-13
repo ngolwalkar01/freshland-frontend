@@ -618,7 +618,9 @@ function Checkout() {
     };
   };
 
-  const callBackAfterOrder = async (order_id) => {
+  const callBackAfterOrder = async (orderDt) => {
+    const order_id = orderDt.order_id;
+    const order_key = orderDt.order_key;
     try {
       setCartData(INTIAL_CART_DATA);
       if(receiveUpdates) {
@@ -627,7 +629,7 @@ function Checkout() {
       resetCheckoutPage();
       setLoading(false);
       setIsCheckoutReady(true);
-      router.push(`order/${order_id}`);
+      router.push(`order/${order_id}?order_key=${order_key}`);
     } catch (error) {
       setIsOrderStart(false);
     }

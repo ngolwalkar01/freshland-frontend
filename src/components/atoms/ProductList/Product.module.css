@@ -304,9 +304,9 @@
 
 @media (max-width: 600px) {
   .gridContainer {
-    gap: 12px;
-    justify-content: center;
-    margin: 40px 0px;
+    gap: 10px;
+    margin: 40px auto 0px auto;
+    max-width: 420px;
   }
   .gridItem{
     padding: 8px 8px 12px 8px;
@@ -330,7 +330,7 @@
   }
 
   .heading {
-    font-size: 30px;
+    font-size: 40px;
   }
 
   .imgContainer {
@@ -472,6 +472,10 @@
   .transparentCard {
     height: 215px;
     width: 154px;
+  }
+  .gridContainer{
+    max-width: 374px;
+    margin: 40px auto 0px auto;
   }
 }
 @media (min-width:417px) and (max-width: 600px) {

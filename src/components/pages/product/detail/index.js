@@ -21,6 +21,10 @@ const lang = process.env.NEXT_PUBLIC_LANG || "se";
 const Description = ({ productDetailProps }) => {
   const router = useRouter();
 
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  
   const pdt = productdetailTranslation[lang];
   const [subscriptionOpt, setSubcriptionOpt] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -29,6 +33,7 @@ const Description = ({ productDetailProps }) => {
     productDetail: originalProductDetail,
     relatedProducts,
     productId,
+    cutOffDaysDetail
   } = productDetailProps;
   const enableMockData = process.env.NEXT_PUBLIC_ENABLE_MOCK_DATA === "true";
 
@@ -98,6 +103,52 @@ const Description = ({ productDetailProps }) => {
 
     getSubOptions();
   }, [productId]);
+
+  useEffect(() => {
+    if (cutOffDaysDetail) {
+      const endDateString = cutOffDaysDetail && cutOffDaysDetail.cutoffday ? cutOffDaysDetail.cutoffday : "2027-05-25";
+      const endDate = new Date(endDateString.replace(/-/g, '/'));
+      const interval = startTimer(endDate);
+
+      return () => clearInterval(interval);
+    }
+  }, [cutOffDaysDetail]);
+
+  const startTimer = (endDate) => {
+    const stockholmFormatter = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Europe/Stockholm',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+    });
+    const interval = setInterval(() => {
+      const now = new Date(stockholmFormatter.format(new Date()));
+      const differenceInMillis = endDate - now;
+
+      if (differenceInMillis <= 0) {
+        clearInterval(interval);
+        setDays(0);
+        setHours(0);
+        setMinutes(0);
+        return;
+      }
+
+      const differenceInMinutes = Math.floor(differenceInMillis / (1000 * 60));
+      const days = Math.floor(differenceInMinutes / (60 * 24));
+      const hours = Math.floor((differenceInMinutes % (60 * 24)) / 60);
+      const minutes = differenceInMinutes % 60;
+
+      setDays(days);
+      setHours(hours.toString().padStart(2, '0'));
+      setMinutes(minutes.toString().padStart(2, '0'));
+
+    }, 1000);
+
+    return interval;
+  }
 
   const categories = productDetailProps?.productDetail?.categories ?? [];
   const joinedCategories = categories.join(",");
@@ -212,11 +263,9 @@ const Description = ({ productDetailProps }) => {
                         </label>
                       </div>
                       <div
-                        className={`${styles.fieldColumn} ${
-                          styles.fieldColumnDelivery
-                        } ${
-                          isOneTimePurchaseActive ? styles.hidden : styles.show
-                        }`}
+                        className={`${styles.fieldColumn} ${styles.fieldColumnDelivery
+                          } ${isOneTimePurchaseActive ? styles.hidden : styles.show
+                          }`}
                       >
                         <label htmlFor="selectDelivery">{pdt.delivery}</label>
                         <select
@@ -280,7 +329,7 @@ const Description = ({ productDetailProps }) => {
                   <div className={`M-Body-Large ${styles.basketWrapper}`}>
                     <span onClick={handleAddToCart}>
                       {loading ? <Loader /> : null}
-                      {isOneTimePurchaseActive ? `${pdt.addToBasket}`: `${pdt.subscribe}`}
+                      {isOneTimePurchaseActive ? `${pdt.addToBasket}` : `${pdt.subscribe}`}
                     </span>
                   </div>
                 </div>
@@ -302,7 +351,7 @@ const Description = ({ productDetailProps }) => {
                     {pdt.category} {joinedCategories}
                   </p> */}
                   <p className={`W-Body-Regular ${styles.ordertime}`}>
-                   {pdt.orderbefore} <strong>{pdt.time}</strong> {pdt.collection}
+                    {pdt.orderbefore} <strong>{days} {pdt.day} {hours} {pdt.hrs} {minutes} {pdt.min}</strong> {pdt.collection}
                   </p>
                 </div>
               </div>
@@ -322,37 +371,37 @@ const Description = ({ productDetailProps }) => {
               </div>
 
               <p className="W-Body-Regular">
-               {pdt.allProduct}
+                {pdt.allProduct}
               </p>
             </div>
             <div className={styles.productIcons}>
               <div className={styles.textConatainer}>
-                <Image src="/Images/straight.svg" width={24} height={24} alt="straight"/>
+                <Image src="/Images/straight.svg" width={24} height={24} alt="straight" />
                 <p className="W-Body-Large-Medium">{pdt.StraightFrom}</p>
               </div>
 
               <p className="W-Body-Regular">
-              {pdt.skip}
+                {pdt.skip}
               </p>
             </div>
             <div className={styles.productIcons}>
               <div className={styles.textConatainer}>
-                <Image src="/Images/freeshipping.svg" width={24} height={24}  alt="freeshipping"/>
+                <Image src="/Images/freeshipping.svg" width={24} height={24} alt="freeshipping" />
                 <p className="W-Body-Large-Medium">{pdt.freeShipping}</p>
               </div>
 
               <p className="W-Body-Regular">
-               {pdt.shiipingOrder}
+                {pdt.shiipingOrder}
               </p>
             </div>
             <div className={styles.productIcons}>
               <div className={styles.textConatainer}>
-                <Image src="/Images/fast.svg" width={24} height={24} alt="fast"/>
+                <Image src="/Images/fast.svg" width={24} height={24} alt="fast" />
                 <p className="W-Body-Large-Medium">{pdt.fastDeliver}</p>
               </div>
 
               <p className="W-Body-Regular">
-               {pdt.orderTime}
+                {pdt.orderTime}
               </p>
             </div>
           </div>

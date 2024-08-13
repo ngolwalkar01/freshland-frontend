@@ -15,10 +15,10 @@ export const getOrderDates = async (orderid) => {
     }
 }
 
-export const getOrderDetailById = async (orderid) => {
+export const getOrderDetailById = async (orderid, order_key) => {
     try {
         const token = localStorage.getItem("token");
-        const orderDetail = await AccountAPI.getOrderDetailById(orderid, token);
+        const orderDetail = await AccountAPI.getOrderDetailById(orderid, token, order_key);
         return orderDetail;
     } catch (error) {
         toast.error(service.fetchOrderDetailIssue, { autoClose: toastTimer });

@@ -102,7 +102,7 @@ const AllItems = ({ categoryWithProducts }) => {
 
               {/* desktop filter */}
 
-              <div
+              <div className={styles.filterButton}
               >
 
                 
