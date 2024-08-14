@@ -18,7 +18,7 @@ const login = async (userCredentials) => {
     }
 };
 
-const loginWithGoogle = async (userData) => {
+const ssoLogin = async (userData) => {
     try {
         const response = await axiosApi.post(`${Auth_API_BASE_URL_OAUTH}/sso-login`, userData);
         return response.data;
@@ -38,7 +38,7 @@ const logout = async () => {
 const AuthAPI = {
     login,
     logout,
-    loginWithGoogle
+    ssoLogin
 };
 
 export default AuthAPI;

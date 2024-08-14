@@ -29,7 +29,7 @@
    display: flex;
     row-gap: 64px;
     column-gap: 18px;
-    animation: 5s slide infinite linear;
+    animation: 2s slide infinite linear;
     column-gap: 24px;
     animation-play-state: running; /* Ensure animation runs initially */
     width: 100%;

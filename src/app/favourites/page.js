@@ -42,6 +42,7 @@ const Favourites = () => {
         <>
             <Layout>
                 {loading ? <Shopskeleton /> : <>
+                <div id="bgColor">
                     <Header />
                     <div id='categoryContainer'>
                     <CategoryProducts
@@ -50,6 +51,7 @@ const Favourites = () => {
                         reload={reload}
                         nofavoriteMessage={cmt.noFavorites}
                     />
+                    </div>
                     </div>
                 </>}
             </Layout>

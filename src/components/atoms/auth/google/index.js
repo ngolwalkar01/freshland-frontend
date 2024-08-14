@@ -21,8 +21,11 @@ const AuthHandler = ({ stopRedirect, activateApis }) => {
         }
         const handleAuthenticatedSession = async () => {
             try {
-                const data = await authService.loginWithGoogle({ id_token: session.idToken });
-
+                const obj = {
+                    type: session?.fbToken ? "facebook" : 'google',
+                    id_token: session?.fbToken ? session?.fbToken : session.idToken
+                }
+                const data = await authService.ssoLogin(obj);
                 if (data?.user?.token && data?.user.ID) {
                     setUserLoggedInData({
                         token: data?.user?.token,

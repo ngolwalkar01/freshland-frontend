@@ -51,7 +51,7 @@
 
 .heading {
   color: #fff;
-  text-transform: capitalize;
+  text-transform: math-auto;
 
 }
 

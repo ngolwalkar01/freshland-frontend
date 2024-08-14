@@ -26,7 +26,7 @@
   /* background-image: linear-gradient(98.89deg, #ff5f6d 0%, #ffc371 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
-  text-transform: capitalize;
+  text-transform: math-auto;
 
 }
 
@@ -92,7 +92,7 @@
   border-radius: 25px;
   border: 2px solid var(--blue);
   margin-inline: auto;
-  text-transform: capitalize;
+  text-transform: math-auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,6 +103,7 @@
   cursor: pointer;
   text-align: center;
   background-color: var(--blue);
+  font-weight: bold;
 }
 .button:hover{
   background-color: #2a5e88;

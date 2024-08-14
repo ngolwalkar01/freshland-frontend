@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import AuthAPI from '@/services/auth';
+import FacebookProvider from 'next-auth/providers/facebook';
 
 export default NextAuth({
     providers: [
@@ -8,6 +9,10 @@ export default NextAuth({
             clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET || process.env.GOOGLE_CLIENT_SECRET,
             // authorization    Url: process.env.NEXT_PUBLIC_Auth_URL || process.env.GOOGLE_Auth_URL
+        }),
+        FacebookProvider({
+            clientId: process.env.FACEBOOK_ID,
+            clientSecret: process.env.FACEBOOK_SECRET
         })
     ],
     callbacks: {
@@ -17,6 +22,8 @@ export default NextAuth({
         async jwt({ token, account }) {
             if (account?.provider === 'google' && account?.id_token) {
                 token.idToken = account.id_token;
+            } else if (account?.provider === 'facebook' && account?.access_token) {
+                token.fbToken = account.access_token;
             }
             return token;
         },
@@ -24,6 +31,8 @@ export default NextAuth({
             if (token?.idToken) {
                 session.idToken = token.idToken;
             }
+            if (token?.fbToken)
+                session.fbToken = token.fbToken;
             return session;
         },
         async redirect({ url, baseUrl }) {

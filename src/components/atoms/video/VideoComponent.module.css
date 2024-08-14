@@ -78,7 +78,7 @@
   border-radius: 25px;
   border: 2px solid var(--green);
   background-color: var(--green);
-  text-transform: capitalize;
+  text-transform: math-auto;
   padding: 18px;
   height: 60px;
   font-size: 17px;

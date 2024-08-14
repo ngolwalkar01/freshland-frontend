@@ -116,15 +116,18 @@ const Login = () => {
               {log.remb}
             </label>
             <span className={styles.psw}>
-             <Link href="/forgotpassword"> {log.forgot} {log.pass}</Link>
+              <Link href="/forgotpassword"> {log.forgot} {log.pass}</Link>
             </span>
           </div>
           <p>{log.useSocial}</p>
           <div className={styles.socialmedia}>
-            {/* <a href="#" className="fb btn">
+            <a href="#" className="fb btn" onClick={(e) => {
+              e.preventDefault();
+              signIn("facebook")
+            }}>
               <i className="fa-brands fa-facebook-f"></i> {log.logfb}
             </a>
-            <a href="#" className={styles.twitter}>
+            {/* <a href="#" className={styles.twitter}>
               <i className="fa-brands fa-twitter"></i> {log.logt}
             </a> */}
             <a
