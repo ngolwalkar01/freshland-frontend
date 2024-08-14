@@ -23,9 +23,21 @@ const linkProfileToList = async (obj) => {
     }
 };
 
+const klaviyoTrackAPI = async (route, payload) => {
+    try {
+        const url = `${Klaviyo_API_BASE_URL}/${route}`;
+        const response = await axios.post(url, payload);
+        return response.data;
+    } catch (error) {
+        console.error('Error in creating profile :', error);
+        throw error;
+    }
+}
+
 const KlaviyoAPI = {
     linkProfileToList,
-    createProfile
+    createProfile,
+    klaviyoTrackAPI
 };
 
 export default KlaviyoAPI;

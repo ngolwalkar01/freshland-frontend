@@ -9,6 +9,8 @@ import {
 } from "@/services/local-storage";
 import { retryCall } from "../retry";
 import { serviceTranslation } from '@/locales';
+import { trackItemAddToCart } from "../klaviyoTrack";
+
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const cartCookieKey = process.env.NEXT_PUBLIC_CART_COOKIE;
@@ -65,10 +67,11 @@ export const getCartData = async () => {
 
 export const addToCart = async (
   productId,
-  quantity = "1",
-  subscription_scheme = ""
+  quantity,
+  subscription_scheme
 ) => {
   try {
+    quantity = quantity ? quantity : "1";
     const errorMessage =
       service.addProductToCartError;
     const productAddedToCart = await retryCall(
@@ -80,6 +83,7 @@ export const addToCart = async (
       autoClose: toastTimer,
     });
     updateCartData(productAddedToCart);
+    trackItemAddToCart(productAddedToCart, productId, quantity)
     return productAddedToCart;
   } catch (error) {
     throw error;

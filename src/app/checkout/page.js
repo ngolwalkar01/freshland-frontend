@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Head from 'next/head';
 import Checkout from '@/components/pages/checkout/checkout';
 import Layout from '@/components/layout';
+import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
 
 const CheckoutPage = () => {
     useEffect(() => {
@@ -19,6 +20,7 @@ const CheckoutPage = () => {
     return (
         <>
             <Layout>
+                <ActiveUserKlaviyo />
                 <Checkout />
             </Layout>
         </>

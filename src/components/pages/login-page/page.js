@@ -10,6 +10,9 @@ import { signIn, signOut as googleSignOut } from "next-auth/react";
 import { setUserLoggedInData } from "@/components/service/auth";
 import Link from "next/link";
 import Image from "next/image";
+import { identifyUser } from "@/components/service/klaviyoTrack";
+
+
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
@@ -38,8 +41,9 @@ const Login = () => {
     e.preventDefault();
     try {
       const data = await authService.login({ username, password });
-      if (data && data.token) {
+      if (data && data.token && data.user_email) {
         setUserLoggedInData(data);
+        identifyUser(data.user_email);
         await logoutGoogle();
         // localStorage.setItem("token", `Bearer ${data.token}`);
         // cookieService.setCookie("token", `Bearer ${data.token}`, expires);

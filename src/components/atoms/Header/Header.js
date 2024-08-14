@@ -110,9 +110,8 @@ const Header = () => {
       document.removeEventListener("mousedown", handleClickOutsideCart);
     };
   }, [isDropdownVisible]);
-  
   useEffect(() => {
-    if (showmenu ) {
+    if (showmenu) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -160,6 +159,11 @@ const Header = () => {
       router.push(`/search/${searchTxt}`);
   }
 
+  const keyDown = (e) => {
+    if (e.key === 'Enter' && searchTxt)
+      router.push(`/search/${searchTxt}`);
+  }
+
   return (
     <>
       <div className={styles.bgWrapper}>
@@ -203,8 +207,8 @@ const Header = () => {
                 <Link href="/about" className={isActive('/about')}>{hpt.aboutUs}</Link>
                 <Link href="/vip" className={isActive('/viplist')}>VIP</Link>
                 <Link href="/favourites" className={`${isActive('/favourites')} ${styles.favouritesicon}`}>
-                   {cmt.favoritesProducts}
-                  </Link>
+                  {cmt.favoritesProducts}
+                </Link>
               </div>
               <div className={styles.flexgrow} />
               <div className={styles.icon}>
@@ -227,8 +231,7 @@ const Header = () => {
                   </Link>
                 </div>
                 <div className={styles.headerIconWrapper}
-                onMouseEnter={() => setDropdownVisible(true)}
-                
+                  onMouseEnter={() => setDropdownVisible(true)}
                 >
                   <Link href="/cart" className={styles.cartIcon}>
                     <Image
@@ -239,7 +242,6 @@ const Header = () => {
                     <span>{cartItemCount}</span>
                   </Link>
                 </div>
-         
                 <div className={`${styles.menubar} ${styles.headerIconWrapper}`} onClick={() => setMobile(!Mobile)}>
                   <Image
                     src="/Images/menubar.svg"
@@ -256,26 +258,27 @@ const Header = () => {
             <span className={styles.closebtn} onClick={closeSearch} title="Close Overlay">×</span>
             <div className={styles.overlayContent}>
               <p className={styles.looking}>{hpt.whatAre}</p>
-              <form>
+              <div>
                 <input type="text" placeholder={hpt.searchItem} value={searchTxt}
-                  onChange={(e) => setSearchTxt(e.target.value)} name="search" className={styles.overlayInput} />
+                  onChange={(e) => setSearchTxt(e.target.value)} name="search"
+                  onKeyDown={keyDown} className={styles.overlayInput} />
                 <button type="button" onClick={onSearch} className={styles.overlayButton}><i className="fa fa-search"></i></button>
-              </form>
+              </div>
             </div>
             <div className={styles.ovFlow_scroll}>
               <div className={styles.searchBox}>
-              <Productsearch cardHeading=""
-                productData={productData} />
-                </div>
+                <Productsearch cardHeading=""
+                  productData={productData} />
+              </div>
             </div>
           </div>
         </div>
 
         {isDropdownVisible && (
-        <div className={styles.cartDropdownContainer}  ref={cartDropdownRef}>
-          <CartDropdown />
-        </div>
-      )}
+          <div className={styles.cartDropdownContainer} ref={cartDropdownRef}>
+            <CartDropdown />
+          </div>
+        )}
       </div>
     </>
   );

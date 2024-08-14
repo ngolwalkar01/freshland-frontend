@@ -17,6 +17,7 @@ import Loader from "@/components/atoms/loader/loader";
 import AuthAPI from "@/services/auth";
 import { getCheckoutOrderById, getOrderDates } from "@/components/service/account";
 import { signOut as googleSignOut } from 'next-auth/react';
+import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
@@ -90,6 +91,7 @@ function Account({ orders }) {
     cookieService.removeCookie("userId");
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
+    localStorage.removeItem("email");
 
     setShowLogoutConfirmation(false);
     try {
@@ -116,6 +118,7 @@ function Account({ orders }) {
 
   return (
     <>
+      <ActiveUserKlaviyo />
       {loading ? <Loader progress={progress} /> : null}
       <div className={styles.myaccount}>
         <div className={styles.Headeraccount}>

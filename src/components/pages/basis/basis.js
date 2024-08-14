@@ -4,15 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { productData } from "@/mockdata/productData";
 import Header from "@/components/atoms/Header/Header";
-import {basisTranslation} from "@/locales/basis";
+import { basisTranslation } from "@/locales/basis";
+import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const Basis = () => {
-  const basis =  basisTranslation[lang];
+  const basis = basisTranslation[lang];
   const images = productData;
 
   return (
     <>
+      <ActiveUserKlaviyo />
       {" "}
       <Header />
       <div className={styles.category}>
@@ -29,38 +31,38 @@ const Basis = () => {
           <h2 className={styles.imageHeading}>{basis.categoryName}</h2>
         </div>
         <div className={styles.goodsCard}>
-        <div className={styles.gridContainer}>
-          {images.map((product,i) => (
-            <div key={i} className={styles.transparentCard}>
-              <Link href="#" className={styles.imgContainer}>
-                <Image
-                  className={styles.cardTopImage}
-                  src="/Images/productTop.png"
-                  alt=""
-                  width={40}
-                  height={10}
-                />
-                <Image
-                  className={styles.cardImage}
-                  src={`/${product.thumbnail}`}
-                  alt="orange"
-                  width={174}
-                  height={152}
-                />
-              </Link>
-              <div className={styles.cardContent}>
-                <Link href="#">
-                  <h3 className={styles.cardTitle}>{product.name}</h3>
+          <div className={styles.gridContainer}>
+            {images.map((product, i) => (
+              <div key={i} className={styles.transparentCard}>
+                <Link href="#" className={styles.imgContainer}>
+                  <Image
+                    className={styles.cardTopImage}
+                    src="/Images/productTop.png"
+                    alt=""
+                    width={40}
+                    height={10}
+                  />
+                  <Image
+                    className={styles.cardImage}
+                    src={`/${product.thumbnail}`}
+                    alt="orange"
+                    width={174}
+                    height={152}
+                  />
                 </Link>
+                <div className={styles.cardContent}>
+                  <Link href="#">
+                    <h3 className={styles.cardTitle}>{product.name}</h3>
+                  </Link>
+                </div>
+                <p className={styles.cardPrice}>{product.price}</p>
+                <button className={styles.addToBasketButton}>
+                  {" "}
+                  {basis.Addbtn}
+                </button>
               </div>
-              <p className={styles.cardPrice}>{product.price}</p>
-              <button className={styles.addToBasketButton}>
-                {" "}
-               {basis.Addbtn}
-              </button>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
         </div>
       </div>
     </>

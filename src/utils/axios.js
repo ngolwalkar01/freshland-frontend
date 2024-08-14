@@ -73,6 +73,7 @@ function clearAuthData() {
     localStorage.removeItem("token");
     cookieService.removeCookie("userId");
     cookieService.removeCookie("token");
+    localStorage.removeItem("email");
 }
 
 function createAxiosErrorResponse(error) {

@@ -3,6 +3,7 @@
 import Order from '@/components/pages/OrderConfirmation/Order';
 import Layout from '@/components/layout';
 import { useRouter, usePathname, useSearchParams, useParams } from 'next/navigation'
+import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
 
 const OrderPage = () => {
     const params = useParams();
@@ -14,6 +15,7 @@ const OrderPage = () => {
     }
     return (
         <Layout>
+            <ActiveUserKlaviyo />
             <Order orderId={params?.id} />
         </Layout>
     );

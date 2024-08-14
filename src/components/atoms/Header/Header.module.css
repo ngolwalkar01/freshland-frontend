@@ -196,13 +196,11 @@
 .overlayContent {
   position: relative;
   top: 46%;
-  width: 100%;
+  /* width: 100%; */
   max-width: 1725px;
   border-bottom: 1px solid rgba(84, 84, 84, 0.1);
   text-align: left;
   margin: 60px 60px 0px 60px;
-
-
 }
 
 .looking {

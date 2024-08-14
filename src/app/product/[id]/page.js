@@ -10,6 +10,7 @@ import productService from '@/services/product'
 import DescriptionSkeleton from '@/components/skeleton/detailsskeleton'
 import deliveryCycleAPI from '@/services/deliveryCycle';
 import { trackProductDetailPage } from '@/components/service/klaviyoTrack';
+import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
 
 const ProductPage = () => {
     const params = useParams();
@@ -64,6 +65,7 @@ const ProductPage = () => {
 
     return (
         <Layout>
+            <ActiveUserKlaviyo />
             {loading ? <DescriptionSkeleton /> : <Detail productDetailProps={{ ...data }} />}
         </Layout>
     );

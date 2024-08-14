@@ -6,6 +6,7 @@ import productCategoryService from "@/services/productCategories";
 import { useEffect, useState } from "react";
 import Shopskeleton from "@/components/skeleton/shopskeleton";
 import { getCartData } from "@/components/service/cart";
+import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
 
 const GoodsPage = (props) => {
   const [data, setData] = useState([]);
@@ -30,6 +31,7 @@ const GoodsPage = (props) => {
 
   return (
     <Layout>
+      <ActiveUserKlaviyo />
       {loading ? <Shopskeleton /> : <Shop {...data} />}
     </Layout>
   );
