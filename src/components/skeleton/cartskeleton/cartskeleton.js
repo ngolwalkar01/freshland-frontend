@@ -3,14 +3,19 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import styles from "@/components/pages/cart/cart.module.css";
 import Header from "../../atoms/Header/Header";
+import { cartTranslation } from "@/locales";
+
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
+
 const cartskeleton = () => {
+  const ct = cartTranslation[lang];
   return (
     <>
       <div className={styles.shopingcart}>
         <Header />
 
         <div className={styles.mainContainer}>
-          <h2 className={styles.mainHeading}>Shopping Cart</h2>
+          <h2 className={styles.mainHeading}>{ct.shCart}</h2>
 
           <div className={styles.shoppingcartdiv}>
             <div className={styles.wrapper}>

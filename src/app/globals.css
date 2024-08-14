@@ -611,3 +611,19 @@ main{
 #bgColor{
  background-color: #f4fff7;
 }
+
+.shopWrapper:nth-child(1) .shop-img,
+.shopWrapper:nth-child(2) .shop-img,
+.home-img,
+.product-detail-img {
+  position: relative;
+  top: -36px !important;
+  transform: scale(1.1);
+}
+
+.shopWrapper:nth-child(1) .shop-prod-link,
+.shopWrapper:nth-child(2) .shop-prod-link,
+.home-prod-link,
+.product-detail-prod-link  {
+  overflow: hidden
+}

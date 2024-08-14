@@ -14,16 +14,18 @@
 }
 
 .zipcodeHeader {
-    margin: 0 0 20px;
+    margin: 0;
 }
 
 .headerText {
     color: #544131;
     text-transform: math-auto;
+    font-size: 26px;
 }
 
 .subheaderText {
     color: #9f9f9f;
+    font-size: 26px;
 }
 
 .zipcodeCheck {
@@ -37,7 +39,7 @@
 
 .formControlBox {
     width: auto;
-    margin: 45px 0 30px;
+    margin: 33px 0 0px;
     display: flex;
     gap: 20px;
 }
@@ -55,7 +57,7 @@
     border: none;
     width: 461px;
     max-width: 461px;
-    height: 75px;
+    height: 62px;
     max-height: 75px;
     font-size: 20px;
 }
@@ -69,7 +71,7 @@
     border: none;
     width: 230px;
     max-width: 230px;
-    height: 73px;
+    height: 62px;
     max-height: 75px;
     font-size: 20px;
     cursor: pointer;
@@ -100,7 +102,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        margin: 20px 0 20px;
+        margin: 20px 0 7px;
     }
     .textField{
         width: 304px;
@@ -113,7 +115,7 @@
     .submitButton{
         width: 304px;
         max-width: 350px;
-        height: 65px;
+        height: 52px;
         font-size: 17px;
         text-align: center;
     }

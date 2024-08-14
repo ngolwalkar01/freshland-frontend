@@ -46,27 +46,27 @@ const AllItems = ({ categoryWithProducts }) => {
                 style={{ display: showMenu ? "flex" : "none" }}
               >
                 <ul className={styles.filterList}>
-                <li
-                      
-                        className={styles.filterListLi}
-                        onClick={() => {
-                          setSelectedFilter(null);
-                          setShowMenu(false);
-                        }}
-                      >
-                        <input
-                          className={styles.filterInput}
-                          type="radio"
-                          name="cat-filters"
-                          checked={selectedFilter === null}
-                        />
-                        <label
-                          className={styles.FilterRadioLabel}
-                        
-                        >
-                         {st.allProducts}
-                        </label>
-                      </li>
+                  <li
+
+                    className={styles.filterListLi}
+                    onClick={() => {
+                      setSelectedFilter(null);
+                      setShowMenu(false);
+                    }}
+                  >
+                    <input
+                      className={styles.filterInput}
+                      type="radio"
+                      name="cat-filters"
+                      checked={selectedFilter === null}
+                    />
+                    <label
+                      className={styles.FilterRadioLabel}
+
+                    >
+                      {st.allProducts}
+                    </label>
+                  </li>
                   {categoryWithProducts && categoriesWithProducts.map((x, i) => {
                     return (
                       <li
@@ -86,7 +86,7 @@ const AllItems = ({ categoryWithProducts }) => {
                         />
                         <label
                           className={styles.FilterRadioLabel}
-                       
+
                         >
                           {x.category.name}
                         </label>
@@ -97,57 +97,57 @@ const AllItems = ({ categoryWithProducts }) => {
               </div>
             </div>
 
-        
-          </div>  
 
-              {/* desktop filter */}
+          </div>
 
-              <div className={styles.filterButton}
-              >
+          {/* desktop filter */}
 
-                
-                <ul className={styles.newfilterlist}>
+          <div className={styles.filterButton}
+          >
 
-                <li
+
+            <ul className={styles.newfilterlist}>
+
+              <li
                 className={`${styles.newfilterListLi} ${selectedFilter === null ? styles.activeFilter : ''}`}
                 onClick={() => {
-                      setSelectedFilter(null);
+                  setSelectedFilter(null);
+                  setShowMenu(false);
+                }}
+              >
+                <label className={styles.FilterRadioLabel}>
+                  {st.allProducts}
+                </label>
+              </li>
+              {categoryWithProducts && categoriesWithProducts.map((x, i) => {
+                return (
+                  <li
+                    key={i}
+                    className={styles.newfilterListLi}
+                    onClick={() => {
+                      setSelectedFilter(x.category.id);
                       setShowMenu(false);
                     }}
                   >
-                    <label className={styles.FilterRadioLabel}>
-                    {st.allProducts}
-                    </label>
-                  </li>
-                  {categoryWithProducts && categoriesWithProducts.map((x, i) => {
-                    return (
-                      <li
-                        key={i}
-                        className={styles.newfilterListLi}
-                        onClick={() => {
-                          setSelectedFilter(x.category.id);
-                          setShowMenu(false);
-                        }}
-                      >
-                        {/* <input
+                    {/* <input
                           className={styles.filterInput}
                           type="radio"
                           name="cat-filters"
                           value={x.category.id}
                           id={x.category.id}
                         /> */}
-                        <label
-                          className={styles.FilterRadioLabel}
-                          htmlFor={x.category.id}
-                        >
-                          {x.category.name}
-                        </label>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-              {/*  */}
+                    <label
+                      className={styles.FilterRadioLabel}
+                      htmlFor={x.category.id}
+                    >
+                      {x.category.name}
+                    </label>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          {/*  */}
           <div className={styles.categoriesCover}>
             {/* Product list */}
             {categoriesWithProducts && categoriesWithProducts
@@ -155,7 +155,7 @@ const AllItems = ({ categoryWithProducts }) => {
                 return !selectedFilter || x.category.id === selectedFilter;
               })
               .map((item, index) => (
-                <div key={index} className={styles.wrapper}>
+                <div key={index} className={`${styles.wrapper} shopWrapper`}>
                   <div className={styles.goodsItem} key={index}>
                     {/* Image */}
                     <div className={styles.imageContainer}>
@@ -182,6 +182,7 @@ const AllItems = ({ categoryWithProducts }) => {
                           removeCartItem={removeCartItem}
                           productData={enableMockData ? [] : item.products}
                           enableMockData={enableMockData}
+                          page="shop"
                         />
                       ) : (
                         <p className={styles.comingSoon}>

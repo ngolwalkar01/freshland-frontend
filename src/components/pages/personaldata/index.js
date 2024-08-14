@@ -58,7 +58,7 @@ const Personaldata = () => {
         <h5>{policy.rightRevoke}</h5>
         <p>{policy.revokeDetails}</p>
        <h5>{policy.rightComplain}</h5>
-        <p>{policy.complainDetails} <Link href="mailto:datainspektionen@datainspektionen.se">{policy.datainsEmail}</Link> {policy.byPhone} <Link href="tel:08-657 61 00">{policy.contact}</Link>.</p>
+        <p>{policy.complainDetails} <Link href="mailto:datainspektionen@datainspektionen.se">{policy.datainsEmail}</Link> {policy.byPhone} <Link href="tel:+46 108 109 689">{policy.contact}</Link>.</p>
         <h4>{policy.deletionOfData}</h4>
         <p>{policy.deletionDetailsExtended}</p>
         <p>{policy.docConstent}</p>
@@ -67,11 +67,11 @@ const Personaldata = () => {
         <p>{policy.companyInfo}</p>
          <p>{policy.companyAddress}</p>
          <p>{policy.companyPostalCode}</p>
-         <p>{policy.telephone}: <Link href="mailto:contact@fresh.land">{policy.contact}</Link></p>
-         <p>{policy.email}: <Link href="mailto:contact@fresh.land">{policy.companyEmail}</Link></p>
+         <p>{policy.telephone}: <Link href="mailto:hej@fresh.land">{policy.contact}</Link></p>
+         <p>{policy.email}: <Link href="mailto:hej@fresh.land">{policy.companyEmail}</Link></p>
         <h4>{policy.latestPolicyVersion}</h4>
         <p>{policy.receive}</p>
-         <p>{policy.write} <Link href="mailto:contact@fresh.land">{policy.companyEmail}</Link>, {policy.call}  <Link href="mailto:contact@fresh.land">{policy.contact}</Link> {policy.chatOurWebsote}</p>
+         <p>{policy.write} <Link href="mailto:hej@fresh.land">{policy.companyEmail}</Link>, {policy.call}  <Link href="mailto:contact@fresh.land">{policy.contact}</Link> {policy.chatOurWebsote}</p>
          <div className={style.time}>
           <p>{policy.weAre}</p>
           <p>{policy.monday}</p>

@@ -133,7 +133,7 @@ function Cart() {
       try {
         const cartData = await getCartData();
         setCartDataByCartData(cartData);
-        // trackAddToCartPage(cartData);
+        trackAddToCartPage(cartData);
       } catch (error) {
         console.log(error);
       } finally {

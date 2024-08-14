@@ -218,7 +218,7 @@ export const termTranslation = {
       "emailName": "hej@fresh.land",
       "orderChat": "Chatta på webbplatsen,",
       "call": "Ring",
-      "orderPhone": "010-195 60 60",
+      "orderPhone": "+46 108 109 689",
       "orderOnWebsite": "Beställ på webbplatsen:",
       "orderOnDelivery": "För leverans på onsdag är sista dagen för beställning på webbplatsen onsdag vid midnatt veckan innan",
       "orderViaCustomer": "Beställ via kundtjänst:",

@@ -27,6 +27,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    font-weight: 600;
 }
 .fruitCategories p{
     position: absolute;

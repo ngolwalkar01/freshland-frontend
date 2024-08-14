@@ -3,13 +3,18 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import styles from "./skeleton.module.css"; // Adjust the import according to your project structure
 import Header from "../../atoms/Header/Header";
+import { checkoutTranslation } from "@/locales";
+
+const lang = process.env.NEXT_PUBLIC_LANG || "se";
+
 const CheckoutSkeleton = () => {
+  const check = checkoutTranslation[lang];
   return (
     <>
      <div className={styles.Checkoutcontainer}>
         <Header />
         <div className={styles.mainconatiner}>
-          <h1 className={styles.mainHeading}>Box</h1>
+          <h1 className={styles.mainHeading}>{check.box}</h1>
           <div className={styles.formcheckout}>
             <div className={styles.wrapper}>
               <div className={styles.leftContainer}>

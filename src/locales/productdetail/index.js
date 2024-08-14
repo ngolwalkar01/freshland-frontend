@@ -217,7 +217,7 @@ export const productdetailTranslation = {
         "orderTime": "Beställ före onsdag 24:00 och få dina varor levererade veckan därpå.",
         "descriptionHeading": "BESKRIVNING",
         "addToBasket": "Lägg till",
-        "relItem": "Relaterade artiklar",
+        "relItem": "Relaterade produkter",
         "goBack": "Gå tillbaka",
         "day": "Dag",
         "hrs": "Timmar",

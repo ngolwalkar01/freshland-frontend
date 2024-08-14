@@ -116,7 +116,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Image
-                      src="/Images/mobilepay.png"
+                      src="/Images/klarna.svg"
                       alt="Dkfooter"
                       width={50}
                       height={31}
@@ -158,7 +158,7 @@ const Footer = () => {
 
                   </li>
                   <li>
-                    <Link href="https://www.linkedin.com/company/fresh-land/?originalSubdomain=dk">
+                    <Link href="https://www.linkedin.com/company/fresh-land">
                       <Image
                         src="/Images/linkedinicon.png"
                         alt="linkedin"
@@ -178,7 +178,7 @@ const Footer = () => {
 
                   </li>
                   <li>
-                    <Link href="https://www.youtube.com/@FreshLand-fh5wi/videos">
+                    <Link href="https://www.youtube.com/channel/UCm5FT3cH5lthEYiWBZ_IgOQ">
                       <Image
                         src="/Images/youtubeicon.png"
                         alt="youtube"
@@ -188,7 +188,7 @@ const Footer = () => {
 
                   </li>
                   <li>
-                    <Link href="https://in.pinterest.com/login/">
+                    <Link href="https://in.pinterest.com/fresh_land/">
                       <Image
                         src="/Images/pinteresticon.png"
                         alt=" pinterest"

@@ -95,7 +95,7 @@ export const commonTranslation = {
     },
     "se": {
         "disruptTheFoodIndustry": "Disrupta livsmedelsindustrin",
-        "seeAllProducts": "Se alle produkter",
+        "seeAllProducts": "Se alla produkter",
         "add": "LÄGG TILL",
         "save": "Spara",
         "addToBasket": "Lägg till",

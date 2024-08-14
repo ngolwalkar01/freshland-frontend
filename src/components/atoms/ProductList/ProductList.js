@@ -15,7 +15,7 @@ const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
-const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProducts, setOlLoader, reload }) => {
+const ProductCard = ({ currentIndex, product, debouncedUpdateQuantity, addToBasket, cartProducts, setOlLoader, reload, page = "NoPage" }) => {
   const cmt = commonTranslation[lang];
   const productInCart = cartProducts.find(x => x.id === product.id);
   const [quantityValue, setQuantityValue] = useState(1);
@@ -50,7 +50,7 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
     <div key={product.id} className={styles.gridItem}>
       <div className={styles.transparentCard}>
         <div className={styles.cardContent}>
-        <div className={`${styles.organicLogo} ${(!product?.is_new && !product?.is_organic) ? styles.noGap : ''}`}>
+          <div className={`${styles.organicLogo} ${(!product?.is_new && !product?.is_organic) ? styles.noGap : ''}`}>
             <div className={styles.newStatus}>
               {product?.is_new && <p>{cmt.new}</p>}
               {product?.is_organic && <Image
@@ -76,13 +76,13 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
             <i className={`fa-solid fa-heart ${isClicked ? styles.clicked : styles.default}`} onClick={handleClick}></i>
           </div>
         </div>
-        <Link href={`/product/${product.id}`} className={styles.imgContainer}>
+        <Link href={`/product/${product.id}`} className={`${styles.imgContainer} ${page}-prod-link ${page}-prod-link-${currentIndex}`}>
           {/* <Image
             className={styles.cardTopImage}
             src="/Images/productTop.png" alt="" width={40} height={10}
           /> */}
           <Image
-            className={styles.cardImage}
+            className={`${styles.cardImage} ${page}-img ${page}-img-${currentIndex}`}
             src={product.thumbnail ? product.thumbnail : "/mockImage/orange.png"}
             alt={product?.name}
             // width={227} height={159}
@@ -156,7 +156,7 @@ const ProductCard = ({ product, debouncedUpdateQuantity, addToBasket, cartProduc
     </div>
   )
 }
-const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, removeCartItem, overRideClass = false, reload = () => { } }) => {
+const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, removeCartItem, overRideClass = false, reload = () => { }, page = "NoPage" }) => {
   const [cartProducts, setCartProducts] = useState([]);
   const data = productData;
   const [loading, setLoading] = useState(false);
@@ -248,8 +248,8 @@ const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, 
         <div className={styles.gridWrapper}>
           <div className={styles.gridContainer}>
             {data && data.map((product, i) => (
-              <ProductCard key={i} setOlLoader={setOlLoader} cartProducts={cartProducts} product={product}
-                debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} reload={reload} />
+              <ProductCard key={i} currentIndex={i} setOlLoader={setOlLoader} cartProducts={cartProducts} product={product}
+                debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} reload={reload} page={page}/>
             ))}
           </div>
         </div>

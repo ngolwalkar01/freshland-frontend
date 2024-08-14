@@ -66,7 +66,7 @@ const SeasonOverview = () => {
              
               <br></br>{sea.click}
             </p>
-             <Link href="/" className={styles.vipbtn}>{sea.getvip}</Link>
+             <Link href="/vip" className={styles.vipbtn}>{sea.getvip}</Link>
           </div>
         </div>
       </section>

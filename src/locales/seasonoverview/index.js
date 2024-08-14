@@ -33,6 +33,6 @@ export const seasonTranslation = {
         "youLike": "Vill du ha ett försprång och vara bland de allra första som får veta när säsongens ",
         "first": "första skörd av våra frukter och grönsaker är redo?",
         "click": "Klicka på knappen nedan och registrera dig som VIP",
-        "getvip": "Kom med på VIP-listan"
+        "getvip": "Skriv upp dig på VIP-listan"
     }
 }

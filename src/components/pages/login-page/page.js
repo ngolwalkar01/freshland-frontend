@@ -125,11 +125,16 @@ const Login = () => {
           </div>
           <p>{log.useSocial}</p>
           <div className={styles.socialmedia}>
-            <a href="#" className="fb btn" onClick={(e) => {
+            <a href="#" className={`${styles.fbLoginBtn} fb btn`} onClick={(e) => {
               e.preventDefault();
               signIn("facebook")
             }}>
-              <i className="fa-brands fa-facebook-f"></i> {log.logfb}
+              <Image
+                src="/Images/fbImg.png"
+                alt="Solar Impulse"
+                width={28}
+                height={28}
+              /> {log.logfb}
             </a>
             {/* <a href="#" className={styles.twitter}>
               <i className="fa-brands fa-twitter"></i> {log.logt}

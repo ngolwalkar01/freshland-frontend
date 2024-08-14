@@ -20,6 +20,8 @@ export const orderconfirmationTranslation = {
         "info": "info",
         "item":"Item",
         "status": "Status",
+        "orderDate": "Order Date",
+        "tax": "tax"
     },
     "dk": {
         "pageHeadingOrder": "Odrebekræftelse",
@@ -42,6 +44,8 @@ export const orderconfirmationTranslation = {
         "info": "info",
         "item":"vare",
         "status": "Status",
+        "orderDate": "Order Date",
+        "tax": "tax"
     },
     "fi": {
         "pageHeadingOrder": "",
@@ -64,6 +68,8 @@ export const orderconfirmationTranslation = {
         "info": "",
         "item":"tuote",
         "status": "Status",
+        "orderDate": "Order Date",
+        "tax": "tax"
     },
     "se": {
         "pageHeadingOrder": "Orderbekräftelse",
@@ -86,5 +92,7 @@ export const orderconfirmationTranslation = {
         "info": "info",
         "item":"Artikel",
         "status": "Status",
+        "orderDate": "Beställningsdatum",
+        "tax": "Beskatta"
     }
 }

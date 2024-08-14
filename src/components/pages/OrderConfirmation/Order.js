@@ -19,7 +19,8 @@ const Order = ({ orderId }) => {
     cartSubTotal: 0,
     cartTotalDiscount: 0,
     shippingTotal: 0,
-    currency: ""
+    currency: "",
+    total_tax: 0
   });
   const [loading, setLoading] = useState(false);
 
@@ -58,11 +59,16 @@ const Order = ({ orderId }) => {
         parseInt(orderData?.totals?.total_shipping) + parseInt(orderData?.totals?.total_shipping_tax),
         currency_minor_unit
       );
+      const cal_total_tax  = getCorrectPrice(
+        parseInt(total_tax),
+        currency_minor_unit
+      );
       setCartData({
         cartSubTotal,
         cartTotalDiscount,
         shippingTotal,
-        currency: orderData?.totals?.currency_suffix
+        currency: orderData?.totals?.currency_suffix,
+        total_tax: cal_total_tax
       });
       trackItemPlaceOrder(orderData);
     }
@@ -76,7 +82,8 @@ const Order = ({ orderId }) => {
   const getCorrectPrice = (number, currency_minor_unit) => {
     if (currency_minor_unit) {
       const value = parseFloat((number / 100).toFixed(currency_minor_unit));
-      return Math.round(value);
+      return value;
+      // return Math.round(value);
     }
     return number;
   };
@@ -85,7 +92,8 @@ const Order = ({ orderId }) => {
     cartSubTotal,
     cartTotalDiscount,
     shippingTotal,
-    currency
+    currency,
+    total_tax
   } = cartData;
 
   const { delivery_dates: deliveryDates, order_date: orderDate } = orderDatesData || {};
@@ -159,6 +167,10 @@ const Order = ({ orderId }) => {
                         <tr>
                           <td>{oct.orderDate}</td>
                           <td>{orderDate}</td>
+                        </tr>
+                        <tr>
+                          <td>{oct.tax}</td>
+                          <td>{currency} {total_tax}</td>
                         </tr>
                         {cartTotalDiscount && cartTotalDiscount > 0 ? (
                           <tr>

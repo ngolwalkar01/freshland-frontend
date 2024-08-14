@@ -73,7 +73,7 @@ const faqData = [
     },
     {
         "title": "Vad händer om leveransen misslyckas?",
-        "content": "<p>Kontakta oss på <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> eller tel. <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 10 888 57 20</a>.</p> <p>Onsdagar kan vi kontaktas till 20.00 på telefon – om du behöver kontakta oss senare på kvällen så skicka gärna ett mejl som vi följer upp nästa morgon.</p>"
+        "content": "<p>Kontakta oss på <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> eller tel. <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 108 109 689</a>.</p> <p>Onsdagar kan vi kontaktas till 20.00 på telefon – om du behöver kontakta oss senare på kvällen så skicka gärna ett mejl som vi följer upp nästa morgon.</p>"
     },
     {
         "title": "Vad gör jag om jag fått varor som inte lever upp till förväntningarna?",
@@ -94,7 +94,7 @@ const faqData = [
     },
     {
         title: "Jag vill göra några ändringar i min order. Kan ni hjälpa mig?",
-        content: "<p>Ändringar angående innehållet i din order. Ja, vi kan absolut hjälpa dig med att ta bort varor på din order innan tidsfristen. Ring bara till oss på tlf: <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 10 888 57 20</a>, så hjälper vi dig.</p> <p>Vi kan tyvärr inte hjälpa till med att lägga till extra varor i din order, på grund av GDPR regler. Men om du har betällt under ett kundkonto, så kan du göra en tilläggsorder i en redan befintlig order. Systemet kommer automatiskt att registrera ytterligare leveranser till samma person och adress, och därför endast lägga på fraktavgift på den ena. – Detta gäller självklart endast innan deadline.</p> <p>Om du beställer som gäst – utan ett kundkonto på hemsidan – kan du fortfarande göra en tilläggsorder utan att betala dubbel frakt. Kontakta oss genom att antingen ringa eller skicka ett mail; vårt kundservice-team är redo att hjälpa dig.</p> <p>Alla beställningar som läggs innanför samma cykel till samma adress kommer att bli levererade tillsammans.</p> <p><strong>Deadline för beställningar/ändringar/avbeställningar: </strong></p> <p>Tidsfristen för leverans onsdag: Onsdag kl. 24.00 veckan innan.</p> <p><strong>Deadline för adressändringar: </strong></p> <p>Tidsfrist för lverans onsdag: Onsdag kl. 24.00 veckan innan.</p>"
+        content: "<p>Ändringar angående innehållet i din order. Ja, vi kan absolut hjälpa dig med att ta bort varor på din order innan tidsfristen. Ring bara till oss på tlf: <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 108 109 689</a>, så hjälper vi dig.</p> <p>Vi kan tyvärr inte hjälpa till med att lägga till extra varor i din order, på grund av GDPR regler. Men om du har betällt under ett kundkonto, så kan du göra en tilläggsorder i en redan befintlig order. Systemet kommer automatiskt att registrera ytterligare leveranser till samma person och adress, och därför endast lägga på fraktavgift på den ena. – Detta gäller självklart endast innan deadline.</p> <p>Om du beställer som gäst – utan ett kundkonto på hemsidan – kan du fortfarande göra en tilläggsorder utan att betala dubbel frakt. Kontakta oss genom att antingen ringa eller skicka ett mail; vårt kundservice-team är redo att hjälpa dig.</p> <p>Alla beställningar som läggs innanför samma cykel till samma adress kommer att bli levererade tillsammans.</p> <p><strong>Deadline för beställningar/ändringar/avbeställningar: </strong></p> <p>Tidsfristen för leverans onsdag: Onsdag kl. 24.00 veckan innan.</p> <p><strong>Deadline för adressändringar: </strong></p> <p>Tidsfrist för lverans onsdag: Onsdag kl. 24.00 veckan innan.</p>"
     },
     {
         title: "Jag har beställt och vill lägga till några varor. Hur gör jag?",
@@ -106,7 +106,7 @@ const faqData = [
     },
     {
         title: "Varför har jag inte mottagit något orderbekräftelse?",
-        content: "<p>Om du inte kan se någon orderbekräftelse – kika gärna i din skräppost först. Om den inte heller är där kan det bero på två saker – Antingen har din order inte gått igenom eller så har du skrivit in en felaktig mejladress. Kontakta oss gärna på <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> eller ring oss på <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 10 888 57 20</a> så hjälper vi dig.</p>"
+        content: "<p>Om du inte kan se någon orderbekräftelse – kika gärna i din skräppost först. Om den inte heller är där kan det bero på två saker – Antingen har din order inte gått igenom eller så har du skrivit in en felaktig mejladress. Kontakta oss gärna på <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> eller ring oss på <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 108 109 689</a> så hjälper vi dig.</p>"
     },
     {
         id: "angerratt-och-reklamation",
@@ -158,7 +158,7 @@ const faqData = [
     },
     {
         title: "Telefon, e-mail och adress",
-        content: "<ul> <li>Telefonnummer <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 10 888 57 20</a></li> <li>Mejladress <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> – Vi eftersträvar att svara dig inom 48 h.</li> <li>Adress: Indiakaj 20, 2100 København Ø, Danmark</li> </ul>"
+        content: "<ul> <li>Telefonnummer <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 108 109 689</a></li> <li>Mejladress <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> – Vi eftersträvar att svara dig inom 48 h.</li> <li>Adress: Indiakaj 20, 2100 København Ø, Danmark</li> </ul>"
     },
     {
         title: "Positiv/negativ feedback?",
@@ -184,7 +184,7 @@ const Faqs = () => {
              <div className={styles.contactcontainer}>
               <h3 className={styles.contactus}>{faq.contact}</h3>
               <p className={styles.emailnumber}>
-                <Link href="mailto:info@fresh.land.com">{faq.info}</Link>
+                <Link href="mailto:hej@fresh.land">{faq.info}</Link>
               </p>
               <p className={styles.emailnumber}>
                 <Link href="tel:+46 108 109 689">{faq.num}</Link>

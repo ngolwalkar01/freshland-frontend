@@ -22,9 +22,10 @@ const HomePage = ({ homePageProps }) => {
   const vipProps = { vipPages, enableMockData };
   const pathname = usePathname();
 
+  const page="home"
   return (
     <>
-      {pathname === '/' && <TopImage farmProductProps={{ productData: farmProducts, enableMockData, addToCart, updateCartQuantity, removeCartItem }} />}
+      {pathname === '/' && <TopImage farmProductProps={{ productData: farmProducts, enableMockData, addToCart, updateCartQuantity, removeCartItem, page }} />}
 
       <LazyLoad height={200} offset={100}>
         <OrderDeadline {...shippingProps} />

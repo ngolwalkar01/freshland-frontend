@@ -27,9 +27,10 @@
   text-transform: capitalize;
 }
 
-.headingWrapper > h1 {
+.headingWrapper>h1 {
   flex: 2;
 }
+
 /* .headingWrapper > div {
   flex: 1;
 } */
@@ -45,11 +46,12 @@
 }
 
 /* Goods item */
-.skeletonImageContainer{
+.skeletonImageContainer {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
+
 /* Image container */
 .imageContainer {
   /* Styles for the image container */
@@ -62,11 +64,15 @@
 /* Cover image */
 .coverImage {
   /* Styles for the cover image */
-  width: 100%; /* Set width to 100% */
-  height: auto; /* Let the height adjust automatically to maintain aspect ratio */
-  max-width: 1200px; /* Limit the maximum width to 92% of the container width */
+  width: 100%;
+  /* Set width to 100% */
+  height: auto;
+  /* Let the height adjust automatically to maintain aspect ratio */
+  max-width: 1200px;
+  /* Limit the maximum width to 92% of the container width */
   margin-inline: 60px;
-  max-height: 178px; /* Limit the maximum height to 178px */
+  max-height: 178px;
+  /* Limit the maximum height to 178px */
   background-size: cover;
   background-position: center;
   object-fit: cover;
@@ -108,7 +114,7 @@
 }
 
 .comingSoon {
- 
+
   padding-bottom: 60px;
   font-size: 2rem;
 }
@@ -116,11 +122,13 @@
 .filterCover {
   display: none;
 }
-.filterIcon {
-}
+
+.filterIcon {}
+
 .filterIcon img {
   cursor: pointer;
 }
+
 .filterListCover {
   display: none;
   position: absolute;
@@ -132,6 +140,7 @@
   color: #2C2C2C;
   font-weight: 500;
 }
+
 .filterList {
   list-style: none;
   display: flex;
@@ -142,6 +151,7 @@
   align-items: flex-start;
   gap: 19px;
 }
+
 .filterListLi {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -154,10 +164,12 @@
   font-weight: 500;
   color: #111;
 }
+
 .filterListLi label {
   cursor: pointer;
 }
-.newfilterListLi{
+
+.newfilterListLi {
   font-weight: 500;
   color: var(--blue);
   border: 1px solid var(--blue);
@@ -168,7 +180,8 @@
   max-width: 130px;
   cursor: pointer;
 }
-.newfilterlist{
+
+.newfilterlist {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -183,17 +196,20 @@
 
 
 }
-.newfilterListLi:hover{
+
+.newfilterListLi:hover {
   background-color: var(--blue);
   color: #fff;
   cursor: pointer;
 }
-.activeFilter{
+
+.activeFilter {
   background-color: var(--blue);
   color: #fff;
   cursor: pointer;
 }
-.shopfilterbtn{
+
+.shopfilterbtn {
   display: flex;
   flex-direction: row;
   padding: 10px 10px 20px 7px;
@@ -201,7 +217,8 @@
   margin: auto;
   justify-content: flex-start;
 }
-.shopfilterbtn label{
+
+.shopfilterbtn label {
   /* background: var(--green);
   color: #fff;
   padding: 10px 4px;
@@ -212,8 +229,9 @@
   display: block;
   text-decoration: underline;
 }
-.blankflexItem {
-}
+
+.blankflexItem {}
+
 /* .filterInput {
   display: none;
 }
@@ -233,21 +251,22 @@
 .filterInput:checked + label::before {
   background: black;
 } */
-.categoriesCover {
-}
-.newfilterlist{
-  
-}
+.categoriesCover {}
+
+.newfilterlist {}
+
 @media (max-width: 600px) {
+
   /* .filterCover{
     display: block;
   } */
-  .filterButton{
+  .filterButton {
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
 
   }
-  .newfilterlist{
+
+  .newfilterlist {
     list-style: none;
     display: inline-flex;
     flex-wrap: nowrap;
@@ -260,7 +279,8 @@
     margin: 40px 0px 40px 40px;
     cursor: pointer;
   }
-  .newfilterListLi{
+
+  .newfilterListLi {
     font-weight: 500;
     color: var(--blue);
     border: 1px solid var(--blue);
@@ -270,11 +290,13 @@
     width: 131px;
     max-width: 413px;
   }
-  .activeFilter{
+
+  .activeFilter {
     background-color: var(--blue);
     color: #fff;
     cursor: pointer;
   }
+
   .customContainer {
     padding: 0;
   }
@@ -306,6 +328,12 @@
   .wrapper {
     width: 100%;
     height: fit-content;
+  }
+
+  .customCardImage {
+    position: relative;
+    top: -36px !important;
+    transform: scale(1.1);
   }
 
   .goodsItem {
@@ -381,28 +409,32 @@
     font-size: 1.1rem;
     padding-top: 20px;
   }
-  .filterListCover{
+
+  .filterListCover {
     left: 45%;
   }
 
   /* skeleton css */
-  .headingskl{
+  .headingskl {
     display: flex;
     align-items: center;
     justify-content: space-around;
     gap: 20px;
   }
-  .headingSkeleton{
-    width:170px !important;
+
+  .headingSkeleton {
+    width: 170px !important;
     height: 40px !important;
   }
-  .comingSoon{
+
+  .comingSoon {
     padding-bottom: 0px;
   }
 
 }
-@media(min-width:650px) and (max-width:1024px){
-  .filterListCover{
+
+@media(min-width:650px) and (max-width:1024px) {
+  .filterListCover {
     left: 70%;
   }
 }

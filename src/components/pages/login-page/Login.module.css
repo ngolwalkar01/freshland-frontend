@@ -1,4 +1,10 @@
 /* Full-width input fields */
+.fbLoginBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .modal{
   display: flex;
   align-items: center;

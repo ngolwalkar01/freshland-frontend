@@ -46,6 +46,7 @@ const Description = ({ productDetailProps }) => {
     addToCart,
     updateCartQuantity,
     removeCartItem,
+    page: 'product-detail'
   };
 
   const handleAddToCart = async () => {

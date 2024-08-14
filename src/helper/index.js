@@ -23,3 +23,12 @@ export const generateRandomId = (length = 8) => {
 export const getEmail = () => {
     return localStorage.getItem("email") || localStorage.getItem("klaviyoEmail");
 }
+
+const getBaseUrl = () => {
+    const protocol = window.location.protocol;
+    const hostname = window.location.hostname;
+    const port = window.location.port;
+
+    const baseUrl = `${protocol}//${hostname}${port ? ':' + port : ''}`;
+    return baseUrl;
+}

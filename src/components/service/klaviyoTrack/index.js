@@ -1,14 +1,6 @@
-import { generateRandomId, getEmail } from "@/helper";
+import { generateRandomId, getEmail, getCorrectPrice, getBaseUrl } from "@/helper";
 import KlaviyoAPI from "@/services/klaviyo/apiIndex";
-
-const getBaseUrl = () => {
-    const protocol = window.location.protocol;
-    const hostname = window.location.hostname;
-    const port = window.location.port;
-
-    const baseUrl = `${protocol}//${hostname}${port ? ':' + port : ''}`;
-    return baseUrl;
-}
+import { gtViewItem, gtAddToCart, gtViewCart, gtCheckout, gtOrder } from "../googleTrack";
 
 export const identifyUser = async () => {
     const email = getEmail();
@@ -24,47 +16,18 @@ export const userActiveOnSite = async () => {
     // klaviyo.push(['identify', { $email: email }]);
 };
 
-const googleView = () => {
-    try {
-        window.dataLayer = window.dataLayer || [];
-        dataLayer.push({ ecommerce: null });
-        dataLayer.push({
-            event: "view_item",
-
-            ecommerce: {
-                currency: "USD",
-                value: 7.77,
-                items: [
-                    {
-                        item_id: "SKU_12345",
-                        item_name: "Stan and Friends Tee",
-                        affiliation: "Store Name",
-                        item_category: "Apparel",
-                        coupon: "SUMMER_FUN",
-                        currency: "USD",
-                        price: 9.99,
-                        quantity: 1
-                    },
-                ]
-            }
-        });
-    } catch (error) {
-
-    }
-
-}
-
 export const trackProductDetailPage = async (productDetail) => {
     try {
         const email = getEmail();
         if (productDetail && email) {
+            gtViewItem(productDetail);
             const payload = {
                 "email": email,
                 "product_name": productDetail?.name,
                 "product_id": productDetail?.id,
                 "price": productDetail.price
             }
-            await KlaviyoAPI.klaviyoTrackAPI('viewed-product', payload)
+            await KlaviyoAPI.klaviyoTrackAPI('viewed-product', payload);
             // const item = {
             //     "ProductName": productDetail?.name,
             //     "ProductID": productDetail?.id,
@@ -83,48 +46,44 @@ export const trackProductDetailPage = async (productDetail) => {
     }
 }
 
-const getCorrectPrice = (number, currency_minor_unit) => {
-    if (currency_minor_unit)
-        return parseFloat((number / 100).toFixed(currency_minor_unit));
-
-    return number;
-}
-
 export const trackAddToCartPage = async (cartData) => {
     try {
-        if (cartData) {
-            const lastItemIndex = cartData.items.length - 1;
-            const currMinorUnit = cartData.totals.currency_minor_unit;
-            const totalValue = getCorrectPrice(cartData.totals.total_price, currMinorUnit);
-
-            const newCartObject = {
-                "$value": totalValue.toFixed(2),
-                "AddedItemProductName": cartData.items[lastItemIndex].name, // Assuming the last item added is at index 1
-                "AddedItemProductID": cartData.items[lastItemIndex].id.toString(),
-                "AddedItemSKU": cartData.items[lastItemIndex].sku,
-                "AddedItemCategories": cartData.items[lastItemIndex].categories,
-                "AddedItemImageURL": cartData.items[lastItemIndex].images[0].src,
-                "AddedItemURL": cartData.items[lastItemIndex].permalink,
-                "AddedItemPrice": getCorrectPrice(cartData.items[lastItemIndex].prices.price, currMinorUnit),
-                "AddedItemQuantity": cartData.items[lastItemIndex].quantity,
-                "ItemNames": cartData.items.map(item => item.name),
-                "CheckoutURL": `${getBaseUrl()}/checkout`,
-                "Items": cartData.items && cartData.items.length > 0 ?
-                    cartData.items.map(item => ({
-                        "ProductID": item.id.toString(),
-                        "SKU": item.sku,
-                        "ProductName": item.name,
-                        "Quantity": item.quantity,
-                        "ItemPrice": getCorrectPrice(item.prices.price, currMinorUnit),
-                        "RowTotal": getCorrectPrice(item.prices.price, currMinorUnit) * item.quantity,
-                        "ProductURL": item.permalink,
-                        "ImageURL": item.images[0].src,
-                        "ProductCategories": item.categories
-                    })) :
-                    []
-            };
-            klaviyo.push(["track", "Added to Cart", newCartObject])
+        if(cartData) {
+            gtViewCart(cartData);
         }
+        // if (cartData) {
+        //     const lastItemIndex = cartData.items.length - 1;
+        //     const currMinorUnit = cartData.totals.currency_minor_unit;
+        //     const totalValue = getCorrectPrice(cartData.totals.total_price, currMinorUnit);
+
+        //     const newCartObject = {
+        //         "$value": totalValue.toFixed(2),
+        //         "AddedItemProductName": cartData.items[lastItemIndex].name, // Assuming the last item added is at index 1
+        //         "AddedItemProductID": cartData.items[lastItemIndex].id.toString(),
+        //         "AddedItemSKU": cartData.items[lastItemIndex].sku,
+        //         "AddedItemCategories": cartData.items[lastItemIndex].categories,
+        //         "AddedItemImageURL": cartData.items[lastItemIndex].images[0].src,
+        //         "AddedItemURL": cartData.items[lastItemIndex].permalink,
+        //         "AddedItemPrice": getCorrectPrice(cartData.items[lastItemIndex].prices.price, currMinorUnit),
+        //         "AddedItemQuantity": cartData.items[lastItemIndex].quantity,
+        //         "ItemNames": cartData.items.map(item => item.name),
+        //         "CheckoutURL": `${getBaseUrl()}/checkout`,
+        //         "Items": cartData.items && cartData.items.length > 0 ?
+        //             cartData.items.map(item => ({
+        //                 "ProductID": item.id.toString(),
+        //                 "SKU": item.sku,
+        //                 "ProductName": item.name,
+        //                 "Quantity": item.quantity,
+        //                 "ItemPrice": getCorrectPrice(item.prices.price, currMinorUnit),
+        //                 "RowTotal": getCorrectPrice(item.prices.price, currMinorUnit) * item.quantity,
+        //                 "ProductURL": item.permalink,
+        //                 "ImageURL": item.images[0].src,
+        //                 "ProductCategories": item.categories
+        //             })) :
+        //             []
+        //     };
+        //     klaviyo.push(["track", "Added to Cart", newCartObject])
+        // }
     } catch (error) {
         console.log(error);
     }
@@ -134,6 +93,7 @@ export const trackAddToCheckoutPage = async (cartData) => {
     try {
         const email = getEmail();
         if (cartData && email) {
+            gtCheckout(cartData);
             const currMinorUnit = cartData.totals.currency_minor_unit;
             const newCheckoutObjectAPI = {
                 email,
@@ -159,6 +119,7 @@ export const trackItemAddToCart = async (cartData, prodId, quantity) => {
         if (cartData && prodId && email && cartData.items && cartData.items.length > 0) {
             const productDetail = cartData.items.find(x => x.id == prodId);
             if (productDetail) {
+                gtAddToCart(cartData);
                 const currMinorUnit = cartData.totals.currency_minor_unit;
                 const newCheckoutObjectAPI = {
                     email,
@@ -181,6 +142,7 @@ export const trackItemPlaceOrder = async (orderData) => {
         const currentEmail = email || orderData?.billing_address?.email;
         const isProcessOrderTracking = currentEmail && orderData;
         if (isProcessOrderTracking) {
+            gtOrder(orderData);
             const currency_minor_unit = orderData.totals.currency_minor_unit
             await KlaviyoAPI.klaviyoTrackAPI('identify', { email: currentEmail })
             const orderDataObj = {

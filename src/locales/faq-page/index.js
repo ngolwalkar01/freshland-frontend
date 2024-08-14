@@ -38,7 +38,7 @@ export const faqTranslation = {
     "se": {
         "fq": "FAQ",
         "contact": "Kontakta oss",
-        "info": "info@fresh.land",
+        "info": "hej@fresh.land",
         "num": "Fresh Nordic ApS, CVR 43007106",
         "indikaj": "Rahbeks Alle 21 1801 Copenhagen",
         "faqdelivery": "Leverans",
