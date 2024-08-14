@@ -26,19 +26,21 @@ const TopImage = ({ farmProductProps }) => {
     <>
       <div className={styles.topImageContainer}>
         <Image
-          src="/Images/homepage.png"
+          src="/Images/homepagesvg.svg"
           alt="Harvesting Image"
           media="(min-width: 640px)"
           lazyload="lazy"
           fill
           priority
+          
         />
         <Image
-          src="/Images/homepage.png"
+          src="/Images/homepagesvg.svg"
           alt="Harvesting Image"
           media="(max-width: 639px)"
           fill
           priority
+         
         />
         <Header />
 

@@ -51,13 +51,16 @@
   top: -11px;
 }
 .next_order{
-  position: relative;
+  /* position: relative; */
   width: 100%;
-  height: 709px;
-  max-height: 710px;
+  height: 827px;
+  max-height: 939px;
   display: flex;
   align-items: center;
   justify-content: center;
+  }
+  .deadlineImg{
+    height: auto !important;
   }
 
 .nextorder_deadline{
@@ -292,6 +295,7 @@
   }
   .deadlineImg{
     object-fit: cover;
+    height: 100% !important;
   }
   .shippingPrice{
     gap: 23px;
@@ -324,5 +328,16 @@
   .coln{
     position: relative;
     top: -3px;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1398px){
+.next_order{
+  height: 588px;
+}
+}
+@media (min-width: 1399px) and (max-width: 1602px){
+  .next_order{
+    height: 700px;
   }
 }

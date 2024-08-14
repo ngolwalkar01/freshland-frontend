@@ -8,7 +8,9 @@
   left: 35px;
   right: 35px;
 }
-
+.storemenuicon{
+  display: none;
+}
 .activeLink {
   color: var(--green);
   font-weight: 500;
@@ -270,9 +272,20 @@
   max-height: 72vh;
   /* padding: 20px; */
 }
-
+.favouritesicon{
+  display: none;
+}
 
 @media (min-width: 320px) and (max-width: 750px) {
+  .favouritesicon{
+    display: block;
+  }
+  .favicon{
+    display: none;
+  }
+  .storemenuicon{
+    display: block;
+  }
   .storemenu {
     position: relative;
     top: 0;

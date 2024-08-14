@@ -75,14 +75,14 @@ const Register = () => {
         <div className={registerStyles.registerWrapper}>
           <Image
             className={registerStyles.desktopimg}
-            src="/Images/regitserimg.png"
+            src="/Images/newsletterphoto.jpg"
             alt="rimage"
             media="(min-width: 640px)"
             fill
           />
           <Image
             className={registerStyles.responsiveimg}
-            src="/Images/registermedia.png"
+            src="/Images/newsletterphoto.jpg"
             alt="Harvesting Image"
             media="(max-width: 639px)"
             fill

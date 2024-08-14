@@ -68,9 +68,11 @@ const OrderDeadline = ({ shippingMethods, enableMockData, cutOffDaysDetail }) =>
         <div className={styles.next_order}>
           <Image
             className={styles.deadlineImg}
-            src="/Images/Deadlinebgimg.png"
+            src="/Images/deadlineimg.svg"
             alt="Background Image"
             fill
+             
+            
 
           />
           <div className={styles.nextorder_deadline}>

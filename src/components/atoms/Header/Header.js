@@ -6,7 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.css";
-import { homepageTranslation } from '@/locales';
+import { homepageTranslation, commonTranslation } from '@/locales';
 import Productsearch from '@/components/atoms/search';
 import productService from '@/services/product';
 import productCategoryService from "@/services/productCategories";
@@ -17,6 +17,7 @@ const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 const Header = () => {
   const router = useRouter();
   const hpt = homepageTranslation[lang];
+  const cmt = commonTranslation[lang];
   const [Mobile, setMobile] = useState(false);
   const pathname = usePathname()
   const [showmenu, setshowMenu] = useState(false);
@@ -201,7 +202,9 @@ const Header = () => {
                 <Link href="/se/faq" className={isActive('/se/faq')}>{hpt.faq}</Link>
                 <Link href="/about" className={isActive('/about')}>{hpt.aboutUs}</Link>
                 <Link href="/vip" className={isActive('/viplist')}>VIP</Link>
-             
+                <Link href="/favourites" className={`${isActive('/favourites')} ${styles.favouritesicon}`}>
+                   {cmt.favoritesProducts}
+                  </Link>
               </div>
               <div className={styles.flexgrow} />
               <div className={styles.icon}>
@@ -213,9 +216,14 @@ const Header = () => {
                     <Image src="/Images/user.svg" alt="User profile" fill />
                   </Link>
                 </div>
-                <div className={styles.headerIconWrapper}>
+                <div className={`${styles.headerIconWrapper} ${styles.favicon}`}>
                   <Link href="/favourites">
                     <Image src="/Images/heart.svg" alt="Wish List" fill />
+                  </Link>
+                </div>
+                <div className={`${styles.headerIconWrapper} ${styles.storemenuicon}`}>
+                  <Link href="/shop">
+                    <Image src="/Images/storemenu.svg" alt="Wish List" fill />
                   </Link>
                 </div>
                 <div className={styles.headerIconWrapper}

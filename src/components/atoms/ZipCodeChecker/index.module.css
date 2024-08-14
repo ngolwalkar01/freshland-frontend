@@ -89,21 +89,30 @@
     color: var(--green);
 }
 @media only screen and (max-width: 600px){
+    .headerText{
+  font-size: 16px;
+    }
+    .subheaderText{
+        font-size: 16px;
+    }
     .formControlBox{
         gap: 14px;
         align-items: center;
         justify-content: center;
-        margin: 20px 0 30px;
+        flex-direction: column;
+        margin: 20px 0 20px;
     }
     .textField{
-        width: 219px;
+        width: 304px;
+        max-width: 350px;
         height: 65px;
         padding: 19px 14px;
         font-size: 17px;
         text-align: center;
     }
     .submitButton{
-        width: 130px;
+        width: 304px;
+        max-width: 350px;
         height: 65px;
         font-size: 17px;
         text-align: center;
@@ -115,6 +124,9 @@
     }
     .zipcodeWrapper{
         padding: 0px 30px;
+    }
+    .zipcodeContainer{
+        padding: 30px 0px;
     }
     
 }
