@@ -23,8 +23,8 @@ const googleView = () => {
                 value: 7.77,
                 items: [
                     {
-                        item_id: "SKUgyfyfftdthdhdth_12345",
-                        item_name: "Standfsghjkmhgfdghjklk;jghf and Friends Tee",
+                        item_id: "SKU_12345",
+                        item_name: "Stan and Friends Tee",
                         affiliation: "Store Name",
                         item_category: "Apparel",
                         coupon: "SUMMER_FUN",
