@@ -6,6 +6,7 @@ import { homepageTranslation, serviceTranslation, errorTranslation } from '@/loc
 import { commonTranslation } from '@/locales';
 import klaviyoservice from '@/services/klaviyo/apiIndex'
 import { toast } from 'react-toastify';
+import { setKlaviyoEmail } from "@/components/service/klaviyoTrack";
 
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
@@ -63,6 +64,7 @@ const Register = () => {
     event.preventDefault();
     if (validate()) {
       await klaviyoservice.createProfile({ email, firstName });
+      setKlaviyoEmail(email);
       toast.success(service.profileCreated, { autoClose: toastTimer });
       reset();
     }

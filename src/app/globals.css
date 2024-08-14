@@ -627,3 +627,7 @@ main{
 .product-detail-prod-link  {
   overflow: hidden
 }
+
+input:focus-visible {
+  outline-offset: 0px !Important;
+}

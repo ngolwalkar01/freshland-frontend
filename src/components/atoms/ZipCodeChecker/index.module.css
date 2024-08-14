@@ -80,9 +80,9 @@
 
 .errorMessage {
     color: red;
-    font-size: 12px;
+    font-size: 16px;
     text-align: left;
-    margin: -10px 0 10px 0;
+    margin: 10px;
 }
 
 .pointer {

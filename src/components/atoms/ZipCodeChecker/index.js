@@ -47,7 +47,10 @@ function ZipCodeChecker() {
                             <div className={styles.formControlBox}>
                                 <div>
                                     <input className={styles.textField} placeholder={zipLabelsLang.enterPostalCode} type="text"
-                                        onChange={(e) => { setZipCode(e.target.value) }} value={zipCode} name="zipCode" />
+                                        onChange={(e) => {
+                                            setShowWarning(false);
+                                            setZipCode(e.target.value)
+                                        }} value={zipCode} name="zipCode" />
                                 </div>
                                 <button className={styles.submitButton} type="submit" onClick={onSubmit}>
                                     {zipLabelsLang.verify}
@@ -56,15 +59,17 @@ function ZipCodeChecker() {
                             {showWarning && (
                                 <div className={styles.formControlText}>
                                     <span>{zipLabelsLang.signUpWtList},</span>
-                               <span className={styles.pointer} onClick={() => {
+                                    <span className={styles.pointer} onClick={() => {
                                         setShowPopup(true);
                                     }}>{zipLabelsLang.here}</span>
                                     <span>{zipLabelsLang.notifyDeliverArea}</span>
                                 </div>
                             )}
-                            <div>
-                                {error && !zipCode && <p className={styles.errorMessage}>{errormsg.postcodeRequired}</p>}
-                            </div>
+                            {error && !zipCode &&
+                                <div>
+                                    <p className={styles.errorMessage}>{errormsg.postcodeRequired}</p>
+                                </div>
+                            }
                         </form>
                     </div>
                 </div>

@@ -2,6 +2,11 @@ import { generateRandomId, getEmail, getCorrectPrice, getBaseUrl } from "@/helpe
 import KlaviyoAPI from "@/services/klaviyo/apiIndex";
 import { gtViewItem, gtAddToCart, gtViewCart, gtCheckout, gtOrder } from "../googleTrack";
 
+export const setKlaviyoEmail = (klaviyoEmail) => {
+    if(klaviyoEmail)
+        localStorage.setItem("klaviyoEmail", klaviyoEmail);
+}
+
 export const identifyUser = async () => {
     const email = getEmail();
     if (email)

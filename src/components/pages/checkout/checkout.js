@@ -40,7 +40,7 @@ import { applyLoader } from "@/helper/loader";
 import OverLayLoader from "@/components/atoms/overLayLoader";
 import ShippingBillingAddress from "@/components/atoms/shippingBillingAddress";
 import klaviyoservice from "@/services/klaviyo/apiIndex";
-import { trackAddToCheckoutPage } from "@/components/service/klaviyoTrack";
+import { setKlaviyoEmail, trackAddToCheckoutPage } from "@/components/service/klaviyoTrack";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
@@ -631,6 +631,7 @@ function Checkout() {
       setCartData(INTIAL_CART_DATA);
       if (receiveUpdates) {
         await klaviyoservice.createProfile({ email, firstName });
+        setKlaviyoEmail(email);
       }
       resetCheckoutPage();
       setLoading(false);

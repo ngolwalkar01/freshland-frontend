@@ -3,6 +3,7 @@ import styles from './PopupStyles.module.css';
 import klaviyoservice from '@/services/klaviyo/apiIndex'
 import toastNotifications from '@/helper/toast';
 import { errorTranslation, zipCodeCheckerTranslation, commonTranslation } from "@/locales";
+import { setKlaviyoEmail } from '@/components/service/klaviyoTrack';
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
@@ -48,6 +49,7 @@ function Popup({ setShowPopup }) {
                     "PostalCode": postalCode
                 }
             });
+            setKlaviyoEmail(email);
             toastNotifications.success(zipLabelsLang.subscribeSuccessMsg);
             closePopup();
         }
