@@ -11,7 +11,38 @@ export const identifyUser = (email) => {
     klaviyo.push(['identify', { $email: email }]);
 };
 
+const googleView = () => {
+    try {
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({ ecommerce: null });
+        dataLayer.push({
+            event: "view_item",
+
+            ecommerce: {
+                currency: "USD",
+                value: 7.77,
+                items: [
+                    {
+                        item_id: "SKU_12345",
+                        item_name: "Stan and Friends Tee",
+                        affiliation: "Store Name",
+                        item_category: "Apparel",
+                        coupon: "SUMMER_FUN",
+                        currency: "USD",
+                        price: 9.99,
+                        quantity: 1
+                    },
+                ]
+            }
+        });
+    } catch (error) {
+
+    }
+
+}
+
 export const trackProductDetailPage = async (productDetail) => {
+    googleView();
     try {
         if (productDetail) {
             const item = {
