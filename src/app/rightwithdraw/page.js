@@ -6,7 +6,7 @@ import Layout from '@/components/layout';
 const RightWithdraws = () => {
     return (
     <Layout>
-     <Rightwithdraw /> 
+     <Rightwithdraw />
     </Layout>
     )
 };

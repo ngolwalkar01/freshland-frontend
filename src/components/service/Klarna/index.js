@@ -106,7 +106,7 @@ const generateOrderPayload = (response, session_id, order_id) => {
     order: {
       ...order,
       session_id,
-      order_id,
+      woo_order_id: order_id,
     },
   };
   return obj;
