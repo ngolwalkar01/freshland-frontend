@@ -13,7 +13,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <script type="text/javascript" src="/scripts/googleAnalytics.js"></script>
+        <script type="text/javascript" async
+          defer src="/scripts/googleAnalytics.js"></script>
       </head>
       <Head>
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
