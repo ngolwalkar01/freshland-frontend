@@ -12,6 +12,9 @@ export default function RootLayout({ children }) {
   const src = `https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=${pubKey}`;
   return (
     <html lang="en">
+      <head>
+        <script type="text/javascript" src="/scripts/googleAnalytics.js"></script>
+      </head>
       <Head>
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <title>Fresh.Land - Nyhøstet frugt og grøntsager. Bestil nu!</title>
