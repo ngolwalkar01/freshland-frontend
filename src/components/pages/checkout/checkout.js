@@ -77,6 +77,7 @@ const INTIAL_CART_DATA = {
   subscriptionShipping: [],
   paymentMethods: [],
   billing_address: null,
+  isOnlyVirtual: false
 };
 
 function Checkout() {
@@ -141,6 +142,7 @@ function Checkout() {
     shipping,
     delivery_dates,
     subscriptionShipping,
+    isOnlyVirtual
   } = cartData;
   const coupons = couponsData;
   const currency_minor_unit = parseInt(totals?.currency_minor_unit);
@@ -208,6 +210,7 @@ function Checkout() {
         }
       });
     }
+    const isVirtual = extensions?.delivery?.[0]?.only_virtual ?? false;
     setCartData({
       items,
       currency,
@@ -220,6 +223,7 @@ function Checkout() {
       billing_address,
       subscriptionShipping,
       shipping_address,
+      isOnlyVirtual: isVirtual
     });
     if (delivery_dates && delivery_dates.length > 0 && delivery_dates[0].dates) {
       const firstDate = Object.keys(delivery_dates[0].dates)[0];
@@ -487,15 +491,17 @@ function Checkout() {
     //   isValid = false;
     // }
 
-    const shippingRates = getShippingRates(shipping);
-    const shpOpt = checkSelectedMethods(shipping);
-
-    if (!(shippingRates && shippingRates.length > 0)) {
-      errors.shipmentVal = errormsg.correctShippingAddressRequired;
-      isValid = false;
-    } else if (!shpOpt) {
-      errors.shipmentVal = errormsg.selectShipment;
-      isValid = false;
+    if(!isOnlyVirtual) {
+      const shippingRates = getShippingRates(shipping);
+      const shpOpt = checkSelectedMethods(shipping);
+  
+      if (!(shippingRates && shippingRates.length > 0)) {
+        errors.shipmentVal = errormsg.correctShippingAddressRequired;
+        isValid = false;
+      } else if (!shpOpt) {
+        errors.shipmentVal = errormsg.selectShipment;
+        isValid = false;
+      }
     }
 
     if (cartTotal > 0) {
@@ -508,7 +514,7 @@ function Checkout() {
       }
     }
 
-    if (!deliveryDate) {
+    if (!isOnlyVirtual && !deliveryDate) {
       errors.deliveryDateVal = errormsg.selectDeliveryDate;
       isValid = false;
     }
@@ -623,7 +629,7 @@ function Checkout() {
     const order_key = orderDt.order_key;
     try {
       setCartData(INTIAL_CART_DATA);
-      if(receiveUpdates) {
+      if (receiveUpdates) {
         await klaviyoservice.createProfile({ email, firstName });
       }
       resetCheckoutPage();
@@ -791,7 +797,7 @@ function Checkout() {
                           <strong className="W-Body-Large-Medium">{check.contactInformation}</strong>
                         </label>
                         <label>
-                       {check.emailUsage}
+                          {check.emailUsage}
                         </label>
                         <input
                           className={styles.inputField}
@@ -817,7 +823,7 @@ function Checkout() {
                           id="createAccount"
                         />
                         <label htmlFor="createAccount">
-                        {check.wantAccount}
+                          {check.wantAccount}
                         </label>
                       </div>
                     }
@@ -1514,19 +1520,19 @@ function Checkout() {
                       >
                         <option value="">{check.selectAnOption}</option>
                         <option value=" Placed at the front door - Placed at the front door">
-                         {check.placedAtFrontDoor}
+                          {check.placedAtFrontDoor}
                         </option>
                         <option value="Drop by mailbox - Drop by mailbox">
-                         {check.dropByMailbox}
+                          {check.dropByMailbox}
                         </option>
                         <option value="Put in the carport - Put in the carport">
-                        {check.putInCarport}
+                          {check.putInCarport}
                         </option>
                         <option value="Place at the back door - Place at the back door">
-                        {check.placeAtBackDoor}
+                          {check.placeAtBackDoor}
                         </option>
                         <option value="Place inside the basement shaft">
-                        {check.placeInsideBasementShaft}
+                          {check.placeInsideBasementShaft}
                         </option>
                         <option value="Place under a half roof - Place under a half roof">
                           {check.placeUnderHalfRoof}
@@ -1535,7 +1541,7 @@ function Checkout() {
                           {check.placeInsideShed}
                         </option>
                         <option value="Custom notes only">
-                         {check.customNotesOnly}
+                          {check.customNotesOnly}
                         </option>
                       </select>
                       <span className={styles.customArrow}></span>

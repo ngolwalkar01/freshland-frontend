@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./cartdropdown.module.css";
 import Image from "next/image";
 import { commonTranslation, cartTranslation } from '@/locales';
-import { Link } from "react-scroll";
+import Link from "next/link";
 import { getCorrectPrice } from "@/helper";
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
@@ -28,7 +28,7 @@ const CartDropdown = () => {
           return (
             <li key={i} className={styles.cartItem}>
               <div className={styles.cartContainer}>
-                <Image src={x.images && x.images.length > 0 ? x.images[0].thumbnail : ""} alt="product-image" width={67} height={47} className={styles.itemImage} />
+                <Image src={x.images && x.images.length > 0 ? x.images[0].thumbnail : ""} alt="product-image" width={67} height={67} className={styles.itemImage} />
                 <span className={styles.itemName}>{x.name}</span>
               </div>
 

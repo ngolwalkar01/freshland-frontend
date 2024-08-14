@@ -12,8 +12,19 @@ const getVipPages = async (per_page = 3) => {
     }
 };
 
+const getAllVipPages = async () => {
+    try {
+        const response = await axios.get(`${SHIPPING_API_BASE_URL}/vip-pages`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching products:');
+        throw error;
+    }
+};
+
 const VipPagesAPI = {
-    getVipPages
+    getVipPages,
+    getAllVipPages
 };
 
 export default VipPagesAPI;
