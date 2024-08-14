@@ -15,6 +15,7 @@ export default function RootLayout({ children }) {
       <head>
         <script type="text/javascript" async
           defer src="/scripts/googleAnalytics.js"></script>
+        <title>Fresh.Land - Nyhøstet frugt og grøntsager. Bestil nu!</title>
       </head>
       <Head>
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />

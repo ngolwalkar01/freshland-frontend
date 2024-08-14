@@ -697,7 +697,7 @@ function Checkout() {
             failedCallBack
           );
         } else {
-          callBackAfterOrder(data.order_id);
+          callBackAfterOrder(data);
         }
       }
     } catch (error) {
