@@ -212,8 +212,10 @@ const Header = () => {
               </div>
               <div className={styles.flexgrow} />
               <div className={styles.icon}>
-                <div className={styles.headerIconWrapper} onClick={openSearch}>
-                  <Image src="/Images/search.svg" alt="Search" fill />
+                <div className={`${styles.headerIconWrapper} ${styles.storemenuicon}`}>
+                  <Link href="/shop">
+                    <Image src="/Images/storemenu.svg" alt="Wish List" fill />
+                  </Link>
                 </div>
                 <div className={styles.headerIconWrapper}>
                   <Link href="/account">
@@ -225,10 +227,8 @@ const Header = () => {
                     <Image src="/Images/heart.svg" alt="Wish List" fill />
                   </Link>
                 </div>
-                <div className={`${styles.headerIconWrapper} ${styles.storemenuicon}`}>
-                  <Link href="/shop">
-                    <Image src="/Images/storemenu.svg" alt="Wish List" fill />
-                  </Link>
+                <div className={styles.headerIconWrapper} onClick={openSearch}>
+                  <Image src="/Images/search.svg" alt="Search" fill />
                 </div>
                 <div className={styles.headerIconWrapper}
                   onMouseEnter={() => setDropdownVisible(true)}

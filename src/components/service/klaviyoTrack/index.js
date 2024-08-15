@@ -23,9 +23,9 @@ export const userActiveOnSite = async () => {
 
 export const trackProductDetailPage = async (productDetail) => {
     try {
+        gtViewItem(productDetail);
         const email = getEmail();
         if (productDetail && email) {
-            gtViewItem(productDetail);
             const payload = {
                 "email": email,
                 "product_name": productDetail?.name,
@@ -96,9 +96,9 @@ export const trackAddToCartPage = async (cartData) => {
 
 export const trackAddToCheckoutPage = async (cartData) => {
     try {
+        gtCheckout(cartData);
         const email = getEmail();
         if (cartData && email) {
-            gtCheckout(cartData);
             const currMinorUnit = cartData.totals.currency_minor_unit;
             const newCheckoutObjectAPI = {
                 email,
@@ -120,11 +120,12 @@ export const trackAddToCheckoutPage = async (cartData) => {
 
 export const trackItemAddToCart = async (cartData, prodId, quantity) => {
     try {
+        gtAddToCart(cartData);
+
         const email = getEmail();
         if (cartData && prodId && email && cartData.items && cartData.items.length > 0) {
             const productDetail = cartData.items.find(x => x.id == prodId);
             if (productDetail) {
-                gtAddToCart(cartData);
                 const currMinorUnit = cartData.totals.currency_minor_unit;
                 const newCheckoutObjectAPI = {
                     email,
@@ -143,11 +144,11 @@ export const trackItemAddToCart = async (cartData, prodId, quantity) => {
 
 export const trackItemPlaceOrder = async (orderData) => {
     try {
+        gtOrder(orderData);
         const email = getEmail();
         const currentEmail = email || orderData?.billing_address?.email;
         const isProcessOrderTracking = currentEmail && orderData;
         if (isProcessOrderTracking) {
-            gtOrder(orderData);
             const currency_minor_unit = orderData.totals.currency_minor_unit
             await KlaviyoAPI.klaviyoTrackAPI('identify', { email: currentEmail })
             const orderDataObj = {

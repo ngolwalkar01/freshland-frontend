@@ -122,7 +122,7 @@ export const commonTranslation = {
         "withdrawConsent": "Du kan alltid återkalla ditt samtycke, se hur du gör det",
         "privacyPolicyInfo": " Du kan läsa i vår",
         "here": "här",
-        "privacypolicy": "integritetspolicy ",
+        "privacypolicy": "sekretesspolicy ",
         "weProcess": " hur vi behandlar information om dig",
         "sendIn":"Skicka in",
           "new":"Nyhet"

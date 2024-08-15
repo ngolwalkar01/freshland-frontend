@@ -104,7 +104,7 @@ const getConfig = () => {
             showPreferencesBtn: 'Hantera individuella inställningar',
             // closeIconLabel: 'Reject all and close modal',
             footer: `
-                        <a href="/se/integritetspolicy">Sekretesspolicy</a>
+                        <a href="/se/sekretesspolicy">Sekretesspolicy</a>
                     `,
           },
           preferencesModal: {

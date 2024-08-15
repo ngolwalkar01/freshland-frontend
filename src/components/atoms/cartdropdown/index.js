@@ -23,7 +23,7 @@ const CartDropdown = () => {
   return (
     <div className={styles.dropdown}>
       <p className={styles.title}>{ct.cartTitle}</p>
-      <ul className={styles.cartItems}>
+      <ul className={`${styles.cartItems} cartdropdown_cartItems`}>
         {cartData.items.map((x, i) => {
           return (
             <li key={i} className={styles.cartItem}>

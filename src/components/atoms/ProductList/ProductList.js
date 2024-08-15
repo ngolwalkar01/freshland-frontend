@@ -73,7 +73,7 @@ const ProductCard = ({ currentIndex, product, debouncedUpdateQuantity, addToBask
             />
           </div>
           <div className={styles.hearticon} >
-            <i className={`fa-solid fa-heart ${isClicked ? styles.clicked : styles.default}`} onClick={handleClick}></i>
+            <i className={`fa-solid fa-heart custom-fa-heart ${isClicked ? styles.clicked : styles.default}`} onClick={handleClick}></i>
           </div>
         </div>
         <Link href={`/product/${product.id}`} className={`${styles.imgContainer} ${page}-prod-link ${page}-prod-link-${currentIndex}`}>

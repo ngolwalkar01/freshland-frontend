@@ -3,10 +3,12 @@ import Header from '@/components/atoms/Header/Header'
 import style from './personaldata.module.css'
 import Link from 'next/link'
 import { policyTranslation } from '@/locales';
+import { getBaseUrl } from '@/helper';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const Personaldata = () => {
   const policy = policyTranslation[lang];
+  const linkPolicy = `${getBaseUrl()}/se/kundvillkor`
   return (
     <>
     <main>
@@ -24,7 +26,7 @@ const Personaldata = () => {
         <h4>{policy.howWeCollect}</h4>
         <p>{policy.collectionDetails}</p>
         <p>{policy.cookiePolicy}</p>
-        <p><Link href="https://fresh.land/se/kundvillkor">{policy.cookiePolicyLink}</Link></p>
+        <p><Link href={linkPolicy}>{linkPolicy}</Link></p>
         <h4>{policy.purpose}</h4>
         <p>{policy.purposeDetails}</p>
         <h4>{policy.legalBasis}</h4>

@@ -96,7 +96,7 @@ const Footer = () => {
                 <p>{hpt.theLegal}</p>
                 <ul>
                   <li><Link href="/se/kundvillkor">{hpt.terms}</Link></li>
-                  <li><Link href="/se/integritetspolicy">{hpt.personalData}</Link></li>
+                  <li><Link href="/se/sekretesspolicy">{hpt.personalData}</Link></li>
                   <li><Link href="/se/faq/#angerratt-och-reklamation">{hpt.rightWithdraw}</Link></li>
                 </ul>
 
@@ -148,7 +148,7 @@ const Footer = () => {
                 <ul className={styles.carddataimg}>
 
                   <li>
-                    <Link href="https://www.facebook.com/www.fresh.land">
+                    <Link href="https://www.facebook.com/p/FreshLandSverige-100063595824643/">
                       <Image
                         src="/Images/facebook.png"
                         alt="facebook"
@@ -158,7 +158,7 @@ const Footer = () => {
 
                   </li>
                   <li>
-                    <Link href="https://www.linkedin.com/company/fresh-land">
+                    <Link href="https://www.linkedin.com/company/fresh-land/mycompany/verification/">
                       <Image
                         src="/Images/linkedinicon.png"
                         alt="linkedin"
@@ -168,7 +168,7 @@ const Footer = () => {
 
                   </li>
                   <li>
-                    <Link href='https://www.instagram.com/fresh.land/'>
+                    <Link href='https://www.instagram.com/fresh.land.sverige/'>
                       <Image
                         src="/Images/insta.png"
                         alt="insta"
@@ -188,7 +188,7 @@ const Footer = () => {
 
                   </li>
                   <li>
-                    <Link href="https://in.pinterest.com/fresh_land/">
+                    <Link href="https://pin.it/1dSwCYsyd">
                       <Image
                         src="/Images/pinteresticon.png"
                         alt=" pinterest"

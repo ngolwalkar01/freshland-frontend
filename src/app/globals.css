@@ -231,6 +231,14 @@ h4 {
     line-height: normal;
     letter-spacing: -0.96px;
   }
+  .home-img,
+  .product-detail-img,
+  .shopWrapper:first-child .shop-img,
+  .shopWrapper:nth-child(2) .shop-img {
+    position: relative;
+    top: -17px !important;
+    transform: scale(1.2);
+  }
 }
 
 h5 {
@@ -563,7 +571,7 @@ main{
 }
 .featuresWrapper {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -629,5 +637,24 @@ main{
 }
 
 input:focus-visible {
-  outline-offset: 0px !Important;
+    outline-offset: 0px !Important;
+}
+
+ul.cartdropdown_cartItems::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #219029;
+}
+ul.cartdropdown_cartItems::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  border: 1px solid #cacaca;
+}
+ul.cartdropdown_cartItems::-webkit-scrollbar {
+  width: 10px;
+}
+
+@media (min-width: 600px) {
+  .custom-fa-heart {
+    font-size: 32px !Important;
+  }
 }

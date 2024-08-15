@@ -22,7 +22,7 @@ const VideoComponent = () => {
                 {hpt.thankYouTommorow}
               </p>
             </div>
-            <Link href="/se/integritetspolicy" className={`${videoStyles.learnmore} ${videoStyles.desktopbtn}`}>
+            <Link href="/about" className={`${videoStyles.learnmore} ${videoStyles.desktopbtn}`}>
              {hpt.learnMore}
             </Link>
           </div>
