@@ -164,7 +164,7 @@ export const createNewOrder = async (orderData) => {
   );
   storeTempState();
   removeLocalStorage(cartDataStorage);
-  toast.success(service.yourOrderProcess, { autoClose: toastTimer });
+  // toast.success(service.yourOrderProcess, { autoClose: toastTimer });
   return data;
 };
 

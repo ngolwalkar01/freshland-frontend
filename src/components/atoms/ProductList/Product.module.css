@@ -36,12 +36,12 @@
   padding-inline: 10px;
   display: flex;
   flex-wrap: wrap;
-  margin: 45px auto;
+  margin: 45px 0;
 }
 .gridItem{
   background-color: #fff;
   border-radius: 19px;
-  padding: 23px 19px;
+  padding: 19px 19px 23px;
   /* height: 100%;
   max-height: 409px;
   width: 100%;
@@ -105,7 +105,7 @@
 .organicLogo{
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 .noGap{
   gap: 0px;
@@ -125,7 +125,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
-  max-width: 200px;
+  max-width: 230px;
 }
 
 .cardPrice {
@@ -290,6 +290,8 @@
 .newStatus{
   display: flex;
   gap: 6px;
+  min-height: 26.66px;
+  margin-bottom: 7px;
 }
 .newStatus p {
   background-color: rgba(241, 114, 103, 1);

@@ -117,7 +117,7 @@ const getConfig = () => {
             sections: [
               {
                 title: 'Dina val gällande personlig information',
-                description: `In this panel you can express some preferences related to the processing of your personal information. You may review and change expressed choices at any time by resurfacing this panel via the provided link. To deny your consent to the specific processing activities described below, switch the toggles to off or use the “Reject all” button and confirm you want to save your choices.`,
+                description: `I denna panel kan du välja några inställningar gällande hanteringen av din personliga information. Du kan när som helst granska och ändra dessa val genom att gå tillbaka till denna panel via den angivna länken. För att neka ditt samtycke till de specifika behandlingsaktiviteter som beskrivs nedan, ändra knapparna till "av" eller använd knappen "Neka alla" och bekräfta att du vill spara dina val.`,
               },
               {
                 title: 'Strikt nödvändigt',

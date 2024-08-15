@@ -32,7 +32,7 @@ const TopImage = ({ farmProductProps }) => {
           lazyload="lazy"
           fill
           priority
-          
+
         />
         <Image
           src="/Images/homepagesvg.svg"
@@ -40,7 +40,7 @@ const TopImage = ({ farmProductProps }) => {
           media="(max-width: 639px)"
           fill
           priority
-         
+
         />
         <Header />
 
@@ -48,7 +48,6 @@ const TopImage = ({ farmProductProps }) => {
           <h1>{hpt.freshlyHarvested}</h1>
         </div>
       </div>
-      <ZipCodeChecker />
       <div ref={productListRef} className={styles.bgcolor}>
         {" "}
         {/* Add a ref to the ProductList component */}
@@ -58,12 +57,13 @@ const TopImage = ({ farmProductProps }) => {
             cardHeading={decodeString(hpt.directlyFromFarm)}
             {...farmProductProps}
           />
-       <div>
-       <Seeallbtn />
-       </div>
-         
+          <div>
+            <Seeallbtn />
+          </div>
+
         </div>
       </div>
+      <ZipCodeChecker />
     </>
   );
 };

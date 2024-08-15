@@ -57,7 +57,7 @@ const faqData = [
     accordionData: [
       {
         "title": "Vad kostar frakten?",
-        "content": "<p>Frakt kostar 59 SEK som utgångspunkt, oavsett var i landet du befinner dig.</p> <p>Beställningar över 699 SEK får gratis frakt: ^)</p>"
+        "content": "<p>Frakt kostar 59 SEK som utgångspunkt, oavsett var i landet du befinner dig.</p> <p>Beställningar över 699 SEK får gratis frakt:</p>"
     },
     {
         "title": "När levererar ni?",
@@ -94,7 +94,7 @@ const faqData = [
     },
     {
         title: "Jag vill göra några ändringar i min order. Kan ni hjälpa mig?",
-        content: "<p>Ändringar angående innehållet i din order. Ja, vi kan absolut hjälpa dig med att ta bort varor på din order innan tidsfristen. Ring bara till oss på tlf: <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 108 109 689</a>, så hjälper vi dig.</p> <p>Vi kan tyvärr inte hjälpa till med att lägga till extra varor i din order, på grund av GDPR regler. Men om du har betällt under ett kundkonto, så kan du göra en tilläggsorder i en redan befintlig order. Systemet kommer automatiskt att registrera ytterligare leveranser till samma person och adress, och därför endast lägga på fraktavgift på den ena. – Detta gäller självklart endast innan deadline.</p> <p>Om du beställer som gäst – utan ett kundkonto på hemsidan – kan du fortfarande göra en tilläggsorder utan att betala dubbel frakt. Kontakta oss genom att antingen ringa eller skicka ett mail; vårt kundservice-team är redo att hjälpa dig.</p> <p>Alla beställningar som läggs innanför samma cykel till samma adress kommer att bli levererade tillsammans.</p> <p><strong>Deadline för beställningar/ändringar/avbeställningar: </strong></p> <p>Tidsfristen för leverans onsdag: Onsdag kl. 24.00 veckan innan.</p> <p><strong>Deadline för adressändringar: </strong></p> <p>Tidsfrist för lverans onsdag: Onsdag kl. 24.00 veckan innan.</p>"
+        content: "<p>Ändringar angående innehållet i din order. Ja, vi kan absolut hjälpa dig med att ta bort varor på din order innan tidsfristen. Ring bara till oss på tlf: <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 108 109 689</a>, så hjälper vi dig.</p> <p>Vi kan tyvärr inte hjälpa till med att lägga till extra varor i din order, på grund av GDPR regler. Men om du har betällt under ett kundkonto, så kan du göra en tilläggsorder i en redan befintlig order. Systemet kommer automatiskt att registrera ytterligare leveranser till samma person och adress, och därför endast lägga på fraktavgift på den ena. – Detta gäller självklart endast innan deadline.</p> <p>Om du beställer som gäst – utan ett kundkonto på hemsidan – kan du fortfarande göra en tilläggsorder utan att betala dubbel frakt. Kontakta oss genom att antingen ringa eller skicka ett mail; vårt kundservice-team är redo att hjälpa dig.</p> <p>Alla beställningar som läggs innanför samma cykel till samma adress kommer att bli levererade tillsammans.</p> <p><strong>Deadline för beställningar/ändringar/avbeställningar: </strong></p> <p>Tidsfristen för leverans onsdag: Onsdag kl. 24.00 veckan innan.</p> <p><strong>Deadline för adressändringar: </strong></p> <p>Tidsfrist för leverans onsdag: Onsdag kl. 24.00 veckan innan.</p>"
     },
     {
         title: "Jag har beställt och vill lägga till några varor. Hur gör jag?",
@@ -158,7 +158,7 @@ const faqData = [
     },
     {
         title: "Telefon, e-mail och adress",
-        content: "<ul> <li>Telefonnummer <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 108 109 689</a></li> <li>Mejladress <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> – Vi eftersträvar att svara dig inom 48 h.</li> <li>Adress: Indiakaj 20, 2100 København Ø, Danmark</li> </ul>"
+        content: "<ul> <li>Telefonnummer <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 108 109 689</a></li> <li>Mejladress <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> – Vi eftersträvar att svara dig inom 48 h.</li> <li>Adress: Rahbeks Alle 21 1801 Copenhagen</li> </ul>"
     },
     {
         title: "Positiv/negativ feedback?",
@@ -174,7 +174,7 @@ const Faqs = () => {
       <section className={styles.faqssection}>
         <Header />
         <div className={styles.faqscontainer}>
-          <h2>{faq.fq}&#x275C;S</h2>
+          <h2>{faq.fq}</h2>
           <div className={styles.faqsdelivery}>
             {
               faqData && faqData.length > 0 && faqData.map((x, i) => {

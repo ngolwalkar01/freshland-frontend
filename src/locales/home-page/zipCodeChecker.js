@@ -49,7 +49,7 @@ export const zipCodeCheckerTranslation = {
         woutGaps: "utan mellanrum",
         verify: "Kontrollera",
         signUpWtList: "Registrera dig på vår väntelista",
-        here: " HÄR ",
+        here: " her ",
         notifyDeliverArea: "då kommer vi att meddela dig när vi levererar till ditt område.",
         enterPostalCode: "Ange postnummer",
         subscribeSuccessMsg: "Tack för att du prenumererar!! Kontrollera din e-post för ett bekräftelsemail.",

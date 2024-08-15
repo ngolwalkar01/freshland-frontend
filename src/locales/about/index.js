@@ -130,7 +130,7 @@ export const aboutTranslation = {
       "foodSupplyChain": "Vi förkortar och digitaliserar livsmedelsförsörjningskedjan",
       "justTime": "Just-in-time",
       "treesAct": "Träden fungerar som ett slags",
-      "naturalStorage": "naturligt lager",
+      "naturalStorage": 'naturligt lager',
       "freshNess": "Färskhet gör skillnaden",
       "freshContent": "",
       "harvestDate": "Skördedatum",

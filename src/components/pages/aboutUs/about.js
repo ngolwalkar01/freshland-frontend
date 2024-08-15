@@ -54,7 +54,7 @@ const About = () => {
         <section className={styles.aboutcontainer}>
           <div className={styles.disrupt}>
             <h2>{at.justTime}</h2>
-            <p className={`W-body-Large`}>{at.treesAct}&#65282;{at.naturalStorage}&#65282;</p>
+            <p className={`W-body-Large`}>{at.treesAct} “{at.naturalStorage}”</p>
           </div>
           <div className={styles.groupimg}>
             <div className={`${styles.justtimeimg} ${styles.maskgroup}`}>
