@@ -3,7 +3,7 @@ import { getCorrectPrice } from "@/helper";
 
 const getPayloadFromOrderData = (event_name, orderData) => {
     try {
-        if (!orderData) return;
+        if (!(orderData && window && window.dataLayer)) return;
 
         const currency_minor_unit = orderData.totals.currency_minor_unit;
         window.dataLayer = window.dataLayer || [];
@@ -58,7 +58,7 @@ const getPayloadFromOrderData = (event_name, orderData) => {
 
 const getPayloadFromProductDetail = (event_name, productDetail) => {
     try {
-        if (!productDetail) return;
+        if (!(productDetail && window && window.dataLayer)) return;
 
         const productData = {
             item_id: productDetail.sku,
@@ -90,7 +90,7 @@ const getPayloadFromProductDetail = (event_name, productDetail) => {
 
 const getPayloadFromCartData = (event_name, cartData) => {
     try {
-        if (!cartData) return;
+        if (!(cartData && window && window.dataLayer)) return;
 
         const currencyCode = cartData.totals.currency_code
         const currMinorUnit = cartData.totals.currency_minor_unit;

@@ -212,7 +212,7 @@ export const productdetailTranslation = {
         "StraightFrom": "Direkt från gården,",
         "skip": "Hoppa över upp till 5 mellanhänder och få dina produkter levererade direkt från gården.",
         "freeShipping": "Fri frakt,",
-        "shiipingOrder": "Frakt är gratis för alla beställningar över 699 DKK.",
+        "shiipingOrder": "Frakt är gratis för alla beställningar över 699 kr.",
         "fastDeliver": "Snabb leverans",
         "orderTime": "Beställ före onsdag 24:00 och få dina varor levererade veckan därpå.",
         "descriptionHeading": "BESKRIVNING",
