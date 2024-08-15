@@ -23,7 +23,7 @@ const Producttase = () => {
             </div>
             <div className={styles.paracontainer}>
               <p className={`W-body-Large`}>
-               {taste.theProduct}
+               {taste.prodDeliver}
               </p>
               <ul className={styles.cicleli}>
                 <li>
@@ -62,7 +62,7 @@ const Producttase = () => {
                   />
                   <span className="W-Body-Regular">{taste.sustainAble}</span>
                 </li>
-                <li>
+                {/* <li>
                   <Image
                     src="/Images/check-circle.svg"
                     alt="check-circle"
@@ -70,7 +70,7 @@ const Producttase = () => {
                     height={20}
                   />
                   <span className="W-Body-Regular">{taste.competPrice}</span>
-                </li>
+                </li> */}
                 <li>
                   <Image
                     src="/Images/check-circle.svg"

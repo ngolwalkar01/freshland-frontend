@@ -14,6 +14,7 @@ const Ourmission = () => {
             <div className={styles.missionheading}>
             <p className={`W-body-Large`}>{mission.ourMission}</p>
             <h2>{mission.toBeacon}</h2>
+            <p>{mission.greenTransition}</p>
           </div>
           <p className={`W-body-Large ${styles.content}`}>
            {mission.foreFront}

@@ -236,8 +236,8 @@ h4 {
   .shopWrapper:first-child .shop-img,
   .shopWrapper:nth-child(2) .shop-img {
     position: relative;
-    top: -17px !important;
-    transform: scale(1.2);
+    top: -12px !important;
+    transform: scale(1.3);
   }
 }
 

@@ -26,7 +26,7 @@ const Foodchain = () => {
             <div>
               <h2>{food.reThink}</h2>
               <p className="W-body-Large">
-               {food.buyDirectly}
+               {food.allowConsumers}
               </p>
             </div>
           </div>

@@ -384,7 +384,7 @@
   }
 
   .cardTopImage {
-    width: 26px;
+    width: auto;
     height: auto;
     right: 6px;
     top: 11.5px;
@@ -393,10 +393,13 @@
 
 
   .hearticon{
-    font-size: 20px;
+    font-size: 30px;
+    position: absolute;
+    right: -2;
   }
   .cardContent{
-    gap: 3px;
+    /* gap: 3px; */
+    position: relative;
   }
 
   .skeletonContainer{

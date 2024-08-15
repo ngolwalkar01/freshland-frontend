@@ -55,6 +55,9 @@
 .contentpara{
     padding: 16px 0px 0px 0px;
 }
+.makesADiff {
+    margin-top: 30px;
+}
 
 @media (min-width: 320px) and (max-width: 600px){
     .harvestdate{

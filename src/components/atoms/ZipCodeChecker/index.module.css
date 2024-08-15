@@ -107,7 +107,7 @@
     .textField{
         width: 304px;
         max-width: 350px;
-        height: 65px;
+        height: 62px !important;
         padding: 19px 14px;
         font-size: 17px;
         text-align: center;
@@ -115,7 +115,7 @@
     .submitButton{
         width: 304px;
         max-width: 350px;
-        height: 52px;
+        height: 62px!important;
         font-size: 17px;
         text-align: center;
     }
