@@ -41,7 +41,7 @@ const Forgot = () => {
       <main>
         <Header />
         <div className={style.forgotPassword}>
-          <p>
+          <p className={style.forgotmsg}>
            {log.lostPasswordPrompt}
           </p>
           <form>

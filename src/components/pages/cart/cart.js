@@ -472,7 +472,7 @@ function Cart() {
                       </div>
                       <button
                         type="submit"
-                        className={styles.applydiscount}
+                        className={`${styles.applydiscount} ${coupon ? styles.activeDiscount : ''}`}
                         onClick={() => {
                           applyLoader(
                             setOlLoader,

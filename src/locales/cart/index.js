@@ -96,7 +96,7 @@ export const cartTranslation = {
         "homeDelivery": "Hemleverans: 60 kr",
         "localPickup": "Lokal upphämtning",
         "shipPing": "Frakten uppdateras när du går vidare till kassan.",
-        "total": "Totalt ",
+        "total": "Total inkl. moms",
         "include": "inkl.",
         "tax": "moms",
         "gotoCheckout": "Till kassan",

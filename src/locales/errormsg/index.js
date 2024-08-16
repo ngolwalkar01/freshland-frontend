@@ -50,7 +50,9 @@ export const errorTranslation = {
       "performanceAnalyticsDescription": "These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.",
       "exampleComplaint": "Ex. Some tomatoes had mold on them.",
       "addInfo":"Please provide any additional information if you have",
-      "poNumber":"PO Number"
+      "poNumber":"PO Number",
+      "save": "Save",
+      "resetPasswordmsg":"Your password has been reset."
   
     },
     "dk": {
@@ -101,7 +103,9 @@ export const errorTranslation = {
       "strictlyNecessaryDescription": "Disse cookies er afgørende for, at hjemmesiden fungerer korrekt, og kan ikke deaktiveres.",
       "performanceAnalytics": "Performance og analyse",
       "performanceAnalyticsDescription": "Disse cookies indsamler oplysninger om, hvordan du bruger vores hjemmeside. Alle data er anonymiserede og kan ikke bruges til at identificere dig.",
-      "exampleComplaint": "F.eks. der var mug på nogle af tomaterne."
+      "exampleComplaint": "F.eks. der var mug på nogle af tomaterne.",
+      "resetPasswordmsg":"Din adgangskode er blevet nulstillet",
+      "save": "Gem",
     },
     "fi": {
      "nameRequired": "Name is required",
@@ -134,6 +138,7 @@ export const errorTranslation = {
         "passwordsMustMatch": "Varmista, että salasanat täsmäävät",
         "enterNewPassword": "Syötä uusi salasana alle",
         "newPassword": "Uusi salasana",
+        
 
         "yourOrderProcess": "Tilauksesi on käsiteltävänä",
         "yourOrderPlaced": "Tilauksesi on tehty",
@@ -153,7 +158,9 @@ export const errorTranslation = {
         "strictlyNecessaryDescription": "Nämä evästeet ovat välttämättömiä verkkosivuston asianmukaisen toiminnan kannalta, eikä niitä voida poistaa käytöstä.",
         "performanceAnalytics": "Suorituskyky ja analytiikka",
         "performanceAnalyticsDescription": "Nämä evästeet keräävät tietoa siitä miten käytät sivustoamme. Kaikki tiedot ovat anonyymejä eikä sinua voi tunnistaa niistä.",
-        "exampleComplaint": "Esim. osa tomaateista oli homeisia."
+        "exampleComplaint": "Esim. osa tomaateista oli homeisia.",
+        "save": "Save",
+        "resetPasswordmsg":"Your password has been reset."
   
     },
     "se": {
@@ -207,6 +214,10 @@ export const errorTranslation = {
         "performanceAnalyticsDescription": "Dessa cookies samlar in information om hur du använder vår webbplats. Alla data är anonymiserade och kan inte användas för att identifiera dig.",
         "exampleComplaint": "T.ex. det var mögel på några av tomaterna.",
         "addInfo":"Vänligen ge ytterligare information om du har",
-        "poNumber":"PO-nummer"
+        "poNumber":"PO-nummer",
+        "save": "Spara",
+        "resetPasswordmsg":"Ditt lösenord har återställts."
     }
-  };
+  }
+
+  

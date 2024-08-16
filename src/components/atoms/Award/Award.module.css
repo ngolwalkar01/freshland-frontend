@@ -26,38 +26,35 @@
   }
   
   .gridContainer {
-   display: flex;
-    row-gap: 64px;
-    column-gap: 18px;
-    animation: 10s slide infinite linear;
-    column-gap: 24px;
-    animation-play-state: running; /* Ensure animation runs initially */
-    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 24px;
+    animation: 20s slide linear infinite;
+    width: calc(2 * 100%); 
   }
   
   .gridContainer:hover {
     animation-play-state: paused; /* Pause animation on hover */
-   
-    
-  }
-.gridItem:hover{
-  transform: scale(0.98);
-}
-  
-  @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
   }
   
   .gridItem {
-    padding: 0 10px;
-    width: 100%;
-    max-width: 300px;
+    flex: 0 0 auto; /* Prevent grid items from shrinking */
+    transition: transform 5s ease-in-out;
   }
+  
+  .gridItem:hover {
+    transform: scale(0.98); /* Slightly scale down on hover */
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%); /* Move half the container's width */
+    }
+  }
+  
   
   .card {
     width: 267px;

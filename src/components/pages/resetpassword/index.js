@@ -18,8 +18,7 @@ const Reset = () => {
   const login = searchParams.get('login');
   const [routeData, setRouteData] = useState(null);
   const service = serviceTranslation[lang];
-  const errormsg = serviceTranslation[lang];
-  const mat =  myaccountTranslation
+  const errormsg = errorTranslation[lang];
   useEffect(() => {
     if (!key || !login) {
       router.push('/');
@@ -88,7 +87,7 @@ const Reset = () => {
           "confirm_password": confirmPasswordData
         }
         await AccountAPI.resetPassword(obj);
-        toast.success(service.couponRequired)
+        toast.success(service.resetPasswordmsg)
         resetData();
       } catch (error) {
         toast.error(error?.data?.message ? error?.data?.message : service.somethingWentWrong)
@@ -128,7 +127,7 @@ const Reset = () => {
                 </div>
               </div>
               <div className={style.inputConatiner}>
-                <label htmlFor="ConfirmPassword">Confirm New Password</label>
+                <label htmlFor="ConfirmPassword">{errormsg.confirmNewPassword}</label>
                 <input
                   value={confirmPasswordData}
                   onChange={handleConfirmInput}
@@ -149,7 +148,7 @@ const Reset = () => {
                 {errors?.confirmPasswordData && <div style={{ color: 'red' }}>{errors?.confirmPasswordData}</div>}
               </div>
             </form>
-            <button onClick={resetPassword} className={style.btnSave}>Save</button>
+            <button onClick={resetPassword} className={style.btnSave}>{errormsg.save}</button>
           </div>
         </main>
       )}

@@ -56,9 +56,9 @@ const Footer = () => {
                   <i className="fa-solid fa-xmark" onClick={handleClosepopup}></i>
                   <ul>
                     <li><Link href="#">Germany 🇩🇪 | {hpt.clickGermanPage}</Link></li>
-                    <li><Link href="#">Denmark 🇩🇰 | {hpt.clickGermanPage}</Link></li>
-                    <li><Link href="#">Finland 🇫🇮 | {hpt.clickGermanPage}</Link></li>
-                    <li><Link href="#">Sweden 🇸🇪  | {hpt.clickGermanPage}</Link></li>
+                    <li><Link href="#">Denmark 🇩🇰 | {hpt.clickDanishPage}</Link></li>
+                    <li><Link href="#">Finland 🇫🇮 | {hpt.clickFinlanePage}</Link></li>
+                    <li><Link href="#">Sweden 🇸🇪  | {hpt.clickSwedenPage}</Link></li>
 
                   </ul>
                 </div>
@@ -82,6 +82,7 @@ const Footer = () => {
                 <ul>
                   <li><Link href="/about">{hpt.aboutUs}</Link></li>
                   <li><Link href="/farmer">{hpt.farmers}</Link></li>
+                  <li><Link href="/farmer">{hpt.vip}</Link></li>
                 </ul>
               </div>
               <div>

@@ -28,7 +28,7 @@
 .btnSave {
     width: 152px;
     background-color: var(--green);
-    border-radius: 5px;
+    border-radius: 25px;
     padding: 13px 7px;
     height: 48px;
     border: 1px solid var(--green);

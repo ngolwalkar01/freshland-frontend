@@ -242,8 +242,7 @@ border-radius: 5px;
   
   .table {
     border-collapse: collapse;
-    width: 333px;
-    max-width: 375px;
+    max-width: 446px;
     margin: auto;
   }
   .topRow .cross{
@@ -340,6 +339,13 @@ border-radius: 5px;
    background-color: #FFFF;
    border: 1px solid #1d405c;
    color: var(--blue);
+  }
+  .disabled{
+    background-color: #cccccc; /* Grey background */
+  color: #666666; /* Grey text */
+  cursor: not-allowed; /* Changes the cursor to a not-allowed icon */
+  pointer-events: none; /* Prevents the button from being clickable */
+  opacity: 0.6; /* Makes the button appear faded */
   }
   .gobackbtn{
     background: none;

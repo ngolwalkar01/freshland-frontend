@@ -71,7 +71,11 @@ export const homepageTranslation = {
         "orderDeadline": "Order Deadline",
         "FreshCountry": "FRESH.COUNTRY",
         "clickGermanPage": "Click here for the German page",
-        "searchItem": "search items..."
+        "clickDanishPage": "Click here for the Danish page",
+        "clickFinlanePage": "Click here for the FinLand page",
+        "clickSwedenPage": "Click here for the Sweden page",
+        "searchItem": "search items...",
+        "vip":"VIP"
     },
     "dk": {
         "freshlyHarvested": "Friskhøstet frugt & grønt",
@@ -145,7 +149,11 @@ export const homepageTranslation = {
         "orderDeadline": "Bestillingsfrist",
         "FreshCountry": "Fresh.Land",
         "clickGermanPage": "Klik her for den tyske side",
-        "searchItem": "Søg varer..."
+        "searchItem": "Søg varer...",
+        "clickDanishPage": "Click here for the Danish page",
+        "clickFinlanePage": "Click here for the FinLand page",
+        "clickSwedenPage": "Click here for the Sweden page",
+         "vip":"VIP"
     },
     "fi": {
         "freshlyHarvested": "Tuoreena korjatut hedelmät & vihannekset",
@@ -219,7 +227,11 @@ export const homepageTranslation = {
         "orderDeadline": "Määräaika",
         "FreshCountry": "FRESH.COUNTRY",
         "clickGermanPage": "",
-        "searchItem": "etsi tuotteita..."
+        "searchItem": "etsi tuotteita...",
+        "clickDanishPage": "Click here for the Danish page",
+        "clickFinlanePage": "Click here for the FinLand page",
+        "clickSwedenPage": "Click here for the Sweden page",
+         "vip":"VIP"
     },
     "se": {
         "freshlyHarvested": "Färskt skördad frukt & grönt",
@@ -293,6 +305,10 @@ export const homepageTranslation = {
         "orderDeadline": "beställningsfrist",
         "FreshCountry": "Fresh.Land",
         "clickGermanPage": "Klicka här för den tyska sidan",
-        "searchItem": "sök artiklar..."
+        "searchItem": "sök artiklar...",
+        "clickDanishPage": " Klicka här för Denish-sidan",
+        "clickFinlanePage": "Klicka här för Sewden-sidan",
+        "clickSwedenPage": "Klicka här för Finland-sidan",
+         "vip":"VIP"
     }
 }

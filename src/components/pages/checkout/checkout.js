@@ -1858,16 +1858,16 @@ function Checkout() {
                     <div className={styles.terms}>
                       <p>
                         {check.ypurp}{" "}
-                        <span>
-                          <Link href="#" alt="see more">
+                        <span className={styles.policyLink}>
+                          <Link href="/se/sekretesspolicy" alt="see more">
                             {check.perPolicy}
                           </Link>
                         </span>
                       </p>
                       <p>
                         {check.byComplete}{" "}
-                        <span>
-                          <Link href="#" alt="see more">
+                        <span className={styles.policyLink}> 
+                          <Link href="/se/kundvillkor" alt="see more">
                             {check.ourTerm}
                           </Link>
                         </span>{" "}
@@ -1882,8 +1882,8 @@ function Checkout() {
                         />
                         <label htmlFor="acceptTerms">
                           {check.iRead}{" "}
-                          <span>
-                            <Link href="#" alt="see more">
+                          <span className={styles.policyLink}>
+                            <Link href="/se/kundvillkor" alt="see more">
                               {check.termsC}
                             </Link>
                           </span>{" "}

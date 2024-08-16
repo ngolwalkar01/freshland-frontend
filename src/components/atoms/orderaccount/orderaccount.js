@@ -136,7 +136,7 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
         <section className={styles.orderviewpage} style={{ display: showRequest ? 'none' : 'block' }}>
           <div className={styles.ordercomplete}>
             <p className="W-body-Large">
-              Order #{orderobj.id} was carried out on {orderDate} and is currently {orderobj.status}.
+              {mat.ordername} #{orderobj.id} {mat.wasCaried} {orderDate} {mat.andIsCurrent} {orderobj.status}.
             </p>
           </div>
           <div className={styles.orderviewdetail}>
@@ -170,7 +170,7 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
               </div>
               <div className={styles.orderbtn}>
                 <button type="button" onClick={() => downloadInvoicePdf(orderobj.id)}>{mat.pDFInvoice}</button>
-                <button type="submit" className={styles.requestbtn} onClick={handleRequest}>
+                <button type="submit" className={`${styles.requestbtn} ${styles.disabled}`} onClick={handleRequest}>
                   {mat.requestaComplaint}
                 </button>
               </div>

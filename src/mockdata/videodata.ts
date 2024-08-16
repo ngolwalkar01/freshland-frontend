@@ -14,7 +14,7 @@ export const videodata = [
     {
       id: 3,
       name: "Stellas",
-      text:"Möt Tina på hennes ekologiska citrusfarm Fuego Blanco i Andalusien, där hon odlar saftiga citroner och apelsiner.",
+      text:"Möt Stella i sitt ekologiska lantgård nära Malaga, där hon odlar de mest fantastiska mangos.",
       videoId:"F2HcNNU4w9U"
     },
     {

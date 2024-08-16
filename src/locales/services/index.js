@@ -114,7 +114,7 @@ export const serviceTranslation = {
         "updateQuantityIssue": "Ett problem uppstod vid uppdatering av kvantitet. Försök igen.",
         "removeProductFromCartIssue": "Ett problem uppstod vid borttagning av produkten från din varukorg. Försök igen.",
         "applyCouponIssue": "Ett problem uppstod vid tillämpning av kupong på varukorgsartikeln. Försök igen.",
-        "yourOrderProcess": "Your order is in process.",
+        "yourOrderProcess": "Din beställning behandlas.",
         "updateCartSubscriptionFreqIssue": "Ett problem uppstod vid uppdatering av varukorgens prenumerationsfrekvens. Försök igen.",
         "saveCustomerDetailIssue": "Ett problem uppstod vid sparandet av kunddetaljer. Försök igen.",
         "fetchSubscriptionDetailIssue": "Ett problem uppstod vid hämtning av prenumerationsdetaljer. Försök igen.",

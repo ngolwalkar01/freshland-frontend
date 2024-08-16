@@ -356,6 +356,9 @@
   cursor: pointer;
 }
 
+.policyLink a{
+ font-size: 15px;
+}
 .rightContainer button:active {
   transform: scale(0.98);
 }

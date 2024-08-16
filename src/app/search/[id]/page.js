@@ -9,6 +9,9 @@ import SearchComp from '@/components/atoms/search';
 import Header from '@/components/atoms/Header/Header';
 import { useParams } from 'next/navigation'
 import { decodeString } from '@/helper';
+import {commonTranslation } from '@/locales';
+const lang = process.env.NEXT_PUBLIC_LANG || 'se';
+
 
 const Search = () => {
     const params = useParams();
@@ -16,6 +19,7 @@ const Search = () => {
     const [productData, setProductData] = useState([]);
 
     const [loading, setLoading] = useState(false);
+    const cmt = commonTranslation[lang];
 
     useEffect(() => {
         const getSearchedProducts = async () => {
@@ -44,7 +48,7 @@ const Search = () => {
                 {loading ? <Shopskeleton /> : <>
                     <Header />
                     <SearchComp
-                        cardHeading={decodeString(`Search results: "${searchTxt}"`)}
+                        cardHeading={decodeString(`${cmt.searchResult}: "${searchTxt}"`)}
                         productData={productData}
                     />
                 </>

@@ -130,7 +130,7 @@ const Login = () => {
               signIn("facebook")
             }}>
               <Image
-                src="/Images/fbImg.png"
+                src="/Images/facebookicon.png"
                 alt="Solar Impulse"
                 width={28}
                 height={28}

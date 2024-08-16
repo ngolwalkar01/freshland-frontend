@@ -108,7 +108,10 @@ export const myaccountTranslation = {
          "completePurchase":"Køb i alt",
          "directPayment":"Direct Payment",
          "noOrderFound":"No order found",
-         "chooseImage":"Choose an Image"
+         "chooseImage":"Choose an Image",
+         "ordername":"Order",
+         "wasCaried":" was carried out on",
+         "andIsCurrent":"and is currently"
     },
     "dk": {
         "shipment": "Forsendelse",
@@ -219,7 +222,10 @@ export const myaccountTranslation = {
           "completePurchase":"Køb i alt",
            "directPayment":"Direkte betaling",
             "noOrderFound":"Ingen ordre fundet",
-               "chooseImage":"Vælg et billede"
+               "chooseImage":"Vælg et billede",
+               "ordername":"Order",
+         "wasCaried":" was carried out on",
+         "andIsCurrent":"and is currently pending"
     },
     "fi": {
         "shipment": "Toimitus",
@@ -331,7 +337,10 @@ export const myaccountTranslation = {
            "directPayment":"",
            
            "noOrderFound":"",
-           "chooseImage":""
+           "chooseImage":"",
+           "ordername":"Order",
+         "wasCaried":" was carried out on",
+         "andIsCurrent":"and is currently pending"
         
     },
     "se": {
@@ -404,7 +413,7 @@ export const myaccountTranslation = {
         "edit": "Redigera",
         "orderLabel": "Order",
         "orderInfo": "ORDERINFORMATION",
-        "orderTotal": "ORDER TOTALT",
+        "orderTotal": "Totalt ink. moms",
         "orderAgain": "Beställ igen",
         "subs": "Prenumeration",
         "nextpayment": "Nästa betalning",
@@ -443,6 +452,9 @@ export const myaccountTranslation = {
         "completePurchase":"Slutför köp",
           "directPayment":"Direktbetalning",
             "noOrderFound":"Ingen beställning hittades",
-            "chooseImage":"Välj en bild"
+            "chooseImage":"Välj en bild",
+            "ordername":"Beställning ",
+         "wasCaried":"genomfördes på",
+         "andIsCurrent":"och är för närvarande under behandling"
     }
 };

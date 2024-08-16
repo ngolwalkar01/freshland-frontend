@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback } from "react";
 import { useState } from "react";
-import { checkoutTranslation, cartTranslation, commonTranslation } from "@/locales";
+import { checkoutTranslation, cartTranslation, commonTranslation, errorTranslation } from "@/locales";
 import Telephone from "@/components/atoms/Telephone/Telephone";
 import { getUserAddresses, setUserAddressesAsync, saveUserAddresses } from '@/components/service/cart';
 import Image from 'next/image';
@@ -82,7 +82,7 @@ function UserAddress({ userAddressProps }) {
     const check = checkoutTranslation[lang];
     const ct = cartTranslation[lang];
     const co = commonTranslation[lang];
-
+    const errormsg = errorTranslation[lang]
     const [suggestions, setSuggestions] = useState([]);
     const [billingSuggestions, setBillingSuggestions] = useState([]);
     const [selectedAddress, setSelectedAddress] = useState(null);
@@ -207,17 +207,17 @@ function UserAddress({ userAddressProps }) {
                 switch (key) {
                     case 'address_1':
                         if (!address[key]) {
-                            addressErrors[key] = 'Street Name and Number is required';
+                            addressErrors[key] = errormsg.streetNameAndNumberRequired;
                         }
                         break;
                     case 'city':
                         if (!address[key]) {
-                            addressErrors[key] = 'City is required';
+                            addressErrors[key] =errormsg.cityRequired;
                         }
                         break;
                     case 'postcode':
                         if (!address[key]) {
-                            addressErrors[key] = 'Postcode is required';
+                            addressErrors[key] = errormsg.postcodeRequired;
                         }
                         break;
                     case 'phone':
@@ -324,21 +324,21 @@ function UserAddress({ userAddressProps }) {
         const errors = {};
 
         if (!(fields.address_1 && fields.address_1.trim())) {
-            errors.address_1 = 'Address is required';
+            errors.address_1 = errormsg.addressRequired;
         }
 
         if (!(fields.city && fields.city.trim())) {
-            errors.city = 'City is required';
+            errors.city = errormsg.cityRequired;
         }
 
         if (!(fields.postcode && fields.postcode.trim())) {
-            errors.postcode = 'Postcode is required';
+            errors.postcode = errormsg.postcodeRequired;
         }
 
         if (!(fields.phone && fields.phone.trim())) {
-            errors.phone = 'Phone number is required';
+            errors.phone = errormsg.phoneNumberRequired;
         } else if (fields.phone.length < 9) {
-            errors.phone = 'Invalid Phone number';
+            errors.phone = errormsg.phoneNumberInvalid;
         }
 
         return {

@@ -24,6 +24,7 @@
 }
 .content{
     max-width: 999px;
+    margin: auto;
 }
 
 .harvestdate{

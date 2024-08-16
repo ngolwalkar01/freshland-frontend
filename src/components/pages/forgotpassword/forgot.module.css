@@ -13,9 +13,12 @@
     margin-bottom: 10px;
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
+.forgotmsg{
+  font-size: 13px;
+}
 .inputFeild{
     box-sizing: border-box;
-    width: 48%;
+    width: 65%;
     height: 48px;
     padding: 12px;
     background: #FFFFFF;
@@ -28,7 +31,7 @@
 .forgotBtn {
     width: 152px;
     background-color: var(--green);
-    border-radius: 5px;
+    border-radius: 25px;
     padding: 13px 7px;
     height: 48px;
     border: 1px solid var(--green);

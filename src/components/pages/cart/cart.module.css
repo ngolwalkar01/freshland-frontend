@@ -555,7 +555,11 @@ border-radius: 25px;
 .continueBtn:hover {
   background-color: #2a5e88;
 }
-
+.activeDiscount {
+  background-color:var(--green); /* Active background color, for example, green */
+  cursor: pointer; /* Change cursor to pointer when active */
+  color: #fff;
+}
 .continueBtn:active {
   transform: scale(0.98);
 }

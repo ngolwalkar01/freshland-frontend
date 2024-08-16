@@ -31,7 +31,8 @@ export const commonTranslation = {
         "privacypolicy": "privacy policy",
         "weProcess": " how we process information about you",
         "sendIn":"Send in",
-        "new":"New"
+        "new":"New",
+        "searchResult":"Search results"
 
 
     },
@@ -63,7 +64,8 @@ export const commonTranslation = {
         "privacypolicy": "privacy policy",
         "weProcess": "how we process information about you",
           "sendIn":"Skicka in",
-            "new":"New"
+            "new":"New",
+             "searchResult":"Search results"
     },
     "fi": {
         "disruptTheFoodIndustry": "",
@@ -90,7 +92,8 @@ export const commonTranslation = {
         "withdrawConsent": "You can always withdraw your consent, see how to do it here",
         "privacyPolicyInfo": "You can read in our privacy policy how we process information about you",
           "sendIn":"Skicka in",
-            "new":"New"
+            "new":"New",
+             "searchResult":"Search results"
 
     },
     "se": {
@@ -125,7 +128,8 @@ export const commonTranslation = {
         "privacypolicy": "sekretesspolicy ",
         "weProcess": " hur vi behandlar information om dig",
         "sendIn":"Skicka in",
-          "new":"Nyhet"
+          "new":"Nyhet",
+           "searchResult":"Sökresultat"
 
     }
 };

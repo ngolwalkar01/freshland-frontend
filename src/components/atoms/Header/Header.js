@@ -201,7 +201,7 @@ const Header = () => {
                     </ul>
                   )}
                 </div>
-                <Link href="/seasonoverview" className={isActive('/seasonoverview')}>{hpt.seasonOverview}</Link>
+                {/* <Link href="/seasonoverview" className={isActive('/seasonoverview')}>{hpt.seasonOverview}</Link> */}
                 <Link href="/farmer" className={isActive('/farmer')}>{hpt.farmers}</Link>
                 <Link href="/se/faq" className={isActive('/se/faq')}>{hpt.faq}</Link>
                 <Link href="/about" className={isActive('/about')}>{hpt.aboutUs}</Link>
