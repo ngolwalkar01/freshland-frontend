@@ -72,11 +72,11 @@ function Accountinformation({ isUserLoggedIn }) {
       errors.displayName = errormsg.displayNameRequired;
       isValid = false;
     }
-
+    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!passwordData.trim()) {
       errors.passwordData = errormsg.passwordRequired;
       isValid = false;
-    } else if (passwordData.length < 6) {
+    } else if (!strongPasswordRegex.test(passwordData)) {
       errors.passwordData = errormsg.passwordMinLength;
       isValid = false;
     }

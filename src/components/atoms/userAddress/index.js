@@ -76,7 +76,8 @@ function UserAddress({ userAddressProps }) {
         isSubmit, setIsSubmit,
         validateUserAddress,
         setOlLoader,
-        setCartDataByCartData
+        setCartDataByCartData,
+        handleErrorChange
     } = userAddressProps;
 
     const check = checkoutTranslation[lang];
@@ -212,7 +213,7 @@ function UserAddress({ userAddressProps }) {
                         break;
                     case 'city':
                         if (!address[key]) {
-                            addressErrors[key] =errormsg.cityRequired;
+                            addressErrors[key] = errormsg.cityRequired;
                         }
                         break;
                     case 'postcode':
@@ -521,7 +522,11 @@ function UserAddress({ userAddressProps }) {
                                                                         type="text"
                                                                         value={firstName}
                                                                         placeholder={check.fName}
-                                                                        onChange={(e) => { setFirstName(e.target.value) }}
+                                                                        onChange={(e) => {
+                                                                            const value = e.target.value;
+                                                                            setFirstName(value);
+                                                                            handleErrorChange(e, 'firstName');
+                                                                        }}
                                                                         name="First_Name"
                                                                         onBlur={triggerFocusOut}
                                                                     />
@@ -538,7 +543,11 @@ function UserAddress({ userAddressProps }) {
                                                                         type="text"
                                                                         value={lastName}
                                                                         placeholder={check.lName}
-                                                                        onChange={(e) => { setLastName(e.target.value) }}
+                                                                        onChange={(e) => {
+                                                                            const value = e.target.value;
+                                                                            setLastName(value);
+                                                                            handleErrorChange(e, 'lastName');
+                                                                        }}
                                                                         name="Last_Name"
                                                                         onBlur={triggerFocusOut}
                                                                     />
@@ -720,7 +729,11 @@ function UserAddress({ userAddressProps }) {
                                         type="text"
                                         value={firstName}
                                         placeholder={check.fName}
-                                        onChange={(e) => { setFirstName(e.target.value) }}
+                                        onChange={(e) => { 
+                                            const value = e.target.value;
+                                            setFirstName(value)
+                                            handleErrorChange(e, 'firstName');
+                                        }}
                                         name="First_Name"
                                         onBlur={triggerFocusOut}
                                     />
@@ -737,7 +750,11 @@ function UserAddress({ userAddressProps }) {
                                         type="text"
                                         value={lastName}
                                         placeholder={check.lName}
-                                        onChange={(e) => { setLastName(e.target.value) }}
+                                        onChange={(e) => { 
+                                            const value = e.target.value;
+                                            setLastName(value)
+                                            handleErrorChange(e, 'lastName');
+                                        }}
                                         name="Last_Name"
                                         onBlur={triggerFocusOut}
                                     />

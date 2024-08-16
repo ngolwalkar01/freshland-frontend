@@ -451,6 +451,14 @@ function Checkout() {
     return isNotValidBillingAddress || (userAddresses && userAddresses.length > 0 && userAddresses.some(item => item.errors && typeof item.errors === 'object' && item.errors !== null && Object.keys(item.errors).length > 0));
   }
 
+  const handleErrorChange = (event, key) => {
+    const { value } = event.target;
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [key]: value.trim() ? null : prevErrors[key]
+    }));
+  };
+
   const validate = () => {
     const errors = {};
     let isValid = true;
@@ -491,10 +499,10 @@ function Checkout() {
     //   isValid = false;
     // }
 
-    if(!isOnlyVirtual) {
+    if (!isOnlyVirtual) {
       const shippingRates = getShippingRates(shipping);
       const shpOpt = checkSelectedMethods(shipping);
-  
+
       if (!(shippingRates && shippingRates.length > 0)) {
         errors.shipmentVal = errormsg.correctShippingAddressRequired;
         isValid = false;
@@ -763,7 +771,8 @@ function Checkout() {
     isSubmit, setIsSubmit,
     validateUserAddress,
     setOlLoader,
-    setCartDataByCartData
+    setCartDataByCartData,
+    handleErrorChange
   };
 
   return (
@@ -1866,7 +1875,7 @@ function Checkout() {
                       </p>
                       <p>
                         {check.byComplete}{" "}
-                        <span className={styles.policyLink}> 
+                        <span className={styles.policyLink}>
                           <Link href="/se/kundvillkor" alt="see more">
                             {check.ourTerm}
                           </Link>

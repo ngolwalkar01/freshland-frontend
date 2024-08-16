@@ -55,7 +55,7 @@ const Footer = () => {
                 <div className={`${styles.countrypopup}`}>
                   <i className="fa-solid fa-xmark" onClick={handleClosepopup}></i>
                   <ul>
-                    <li><Link href="#">Germany 🇩🇪 | {hpt.clickGermanPage}</Link></li>
+                    {/* <li><Link href="#">Germany 🇩🇪 | {hpt.clickGermanPage}</Link></li> */}
                     <li><Link href="#">Denmark 🇩🇰 | {hpt.clickDanishPage}</Link></li>
                     <li><Link href="#">Finland 🇫🇮 | {hpt.clickFinlanePage}</Link></li>
                     <li><Link href="#">Sweden 🇸🇪  | {hpt.clickSwedenPage}</Link></li>
