@@ -7,7 +7,7 @@ import AccountAPI from "@/services/account";
 import toast from "@/helper/toast";
 import { useSearchParams, useRouter } from 'next/navigation';
 import Layout from '@/components/layout';
-import { serviceTranslation,myaccountTranslation, errorTranslation } from '@/locales';
+import { serviceTranslation, myaccountTranslation, errorTranslation } from '@/locales';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const Reset = () => {
@@ -59,9 +59,14 @@ const Reset = () => {
   const validate = () => {
     const errors = {};
     let isValid = true;
+    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    // const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=\[\]{};:'",.<>?/\\|`~])[A-Za-z\d!@#$%^&*()_\-+=\[\]{};:'",.<>?/\\|`~]{8,}$/;
 
     if (!(currentpasswordData && currentpasswordData.trim())) {
       errors.currentpasswordData = errormsg.passwordRequired;
+      isValid = false;
+    } else if (!strongPasswordRegex.test(currentpasswordData)) {
+      errors.currentpasswordData = errormsg.passwordMinLength;
       isValid = false;
     }
     if (!(confirmPasswordData && confirmPasswordData.trim())) {

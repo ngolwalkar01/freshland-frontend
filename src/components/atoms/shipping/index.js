@@ -64,14 +64,18 @@ const ShippingOptions = ({ shippingData, setNamePrefix, setCartShipment, styles,
                                                     <td className={styles.freedelivery}>
                                                         {sh.shipping_rates.map((shipping_rate, ind) => (
                                                             <span key={ind}>
-                                                                <input
-                                                                    type="radio"
-                                                                    id={shipping_rate.method_id}
-                                                                    name={`${setNamePrefix}_${shipping_rate.method_id}_${sh.package_id}`}
-                                                                    value={shipping_rate.method_id}
-                                                                    checked={shipping_rate.selected}
-                                                                    onChange={() => setCartShipment(shipping_rate.rate_id, sh.package_id)}
-                                                                />
+                                                                {
+                                                                    sh.shipping_rates.length > 1 ? (
+                                                                        <input
+                                                                            type="radio"
+                                                                            id={shipping_rate.method_id}
+                                                                            name={`${setNamePrefix}_${shipping_rate.method_id}_${sh.package_id}`}
+                                                                            value={shipping_rate.method_id}
+                                                                            checked={shipping_rate.selected}
+                                                                            onChange={() => setCartShipment(shipping_rate.rate_id, sh.package_id)}
+                                                                        />
+                                                                    ) : null
+                                                                }
                                                                 <label htmlFor={shipping_rate.method_id} onClick={(e) => e.stopPropagation()}>
                                                                     {shipping_rate.name}
                                                                     {/* <span className={styles.black}>(SUBSCRIPTION):{shipping_rate.currency_code} */}
