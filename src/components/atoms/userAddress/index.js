@@ -90,6 +90,7 @@ function UserAddress({ userAddressProps }) {
     const [showSaveButton, setShowSaveButton] = useState(false);
     const [isAddressEdit, setIsAddressEdit] = useState(false);
     const [originalUserAddresses, setOriginalUserAddresses] = useState([]);
+    const [userAddressSubmit, setUserAddressSubmit] = useState(false);
 
     const cart_shipping_address = (token && userAddresses
         && userAddresses.length > 0)
@@ -422,22 +423,40 @@ function UserAddress({ userAddressProps }) {
         updateLocalStorageCartData();
     }
 
+    const checkUserAddressValidity = (currentUserAdd) => {
+        if (currentUserAdd && currentUserAdd.length > 0) {
+            let isValid = true;
+            currentUserAdd.forEach(x => {
+                const errorData = isAddressValid(x);
+                if (isValid)
+                    isValid = errorData.isValid
+            });
+            return isValid;
+        }
+        return false;
+    }
+
     const savedAddress = async (isNewAddress) => {
         try {
+            setUserAddressSubmit(true);
             const isnew = isNewAddress === "true";
-            setOlLoader(true);
-            const addressesToSave = isnew? userAddresses : userAddresses.filter(x => !x.isNewAddress);
-            await saveUserAddresses(addressesToSave);
-            resetForm();
-            await setUserAddressesAsync(userAddresses.length - 1);
-            if (isnew) {
-                updateLocalStorageCartData();
-                await checkIfUserHaveAddress();
+            const addressesToSave = isnew ? userAddresses : userAddresses.filter(x => !x.isNewAddress);
+            if (checkUserAddressValidity(addressesToSave)) {
+                setOlLoader(true);
+                await saveUserAddresses(addressesToSave);
+                resetForm();
+                await setUserAddressesAsync(userAddresses.length - 1);
+                if (isnew) {
+                    updateLocalStorageCartData();
+                    await checkIfUserHaveAddress();
+                }
+                await fetchData1();
+                setOlLoader(false);
+                setUserAddressSubmit(false);
             }
-            await fetchData1();
-            setOlLoader(false);
         } catch (error) {
             setOlLoader(false);
+            setUserAddressSubmit(false);
             console.log(error);
         }
     }
@@ -460,7 +479,7 @@ function UserAddress({ userAddressProps }) {
                     <>
                         {
                             userAddresses && userAddresses.length > 0 && userAddresses.filter(x => !x.isNewAddress).map((x, i) => {
-                                const isError = isSubmit && x?.errors ? Object.keys(errors).length : false
+                                const isError = (isSubmit || userAddressSubmit) && x?.errors ? Object.keys(errors).length : false
                                 return (
                                     <>
                                         {(x.address_1 || firstName || lastName) ? (
@@ -506,7 +525,7 @@ function UserAddress({ userAddressProps }) {
                                                                         name="First_Name"
                                                                         onBlur={triggerFocusOut}
                                                                     />
-                                                                    {isSubmit && errors.firstName && (
+                                                                    {(isSubmit || userAddressSubmit) && errors.firstName && (
                                                                         <span className={styles.errorMessage}>
                                                                             {errors.firstName}
                                                                         </span>
@@ -523,7 +542,7 @@ function UserAddress({ userAddressProps }) {
                                                                         name="Last_Name"
                                                                         onBlur={triggerFocusOut}
                                                                     />
-                                                                    {isSubmit && errors.lastName && (
+                                                                    {(isSubmit || userAddressSubmit) && errors.lastName && (
                                                                         <span className={styles.errorMessage}>
                                                                             {errors.lastName}
                                                                         </span>
@@ -543,7 +562,7 @@ function UserAddress({ userAddressProps }) {
                                                                     onChange={(e) => { onUpdateShippingAddress(e, 'address_1'); }}
                                                                     onBlur={triggerFocusOut}
                                                                 />
-                                                                {isSubmit && selectedAddress?.errors?.address_1 && (
+                                                                {(isSubmit || userAddressSubmit) && selectedAddress?.errors?.address_1 && (
                                                                     <span className={styles.errorMessage}>
                                                                         {selectedAddress?.errors.address_1}
                                                                     </span>
@@ -580,7 +599,7 @@ function UserAddress({ userAddressProps }) {
                                                                         onChange={(e) => { onUpdateShippingAddress(e, 'postcode'); }}
                                                                         onBlur={triggerFocusOut}
                                                                     />
-                                                                    {isSubmit && selectedAddress?.errors?.postcode && (
+                                                                    {(isSubmit || userAddressSubmit) && selectedAddress?.errors?.postcode && (
                                                                         <span className={styles.errorMessage}>
                                                                             {selectedAddress?.errors.postcode}
                                                                         </span>
@@ -599,7 +618,7 @@ function UserAddress({ userAddressProps }) {
                                                                         }}
                                                                         onBlur={triggerFocusOut}
                                                                     />
-                                                                    {isSubmit && selectedAddress?.errors?.phone && (
+                                                                    {(isSubmit || userAddressSubmit) && selectedAddress?.errors?.phone && (
                                                                         <span className={styles.errorMessage}>
                                                                             {selectedAddress?.errors.phone}
                                                                         </span>
@@ -618,7 +637,7 @@ function UserAddress({ userAddressProps }) {
                                                                         onChange={(e) => { onUpdateShippingAddress(e, 'city'); }}
                                                                         onBlur={triggerFocusOut}
                                                                     />
-                                                                    {isSubmit && selectedAddress?.errors?.city && (
+                                                                    {(isSubmit || userAddressSubmit) && selectedAddress?.errors?.city && (
                                                                         <span className={styles.errorMessage}>
                                                                             {selectedAddress?.errors.city}
                                                                         </span>
@@ -705,7 +724,7 @@ function UserAddress({ userAddressProps }) {
                                         name="First_Name"
                                         onBlur={triggerFocusOut}
                                     />
-                                    {isSubmit && errors.firstName && (
+                                    {(isSubmit || userAddressSubmit) && errors.firstName && (
                                         <span className={styles.errorMessage}>
                                             {errors.firstName}
                                         </span>
@@ -722,7 +741,7 @@ function UserAddress({ userAddressProps }) {
                                         name="Last_Name"
                                         onBlur={triggerFocusOut}
                                     />
-                                    {isSubmit && errors.lastName && (
+                                    {(isSubmit || userAddressSubmit) && errors.lastName && (
                                         <span className={styles.errorMessage}>
                                             {errors.lastName}
                                         </span>
@@ -742,7 +761,7 @@ function UserAddress({ userAddressProps }) {
                                     onChange={(e) => { onUpdateShippingAddress(e, 'address_1'); }}
                                     onBlur={triggerFocusOut}
                                 />
-                                {isSubmit && selectedAddress?.errors?.address_1 && (
+                                {(isSubmit || userAddressSubmit) && selectedAddress?.errors?.address_1 && (
                                     <span className={styles.errorMessage}>
                                         {selectedAddress?.errors.address_1}
                                     </span>
@@ -798,7 +817,7 @@ function UserAddress({ userAddressProps }) {
                                         onChange={(e) => { onUpdateShippingAddress(e, 'postcode'); }}
                                         onBlur={triggerFocusOut}
                                     />
-                                    {isSubmit && selectedAddress?.errors?.postcode && (
+                                    {(isSubmit || userAddressSubmit) && selectedAddress?.errors?.postcode && (
                                         <span className={styles.errorMessage}>
                                             {selectedAddress?.errors.postcode}
                                         </span>
@@ -817,7 +836,7 @@ function UserAddress({ userAddressProps }) {
                                         }}
                                         onBlur={triggerFocusOut}
                                     />
-                                    {isSubmit && selectedAddress?.errors?.phone && (
+                                    {(isSubmit || userAddressSubmit) && selectedAddress?.errors?.phone && (
                                         <span className={styles.errorMessage}>
                                             {selectedAddress?.errors.phone}
                                         </span>
@@ -836,7 +855,7 @@ function UserAddress({ userAddressProps }) {
                                         onChange={(e) => { onUpdateShippingAddress(e, 'city'); }}
                                         onBlur={triggerFocusOut}
                                     />
-                                    {isSubmit && selectedAddress?.errors?.city && (
+                                    {(isSubmit || userAddressSubmit) && selectedAddress?.errors?.city && (
                                         <span className={styles.errorMessage}>
                                             {selectedAddress?.errors.city}
                                         </span>
@@ -914,7 +933,7 @@ function UserAddress({ userAddressProps }) {
                                     value={billingAddress?.address_1 ? billingAddress.address_1 : ""}
                                     onChange={(e) => { onUpdateBillingAddress(e, 'address_1'); }}
                                 />
-                                {isSubmit && billingAddress?.errors?.address_1 && (
+                                {(isSubmit || userAddressSubmit) && billingAddress?.errors?.address_1 && (
                                     <span className={styles.errorMessage}>
                                         {billingAddress?.errors.address_1}
                                     </span>
@@ -967,7 +986,7 @@ function UserAddress({ userAddressProps }) {
                                         value={billingAddress?.postcode ? billingAddress.postcode : ""}
                                         onChange={(e) => { onUpdateBillingAddress(e, 'postcode'); }}
                                     />
-                                    {isSubmit && billingAddress?.errors?.postcode && (
+                                    {(isSubmit || userAddressSubmit) && billingAddress?.errors?.postcode && (
                                         <span className={styles.errorMessage}>
                                             {billingAddress?.errors.postcode}
                                         </span>
@@ -979,7 +998,7 @@ function UserAddress({ userAddressProps }) {
                                         value={billingAddress?.phone ? billingAddress.phone : ""}
                                         onChange={(e) => { onUpdateBillingAddress(e, 'phone'); }}
                                     />
-                                    {isSubmit && billingAddress?.errors?.phone && (
+                                    {(isSubmit || userAddressSubmit) && billingAddress?.errors?.phone && (
                                         <span className={styles.errorMessage}>
                                             {billingAddress?.errors.phone}
                                         </span>
@@ -997,7 +1016,7 @@ function UserAddress({ userAddressProps }) {
                                         value={billingAddress?.city ? billingAddress.city : ""}
                                         onChange={(e) => { onUpdateBillingAddress(e, 'city'); }}
                                     />
-                                    {isSubmit && billingAddress?.errors?.city && (
+                                    {(isSubmit || userAddressSubmit) && billingAddress?.errors?.city && (
                                         <span className={styles.errorMessage}>
                                             {billingAddress?.errors.city}
                                         </span>
