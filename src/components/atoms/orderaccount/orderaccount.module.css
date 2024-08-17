@@ -313,7 +313,7 @@ border-radius: 5px;
   
   }
   .orderbtn{
-    display: flex;
+    display: none;
     align-items: center;
     gap: 24px;
     /* margin: 0px 0px 0px 55px; */
