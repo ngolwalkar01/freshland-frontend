@@ -125,7 +125,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
-  max-width: 158px;
+  max-width: 223px;
 }
 
 .cardPrice {
@@ -291,7 +291,7 @@
   display: flex;
   gap: 6px;
   min-height: 20px;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
 }
 .newStatus p {
   background-color: rgba(241, 114, 103, 1);
@@ -347,7 +347,7 @@
     font-style: normal;
     line-height: 1.54;
     letter-spacing: normal;
-    max-width: 135px;
+    max-width: 150px;
   }
 
   .cardPrice {
