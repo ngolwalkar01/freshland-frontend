@@ -290,7 +290,7 @@
 .newStatus{
   display: flex;
   gap: 6px;
-  min-height: 26.66px;
+  min-height: 20px;
   margin-bottom: 7px;
 }
 .newStatus p {
@@ -381,11 +381,14 @@
 
   .newStatus p {
     font-size: 12px;
+    padding: 10px;
+    height: 20px;
+	line-height: 7px;
   }
 
   .cardTopImage {
-    width: auto;
-    height: auto;
+    width: 26px;
+    height: 20px;
     right: 6px;
     top: 11.5px;
     border-radius: 2px;
@@ -393,9 +396,10 @@
 
 
   .hearticon{
-    font-size: 30px;
+	font-size: 23px;
     position: absolute;
-    right: -2;
+    right: -2px;
+    top: 1px;
   }
   .cardContent{
     /* gap: 3px; */

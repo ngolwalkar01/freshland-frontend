@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import styles from "./accountinformation.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { myaccountTranslation , serviceTranslation,errorTranslation } from "@/locales";
+import { myaccountTranslation, serviceTranslation, errorTranslation } from "@/locales";
 import AccountAPI from "@/services/account";
 import { toast } from "react-toastify";
+import { applyLoader } from "@/helper/loader";
+import OverLayLoader from '../overLayLoader';
+
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
@@ -23,6 +26,8 @@ function Accountinformation({ isUserLoggedIn }) {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [errors, setErrors] = useState(null);
   const [profile, setUserProfile] = useState();
+  const [issubmit, SetIsSubmit] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const handleInput = (e) => {
     setPasswordData(e.target.value);
@@ -45,22 +50,29 @@ function Accountinformation({ isUserLoggedIn }) {
   const handleShowCurrentPassword = () => {
     setShowCurrentPassword(!showCurrentPassword);
   };
+
+  useEffect(() => {
+    validate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [passwordData, showPassword, confirmPasswordData, showConfirmPassword,
+    currentpasswordData, showCurrentPassword, profile])
+
   const validate = () => {
     // return true;
     const errors = {};
     let isValid = true;
-    const { first_name, last_name, email, display_name } = profile;
-    if (!first_name.trim()) {
+    const { first_name, last_name, email, display_name } = profile || {};
+    if (!(first_name && first_name.trim())) {
       errors.firstName = errormsg.firstNameRequired;
       isValid = false;
     }
 
-    if (!last_name.trim()) {
+    if (!(last_name && last_name.trim())) {
       errors.lastName = errormsg.lastNameRequired;
       isValid = false;
     }
 
-    if (!email.trim()) {
+    if (!(email && email.trim())) {
       errors.email = errormsg.emailRequired;
       isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -68,7 +80,7 @@ function Accountinformation({ isUserLoggedIn }) {
       isValid = false;
     }
 
-    if (!display_name.trim()) {
+    if (!(display_name && display_name.trim())) {
       errors.displayName = errormsg.displayNameRequired;
       isValid = false;
     }
@@ -103,23 +115,29 @@ function Accountinformation({ isUserLoggedIn }) {
     setConfirmPassword("")
   }
 
+  const saveData = async () => {
+    const { first_name, last_name, display_name } = profile
+    const obj = {
+      "customer_info": {
+        first_name,
+        last_name,
+        display_name,
+        "old_password": currentpasswordData,
+        "new_password": passwordData,
+        "confirm_password": confirmPasswordData
+      }
+    }
+    const data = await AccountAPI.saveUpdateCustomerAddress(token, obj);
+    resetForm();
+    toast.success(service.accountUpdated, { autoClose: toastTimer });
+    SetIsSubmit(false);
+  }
+
   const submitform = async (event) => {
     event.preventDefault();
+    SetIsSubmit(true);
     if (validate()) {
-      const { first_name, last_name, display_name } = profile
-      const obj = {
-        "customer_info": {
-          first_name,
-          last_name,
-          display_name,
-          "old_password": currentpasswordData,
-          "new_password": passwordData,
-          "confirm_password": confirmPasswordData
-        }
-      }
-      const data = await AccountAPI.saveUpdateCustomerAddress(token, obj);
-      resetForm();
-      toast.success(service.accountUpdated, { autoClose: toastTimer });
+      await applyLoader(setLoader, saveData, []);
     }
   };
 
@@ -129,7 +147,7 @@ function Accountinformation({ isUserLoggedIn }) {
 
   useEffect(() => {
     const getUserProfile = async () => {
-      const userData = await AccountAPI.getCustomerProfile(token);
+      const userData = await applyLoader(setLoader, AccountAPI.getCustomerProfile, [token]);
       setUserProfile(userData);
     };
 
@@ -138,6 +156,7 @@ function Accountinformation({ isUserLoggedIn }) {
 
   return (
     <>
+      {loader && <OverLayLoader />}
       <section className={styles.accountinfo}>
         <form className={styles.formcheckout}>
           <div className={styles.wrapper}>
@@ -152,7 +171,7 @@ function Accountinformation({ isUserLoggedIn }) {
                     placeholder={mat.firstName}
                     onChange={(e) => updateUserProfile(e, "first_name")}
                   />
-                  {errors?.firstName && (
+                  {issubmit && errors?.firstName && (
                     <span className={styles.errorMessage}>
                       {errors.firstName}
                     </span>
@@ -167,7 +186,7 @@ function Accountinformation({ isUserLoggedIn }) {
                     placeholder={mat.lastName}
                     onChange={(e) => updateUserProfile(e, "last_name")}
                   />
-                  {errors?.lastName && (
+                  {issubmit && errors?.lastName && (
                     <span className={styles.errorMessage}>
                       {errors.lastName}
                     </span>
@@ -184,7 +203,7 @@ function Accountinformation({ isUserLoggedIn }) {
                     onChange={(e) => updateUserProfile(e, "display_name")}
                   />
                   <p className={styles.reviews}>{mat.thisIsHowYour}</p>
-                  {errors?.displayName && (
+                  {issubmit && errors?.displayName && (
                     <span className={styles.errorMessage}>
                       {errors.displayName}
                     </span>
@@ -200,7 +219,7 @@ function Accountinformation({ isUserLoggedIn }) {
                     onChange={(e) => updateUserProfile(e, "email")}
                     disabled
                   />
-                  {errors?.email && (
+                  {issubmit && errors?.email && (
                     <span className={styles.errorMessage}>{errors.email}</span>
                   )}
                 </div>
@@ -228,7 +247,7 @@ function Accountinformation({ isUserLoggedIn }) {
                       />
                     </span>
                   </div>
-                  {errors?.currentpasswordData && (
+                  {issubmit && errors?.currentpasswordData && (
                     <span className={styles.errorMessage}>
                       {errors.currentpasswordData}
                     </span>
@@ -258,7 +277,7 @@ function Accountinformation({ isUserLoggedIn }) {
                       />
                     </span>
                   </div>
-                  {errors?.passwordData && (
+                  {issubmit && errors?.passwordData && (
                     <span className={styles.errorMessage}>
                       {errors.passwordData}
                     </span>
@@ -285,7 +304,7 @@ function Accountinformation({ isUserLoggedIn }) {
                       />
                     </span>
                   </div>{" "}
-                  {errors?.confirmPasswordData && (
+                  {issubmit && errors?.confirmPasswordData && (
                     <span className={styles.errorMessage}>
                       {errors.confirmPasswordData}
                     </span>

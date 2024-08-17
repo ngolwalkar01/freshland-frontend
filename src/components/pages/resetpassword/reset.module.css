@@ -2,7 +2,7 @@
     border: none;
     margin: 0 auto;
     padding: 100px 0px;
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -24,6 +24,10 @@
     outline: none;
 }
 
+.errorClass{
+	color:red;
+	margin-top: 10px;
+}
 
 .btnSave {
     width: 152px;
@@ -47,6 +51,11 @@
   .formConatainer{
     display: flex;
     gap: 20px;
+    align-items: flex-start;
+  }
+
+  .formConatainer div{
+	flex:1;
   }
   .inputConatiner{
     position: relative;

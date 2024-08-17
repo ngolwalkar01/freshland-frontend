@@ -571,7 +571,7 @@ function Cart() {
                       ) : (
                         <>
                           <div className={styles.subtotal} style={{ gap: 'inherit' }}>
-                            <p>{ct.subTotal}</p>
+                            <p>{ct.shipMent}</p>
                             <p style={{ fontWeight: 100 }}>{ct.shipPing}</p>
                           </div>
                           <div className={styles.totalprice}>

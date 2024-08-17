@@ -34,6 +34,7 @@ const Reset = () => {
   const [confirmPasswordData, setConfirmPasswordData] = useState("");
   const [showConfirmPassword, setConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const [isSubmit, setIssubmit] = useState(false);
 
   const handleCurrentPassword = (e) => {
     setCurrentPasswordData(e.target.value);
@@ -47,6 +48,11 @@ const Reset = () => {
   const confirmShowPassowrd = () => {
     setConfirmPassword(!showConfirmPassword);
   };
+
+  useEffect(() => {
+    validate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentpasswordData, showCurrentPassword, confirmPasswordData, showConfirmPassword])
 
   const resetData = () => {
     setCurrentPasswordData("");
@@ -82,6 +88,7 @@ const Reset = () => {
   };
 
   const resetPassword = async () => {
+    setIssubmit(true);
     if (validate()) {
       try {
         const { key, login } = routeData;
@@ -128,7 +135,7 @@ const Reset = () => {
                         }`}
                     />
                   </span>
-                  {errors?.currentpasswordData && <div style={{ color: 'red' }}>{errors?.currentpasswordData}</div>}
+                  {isSubmit && errors?.currentpasswordData && <div className={style.errorClass}>{errors?.currentpasswordData}</div>}
                 </div>
               </div>
               <div className={style.inputConatiner}>
@@ -150,7 +157,7 @@ const Reset = () => {
                       }`}
                   />
                 </span>
-                {errors?.confirmPasswordData && <div style={{ color: 'red' }}>{errors?.confirmPasswordData}</div>}
+                {isSubmit && errors?.confirmPasswordData && <div className={style.errorClass}>{errors?.confirmPasswordData}</div>}
               </div>
             </form>
             <button onClick={resetPassword} className={style.btnSave}>{errormsg.save}</button>

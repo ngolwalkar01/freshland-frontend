@@ -971,6 +971,13 @@ padding-right: 30px;
     margin-inline: 16px;
   }
 }
+
+@media (max-width: 400px) {
+  .productDescription img {
+    width: 100% !important;
+	height: auto !important;
+  }
+}
 @media (min-width:900px) and (max-width:1300px){
   .customArrow{
     right: 7%;

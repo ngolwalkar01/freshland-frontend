@@ -625,8 +625,8 @@ main{
 .home-img,
 .product-detail-img {
   position: relative;
-  top: -36px !important;
-  transform: scale(1.1);
+  top: -11px !important;
+  transform: scale(1.2);
 }
 
 .shopWrapper:nth-child(1) .shop-prod-link,
