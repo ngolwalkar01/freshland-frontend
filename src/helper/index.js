@@ -34,3 +34,8 @@ export const getBaseUrl = () => {
     const baseUrl = `${protocol}//${hostname}${port ? ':' + port : ''}`;
     return baseUrl;
 }
+
+export const getStrongPasswordRegex = () => {
+    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=\[\]{};:'",.<>?/\\|`~])[A-Za-z\d!@#$%^&*()_\-+=\[\]{};:'",.<>?/\\|`~]{8,}$/;
+    return strongPasswordRegex;
+}

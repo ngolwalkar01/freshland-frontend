@@ -7,6 +7,7 @@ import AccountAPI from "@/services/account";
 import { toast } from "react-toastify";
 import { applyLoader } from "@/helper/loader";
 import OverLayLoader from '../overLayLoader';
+import { getStrongPasswordRegex } from "@/helper";
 
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 
@@ -84,7 +85,7 @@ function Accountinformation({ isUserLoggedIn }) {
       errors.displayName = errormsg.displayNameRequired;
       isValid = false;
     }
-    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const strongPasswordRegex = getStrongPasswordRegex();
     if (!passwordData.trim()) {
       errors.passwordData = errormsg.passwordRequired;
       isValid = false;
@@ -116,21 +117,25 @@ function Accountinformation({ isUserLoggedIn }) {
   }
 
   const saveData = async () => {
-    const { first_name, last_name, display_name } = profile
-    const obj = {
-      "customer_info": {
-        first_name,
-        last_name,
-        display_name,
-        "old_password": currentpasswordData,
-        "new_password": passwordData,
-        "confirm_password": confirmPasswordData
+    try {
+      const { first_name, last_name, display_name } = profile
+      const obj = {
+        "customer_info": {
+          first_name,
+          last_name,
+          display_name,
+          "old_password": currentpasswordData,
+          "new_password": passwordData,
+          "confirm_password": confirmPasswordData
+        }
       }
+      const data = await AccountAPI.saveUpdateCustomerAddress(token, obj);
+      resetForm();
+      toast.success(service.accountUpdated, { autoClose: toastTimer });
+      SetIsSubmit(false);
+    } catch (error) {
+      toast.error((error?.data?.message || service.somethingWentWrong), { autoClose: toastTimer })
     }
-    const data = await AccountAPI.saveUpdateCustomerAddress(token, obj);
-    resetForm();
-    toast.success(service.accountUpdated, { autoClose: toastTimer });
-    SetIsSubmit(false);
   }
 
   const submitform = async (event) => {
