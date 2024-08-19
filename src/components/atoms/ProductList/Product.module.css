@@ -107,9 +107,9 @@
   flex-direction: column;
   gap: 4px;
 }
-.noGap{
+/*.noGap{
   gap: 0px;
-}
+}*/
 .cardTitle {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   font-size: 18px;
@@ -290,7 +290,7 @@
 .newStatus{
   display: flex;
   gap: 6px;
-  min-height: 20px;
+  min-height: 27px;
   margin-bottom: 5px;
 }
 .newStatus p {
