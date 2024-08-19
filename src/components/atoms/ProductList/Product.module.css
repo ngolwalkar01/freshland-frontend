@@ -379,6 +379,10 @@
     font-size: 14px;
   }
 
+  .newStatus{
+	min-height: 18px;
+  }
+
   .newStatus p {
     font-size: 11px;
     padding: 9px;
