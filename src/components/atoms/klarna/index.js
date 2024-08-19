@@ -27,11 +27,11 @@ const createKlarnaPayload = () => {
         order_amount: parseInt(cartData.totals.total_price),
         order_lines: orderLines,
         merchant_urls: {
-            terms: 'https://cloned-site.mystagingwebsite.com',
-            checkout: 'https://cloned-site.mystagingwebsite.com',
+            terms: process.env.NEXT_PUBLIC_API_BASE_URL,
+            checkout: process.env.NEXT_PUBLIC_API_BASE_URL,
             // confirmation: 'http://localhost:8080/confirmation?klarna_order_id={checkout.order.id}',
-            confirmation: 'https://cloned-site.mystagingwebsite.com',
-            push: 'https://cloned-site.mystagingwebsite.com'
+            confirmation: process.env.NEXT_PUBLIC_API_BASE_URL,
+            push: process.env.NEXT_PUBLIC_API_BASE_URL
         }
     };
 
