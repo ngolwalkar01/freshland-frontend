@@ -155,7 +155,7 @@ const AllItems = ({ categoryWithProducts }) => {
                 return !selectedFilter || x.category.id === selectedFilter;
               })
               .map((item, index) => (
-                <div key={index} className={`${styles.wrapper} shopWrapper`}>
+                <div key={index} className={`${styles.wrapper} shopWrapper ${item.category.name}`}>
                   <div className={styles.goodsItem} key={index}>
                     {/* Image */}
                     <div className={styles.imageContainer}>

@@ -377,6 +377,7 @@
 
   .addToBasket .number {
     font-size: 14px;
+	opacity:1;
   }
 
   .newStatus{
