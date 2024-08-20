@@ -304,7 +304,7 @@ export const policyTranslation = {
     "company": "Fresh.Land IVS",
     "street": "Indiakaj 20",
     "postalCode": "2100",
-    "city": "Copenhagen Ø",
+    "city": "Frederiksberg Ø",
     "country": "Denmark"
   }
 }

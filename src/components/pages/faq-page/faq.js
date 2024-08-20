@@ -158,7 +158,7 @@ const faqData = [
     },
     {
         title: "Telefon, e-mail och adress",
-        content: "<ul> <li>Telefonnummer <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 108 109 689</a></li> <li>Mejladress <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> – Vi eftersträvar att svara dig inom 48 h.</li> <li>Adress: Rahbeks Alle 21 1801 Copenhagen</li> </ul>"
+        content: "<ul> <li>Telefonnummer <a class=\"c-link\" href=\"tel:+46108885720\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"tel:+46108885720\" data-sk=\"tooltip_parent\" data-remove-tab-index=\"true\">+46 108 109 689</a></li> <li>Mejladress <a href=\"mailto:hej@fresh.land\">hej@fresh.land</a> – Vi eftersträvar att svara dig inom 48 h.</li> <li>Adress: Rahbeks Alle 21 1801 Frederiksberg</li> </ul>"
     },
     {
         title: "Positiv/negativ feedback?",
