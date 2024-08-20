@@ -48,7 +48,7 @@ const Forgot = () => {
             <label htmlFor="userlogin">{log.email}
             </label>
             <input type="text" value={email} onChange={(e) => { setEmail(e.target.value); }} name="userlogin" id="userlogin" className={style.inputFeild} />
-            {errors?.email && <div style={{ color: 'red' }}>{errors?.email}</div>}
+            {errors?.email && <div className={style.errorClass}>{errors?.email}</div>}
           </form>
           <button onClick={forgotPassword} className={style.forgotBtn}>{log.resetPassword}</button>
         </div>

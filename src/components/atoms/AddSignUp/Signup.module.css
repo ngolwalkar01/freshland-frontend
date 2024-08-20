@@ -89,7 +89,7 @@
 .button {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   color: #fff;
-  border-radius: 25px;
+  border-radius: 16px;
   border: 2px solid var(--blue);
   margin-inline: auto;
   text-transform: math-auto;
@@ -197,7 +197,7 @@
 .signupButton{
   font-size: 14px;
   width: 165px;
-        border-radius: 25px;
+        border-radius: 16px;
         height: 38px;
         font-size: 12px;
  }
@@ -251,7 +251,7 @@
  .signupButton{
   font-size: 14px;
   width: 165px;
-  border-radius: 25px;
+  border-radius: 16px;
   height: 38px;
   font-size: 12px;
  }

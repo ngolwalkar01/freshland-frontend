@@ -82,7 +82,7 @@ const Footer = () => {
                 <ul>
                   <li><Link href="/about">{hpt.aboutUs}</Link></li>
                   <li><Link href="/farmer">{hpt.farmers}</Link></li>
-                  <li><Link href="/farmer">{hpt.vip}</Link></li>
+                  <li><Link href="/vip">{hpt.vip}</Link></li>
                 </ul>
               </div>
               <div>

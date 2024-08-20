@@ -104,7 +104,7 @@ const ShippingOptions = ({ shippingData, setNamePrefix, setCartShipment, styles,
                                     ) : <>
                                         <tr>
                                             <td>
-                                                <p style={{ fontWeight: 100 }}>Please provide a valid shipping address or note that shipping is unavailable to the given address.</p>
+                                                <p style={{ fontWeight: 100 }}>Ange en giltig leveransadress</p>
                                             </td>
                                         </tr>
                                         <TotalPrice

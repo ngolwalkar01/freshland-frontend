@@ -236,6 +236,7 @@
     height: 38px;
     font-size: 16px;
     width: 165px;
+    border-radius: 16px;
   }
   .next_order{
     height: 378px;
