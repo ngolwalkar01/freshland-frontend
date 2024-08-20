@@ -508,6 +508,7 @@ cursor: pointer;
   font-weight: 700;
   color: var(--blue);
   padding: 60px 0px 0px 0px;
+  display: none;
 }
 .productDescription p{
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
@@ -637,6 +638,10 @@ padding-right: 30px;
   /* padding: 5px; */
 }
 
+  .productDescription img {
+	width: 100%;
+    height: auto;
+  }
 
 .productData {
   width: 100%;
