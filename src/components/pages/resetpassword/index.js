@@ -9,6 +9,8 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import Layout from '@/components/layout';
 import { serviceTranslation, myaccountTranslation, errorTranslation } from '@/locales';
 import { getStrongPasswordRegex } from "@/helper";
+import { applyLoader } from "@/helper/loader";
+import OverLayLoader from '@/components/atoms/overLayLoader';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const Reset = () => {
@@ -20,6 +22,7 @@ const Reset = () => {
   const [routeData, setRouteData] = useState(null);
   const service = serviceTranslation[lang];
   const errormsg = errorTranslation[lang];
+  const [olloading, setOlloading] = useState(false);
   useEffect(() => {
     if (!key || !login) {
       router.push('/');
@@ -90,23 +93,31 @@ const Reset = () => {
     return isValid;
   };
 
+  const resetPass = async () => {
+    try {
+      const { key, login } = routeData;
+      const obj = {
+        "key": key,
+        "login": login,
+        "password": currentpasswordData,
+        "confirm_password": confirmPasswordData
+      }
+      await AccountAPI.resetPassword(obj);
+      toast.success(errormsg.resetPasswordmsg)
+      resetData();
+    } catch (error) {
+      toast.error(error?.data?.message ? error?.data?.message : service.somethingWentWrong)
+    }
+  }
+
   const resetPassword = async () => {
     setIssubmit(true);
     if (validate()) {
-      try {
-        const { key, login } = routeData;
-        const obj = {
-          "key": key,
-          "login": login,
-          "password": currentpasswordData,
-          "confirm_password": confirmPasswordData
-        }
-        await AccountAPI.resetPassword(obj);
-        toast.success(service.resetPasswordmsg)
-        resetData();
-      } catch (error) {
-        toast.error(error?.data?.message ? error?.data?.message : service.somethingWentWrong)
-      }
+      await applyLoader(
+        setOlloading,
+        resetPass,
+        []
+      )
     }
   }
 
@@ -114,6 +125,7 @@ const Reset = () => {
     <Layout>
       {loading ? <></> : (
         <main>
+          {olloading && <OverLayLoader />}
           <Header />
           <div className={style.resetPassword}>
             <p>{errormsg.enterNewPassword}</p>

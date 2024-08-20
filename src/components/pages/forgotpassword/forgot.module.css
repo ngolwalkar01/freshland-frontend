@@ -53,6 +53,11 @@
     transform: scale(0.98);
   }
 
+  .errorClass{
+    color:red;
+    margin-top: 10px;
+  }
+
   @media only screen and (max-width:600px){
     .forgotPassword{
         padding: 40px;

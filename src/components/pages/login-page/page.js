@@ -11,7 +11,8 @@ import { setUserLoggedInData } from "@/components/service/auth";
 import Link from "next/link";
 import Image from "next/image";
 import { identifyUser } from "@/components/service/klaviyoTrack";
-
+import OverLayLoader from '@/components/atoms/overLayLoader';
+import { applyLoader } from "@/helper/loader";
 
 const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
@@ -24,6 +25,8 @@ const Login = () => {
   const service = serviceTranslation[lang];
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [olloading, setOlLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const router = useRouter();
 
@@ -37,8 +40,7 @@ const Login = () => {
     }
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const loginWithloader = async () => {
     try {
       const data = await authService.login({ username, password });
       if (data && data.token && data.user_email) {
@@ -61,6 +63,15 @@ const Login = () => {
         { autoClose: toastTimer }
       );
     }
+  }
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    await applyLoader(
+      setOlLoading,
+      loginWithloader,
+      []
+    )
   };
 
   // useEffect(() => {
@@ -79,8 +90,13 @@ const Login = () => {
   //   }
   // }, [session, status, router]);
 
+  const togglePassWord = () => {
+    setShowPassword(!showPassword)
+  }
+
   return (
     <>
+      {olloading && <OverLayLoader />}
       <Header />
       <div className={styles.modal}>
         <h1>{log.login}</h1>
@@ -102,14 +118,13 @@ const Login = () => {
               <b>{log.password}</b>
             </label>
             <input
-              type="password"
+              type={showPassword ? "text": "password"}
               placeholder={log.password}
               name="psw"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-
             <button type="submit" className={styles.loginsubmit}>
               {log.login}
             </button>

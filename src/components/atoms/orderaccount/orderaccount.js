@@ -11,7 +11,9 @@ const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
-function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, orderDates, isUserLoggedIn }) {
+function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, orderDates, isUserLoggedIn,
+  setOlloading, applyLoader
+}) {
   const mat = myaccountTranslation[lang];
   const orderTrs = orderconfirmationTranslation[lang];
   const service = serviceTranslation[lang];
@@ -24,8 +26,12 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
     });
     setShowRequest(!showRequest);
   }
-  const handleViewClick = (id) => {
-    setShowOrderView(id, true);
+  const handleViewClick = async (id) => {
+    await applyLoader(
+      setOlloading,
+      setShowOrderView,
+      [id, true]
+    )
   };
   const handleGoBack = () => {
     setShowRequest(false);
@@ -108,7 +114,13 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
                                 >
                                   {mat.view}
                                 </Link>
-                                <Link href="#" className={styles.pdf} onClick={() => downloadInvoicePdf(od.order_number)}>
+                                <Link href="#" className={styles.pdf} onClick={async () => {
+                                  await applyLoader(
+                                    setOlloading,
+                                    downloadInvoicePdf,
+                                    [od.order_number]
+                                  )
+                                }}>
                                   {mat.pDFInvoice}
                                 </Link>
                                 <Link href="#" className={styles.request}>

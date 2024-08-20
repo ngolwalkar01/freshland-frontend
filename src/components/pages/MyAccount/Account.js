@@ -18,6 +18,8 @@ import AuthAPI from "@/services/auth";
 import { getCheckoutOrderById, getOrderDates } from "@/components/service/account";
 import { signOut as googleSignOut } from 'next-auth/react';
 import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
+import OverLayLoader from '@/components/atoms/overLayLoader';
+import { applyLoader } from "@/helper/loader";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
@@ -34,6 +36,7 @@ function Account({ orders }) {
   const [showshippingAddress, setShippingAddress] = useState(false);
   const [orderObj, setorderObj] = useState(null)
   const [orderDatesData, setOrderDatesData] = useState(null);
+  const [olloading, setOlloading] = useState(false);
 
   const router = useRouter();
 
@@ -118,6 +121,7 @@ function Account({ orders }) {
 
   return (
     <>
+      {olloading && <OverLayLoader />}
       <ActiveUserKlaviyo />
       {loading ? <Loader progress={progress} /> : null}
       <div className={styles.myaccount}>
@@ -214,6 +218,7 @@ function Account({ orders }) {
               <h4 className={styles.ordercontainer}>{mat.ordersHeading}</h4>
               <Orderaccount showOrderView={showOrderView} isUserLoggedIn={isUserLoggedIn}
                 setShowOrderView={toggleOrderView} orders={orders} orderobj={orderObj}
+                setOlloading={setOlloading} applyLoader={applyLoader}
                 orderDates={orderDatesData} />
             </div>
           )}
@@ -224,6 +229,7 @@ function Account({ orders }) {
               <div>
                 <h4 className={styles.ordercontainer}>{mat.subscriptionHeading}</h4>
                 <Mysubscription showOrderView={showOrderView} isUserLoggedIn={isUserLoggedIn}
+                  setOlloading={setOlloading} applyLoader={applyLoader}
                   setShowOrderView={setShowOrderView} setLoading={setLoading} showOrderViewTab={showOrderViewTab} />
               </div>
             )}
@@ -231,6 +237,7 @@ function Account({ orders }) {
             <div>
               <h4 className={styles.ordercontainer}>{mat.addressesHeading}</h4>
               <Address
+                setOlloading={setOlloading} applyLoader={applyLoader}
                 setShowSaveAddressBox={setShowSaveAddressBox}
                 showSaveAddressBox={showSaveAddressBox}
                 showAddAddressButton={showAddAddressButton}
@@ -245,14 +252,15 @@ function Account({ orders }) {
           {activeOption === "accountinfo" && (
             <div>
               <h4 className={styles.ordercontainer}>{mat.accountHeading}</h4>
-              <Accountinformation isUserLoggedIn={isUserLoggedIn} />
+              <Accountinformation isUserLoggedIn={isUserLoggedIn}
+                setOlloading={setOlloading} applyLoader={applyLoader} />
             </div>
           )}
 
           {activeOption === "payment" && (
             <div>
               <h4 className={styles.ordercontainer}>{mat.paymentHeading}</h4>
-              <Payment />
+              <Payment setOlloading={setOlloading} applyLoader={applyLoader} />
             </div>
           )}
         </div>
@@ -267,7 +275,9 @@ function Account({ orders }) {
                   <button onClick={cancelLogout} className={styles.cancelbtn}>
                     {mat.cancelHeading}
                   </button>
-                  <button onClick={confirmLogout} className={styles.logoutbtn}>
+                  <button onClick={async () => {
+                    await applyLoader(setOlloading, confirmLogout, [])
+                  }} className={styles.logoutbtn}>
                     {mat.logHeading}
                   </button>
                 </div>

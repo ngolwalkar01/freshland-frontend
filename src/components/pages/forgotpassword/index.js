@@ -3,11 +3,15 @@ import Header from "@/components/atoms/Header/Header";
 import style from "./forgot.module.css";
 import AccountAPI from "@/services/account";
 import toast from "@/helper/toast";
-import { loginTranslation, serviceTranslation, errorTranslation} from '@/locales';
+import { applyLoader } from "@/helper/loader";
+import { loginTranslation, serviceTranslation, errorTranslation } from '@/locales';
+import OverLayLoader from '@/components/atoms/overLayLoader';
+
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const Forgot = () => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
+  const [olloading, setOlLoading] = useState(false);
   const log = loginTranslation[lang];
   const service = serviceTranslation[lang];
   const errormsg = errorTranslation[lang];
@@ -38,11 +42,12 @@ const Forgot = () => {
 
   return (
     <>
+      {olloading && <OverLayLoader />}
       <main>
         <Header />
         <div className={style.forgotPassword}>
           <p className={style.forgotmsg}>
-           {log.lostPasswordPrompt}
+            {log.lostPasswordPrompt}
           </p>
           <form>
             <label htmlFor="userlogin">{log.email}
@@ -50,7 +55,13 @@ const Forgot = () => {
             <input type="text" value={email} onChange={(e) => { setEmail(e.target.value); }} name="userlogin" id="userlogin" className={style.inputFeild} />
             {errors?.email && <div className={style.errorClass}>{errors?.email}</div>}
           </form>
-          <button onClick={forgotPassword} className={style.forgotBtn}>{log.resetPassword}</button>
+          <button onClick={async () => {
+            await applyLoader(
+              setOlLoading,
+              forgotPassword,
+              []
+            )
+          }} className={style.forgotBtn}>{log.resetPassword}</button>
         </div>
       </main>
     </>
