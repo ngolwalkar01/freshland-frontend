@@ -53,7 +53,7 @@ export const zipCodeCheckerTranslation = {
         notifyDeliverArea: "då kommer vi att meddela dig när vi levererar till ditt område.",
         enterPostalCode: "Ange postnummer",
         subscribeSuccessMsg: "Tack för att du prenumererar!! Kontrollera din e-post för ett bekräftelsemail.",
-        name: "namn",
+        name: "Namn",
         postalCode: "Postnummer",
         joinList: "Gå med i listan",
         noThanks: "Nej, tack",

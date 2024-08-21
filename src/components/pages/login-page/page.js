@@ -113,6 +113,7 @@ const Login = () => {
               onChange={(e) => setUsername(e.target.value)}
               required
             />
+            
 
             <label htmlFor="psw">
               <b>{log.password}</b>
@@ -125,9 +126,15 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+           <i
+                className={`fa-regular ${showPassword ? "fa-eye-slash" : "fa-eye"} ${styles.showPasswordButton}`}
+                onClick={togglePassWord}
+              />
+       
             <button type="submit" className={styles.loginsubmit}>
               {log.login}
             </button>
+            
           </div>
           <div className={styles.btncontainer}>
             <label>
@@ -172,6 +179,8 @@ const Login = () => {
             </a>
           </div>
         </form>
+
+    
       </div>
     </>
   );

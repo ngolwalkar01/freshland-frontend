@@ -23,9 +23,27 @@ const Search = ({ cardHeading, productData, overRideClass = false, reload = () =
                     reload={reload}
                 />
                 {!(productData && productData.length > 0) && (
-                    <p className={styles.comingSoon} style={{ textAlign: 'center' }}>
-                        {/* no need to add coomingsson heading in search */}
-                        {nofavoriteMessage || ``}
+                    <p className={`${styles.comingSoon} ${styles.resultDiv}`} style={{ textAlign: 'center' }}>
+                
+                          
+                {nofavoriteMessage || (
+                            <>
+                            <div id='resultNotfound'>
+                                <div id='resultant'>
+                                <p>{st.no_results}</p>
+                                <p>{st.no_results_message}</p>
+                                </div>
+                           
+                                <ul>
+                                    <li>{st.check_spelling}</li>
+                                    <li>{st.try_another_keyword}</li>
+                                    <li>{st.search_all_items}</li>
+                                    <li>{st.contact_customer_service}</li>
+                                </ul>
+                            </div>
+                               
+                            </>
+                        )}
 
                     </p>
                 )}

@@ -85,7 +85,7 @@
   border-radius: 5px;
   padding: 20px;
   position: absolute;
-  width: 400px;
+  width: 100%;
   right: 0px;
   transform: translateY(-60%);
 
@@ -173,9 +173,9 @@
 
 @media (min-width: 320px) and (max-width: 600px) {
   .countrypopup {
-    width: 350px;
+    width: 219px;
     right: 0px;
-    transform: translateY(100%);
+    transform: translateY(44%);
   }
 
   .footertextcontainer {

@@ -8,7 +8,7 @@
 .customContainer {
   /* Styles for the container */
   background-color: #f4fff7;
-  margin-top: 3rem;
+  padding-top: 60px;
   text-align: center;
 }
 
@@ -180,7 +180,9 @@
   max-width: 130px;
   cursor: pointer;
 }
-
+.newfilterListLi label{
+  cursor: pointer;
+}
 .newfilterlist {
   list-style: none;
   display: flex;
@@ -203,7 +205,7 @@
   cursor: pointer;
 }
 
-.activeFilter {
+.activeFilter{
   background-color: var(--blue);
   color: #fff;
   cursor: pointer;
@@ -298,7 +300,7 @@
   }
 
   .customContainer {
-    padding: 0;
+    padding-top: 40px;
   }
 
   /* Custom SVG icon */
@@ -430,6 +432,10 @@
   .comingSoon {
     padding-bottom: 0px;
   }
+  .resultDiv{
+    margin-bottom: 0px;
+
+   }
 
 }
 

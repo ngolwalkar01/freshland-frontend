@@ -15,7 +15,7 @@ const Freshness = () => {
           <div className={styles.aboutcontent}>
             <div className={styles.headingcontainer}>
               <h2>{fresh.freshNess}</h2>
-              <p className={styles.makesADiff}>{fresh.makesADiff}</p>
+              <p className={`W-body-Large ${styles.makesADiff}`}>{fresh.makesADiff}</p>
             </div>
             <div className={styles.content}>
               <p className={`W-body-Large ${styles.paragraph}`}>

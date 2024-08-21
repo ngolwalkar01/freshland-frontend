@@ -185,6 +185,9 @@ const Header = () => {
                 />
               </Link>
               <div className={Mobile ? `${styles.navlinksmobile}` : `${styles.linkdescription}`}>
+              <div className={`${styles.headerIconWrapper} ${styles.mobileSearch}`} onClick={openSearch}>
+                 <span>Search</span> <Image src="/Images/search.svg" alt="Search" fill />
+                </div>
                 <div className={`${styles.store} ${isActive('/shop')}`} ref={menuRef}>
                   <Link href="/shop">{hpt.storeDropdown}</Link>
                   <span className="chevrondown" onClick={handleStoreClick}>
@@ -195,20 +198,22 @@ const Header = () => {
                       <li className={styles.lifirst}><Link href='/shop'>{hpt.allgood}</Link></li>
                       {
                         categories && categories.length > 0 && categories.map((x, i) => {
-                          return <li key={i}><Link href={`/category/${x}`}>{x}</Link></li>
+                          return <li key={i} ><Link href={`/category/${x}`}  className={pathname === `/category/${x}` ? styles.activeLink : ''}>{x}</Link></li>
                         })
                       }
                     </ul>
                   )}
                 </div>
                 {/* <Link href="/seasonoverview" className={isActive('/seasonoverview')}>{hpt.seasonOverview}</Link> */}
+      
                 <Link href="/farmer" className={isActive('/farmer')}>{hpt.farmers}</Link>
                 <Link href="/se/faq" className={isActive('/se/faq')}>{hpt.faq}</Link>
                 <Link href="/about" className={isActive('/about')}>{hpt.aboutUs}</Link>
                 <Link href="/vip" className={isActive('/viplist')}>VIP</Link>
-                <Link href="/favourites" className={`${isActive('/favourites')} ${styles.favouritesicon}`}>
+                {/* <Link href="/favourites" className={`${isActive('/favourites')} ${styles.favouritesicon}`}>
                   {cmt.favoritesProducts}
-                </Link>
+                </Link> */}
+              
               </div>
               <div className={styles.flexgrow} />
               <div className={styles.icon}>
@@ -222,12 +227,12 @@ const Header = () => {
                     <Image src="/Images/user.svg" alt="User profile" fill />
                   </Link>
                 </div>
-                <div className={`${styles.headerIconWrapper} ${styles.favicon}`}>
+                <div className={`${styles.headerIconWrapper}`}>
                   <Link href="/favourites">
                     <Image src="/Images/heart.svg" alt="Wish List" fill />
                   </Link>
                 </div>
-                <div className={styles.headerIconWrapper} onClick={openSearch}>
+                <div className={`${styles.headerIconWrapper}  ${styles.favicon}`} onClick={openSearch}>
                   <Image src="/Images/search.svg" alt="Search" fill />
                 </div>
                 <div className={styles.headerIconWrapper}
@@ -267,8 +272,10 @@ const Header = () => {
             </div>
             <div className={styles.ovFlow_scroll}>
               <div className={styles.searchBox}>
+              {searchTxt && productData && productData.length > 0 && (
                 <Productsearch cardHeading=""
                   productData={productData} />
+                )}
               </div>
             </div>
           </div>

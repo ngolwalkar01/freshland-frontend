@@ -11,6 +11,10 @@
 .storemenuicon{
   display: none;
 }
+.activeFilter {
+  color: green; /* Or any style you want for the active filter */
+}
+
 .activeLink {
   color: var(--green);
   font-weight: 500;
@@ -273,10 +277,19 @@
 .favouritesicon{
   display: none;
 }
+.mobileSearch{
+  display: none;
+}
 
 @media (min-width: 320px) and (max-width: 750px) {
   .favouritesicon{
     display: block;
+  }
+  .mobileSearch{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
   }
   .favicon{
     display: none;

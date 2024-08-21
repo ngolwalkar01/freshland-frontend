@@ -123,7 +123,7 @@ const AllItems = ({ categoryWithProducts }) => {
                 return (
                   <li
                     key={i}
-                    className={styles.newfilterListLi}
+                    className={`${styles.newfilterListLi} ${selectedFilter === x.category.id ? styles.activeFilter : ''}`}
                     onClick={() => {
                       setSelectedFilter(x.category.id);
                       setShowMenu(false);

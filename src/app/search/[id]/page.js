@@ -46,11 +46,14 @@ const Search = () => {
         <>
             <Layout>
                 {loading ? <Shopskeleton /> : <>
+                <div id='searchContainer'>
                     <Header />
                     <SearchComp
                         cardHeading={decodeString(`${cmt.searchResult}: "${searchTxt}"`)}
                         productData={productData}
+                        
                     />
+                    </div>
                 </>
                 }
             </Layout>

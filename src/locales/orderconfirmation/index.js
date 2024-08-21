@@ -43,7 +43,7 @@ export const orderconfirmationTranslation = {
         "addressConatin": "Rahbeks Allé 21, 1801 Frederiksberg C",
         "info": "info",
         "item":"vare",
-        "status": "Behandlas",
+        "status": "Status",
         "orderDate": "Order Date",
         "tax": "tax"
     },
@@ -91,8 +91,8 @@ export const orderconfirmationTranslation = {
         "addressConatin": "Rahbeks Allé 21, 1801 Frederiksberg C",
         "info": "info",
         "item":"Artikel",
-        "status": "Behandlas",
+        "status": "Status",
         "orderDate": "Beställningsdatum",
-        "tax": "Beskatta"
+        "tax": "Moms"
     }
 }

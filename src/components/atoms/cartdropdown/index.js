@@ -42,7 +42,7 @@ const CartDropdown = () => {
         <span>{ct.total}</span>
         <span className={styles.totalPrice}>{cartSubTotal} {currency}</span>
       </div>
-      <Link href="/checkout" className={styles.checkoutButton}>{ct.gotoCheckout}</Link>
+      <Link href="/cart" className={styles.checkoutButton}>{ct.shCart}</Link>
     </div>
   );
 };

@@ -67,7 +67,7 @@ const Personaldata = () => {
             <h5>{policy.rightRevoke}</h5>
             <p>{policy.revokeDetails}</p>
             <h5>{policy.rightComplain}</h5>
-            <p>{policy.complainDetails} <Link href="mailto:datainspektionen@datainspektionen.se">{policy.datainsEmail}</Link> {policy.byPhone} <Link href="tel:+46 108 109 689">{policy.contact}</Link>.</p>
+            <p>{policy.complainDetails} <Link href="mailto:hej@fresh.land">{policy.datainsEmail}</Link> {policy.byPhone} <Link href="tel:+46 108 109 689">{policy.contact}</Link>.</p>
             <h4>{policy.deletionOfData}</h4>
             <p>{policy.deletionDetailsExtended}</p>
             <p>{policy.docConstent}</p>

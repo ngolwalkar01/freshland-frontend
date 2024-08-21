@@ -234,7 +234,7 @@ h4 {
   .home-img,
   .product-detail-img,
   .Frukt .shop-img,
-  .Grönsaker .shop-img {
+  .Grönsakerlådor .shop-img {
     position: relative;
     top: -12px !important;
     transform: scale(1.3);
@@ -616,12 +616,18 @@ main{
 #categoryContainer{
   padding: 60px 0px 40px 0px;
 }
+#searchContainer{
+  padding-top: 60px;
+}
+#searchContainer h2{
+ font-size: 60px;
+}
 #bgColor{
  background-color: #f4fff7;
 }
 
 .Frukt .shop-img,
-.Grönsaker .shop-img,
+.Grönsakerlådor .shop-img,
 .home-img,
 .product-detail-img {
   position: relative;
@@ -630,7 +636,7 @@ main{
 }
 
 .Frukt .shop-prod-link,
-.Grönsaker .shop-prod-link,
+.Grönsakerlådor .shop-prod-link,
 .home-prod-link,
 .product-detail-prod-link  {
   overflow: hidden
@@ -653,8 +659,38 @@ ul.cartdropdown_cartItems::-webkit-scrollbar {
   width: 10px;
 }
 
+#resultNotfound{
+  text-align: left;
+  max-width: 570px;
+  margin: auto;
+}
+
+#resultNotfound ul li{
+  font-size: 18px;
+  margin-left: 20px;
+}
+#resultant {
+  font-size: 18px;
+  margin-bottom: 13px;
+}
+
+@media (max-width:600px){
+  #searchContainer{
+    padding: 40px 0px;
+  }
+  #searchContainer h2{
+    font-size: 40px;
+   }
+   #resultNotfound{
+    margin: auto 40px;
+   }
+ 
+}
+
 @media (min-width: 600px) {
   .custom-fa-heart {
     font-size: 32px !Important;
   }
+ 
+ 
 }
