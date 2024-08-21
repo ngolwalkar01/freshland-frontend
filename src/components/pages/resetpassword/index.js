@@ -104,6 +104,7 @@ const Reset = () => {
       }
       await AccountAPI.resetPassword(obj);
       toast.success(errormsg.resetPasswordmsg)
+	  router.push("/login");
       resetData();
     } catch (error) {
       toast.error(error?.data?.message ? error?.data?.message : service.somethingWentWrong)
