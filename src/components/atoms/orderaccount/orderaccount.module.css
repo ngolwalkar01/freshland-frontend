@@ -313,7 +313,7 @@ border-radius: 5px;
   
   }
   .orderbtn{
-    display: none;
+    display: flex;
     align-items: center;
     gap: 24px;
     /* margin: 0px 0px 0px 55px; */
@@ -336,6 +336,7 @@ border-radius: 5px;
     cursor: pointer;
   }
   .orderbtn .requestbtn{
+	display: none;
    background-color: #FFFF;
    border: 1px solid #1d405c;
    color: var(--blue);
