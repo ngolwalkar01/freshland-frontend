@@ -23,6 +23,9 @@ const Telephone = ({ value, onChange, onBlur = () => { } }) => {
       onChange={onChange}
       defaultCountry="se"
       onlyCountries={['se']}
+      masks={{
+        se: '(...) ...-....',
+      }}
       onBlur={onBlur}
       // Set your inline styles here
       inputStyle={{
