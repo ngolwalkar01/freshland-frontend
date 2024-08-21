@@ -257,6 +257,11 @@
 
 .newfilterlist {}
 
+/* Search Page CSS */
+.links{
+	color: #226499;
+}
+
 @media (max-width: 600px) {
 
   /* .filterCover{
