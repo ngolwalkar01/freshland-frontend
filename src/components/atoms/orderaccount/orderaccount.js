@@ -168,7 +168,9 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
               </div>
               <div className={styles.orderDetail}>
                 <p className={styles.label}>{mat.status}</p>
-                <p className={styles.value}>{orderobj.status}</p>
+                <p className={styles.value}>
+					{orderobj.status === "processing" ? "Behandlas" : orderobj.status}
+				</p>
               </div>
               <div className={styles.orderDetail}>
                 <p className={styles.label}>{mat.total}</p>
