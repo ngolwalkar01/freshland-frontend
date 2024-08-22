@@ -8,8 +8,11 @@ export const shopTranslation = {
         "no_results_message": "Din sökning gav inga resultat",
         "check_spelling": "Kontrollera stavningen av ditt sökord",
         "try_another_keyword": "Prova ett annat sökord",
-        "search_all_items": "Sök efter alla varor",
-        "contact_customer_service": "Kontakta kundservice för hjälp"
+        "search_for": "Sök efter",
+		"all_items" : "alla varor",
+        "contact": "Kontakta",
+		"customer_service": "kundservice",
+		"for_help": "för hjälp"
     },
     "dk": {
         "allGoods": "Alle produkter",
@@ -20,8 +23,11 @@ export const shopTranslation = {
         "no_results_message": "Din sökning gav inga resultat",
         "check_spelling": "Kontrollera stavningen av ditt sökord",
         "try_another_keyword": "Prova ett annat sökord",
-        "search_all_items": "Sök efter alla varor",
-        "contact_customer_service": "Kontakta kundservice för hjälp"
+        "search_for": "Sök efter",
+		"all_items" : "alla varor",
+        "contact": "Kontakta",
+		"customer_service": "kundservice",
+		"for_help": "för hjälp"
     },
     "fi": {
         "allGoods": "",
@@ -32,8 +38,11 @@ export const shopTranslation = {
         "no_results_message": "Din sökning gav inga resultat",
         "check_spelling": "Kontrollera stavningen av ditt sökord",
         "try_another_keyword": "Prova ett annat sökord",
-        "search_all_items": "Sök efter alla varor",
-        "contact_customer_service": "Kontakta kundservice för hjälp"
+        "search_for": "Sök efter",
+		"all_items" : "alla varor",
+        "contact": "Kontakta",
+		"customer_service": "kundservice",
+		"for_help": "för hjälp"
     },
     "se": {
         "allGoods": "Alla produkter",
@@ -44,7 +53,10 @@ export const shopTranslation = {
         "no_results_message": "Din sökning gav inga resultat",
         "check_spelling": "Kontrollera stavningen av ditt sökord",
         "try_another_keyword": "Prova ett annat sökord",
-        "search_all_items": "Sök efter alla varor",
-        "contact_customer_service": "Kontakta kundservice för hjälp"
+        "search_for": "Sök efter",
+		"all_items" : "alla varor",
+        "contact": "Kontakta",
+		"customer_service": "kundservice",
+		"for_help": "för hjälp"
     }
 }

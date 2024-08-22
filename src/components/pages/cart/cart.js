@@ -70,7 +70,6 @@ function Cart() {
   const cartTotalDiscount = getCorrectPrice(parseInt(totals?.total_discount) + parseInt(totals?.total_discount_tax));
   const cartTotal = totals?.total_price;
   const tax = totals?.total_tax;
-  
   const currency_symbol = currency;
 
   const setCartDataByCartData = (cartData) => {
@@ -209,7 +208,7 @@ function Cart() {
         setLoading(true);
         const data = await addCouponCart(coupon);
         setCartDataByCartData(data);
-        if(!(data?.coupons && data?.coupons.length > 0)) {
+        if (!(data?.coupons && data?.coupons.length > 0)) {
           toast.error(service.couponNotApplied, { autoClose: toastTimer });
         }
       } else {
@@ -288,6 +287,7 @@ function Cart() {
                           id: productId,
                           prices
                         } = cartItem;
+                        const isOrganicProduct = cartItem?.extensions?.subscription_schemes?.is_organic;
                         const itemTotals = cartItem.totals;
                         const currentImage =
                           images && images.length > 0 ? images[0].src : "";
@@ -311,101 +311,103 @@ function Cart() {
                           <Fragment key={i}>
                             <div className={styles.productSection}>
                               <div className={styles.cartpageSection}>
-                              <span
-                                className={styles.closebtn}
-                                onClick={(e) => {
-                                  applyLoader(
-                                    setOlLoader,
-                                    removeProductCart,
-                                    [e, item_key]
-                                  )
-                                }}
-                              >
-                                <i className="fa-solid fa-xmark"></i>
-                              </span>
-                              <div className={styles.leftSide}>
-                                <div className={styles.smallImage}>
-                                  <Image
-                                    src={"/Images/productTop.png"}
-                                    width={30}
-                                    height={20}
-                                    alt="product Top img"
-                                  />
+                                <span
+                                  className={styles.closebtn}
+                                  onClick={(e) => {
+                                    applyLoader(
+                                      setOlLoader,
+                                      removeProductCart,
+                                      [e, item_key]
+                                    )
+                                  }}
+                                >
+                                  <i className="fa-solid fa-xmark"></i>
+                                </span>
+                                <div className={styles.leftSide}>
+                                  {isOrganicProduct && (
+                                    <div className={styles.smallImage}>
+                                      <Image
+                                        src={"/Images/productTop.png"}
+                                        width={30}
+                                        height={20}
+                                        alt="product Top img"
+                                      />
+                                    </div>
+                                  )}
+                                  <div className={styles.mainImage}>
+                                    <Link href={`/product/${productId}`}>
+                                      <Image
+                                        src={currentImage}
+                                        width={100}
+                                        height={100}
+                                        alt="Main Image"
+                                        priority
+                                      />
+                                    </Link>
+                                  </div>
                                 </div>
-                                <div className={styles.mainImage}>
+
+                                <div>
                                   <Link href={`/product/${productId}`}>
-                                    <Image
-                                      src={currentImage}
-                                      width={100}
-                                      height={100}
-                                      alt="Main Image"
-                                      priority
-                                    />
+                                    <p className={`${styles.productTitle} W-Body-Medium `}>
+                                      {cartItem.name}{" "}
+                                      <span>
+                                        {subtotal} {currency_symbol}
+                                      </span>
+                                    </p>
                                   </Link>
+                                  <div className={styles.addToBasket}>
+                                    <button
+                                      className={`${styles.valueButton} ${styles.decreaseButton} W-Body-Large-Regular`}
+                                      onClick={() =>
+                                        applyLoader(
+                                          setOlLoader,
+                                          debouncedUpdateQuantity,
+                                          [
+                                            cartItem.key,
+                                            -1,
+                                            cartItem.quantity
+                                          ]
+                                        )
+                                      }
+                                    >
+                                      -
+                                    </button>
+                                    <label htmlFor="quantity"></label>
+                                    <input
+                                      type="number"
+                                      value={quantityValue}
+                                      id="quantity"
+                                      className={styles.number}
+                                      aria-label="Quantity"
+                                      disabled
+                                    ></input>
+                                    {/* <p className={styles.number}>{count}</p> */}
+                                    <button
+                                      className={`${styles.valueButton} ${styles.increaseButton} W-Body-Large-Regular`}
+                                      onClick={() =>
+                                        applyLoader(
+                                          setOlLoader,
+                                          debouncedUpdateQuantity,
+                                          [
+                                            cartItem.key,
+                                            1,
+                                            cartItem.quantity
+                                          ]
+                                        )
+                                      }
+                                    >
+                                      +
+                                    </button>
+                                  </div>
                                 </div>
                               </div>
-                             
-                              <div>
-                                <Link href={`/product/${productId}`}>
-                                  <p className={`${styles.productTitle} W-Body-Medium `}>
-                                    {cartItem.name}{" "}
-                                    <span>
-                                      {subtotal} {currency_symbol}
-                                    </span>
-                                  </p>
-                                </Link>
-                                <div className={styles.addToBasket}>
-                                  <button
-                                    className={`${styles.valueButton} ${styles.decreaseButton} W-Body-Large-Regular`}
-                                    onClick={() =>
-                                      applyLoader(
-                                        setOlLoader,
-                                        debouncedUpdateQuantity,
-                                        [
-                                          cartItem.key,
-                                          -1,
-                                          cartItem.quantity
-                                        ]
-                                      )
-                                    }
-                                  >
-                                    -
-                                  </button>
-                                  <label htmlFor="quantity"></label>
-                                  <input
-                                    type="number"
-                                    value={quantityValue}
-                                    id="quantity"
-                                    className={styles.number}
-                                    aria-label="Quantity"
-                                    disabled
-                                  ></input>
-                                  {/* <p className={styles.number}>{count}</p> */}
-                                  <button
-                                    className={`${styles.valueButton} ${styles.increaseButton} W-Body-Large-Regular`}
-                                    onClick={() =>
-                                      applyLoader(
-                                        setOlLoader,
-                                        debouncedUpdateQuantity,
-                                        [
-                                          cartItem.key,
-                                          1,
-                                          cartItem.quantity
-                                        ]
-                                      )
-                                    }
-                                  >
-                                    +
-                                  </button>
-                                </div>
+                              <div className={styles.cartpageSutotal}>
+                                <p className="W-Body-Large-Bold">{ct.subTotal}</p>
+                                <p className="W-Body-Large-Medium">
+                                  {itemsSubTotal} {currency_symbol}
+                                </p>
                               </div>
-                             </div>
-                                <div className={styles.cartpageSutotal}>
-                              <p className="W-Body-Large-Bold">{ct.subTotal}</p>
-                              <p className="W-Body-Large-Medium">
-                                {itemsSubTotal} {currency_symbol}
-                              </p>
-                            </div>
                             </div>
                             {subscription_schemes?.is_subscription && (
                               <div
@@ -437,7 +439,7 @@ function Cart() {
                                 <span className={styles.customArrow}></span>
                               </div>
                             )}
-{/* 
+                            {/* 
                             <div className={styles.subtotalLeft}>
                               <p>{ct.subTotal}</p>
                               <p>
@@ -448,42 +450,42 @@ function Cart() {
                         );
                       })}
 
-                           <div className={styles.subtotalLeft}>
-                              <p className={styles.bottomSubtotal}>{ct.subTotal}</p>
-                              <p className="W-Body-Large-Bold">
-                              {cartSubTotal}   {currency_symbol}
-                              </p>
-                            </div> 
-                            <div className={`W-Body-Large-Bold ${styles.redeemDiscount}`}>
-                              <p>{ct.redeemCode}</p> 
-                    <div
-                      className={`${styles.discountcol}`}
-                    >
-                      <div className={styles.discount}>
-                        <input
-                          type="text"
-                          name="name"
-                          placeholder={ct.redeemCode}
-                          value={coupon || ""}
-                          onChange={(e) => {
-                            setCoupon(e.target.value);
-                          }}
-                        ></input>{" "}
-                      </div>
-                      <button
-                        type="submit"
-                        className={`${styles.applydiscount} ${coupon ? styles.activeDiscount : ''}`}
-                        onClick={() => {
-                          applyLoader(
-                            setOlLoader,
-                            applyCoupon,
-                            []
-                          )
-                        }}
-                      >
-                        {ct.redeem}
-                      </button>
+                    <div className={styles.subtotalLeft}>
+                      <p className={styles.bottomSubtotal}>{ct.subTotal}</p>
+                      <p className="W-Body-Large-Bold">
+                        {cartSubTotal}   {currency_symbol}
+                      </p>
                     </div>
+                    <div className={`W-Body-Large-Bold ${styles.redeemDiscount}`}>
+                      <p>{ct.redeemCode}</p>
+                      <div
+                        className={`${styles.discountcol}`}
+                      >
+                        <div className={styles.discount}>
+                          <input
+                            type="text"
+                            name="name"
+                            placeholder={ct.redeemCode}
+                            value={coupon || ""}
+                            onChange={(e) => {
+                              setCoupon(e.target.value);
+                            }}
+                          ></input>{" "}
+                        </div>
+                        <button
+                          type="submit"
+                          className={`${styles.applydiscount} ${coupon ? styles.activeDiscount : ''}`}
+                          onClick={() => {
+                            applyLoader(
+                              setOlLoader,
+                              applyCoupon,
+                              []
+                            )
+                          }}
+                        >
+                          {ct.redeem}
+                        </button>
+                      </div>
                     </div>
                   </section>
                   <aside className={styles.rightContainer}>
@@ -492,7 +494,7 @@ function Cart() {
                       <div className={styles.subtotal}>
                         <p>{ct.subTotal}</p>
                         <p>
-                          {cartSubTotal} {currency_symbol} 
+                          {cartSubTotal} {currency_symbol}
                         </p>
                       </div>
                       {coupons && (
@@ -503,7 +505,7 @@ function Cart() {
                           </div>
                           <div className={styles.discountAmount}>
                             <label>
-                              {cartTotalDiscount} {currency_symbol} 
+                              {cartTotalDiscount} {currency_symbol}
                             </label>
                             <span
                               onClick={() => {
@@ -578,7 +580,7 @@ function Cart() {
                             <div className={styles.include}>
                               <p>{ct.total}</p>
                               <h4>
-                                {getCorrectPrice(totals?.total_price)} {currency_symbol} 
+                                {getCorrectPrice(totals?.total_price)} {currency_symbol}
                               </h4>
                             </div>
                             <p className={styles.tax}>

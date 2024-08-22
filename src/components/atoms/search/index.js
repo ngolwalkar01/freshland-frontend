@@ -2,6 +2,7 @@ import { addToCart, updateCartQuantity, removeCartItem } from '@/components/serv
 import ProductList from '../ProductList/ProductList';
 import { shopTranslation } from '@/locales';
 import styles from "@/components/pages/shop/AllGoods.module.css";
+import Link from "next/link";
 import { decodeString } from '@/helper';
 import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
 
@@ -37,8 +38,8 @@ const Search = ({ cardHeading, productData, overRideClass = false, reload = () =
                                 <ul>
                                     <li>{st.check_spelling}</li>
                                     <li>{st.try_another_keyword}</li>
-                                    <li>{st.search_all_items}</li>
-                                    <li>{st.contact_customer_service}</li>
+                                    <li>{st.search_for} <Link href ="/shop" className={styles.links}>{st.all_items}</Link></li>
+                                    <li>{st.contact} <Link href ="/se/faq" className={styles.links}>{st.customer_service}</Link> {st.for_help}</li>
                                 </ul>
                             </div>
                                

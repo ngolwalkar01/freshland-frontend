@@ -24,20 +24,21 @@ const Description = ({ productDetailProps }) => {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
-  
+
   const pdt = productdetailTranslation[lang];
   const [subscriptionOpt, setSubcriptionOpt] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const {
-    productDetail: originalProductDetail,
+    // productDetail: originalProductDetail,
+    productDetail,
     relatedProducts,
     productId,
     cutOffDaysDetail
   } = productDetailProps;
   const enableMockData = process.env.NEXT_PUBLIC_ENABLE_MOCK_DATA === "true";
 
-  const productDetail = originalProductDetail;
+  // const productDetail = originalProductDetail;
 
   const relatedProductProps = {
     cardHeading: pdt.relItem,
@@ -180,14 +181,16 @@ const Description = ({ productDetailProps }) => {
               <h3>$ {productDetail.price}</h3>
             </div> */}
             <div className={styles.leftSide}>
-              <div className={styles.smallImage}>
-                <Image
-                  src="/Images/productTop.png"
-                  alt="Small Image"
-                  width={120}
-                  height={78}
-                />
-              </div>
+              {productDetail?.is_organic && (
+                <div className={styles.smallImage}>
+                  <Image
+                    src="/Images/productTop.png"
+                    alt="Small Image"
+                    width={120}
+                    height={78}
+                  />
+                </div>
+              )}
               {productDetail && (
                 <div className={styles.mainImage}>
                   <Image
