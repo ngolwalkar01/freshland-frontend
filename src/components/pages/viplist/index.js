@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Header from "@/components/atoms/Header/Header";
 import style from "./viplist.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -86,17 +85,15 @@ const Vip = ({ vipPageData }) => {
 
   return (
     <>
-      <main>
-        <Header />
-        <div className={style.vipmain}>
-          <div className={style.heading}>
-            <h1>{title}</h1>
-          </div>
-          <section className={style.viplistConatiner}>
-            <div>
-              <form className={style.container}>
-                <div className={style.juicy} dangerouslySetInnerHTML={{ __html: content }} ></div>
-                {/* <div className={style.juicy}>
+      <div className={style.vipmain}>
+        <div className={style.heading}>
+          <h1>{title}</h1>
+        </div>
+        <section className={style.viplistConatiner}>
+          <div>
+            <form className={style.container}>
+              <div className={style.juicy} dangerouslySetInnerHTML={{ __html: content }} ></div>
+              {/* <div className={style.juicy}>
                 <h4>Sweet and juicy citrus fruits! </h4>
                 <p>
                   Sun-ripened oranges 🍊 clementines, grapefruits and other
@@ -119,95 +116,94 @@ const Vip = ({ vipPageData }) => {
                   November, but of course it depends on the weather.
                 </p>
               </div> */}
-                <div className={style.juicy}>
-                  <div className={style.signUpvip}>
-                    <p>{cmt.signUpVIP}</p>
-                    <p>
-                      {cmt.vipDescription}
-                    </p>
-                  </div>
-                  <div className={style.productimg}>
-                    {featured_image ? <Image
-                      src={featured_image}
-                      alt="viporange"
-                      width={250}
-                      height={250}
-                    /> : null}
-                  </div>
-                </div>
-                <div className={style.formFeild}>
-                  <div>
-                    <label htmlFor="name">{cmt.firstName}</label>
-                    <input
-                      className={style.inputField}
-                      type="text"
-                      placeholder="Your Name"
-                      name="name"
-                      value={vipData?.name ? vipData.name : ""}
-                      onChange={(e) => { onUpdateVipData(e, 'name'); }}
-                    />
-                    {errors?.name && (
-                      <span className={style.errorMessage}>
-                        {errors.name}
-                      </span>
-                    )}
-                  </div>
-                  <div>
-                    <label htmlFor="email">{cmt.email}</label>
-                    <input
-                      className={style.inputField}
-                      type="text"
-                      placeholder="Your e-mail"
-                      name="email"
-                      value={vipData?.email ? vipData.email : ""}
-                      onChange={(e) => { onUpdateVipData(e, 'email'); }}
-                    />
-                    {errors?.email && (
-                      <span className={style.errorMessage}>
-                        {errors.email}
-                      </span>
-                    )}
-                  </div>
-                  <div>
-                    <label>Phone number</label>
-                    <Telephone
-                      value={vipData?.phone_number ? vipData.phone_number : ""}
-                      onChange={(e) => { onUpdateVipData({ target: { value: e } }, 'phone_number'); }}
-                    />
-                    {errors?.phone_number && (
-                      <span className={style.errorMessage}>
-                        {errors.phone_number}
-                      </span>
-                    )}
-                  </div>
-                </div>
-                <div>
-                  <p className={style.msgInfo}>
-                    {cmt.marketingConsent}{" "}
-                    <Link href="#">{cmt.productoffer}</Link>,{cmt.event}
-                    {" "}
-                    <Link href="#">
-                      {cmt.lessWaste}
-                    </Link>{" "}
-                    {cmt.acceptDataProcessing}
+              <div className={style.juicy}>
+                <div className={style.signUpvip}>
+                  <p>{cmt.signUpVIP}</p>
+                  <p>
+                    {cmt.vipDescription}
                   </p>
                 </div>
+                <div className={style.productimg}>
+                  {featured_image ? <Image
+                    src={featured_image}
+                    alt="viporange"
+                    width={250}
+                    height={250}
+                  /> : null}
+                </div>
+              </div>
+              <div className={style.formFeild}>
+                <div>
+                  <label htmlFor="name">{cmt.firstName}</label>
+                  <input
+                    className={style.inputField}
+                    type="text"
+                    placeholder="Your Name"
+                    name="name"
+                    value={vipData?.name ? vipData.name : ""}
+                    onChange={(e) => { onUpdateVipData(e, 'name'); }}
+                  />
+                  {errors?.name && (
+                    <span className={style.errorMessage}>
+                      {errors.name}
+                    </span>
+                  )}
+                </div>
+                <div>
+                  <label htmlFor="email">{cmt.email}</label>
+                  <input
+                    className={style.inputField}
+                    type="text"
+                    placeholder="Your e-mail"
+                    name="email"
+                    value={vipData?.email ? vipData.email : ""}
+                    onChange={(e) => { onUpdateVipData(e, 'email'); }}
+                  />
+                  {errors?.email && (
+                    <span className={style.errorMessage}>
+                      {errors.email}
+                    </span>
+                  )}
+                </div>
+                <div>
+                  <label>Phone number</label>
+                  <Telephone
+                    value={vipData?.phone_number ? vipData.phone_number : ""}
+                    onChange={(e) => { onUpdateVipData({ target: { value: e } }, 'phone_number'); }}
+                  />
+                  {errors?.phone_number && (
+                    <span className={style.errorMessage}>
+                      {errors.phone_number}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div>
                 <p className={style.msgInfo}>
-                  {cmt.withdrawConsent} <Link href="#">{cmt.here}</Link> <span>.</span>
-                  {cmt.privacyPolicyInfo} <Link href="#"> {cmt.privacypolicy} </Link><span>.</span>
-                  {cmt.weProcess}
-                  {/* <Link href="#">here</Link>. You can read in our
+                  {cmt.marketingConsent}{" "}
+                  <Link href="#">{cmt.productoffer}</Link>,{cmt.event}
+                  {" "}
+                  <Link href="#">
+                    {cmt.lessWaste}
+                  </Link>{" "}
+                  {cmt.acceptDataProcessing}
+                </p>
+              </div>
+              <p className={style.msgInfo}>
+                {cmt.withdrawConsent} <Link href="#">{cmt.here}</Link> <span>.</span>
+                {cmt.privacyPolicyInfo} <Link href="#"> {cmt.privacypolicy} </Link><span>.</span>
+                {cmt.weProcess}
+                {/* <Link href="#">here</Link>. You can read in our
                   <Link href="#"> privacy policy </Link> how we process
                   information about you. */}
-                </p>
-                <div>
-                  <button onClick={submit} className={style.submit}>{cmt.sendIn}</button>
-                </div>
-              </form>
-            </div>
-          </section>
-        </div>
-      </main>
+              </p>
+              <div>
+                <button onClick={submit} className={style.submit}>{cmt.sendIn}</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
     </>
   );
 };

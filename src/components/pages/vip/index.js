@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./vip.module.css";
-import Header from '@/components/atoms/Header/Header'
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
@@ -9,7 +8,6 @@ const Gifts = ({ vipPageData }) => {
    return (
       <>
          {" "}
-         <Header />
          <section className={styles.vipContainer}>
             <div className={styles.mainHeading}>
                <h1>VIP-Listor</h1>

@@ -9,6 +9,7 @@ import { commonTranslation } from '@/locales';
 import { applyLoader } from "@/helper/loader";
 import OverLayLoader from '@/components/atoms/overLayLoader';
 import productService from '@/services/product';
+import ProductListSkeleton from "@/components/skeleton/homepageskelton/productlist";
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
@@ -156,7 +157,17 @@ const ProductCard = ({ currentIndex, product, debouncedUpdateQuantity, addToBask
     </div>
   )
 }
-const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, removeCartItem, overRideClass = false, reload = () => { }, page = "NoPage" }) => {
+const ProductList = ({
+  cardHeading,
+  productData,
+  addToCart,
+  updateCartQuantity,
+  removeCartItem,
+  overRideClass = false,
+  reload = () => { },
+  page = "NoPage",
+  pageLoading = false
+}) => {
   const [cartProducts, setCartProducts] = useState([]);
   const data = productData;
   const [loading, setLoading] = useState(false);
@@ -247,10 +258,16 @@ const ProductList = ({ cardHeading, productData, addToCart, updateCartQuantity, 
         {cardHeading ? <h2 className={styles.heading}>{cardHeading}</h2> : null}
         <div className={styles.gridWrapper}>
           <div className={styles.gridContainer}>
-            {data && data.map((product, i) => (
-              <ProductCard key={i} currentIndex={i} setOlLoader={setOlLoader} cartProducts={cartProducts} product={product}
-                debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} reload={reload} page={page}/>
-            ))}
+            {
+              pageLoading ? <ProductListSkeleton /> : (
+                <>
+                  {data && data.map((product, i) => (
+                    <ProductCard key={i} currentIndex={i} setOlLoader={setOlLoader} cartProducts={cartProducts} product={product}
+                      debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} reload={reload} page={page} />
+                  ))}
+                </>
+              )
+            }
           </div>
         </div>
       </div >

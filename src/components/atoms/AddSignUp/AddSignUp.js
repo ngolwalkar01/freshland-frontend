@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { signUp } from "@/mockdata/signUp";
-import { useState,useRef } from 'react';
+import { useState, useRef } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './Signup.module.css';
@@ -12,11 +12,12 @@ import { homepageTranslation } from '@/locales';
 import Link from "next/link";
 import { CustomPrevArrow, CustomNextArrow } from "@/components/atoms/customearrow"
 import { useRouter } from 'next/navigation';
+import AddsignupSkeleton from "@/components/skeleton/homepageskelton/addsignup";
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 
-const AddSignUp = ({ vipPages, enableMockData }) => {
+const AddSignUp = ({ vipPages, enableMockData, homePageLoading }) => {
   const hpt = homepageTranslation[lang];
   const images = signUp;
   const sliderRef = useRef(null);
@@ -36,8 +37,8 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
     //   setCurrentSlide(next);
     //   setShowPrevArrow(next > 0); 
     // },
-    prevArrow: <CustomPrevArrow visible={showPrevArrow}/>,
-    nextArrow: <CustomNextArrow setShowPrevArrow={setShowPrevArrow}/>,
+    prevArrow: <CustomPrevArrow visible={showPrevArrow} />,
+    nextArrow: <CustomNextArrow setShowPrevArrow={setShowPrevArrow} />,
     responsive: [
       {
         breakpoint: 1440,
@@ -79,17 +80,14 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
           slidesToScroll: 1,
           initialSlide: 1,
         },
-        
       },
 
-       {
+      {
         breakpoint: 400,
         settings: {
           slidesToShow: 1, // Show 2 slides on mobile screens
           slidesToScroll: 1,
-          
         },
-        
       },
     ],
   };
@@ -102,33 +100,34 @@ const AddSignUp = ({ vipPages, enableMockData }) => {
         <h2 className={styles.heading}>{hpt.benefitsVIP}</h2>
         <p className={styles.description}>{hpt.beFirstToKnow}</p>
         <div className={styles.sliderContainer}>
-          <Slider {...settings}>
+          {
+            homePageLoading ? <AddsignupSkeleton /> : (
+              <Slider {...settings}>
+                {vipPages && vipPages.map((data, index) => (
+                  <div key={index}>
 
-            {vipPages && vipPages.map((data, index) => (
-              <div key={index}>
+                    <div className={styles.imageContainer}>
+                      <Image
+                        className={styles.image}
+                        src={data.thumbnail ? data.thumbnail : '/mockImage/viporange.png'}
+                        alt={`Slide ${index}`}
+                        width={343}
+                        height={350}
+                        priority
+                      />
 
-                <div className={styles.imageContainer}>
-                  <Image
-                    className={styles.image}
-                    src={data.thumbnail ? data.thumbnail : '/mockImage/viporange.png'}
-                    alt={`Slide ${index}`}
-                    width={343}
-                    height={350}
-                    priority
-                  />
+                      <h4 className={styles.text}>{data.title}</h4>
 
-                  <h4 className={styles.text}>{data.title}</h4>
+                      <button className={styles.button} onClick={() => router.push(`/viplist/${data.id}`)}>{hpt.signUp}</button>
 
-                  <button className={styles.button} onClick={() => router.push(`/viplist/${data.id}`)}>{hpt.signUp}</button>
-
-                </div>
-              </div>
-
-            ))}
-
-          </Slider>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            )
+          }
         </div>
-        <Link href ="/vip" className={styles.signupButton}>{hpt.seeVIP}</Link>
+        <Link href="/vip" className={styles.signupButton}>{hpt.seeVIP}</Link>
       </div>
     </div>
   );

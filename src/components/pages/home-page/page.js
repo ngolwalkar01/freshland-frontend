@@ -15,17 +15,25 @@ import CustomTestimonial from '@/components/atoms/CustomTestimonial/CustomTestim
 import Categories from '@/components/atoms/categories';
 
 const HomePage = ({ homePageProps }) => {
-  const { farmProducts, sessionalProducts, shippingMethods, vipPages, cutOffDaysDetail } = homePageProps;
+  const { farmProducts, sessionalProducts, shippingMethods, vipPages, cutOffDaysDetail, loading: pageLoading } = homePageProps;
   const enableMockData = process.env.NEXT_PUBLIC_ENABLE_MOCK_DATA === 'true';
 
   const shippingProps = { shippingMethods, enableMockData, cutOffDaysDetail };
   const vipProps = { vipPages, enableMockData };
   const pathname = usePathname();
 
-  const page="home"
+  const page = "home"
   return (
     <>
-      {pathname === '/' && <TopImage farmProductProps={{ productData: farmProducts, enableMockData, addToCart, updateCartQuantity, removeCartItem, page }} />}
+      {pathname === '/' && <TopImage farmProductProps={{
+        productData: farmProducts,
+        enableMockData,
+        addToCart,
+        updateCartQuantity,
+        removeCartItem,
+        page,
+        pageLoading
+      }} />}
 
       <LazyLoad height={200} offset={100}>
         <OrderDeadline {...shippingProps} />
@@ -33,7 +41,7 @@ const HomePage = ({ homePageProps }) => {
 
         <Categories />
         <Register />
-        <AddSignUp {...vipProps} />
+        <AddSignUp {...vipProps} homePageLoading={pageLoading}/>
         <VideoComponent />
         <Award />
         <ProductSlider />

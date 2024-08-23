@@ -20,9 +20,11 @@ export default function Home() {
     cutOffDaysDetail: undefined
   });
   const [isActivatehomeApis, setISActivateHomeApis] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
+      setLoading(true);
       const [
         productsResponse,
         // sessionalProductsResponse,
@@ -36,7 +38,7 @@ export default function Home() {
         vipPagesService.getVipPages(10),
         deliveryCycleAPI.getcuttoffday()
       ]);
-
+      setLoading(false);
       setData({
         farmProducts: productsResponse || [],
         // sessionalProducts: sessionalProductsResponse || [],
@@ -57,7 +59,7 @@ export default function Home() {
         stopRedirect={true}
         activateApis={setISActivateHomeApis}
       />
-      <HomePage homePageProps={{ ...data }} />
+      <HomePage homePageProps={{ ...data, loading }} />
     </Layout>
   );
 }

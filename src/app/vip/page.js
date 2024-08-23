@@ -5,6 +5,7 @@ import Layout from '@/components/layout';
 import vipPagesService from '@/services/vipPages';
 import { useState, useEffect } from 'react';
 import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
+import Header from '@/components/atoms/Header/Header';
 
 const Vip = () => {
     const [data, setData] = useState([]);
@@ -28,6 +29,7 @@ const Vip = () => {
     return (
         <Layout>
             <ActiveUserKlaviyo />
+            <Header />
             {loading ? <></> : <VIP vipPageData={data} />}
         </Layout>
     )

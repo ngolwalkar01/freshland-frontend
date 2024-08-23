@@ -6,6 +6,7 @@ import { useParams } from 'next/navigation';
 import CartAPI from '@/services/cart';
 import { useState, useEffect } from 'react';
 import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
+import Header from "@/components/atoms/Header/Header";
 
 const VipList = () => {
     const params = useParams();
@@ -34,7 +35,10 @@ const VipList = () => {
     return (
         <Layout>
             <ActiveUserKlaviyo />
-            {loading ? <></> : <Vip vipPageData={data} />}
+            <main>
+                <Header />
+                {loading ? <></> : <Vip vipPageData={data} />}
+            </main>
         </Layout>
     )
 };
