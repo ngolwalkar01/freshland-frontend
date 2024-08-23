@@ -25,22 +25,22 @@ export default function Home() {
     async function fetchData() {
       const [
         productsResponse,
-        sessionalProductsResponse,
-        shippingResponse,
+        // sessionalProductsResponse,
+        // shippingResponse,
         vipPagesResponse,
         DeliveryCycleResponse
       ] = await Promise.all([
         productService.getProducts(),
-        productService.getSessionalProducts(),
-        shippingService.getShippingMethods(),
+        // productService.getSessionalProducts(),
+        // shippingService.getShippingMethods(),
         vipPagesService.getVipPages(10),
         deliveryCycleAPI.getcuttoffday()
       ]);
 
       setData({
         farmProducts: productsResponse || [],
-        sessionalProducts: sessionalProductsResponse || [],
-        shippingMethods: shippingResponse || [],
+        // sessionalProducts: sessionalProductsResponse || [],
+        // shippingMethods: shippingResponse || [],
         vipPages: vipPagesResponse || [],
         cutOffDaysDetail: DeliveryCycleResponse || undefined
       });

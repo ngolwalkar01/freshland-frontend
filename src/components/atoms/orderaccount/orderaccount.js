@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./orderaccount.module.css";
 import Link from "next/link";
-import { myaccountTranslation, serviceTranslation, orderconfirmationTranslation } from '@/locales';
+import { myaccountTranslation, serviceTranslation, orderconfirmationTranslation, cartTranslation } from '@/locales';
 import OrderProcess from "../orderprocess";
 import accountApi from "@/services/account";
 import { toast } from 'react-toastify';
@@ -17,6 +17,7 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
   const mat = myaccountTranslation[lang];
   const orderTrs = orderconfirmationTranslation[lang];
   const service = serviceTranslation[lang];
+  const ct = cartTranslation[lang];
   const [showRequest, setShowRequest] = useState();
 
   const handleRequest = () => {
@@ -69,14 +70,18 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
   }
 
   const getCorrectPrice = (number, currency_minor_unit) => {
-    if (currency_minor_unit)
-      return parseFloat((number / 100).toFixed(currency_minor_unit));
+    if (currency_minor_unit) {
+      const value = parseFloat((number / 100).toFixed(currency_minor_unit));
+      return Math.round(value);
+    }
 
     return number;
   }
 
   const { delivery_dates: deliveryDates, order_date: orderDate } = orderDates || {};
 
+  const totalRabat = getCorrectPrice(parseInt(orderobj?.totals?.total_discount) + parseInt(orderobj?.totals?.total_discount_tax)
+    , orderobj?.totals?.currency_minor_unit);
   return (
     <>
       {!showOrderView && (
@@ -169,8 +174,8 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
               <div className={styles.orderDetail}>
                 <p className={styles.label}>{mat.status}</p>
                 <p className={styles.value}>
-					{orderobj.status === "processing" ? "Behandlas" : orderobj.status}
-				</p>
+                  {orderobj.status === "processing" ? "Behandlas" : orderobj.status}
+                </p>
               </div>
               <div className={styles.orderDetail}>
                 <p className={styles.label}>{mat.total}</p>
@@ -215,14 +220,20 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
                     <tr>
                       <td>{mat.subTotal}</td>
                       <td>
-                        {getCorrectPrice(orderobj.totals.total_items, orderobj.totals.currency_minor_unit)}
+                        {getCorrectPrice((parseInt(orderobj.totals.total_items) + parseInt(orderobj.totals.total_items_tax)), orderobj.totals.currency_minor_unit)}
                         {" "}{orderobj.totals.currency_symbol}
+                        <span>
+                          {" "}({ct.include}
+                          {getCorrectPrice(orderobj?.totals?.total_tax, orderobj.totals.currency_minor_unit)}
+                          {" "}{orderobj.totals.currency_symbol}
+                          {" "}{ct.tax}.)
+                        </span>
                       </td>
                     </tr>
                     <tr>
                       <td>{mat.shipment}</td>
                       <td>
-                        {getCorrectPrice(orderobj.totals.total_shipping, orderobj.totals.currency_minor_unit)}
+                        {getCorrectPrice((parseInt(orderobj.totals.total_shipping) + parseInt(orderobj.totals.total_shipping_tax)), orderobj.totals.currency_minor_unit)}
                         {" "}{orderobj.totals.currency_symbol}
                       </td>
                     </tr>
@@ -235,7 +246,7 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
                         {" "}{orderobj.totals.currency_symbol}
                       </td>
                     </tr>
-                    <tr>
+                    {/* <tr>
                       <td>
                         <label>{orderTrs.tax}</label>
                       </td>
@@ -243,17 +254,18 @@ function Orderaccount({ showOrderView, setShowOrderView, orders, orderobj, order
                         {getCorrectPrice(orderobj?.totals?.total_tax, orderobj.totals.currency_minor_unit)}
                         {" "}{orderobj.totals.currency_symbol}
                       </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <label>{orderTrs.rabat}</label>
-                      </td>
-                      <td>
-                        {getCorrectPrice(parseInt(orderobj?.totals?.total_discount) + parseInt(orderobj?.totals?.total_discount_tax)
-                          , orderobj.totals.currency_minor_unit)}
-                        {" "}{orderobj.totals.currency_symbol}
-                      </td>
-                    </tr>
+                    </tr> */}
+                    {totalRabat ? (
+                      <tr>
+                        <td>
+                          <label>{orderTrs.rabat}</label>
+                        </td>
+                        <td>
+                          {totalRabat}
+                          {" "}{orderobj.totals.currency_symbol}
+                        </td>
+                      </tr>
+                    ) : null}
                   </tbody>
                 </table>
               </div>

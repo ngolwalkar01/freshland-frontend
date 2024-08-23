@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "@/components/atoms/Header/Header";
 import styles from "./Order.module.css";
-import { orderconfirmationTranslation } from '@/locales';
+import { orderconfirmationTranslation, cartTranslation } from '@/locales';
 import Link from "next/link";
 import { getOrderDetailById, getOrderDates } from "@/components/service/account"
 import { AddressInfo } from "@/components/atoms/address/address";
@@ -15,6 +15,7 @@ const Order = ({ orderId }) => {
   const searchParams = useSearchParams();
   const order_key = searchParams.get('order_key');
   const oct = orderconfirmationTranslation[lang];
+  const ct = cartTranslation[lang];
   const [cartData, setCartData] = useState({
     cartSubTotal: 0,
     cartTotalDiscount: 0,
@@ -48,7 +49,8 @@ const Order = ({ orderId }) => {
       const total_tax = orderData?.totals?.total_tax;
       const total_discount_tax = orderData?.totals?.total_discount_tax;
       const cartSubTotal = getCorrectPrice(
-        parseInt(total_items) + parseInt(total_tax) + parseInt(total_discount_tax),
+        parseInt(total_items) + parseInt(orderData?.totals?.total_items_tax),
+        // parseInt(total_items) + parseInt(total_tax) + parseInt(total_discount_tax),
         currency_minor_unit
       );
       const cartTotalDiscount = getCorrectPrice(
@@ -59,7 +61,7 @@ const Order = ({ orderId }) => {
         parseInt(orderData?.totals?.total_shipping) + parseInt(orderData?.totals?.total_shipping_tax),
         currency_minor_unit
       );
-      const cal_total_tax  = getCorrectPrice(
+      const cal_total_tax = getCorrectPrice(
         parseInt(total_tax),
         currency_minor_unit
       );
@@ -82,8 +84,8 @@ const Order = ({ orderId }) => {
   const getCorrectPrice = (number, currency_minor_unit) => {
     if (currency_minor_unit) {
       const value = parseFloat((number / 100).toFixed(currency_minor_unit));
-      return value;
-      // return Math.round(value);
+      // return value;
+      return Math.round(value);
     }
     return number;
   };
@@ -126,10 +128,10 @@ const Order = ({ orderId }) => {
                     <div className={styles.orderDetail}>
                       <p className={styles.label}>{oct.total}</p>
                       <p className={styles.value}>
-                        {currency} {getCorrectPrice(
+                        {getCorrectPrice(
                           parseInt(orderData?.totals?.total_price),
                           orderData?.totals?.currency_minor_unit
-                        )}
+                        )} {currency}
                       </p>
                     </div>
                   </div>
@@ -146,19 +148,21 @@ const Order = ({ orderId }) => {
                         {orderData.items.map((item, index) => (
                           <tr key={index}>
                             <td>{item.name} <span>x {item.quantity}</span></td>
-                            <td>{currency} {getCorrectPrice(
+                            <td>{getCorrectPrice(
                               parseInt(item?.totals?.line_subtotal) + parseInt(item?.totals?.line_subtotal_tax),
                               item?.totals?.currency_minor_unit
-                            )}</td>
+                            )} {currency}</td>
                           </tr>
                         ))}
                         <tr>
                           <td>{oct.subtotal}</td>
-                          <td>{currency} {cartSubTotal}</td>
+                          <td>{cartSubTotal} {currency}
+                            <span> ({ct.include} {total_tax} {currency} {ct.tax}.)</span>
+                          </td>
                         </tr>
                         <tr>
                           <td>{oct.shipment}</td>
-                          <td>{currency} {shippingTotal}</td>
+                          <td>{shippingTotal} {currency}</td>
                         </tr>
                         <tr>
                           <td>{oct.expectedDelivery}</td>
@@ -168,14 +172,14 @@ const Order = ({ orderId }) => {
                           <td>{oct.orderDate}</td>
                           <td>{orderDate}</td>
                         </tr>
-                        <tr>
+                        {/* <tr>
                           <td>{oct.tax}</td>
                           <td>{currency} {total_tax}</td>
-                        </tr>
+                        </tr> */}
                         {cartTotalDiscount && cartTotalDiscount > 0 ? (
                           <tr>
                             <td>{oct.rabat}</td>
-                            <td>{currency} {cartTotalDiscount}</td>
+                            <td>{cartTotalDiscount} {currency}</td>
                           </tr>
                         ) : null}
                       </tbody>
