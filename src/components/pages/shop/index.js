@@ -21,17 +21,26 @@ const AllItems = ({ categoryWithProducts }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState(null);
 
-  // Create a ref for each category
   const categoryRefs = useRef({});
 
   const handleFilterClick = (categoryId) => {
     setSelectedFilter(categoryId);
     setShowMenu(false);
 
-    // Scroll to the selected category section
     if (categoryRefs.current[categoryId]) {
-      categoryRefs.current[categoryId].scrollIntoView({ behavior: 'smooth' });
+      const element = categoryRefs.current[categoryId];
+
+      const topPos = element.getBoundingClientRect().top + window.pageYOffset - 100;
+
+      window.scrollTo({
+        top: topPos,
+        behavior: 'smooth'
+      });
     }
+
+    // if (categoryRefs.current[categoryId]) {
+    //   categoryRefs.current[categoryId].scrollIntoView({ behavior: 'smooth' });
+    // }
   };
 
   return (

@@ -6,25 +6,10 @@ import vipPagesService from '@/services/vipPages';
 import { useState, useEffect } from 'react';
 import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
 import Header from '@/components/atoms/Header/Header';
+import { useData } from '@/contexts/DataContext';
 
 const Vip = () => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                setLoading(true);
-                const vipData = await vipPagesService.getAllVipPages();
-                setData(vipData)
-            } catch (error) {
-                console.log(error);
-            } finally {
-                setLoading(false);
-            }
-        }
-        fetchData();
-    }, [])
+    const { vipPageData: data, loadingVipPage: loading } = useData() || {};
 
     return (
         <Layout>

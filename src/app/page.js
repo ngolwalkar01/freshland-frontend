@@ -10,42 +10,14 @@ import vipPagesService from '@/services/vipPages';
 import deliveryCycleAPI from '@/services/deliveryCycle';
 import { getCartData } from "@/components/service/cart";
 import AuthHandlerWithSession from '@/components/atoms/auth/google';
+import { useData } from '@/contexts/DataContext';
 
 export default function Home() {
-  const [data, setData] = useState({
-    farmProducts: [],
-    sessionalProducts: [],
-    shippingMethods: [],
-    vipPages: [],
-    cutOffDaysDetail: undefined
-  });
+  const { productsData: data, loadingProducts: loading } = useData() || {};
   const [isActivatehomeApis, setISActivateHomeApis] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
-      setLoading(true);
-      const [
-        productsResponse,
-        // sessionalProductsResponse,
-        // shippingResponse,
-        vipPagesResponse,
-        DeliveryCycleResponse
-      ] = await Promise.all([
-        productService.getProducts(),
-        // productService.getSessionalProducts(),
-        // shippingService.getShippingMethods(),
-        vipPagesService.getVipPages(10),
-        deliveryCycleAPI.getcuttoffday()
-      ]);
-      setLoading(false);
-      setData({
-        farmProducts: productsResponse || [],
-        // sessionalProducts: sessionalProductsResponse || [],
-        // shippingMethods: shippingResponse || [],
-        vipPages: vipPagesResponse || [],
-        cutOffDaysDetail: DeliveryCycleResponse || undefined
-      });
       getCartData();
     }
 

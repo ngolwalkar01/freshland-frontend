@@ -4,6 +4,7 @@ import "./globals.css";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CookieConsentComponent from "@/components/atoms/CookieConsent";
+import { DataProvider } from '@/contexts/DataContext';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,7 +39,9 @@ export default function RootLayout({ children }) {
         {pubKey ? (
           <script type="text/javascript" async="" src={src}></script>
         ) : ''}
-        {children}
+        <DataProvider>
+          {children}
+        </DataProvider>
         <ToastContainer
           position="top-right"
           autoClose={5000}

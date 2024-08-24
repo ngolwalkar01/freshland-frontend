@@ -2,30 +2,23 @@
 
 import Shop from "@/components/pages/shop";
 import Layout from "@/components/layout";
-import productCategoryService from "@/services/productCategories";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Shopskeleton from "@/components/skeleton/shopskeleton";
 import { getCartData } from "@/components/service/cart";
 import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
+import { useData } from '@/contexts/DataContext';
 
-const GoodsPage = (props) => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+const GoodsPage = () => {
+  const { shopData: data, loadingShop: loading } = useData() || {};
 
   useEffect(() => {
     async function fetchData() {
       try {
-        setLoading(true);
-        const categoryWithProducts = await productCategoryService.getCategoriesWithProducts();
-        setData({ categoryWithProducts })
+        getCartData();
       } catch (error) {
         console.log(error);
-      } finally {
-        setLoading(false);
-        getCartData();
       }
     }
-
     fetchData();
   }, [])
 

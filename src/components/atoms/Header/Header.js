@@ -9,8 +9,9 @@ import styles from "./Header.module.css";
 import { homepageTranslation, commonTranslation } from '@/locales';
 import Productsearch from '@/components/atoms/search';
 import productService from '@/services/product';
-import productCategoryService from "@/services/productCategories";
 import CartDropdown from "../cartdropdown";
+import { useData } from '@/contexts/DataContext';
+
 const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
@@ -18,6 +19,9 @@ const Header = () => {
   const router = useRouter();
   const hpt = homepageTranslation[lang];
   const cmt = commonTranslation[lang];
+
+  const { categories } = useData() || {};
+
   const [Mobile, setMobile] = useState(false);
   const pathname = usePathname()
   const [showmenu, setshowMenu] = useState(false);
@@ -28,7 +32,6 @@ const Header = () => {
   const [overlayVisible, setOverlayVisible] = useState(false);
   const [productData, setProductData] = useState([]);
   const [searchTxt, setSearchTxt] = useState("");
-  const [categories, setCategories] = useState([])
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const cartDropdownRef = useRef(null);
   const openSearch = () => {
@@ -66,15 +69,6 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await productCategoryService.getCategories();
-      setCategories(data);
-    }
-
-    fetchData();
-  }, [])
 
   const updateCartCount = () => {
     const cartLocalStorageData = cartDataStorage && localStorage.getItem(cartDataStorage);

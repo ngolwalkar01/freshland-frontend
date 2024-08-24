@@ -35,20 +35,20 @@ const HomePage = ({ homePageProps }) => {
         pageLoading
       }} />}
 
-      <LazyLoad height={200} offset={100}>
-        <OrderDeadline {...shippingProps} />
-        {/* <Goods sessionalProductProps={{ productData: sessionalProducts, enableMockData, addToCart, updateCartQuantity, removeCartItem }} /> */}
+      {/* <LazyLoad height={200} offset={100}> */}
+      <OrderDeadline {...shippingProps} />
+      {/* <Goods sessionalProductProps={{ productData: sessionalProducts, enableMockData, addToCart, updateCartQuantity, removeCartItem }} /> */}
 
-        <Categories />
-        <Register />
-        <AddSignUp {...vipProps} homePageLoading={pageLoading}/>
-        <VideoComponent />
-        <Award />
-        <ProductSlider />
-        {/* <Testimonials /> */}
-        {/* <CustomTestimonial /> */}
+      {/* <Categories /> */}
+      <Register />
+      <AddSignUp {...vipProps} homePageLoading={pageLoading} />
+      <VideoComponent />
+      <Award />
+      <ProductSlider />
+      {/* <Testimonials /> */}
+      {/* <CustomTestimonial /> */}
 
-      </LazyLoad>
+      {/* </LazyLoad> */}
     </>
   );
 };
