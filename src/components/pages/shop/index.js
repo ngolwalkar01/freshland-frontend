@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./AllGoods.module.css";
 import ProductList from "@/components/atoms/ProductList/ProductList";
 import { goodsProduct } from "@/mockdata/goodsProduct";
@@ -20,6 +20,19 @@ const AllItems = ({ categoryWithProducts }) => {
 
   const [showMenu, setShowMenu] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState(null);
+
+  // Create a ref for each category
+  const categoryRefs = useRef({});
+
+  const handleFilterClick = (categoryId) => {
+    setSelectedFilter(categoryId);
+    setShowMenu(false);
+
+    // Scroll to the selected category section
+    if (categoryRefs.current[categoryId]) {
+      categoryRefs.current[categoryId].scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
@@ -47,12 +60,8 @@ const AllItems = ({ categoryWithProducts }) => {
               >
                 <ul className={styles.filterList}>
                   <li
-
                     className={styles.filterListLi}
-                    onClick={() => {
-                      setSelectedFilter(null);
-                      setShowMenu(false);
-                    }}
+                    onClick={() => handleFilterClick(null)}
                   >
                     <input
                       className={styles.filterInput}
@@ -60,22 +69,16 @@ const AllItems = ({ categoryWithProducts }) => {
                       name="cat-filters"
                       checked={selectedFilter === null}
                     />
-                    <label
-                      className={styles.FilterRadioLabel}
-
-                    >
+                    <label className={styles.FilterRadioLabel}>
                       {st.allProducts}
                     </label>
                   </li>
-                  {categoryWithProducts && categoriesWithProducts.map((x, i) => {
+                  {categoriesWithProducts && categoriesWithProducts.map((x, i) => {
                     return (
                       <li
                         key={i}
                         className={styles.filterListLi}
-                        onClick={() => {
-                          setSelectedFilter(x.category.id);
-                          setShowMenu(false);
-                        }}
+                        onClick={() => handleFilterClick(x.category.id)}
                       >
                         <input
                           className={styles.filterInput}
@@ -84,10 +87,7 @@ const AllItems = ({ categoryWithProducts }) => {
                           value={x.category.id}
                           id={x.category.id}
                         />
-                        <label
-                          className={styles.FilterRadioLabel}
-
-                        >
+                        <label className={styles.FilterRadioLabel}>
                           {x.category.name}
                         </label>
                       </li>
@@ -96,50 +96,27 @@ const AllItems = ({ categoryWithProducts }) => {
                 </ul>
               </div>
             </div>
-
-
           </div>
 
           {/* desktop filter */}
-
-          <div className={styles.filterButton}
-          >
-
-
+          <div className={styles.filterButton}>
             <ul className={styles.newfilterlist}>
-
               <li
                 className={`${styles.newfilterListLi} ${selectedFilter === null ? styles.activeFilter : ''}`}
-                onClick={() => {
-                  setSelectedFilter(null);
-                  setShowMenu(false);
-                }}
+                onClick={() => handleFilterClick(null)}
               >
                 <label className={styles.FilterRadioLabel}>
                   {st.allProducts}
                 </label>
               </li>
-              {categoryWithProducts && categoriesWithProducts.map((x, i) => {
+              {categoriesWithProducts && categoriesWithProducts.map((x, i) => {
                 return (
                   <li
                     key={i}
                     className={`${styles.newfilterListLi} ${selectedFilter === x.category.id ? styles.activeFilter : ''}`}
-                    onClick={() => {
-                      setSelectedFilter(x.category.id);
-                      setShowMenu(false);
-                    }}
+                    onClick={() => handleFilterClick(x.category.id)}
                   >
-                    {/* <input
-                          className={styles.filterInput}
-                          type="radio"
-                          name="cat-filters"
-                          value={x.category.id}
-                          id={x.category.id}
-                        /> */}
-                    <label
-                      className={styles.FilterRadioLabel}
-                      htmlFor={x.category.id}
-                    >
+                    <label className={styles.FilterRadioLabel} htmlFor={x.category.id}>
                       {x.category.name}
                     </label>
                   </li>
@@ -147,52 +124,41 @@ const AllItems = ({ categoryWithProducts }) => {
               })}
             </ul>
           </div>
-          {/*  */}
+
           <div className={styles.categoriesCover}>
             {/* Product list */}
-            {categoriesWithProducts && categoriesWithProducts
-              .filter((x) => {
-                return !selectedFilter || x.category.id === selectedFilter;
-              })
-              .map((item, index) => (
-                <div key={index} className={`${styles.wrapper} shopWrapper ${item.category.name}`}>
-                  <div className={styles.goodsItem} key={index}>
-                    {/* Image */}
-                    <div className={styles.imageContainer}>
-                      {/* <Image
-                        src={`/mockImage/Fruit.png`}
-                        alt={item.category.name}
-                        className={styles.coverImage}
-                        width={1400}
-                        height={213}
-                        sizes="(max-width: 600px) 100vw, (max-width: 1400px) 80vw"
-                        loading="lazy"
-                      /> */}
-                      <h2 className={styles.imageHeading}>
-                        {item.category.name}
-                      </h2>
-                    </div>
-                    <div className={styles.goodsCard}>
-                      {enableMockData ||
-                        (item.products && item.products.length > 0) ? (
-                        <ProductList
-                          cardHeading=""
-                          addToCart={addToCart}
-                          updateCartQuantity={updateCartQuantity}
-                          removeCartItem={removeCartItem}
-                          productData={enableMockData ? [] : item.products}
-                          enableMockData={enableMockData}
-                          page="shop"
-                        />
-                      ) : (
-                        <p className={styles.comingSoon}>
-                          {st.ourProductComingSoon} <br />{st.stayTuned}
-                        </p>
-                      )}
-                    </div>
+            {categoriesWithProducts && categoriesWithProducts.map((item, index) => (
+              <div
+                key={index}
+                ref={(el) => (categoryRefs.current[item.category.id] = el)}
+                className={`${styles.wrapper} shopWrapper ${item.category.name}`}
+              >
+                <div className={styles.goodsItem}>
+                  <div className={styles.imageContainer}>
+                    <h2 className={styles.imageHeading}>
+                      {item.category.name}
+                    </h2>
+                  </div>
+                  <div className={styles.goodsCard}>
+                    {enableMockData || (item.products && item.products.length > 0) ? (
+                      <ProductList
+                        cardHeading=""
+                        addToCart={addToCart}
+                        updateCartQuantity={updateCartQuantity}
+                        removeCartItem={removeCartItem}
+                        productData={enableMockData ? [] : item.products}
+                        enableMockData={enableMockData}
+                        page="shop"
+                      />
+                    ) : (
+                      <p className={styles.comingSoon}>
+                        {st.ourProductComingSoon} <br />{st.stayTuned}
+                      </p>
+                    )}
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
         </main>
       </div>
@@ -201,6 +167,3 @@ const AllItems = ({ categoryWithProducts }) => {
 };
 
 export default AllItems;
-
-
-
