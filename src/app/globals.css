@@ -599,7 +599,9 @@ main{
   flex-direction: column;
   gap: 16px;
 }
-
+.gc-descriotionimg{
+  margin-top: 20px;
+}
 .descriptionWrapper span {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   font-size: 18px;

@@ -36,7 +36,7 @@
   padding-inline: 10px;
   display: flex;
   flex-wrap: wrap;
-  margin: 45px auto;
+  margin: 45px 0;
 }
 .gridItem{
   background-color: #fff;

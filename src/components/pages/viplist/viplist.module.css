@@ -101,6 +101,7 @@
 }
 .productimg img{
     width: 250px;
+    object-fit: cover;
 }
 .signUpvip p:first-child{
  color: var(--green);

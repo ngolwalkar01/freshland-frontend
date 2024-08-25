@@ -80,7 +80,7 @@
   justify-content: left;
   gap: 23px;
   width: 100%;
-  max-width: 350px;
+  /* max-width: 350px; */
 
 }
 .cartpageSutotal{
@@ -576,6 +576,11 @@ border-radius: 25px;
   display: flex;
   margin-inline: auto;
 }
+.moveBtn{
+  display: grid;
+  grid-template-columns: 230px 2fr;
+  gap: 23px;
+}
 
 @media (min-width: 320px) and (max-width: 375px) {
   .discount {
@@ -621,6 +626,11 @@ border-radius: 25px;
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
+  .moveBtn{
+    display: grid;
+    grid-template-columns: auto;
+    gap: 0px;
+  }
   .subtotalLeft p:last-child{
     width: auto;
   }
@@ -690,7 +700,7 @@ border-radius: 25px;
   .leftContainer {
     gap: 24px;
     width: 100%;
-    max-width: 374px;
+    max-width: 400px;
     padding-inline: 28px;
     /*Left container font*/
 

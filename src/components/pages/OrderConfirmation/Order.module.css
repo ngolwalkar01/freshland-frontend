@@ -82,8 +82,7 @@ line-height: 24px;
   flex-direction: column;
   gap: 24px;
   width: 100%;
-  max-width: 328px;
-  max-width: 375px;
+  max-width: 500px;
   height: fit-content; 
   /* payment Paragraph */
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;

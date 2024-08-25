@@ -27,6 +27,7 @@
 .vipCategory img{
  border-radius: 30px;
  object-fit: cover;
+ height: 400px;
 }
 .textConatiner{
     position: absolute;

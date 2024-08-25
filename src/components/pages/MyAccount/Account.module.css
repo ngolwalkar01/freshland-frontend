@@ -30,7 +30,7 @@
 
 .Headeraccount{
     position: relative;
-    z-index: 1100;
+    z-index: 5;
 }
 .accountcontainer{
     display: flex;
@@ -88,13 +88,12 @@
   
   /* Logout confirmation popup */
   .logoutConfirmation {
-    width: 318px;
     position: absolute;
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    padding: 16px 18px;
+    padding: 26px 26px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
@@ -103,7 +102,7 @@
   
   
   .confirmationMessage p {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
   }
   
   .actions  {
