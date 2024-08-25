@@ -9,7 +9,12 @@ import Header from '@/components/atoms/Header/Header';
 import { useData } from '@/contexts/DataContext';
 
 const Vip = () => {
-    const { vipPageData: data, loadingVipPage: loading } = useData() || {};
+    const { vipPageData: data, loadingVipPage: loading, fetchVipData } = useData() || {};
+
+    useEffect(() => {
+        fetchVipData(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <Layout>

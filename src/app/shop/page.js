@@ -9,17 +9,19 @@ import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
 import { useData } from '@/contexts/DataContext';
 
 const GoodsPage = () => {
-  const { shopData: data, loadingShop: loading } = useData() || {};
+  const { shopData: data, loadingShop: loading, fetchShopData } = useData() || {};
 
   useEffect(() => {
     async function fetchData() {
       try {
+        fetchShopData(false)
         getCartData();
       } catch (error) {
         console.log(error);
       }
     }
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

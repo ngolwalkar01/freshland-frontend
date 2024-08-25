@@ -28,8 +28,8 @@ export const DataProvider = ({ children }) => {
   const [vipPageData, setVipPageData] = useState([]);
   const [loadingVipPage, setLoadingVipPage] = useState(false);
 
-  const fetchProducts = async () => {
-    setLoadingProducts(true);
+  const fetchProducts = async (isApplyLoader = true) => {
+    isApplyLoader ? setLoadingProducts(true) : null;
     try {
       const [
         productsResponse,
@@ -44,7 +44,7 @@ export const DataProvider = ({ children }) => {
         vipPagesService.getVipPages(10),
         deliveryCycleAPI.getcuttoffday()
       ]);
-      setLoadingProducts(false);
+      isApplyLoader ? setLoadingProducts(false) : null;
       setProductsData({
         farmProducts: productsResponse || [],
         // sessionalProducts: sessionalProductsResponse || [],
@@ -54,19 +54,19 @@ export const DataProvider = ({ children }) => {
       });
     } catch (error) {
       console.error('Failed to fetch products:', error);
+      setLoadingProducts(false);
     }
-    setLoadingProducts(false);
   };
 
-  const fetchShopData = async () => {
+  const fetchShopData = async (isApplyLoader = true) => {
     try {
-      setLoadingShop(true);
+      isApplyLoader ? setLoadingShop(true) : null;
       const categoryWithProducts = await productCategoryService.getCategoriesWithProducts();
       setShopData({ categoryWithProducts })
     } catch (error) {
       console.log(error);
     } finally {
-      setLoadingShop(false);
+      isApplyLoader ? setLoadingShop(false) : null;
     }
   }
 
@@ -75,15 +75,15 @@ export const DataProvider = ({ children }) => {
     setCategories(data);
   }
 
-  const fetchVipData = async () => {
+  const fetchVipData = async (isApplyLoader = true) => {
     try {
-      setLoadingVipPage(true);
+      isApplyLoader ? setLoadingVipPage(true) : null;
       const vipData = await vipPagesService.getAllVipPages();
       setVipPageData(vipData)
     } catch (error) {
       console.log(error);
     } finally {
-      setLoadingVipPage(false);
+      isApplyLoader ? setLoadingVipPage(false) : null;
     }
   }
 
@@ -117,7 +117,7 @@ export const DataProvider = ({ children }) => {
       productsData, loadingProducts, fetchProducts,
       shopData, loadingShop, fetchShopData,
       categories,
-      vipPageData, loadingVipPage
+      vipPageData, loadingVipPage, fetchVipData
     }}>
       {children}
     </DataContext.Provider>

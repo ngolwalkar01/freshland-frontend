@@ -13,16 +13,18 @@ import AuthHandlerWithSession from '@/components/atoms/auth/google';
 import { useData } from '@/contexts/DataContext';
 
 export default function Home() {
-  const { productsData: data, loadingProducts: loading } = useData() || {};
+  const { productsData: data, loadingProducts: loading, fetchProducts } = useData() || {};
   const [isActivatehomeApis, setISActivateHomeApis] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
+      fetchProducts(false);
       getCartData();
     }
 
     if (isActivatehomeApis)
       fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isActivatehomeApis]);
 
   return (
