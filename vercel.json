@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/beta", "destination": "https://beta.fresh.land", "permanent": true }
+  ]
+}
