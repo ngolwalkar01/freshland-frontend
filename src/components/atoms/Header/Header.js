@@ -160,6 +160,14 @@ const Header = () => {
 
   return (
     <>
+	<div className={styles.cstOverlay}>
+        <div className={styles.cstHeader}>
+            <h1>Website Under Construction</h1>
+        </div>
+        <div className={styles.cstContent}>
+            <p>We are working hard to bring you something amazing. Stay tuned!</p>
+        </div>
+    </div>
       <div className={styles.bgWrapper}>
         <div
           className={`${styles.headerdiv} ${isSticky ? 'sticky-header' : ''}`}
