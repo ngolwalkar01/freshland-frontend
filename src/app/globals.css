@@ -455,6 +455,14 @@ main{
   top: 0;
 }
 
+.AllGoods_filterButton__qraL0.sticky-filter{
+	position: fixed;
+    width: 100%;
+    top: 60px;
+    background: #fff;
+    z-index: 99;
+}
+
 .sticky-header header.Header_header__DLcAQ {
   border-radius: 0;
 }

@@ -39,7 +39,7 @@ const HomePage = ({ homePageProps }) => {
       <OrderDeadline {...shippingProps} />
       {/* <Goods sessionalProductProps={{ productData: sessionalProducts, enableMockData, addToCart, updateCartQuantity, removeCartItem }} /> */}
 
-      {/* <Categories /> */}
+      <Categories />
       <Register />
       <AddSignUp {...vipProps} homePageLoading={pageLoading} />
       <VideoComponent />

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./AllGoods.module.css";
 import ProductList from "@/components/atoms/ProductList/ProductList";
 import { goodsProduct } from "@/mockdata/goodsProduct";
@@ -20,8 +20,27 @@ const AllItems = ({ categoryWithProducts }) => {
 
   const [showMenu, setShowMenu] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState(null);
-
+  const [isSticky, setIsSticky] = useState(false);
   const categoryRefs = useRef({});
+ const filterRef = useRef(null);
+
+ useEffect(() => {
+    const sticky = filterRef.current ? filterRef.current.offsetTop : 0;
+
+    const handleScroll = () => {
+      if (window.scrollY > sticky) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleFilterClick = (categoryId) => {
     setSelectedFilter(categoryId);
@@ -108,7 +127,8 @@ const AllItems = ({ categoryWithProducts }) => {
           </div>
 
           {/* desktop filter */}
-          <div className={styles.filterButton}>
+          <div className={`${styles.filterButton} ${isSticky ? 'sticky-filter' : ''}`} id="filterDiv"
+          ref={filterRef}>
             <ul className={styles.newfilterlist}>
               <li
                 className={`${styles.newfilterListLi} ${selectedFilter === null ? styles.activeFilter : ''}`}
