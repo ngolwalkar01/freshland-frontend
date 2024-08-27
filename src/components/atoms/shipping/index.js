@@ -21,8 +21,9 @@ const TotalPrice = ({ shData, styles, total_tax, currency_code, total_price, isM
         <tr>
             <td>{isMainShipping ? ct.total : "Recurring Total"}</td>
             <td>
-                {total_price} {currency_code}  <br />
-                <p style={{ fontWeight: 100 }}>(incl. {total_tax} {currency_code} VAT)</p>
+                {total_price} {currency_code}  
+				{/*<br />
+                <p style={{ fontWeight: 100 }}>(incl. {total_tax} {currency_code} VAT)</p>*/}
 
                 {shData && <BillingPeriod shData={shData} styles={styles} />}
             </td>

@@ -49,13 +49,18 @@ const AllItems = ({ categoryWithProducts }) => {
     if (categoryRefs.current[categoryId]) {
       const element = categoryRefs.current[categoryId];
 
-      const topPos = element.getBoundingClientRect().top + window.pageYOffset - 100;
+      const topPos = element.getBoundingClientRect().top + window.scrollY - 255;
 
       window.scrollTo({
         top: topPos,
         behavior: 'smooth'
       });
-    }
+    }else{
+	  window.scrollTo({
+		top: 0,
+		behavior: 'smooth'
+      });
+	}
 
     // if (categoryRefs.current[categoryId]) {
     //   categoryRefs.current[categoryId].scrollIntoView({ behavior: 'smooth' });
