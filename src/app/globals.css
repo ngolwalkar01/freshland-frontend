@@ -445,6 +445,11 @@ main{
     width: fit-content !important;
   }
 } */
+
+.Product_gridItem__TXQL2.shopPage {
+    min-width: auto;
+}
+
 /* Sticky Header CSS */
 .Header_headerdiv__pu9VV.sticky-header {
   position: fixed;
