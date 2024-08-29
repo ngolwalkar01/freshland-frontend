@@ -166,7 +166,8 @@ const ProductList = ({
   overRideClass = false,
   reload = () => { },
   page = "NoPage",
-  pageLoading = false
+  pageLoading = false,
+  parentClass=""
 }) => {
   const [cartProducts, setCartProducts] = useState([]);
   const data = productData;
@@ -263,7 +264,7 @@ const ProductList = ({
                 <>
                   {data && data.map((product, i) => (
                     <ProductCard key={i} currentIndex={i} setOlLoader={setOlLoader} cartProducts={cartProducts} product={product}
-                      debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} reload={reload} page={page} />
+                      debouncedUpdateQuantity={debouncedUpdateQuantity} addToBasket={addToBasket} reload={reload} page={page} parentClass={parentClass} />
                   ))}
                 </>
               )
