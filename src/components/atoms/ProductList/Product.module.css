@@ -441,6 +441,8 @@
 @media (min-width: 601px) and (max-width: 975px) {
   .gridContainer {
     justify-content: center;
+	max-width: 675px;
+    margin: 45px auto;
   }
   .heading{
     /* margin-top: 40px; */
