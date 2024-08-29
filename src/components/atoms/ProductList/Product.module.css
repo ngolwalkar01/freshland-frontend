@@ -432,10 +432,6 @@ margin-right: 0;
   .newskl .skldiv{
     width: 70px !important;
   }
-  .gridItem{
-		min-width: 225px;
-	margin-right: 19px;
-  }
   
 }
 
@@ -452,6 +448,8 @@ margin-right: 0;
   }
   .gridItem{
       flex-basis: 47%;
+	  	min-width: 225px;
+	margin-right: 18px;
     }
 }
 
