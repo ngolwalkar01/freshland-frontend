@@ -475,6 +475,7 @@
   }
   .cardTitle {
     font-size: 16px;
+	max-width: 150px;
   }
   .cardPrice {
     font-size: 16px;
