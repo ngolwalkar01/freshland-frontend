@@ -183,7 +183,9 @@ min-width: 169px;
   /* Lowering the shadow */ 
 } 
 
-
+.gridItem.shopPage{
+	min-width: auto;
+}
 
 .buttonContainer {
   text-align: center;
