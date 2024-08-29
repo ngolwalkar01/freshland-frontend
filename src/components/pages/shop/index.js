@@ -183,7 +183,7 @@ const AllItems = ({ categoryWithProducts }) => {
                         productData={enableMockData ? [] : item.products}
                         enableMockData={enableMockData}
                         page="shop"
-						parentClass='shopPage'
+						parentClass="shopPage"
                       />
                     ) : (
                       <p className={styles.comingSoon}>
