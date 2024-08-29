@@ -31,7 +31,7 @@
 }
 
 .gridContainer {
-  justify-content: center;
+  /*justify-content: center;*/
   column-gap: 20px;
   row-gap: 48px;
   padding-inline: 10px;
@@ -185,6 +185,8 @@ min-width: 169px;
 
 .gridItem.shopPage{
 	min-width: auto;
+    flex-grow: initial;
+    flex-basis: auto;
 }
 
 .buttonContainer {
