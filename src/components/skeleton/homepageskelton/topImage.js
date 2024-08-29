@@ -6,10 +6,13 @@ import "react-loading-skeleton/dist/skeleton.css";
 const TopImage = () => {
   return (
     <>
-      <div className={styles.topImageContainer}>
-        <Skeleton height={500} width={900} />
-        <Header />
 
+      <div className={styles.skeletonImage}>
+      <div className={styles.sklheading}>
+        <Skeleton height={60} width={500} />
+        <Skeleton height={60} width={500} />
+       
+        </div>
       
       </div>
      

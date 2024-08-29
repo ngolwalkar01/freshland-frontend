@@ -41,6 +41,7 @@
 .headercontent .freshland {
   display: block;
   margin: 0;
+  object-fit: contain;
 }
 
 .icon {
@@ -99,6 +100,7 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   z-index: 1;
   text-align: left;
+  /* display: none; */
 }
 
 .storemenu li {
@@ -425,7 +427,7 @@
 
   .headercontent {
     gap: 13px;
-    padding: 12px 8px;
+    padding: 12px 21px;
   }
 
   .overlayInput {

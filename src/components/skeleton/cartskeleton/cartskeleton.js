@@ -31,18 +31,18 @@ const cartskeleton = () => {
                 </div>
              
                 <div>
-                    <Skeleton height={60} />
+                    <Skeleton height={60} width={500}/>
                   </div>
                   <div>
-                    <Skeleton height={60}/>
+                    <Skeleton height={60} width={500}/>
                   </div>
               </div>
               <aside className={styles.rightContainer}>
-                <Skeleton height={30} width={300} />
-                <Skeleton height={50} width={300} />
-                <Skeleton height={50} width={300} />
-                <Skeleton height={50} width={300} />
-                <Skeleton height={50} width={300} />
+                <Skeleton height={30} width={430} />
+                <Skeleton height={50} width={430} />
+                <Skeleton height={50} width={430} />
+                <Skeleton height={50} width={430} />
+                <Skeleton height={50} width={430} />
               </aside>
             </div>
           </div>

@@ -3,6 +3,27 @@
   align-items: center;
   justify-content: center;
   padding: 20px 0px;
+  width: 100%;
+  background-color: #e0e0e0;;
+  /* max-width: 1400px; */
+  margin: auto;
+  height: 83vh;
+  animation: shimmer 1.5s infinite linear;
+  background: linear-gradient(
+    90deg,
+    rgba(224, 224, 224, 1) 25%,
+    rgba(240, 240, 240, 1) 50%,
+    rgba(224, 224, 224, 1) 75%
+  );
+  background-size: 200% 100%;
+}
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 .order_card {
   /* background-image: url("/Images/Deadlinebgimg.png"); */
@@ -340,5 +361,39 @@
 @media (min-width: 1399px) and (max-width: 1602px){
   .next_order{
     height: 700px;
+  }
+}
+
+
+
+
+.skeletonContainer{
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 1400px;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.skeletontimer {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0 0px;
+  gap: 30px;
+}
+.headingSkl{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.skltimeheading{
+  margin: 40px 0px 0px 0px;
+}
+@media only screen and (max-width:600px){
+  .skeletontimer span{
+    width: 100px !important;
   }
 }

@@ -448,4 +448,7 @@
   .filterListCover {
     left: 70%;
   }
+  .filterButton{
+	padding: 0 20px;
+  }
 }
