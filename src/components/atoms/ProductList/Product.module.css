@@ -51,7 +51,7 @@
   border: 0.5px solid rgba(33, 144, 41, 0.4);
   flex-grow: 1;
     flex-basis: 0;
-    min-width: 280px;
+    min-width: 169px;
 }
 .transparentCard {
   border: none;
@@ -464,8 +464,14 @@
     font-size: 50px;
   }
   .gridWrapper{
-    max-width: 780px;
+    max-width: 1000px;
   }
+}
+
+@media ( max-width: 1024px ){
+	.Frukt .shop-img, .Grönsakerlådor .shop-img, .home-img, .product-detail-img{
+		transform: none;
+	}
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
