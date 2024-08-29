@@ -16,7 +16,7 @@ const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
-const ProductCard = ({ currentIndex, product, debouncedUpdateQuantity, addToBasket, cartProducts, setOlLoader, reload, page = "NoPage" }) => {
+const ProductCard = ({ currentIndex, product, debouncedUpdateQuantity, addToBasket, cartProducts, setOlLoader, reload, page = "NoPage", parentClass }) => {
   const cmt = commonTranslation[lang];
   const productInCart = cartProducts.find(x => x.id === product.id);
   const [quantityValue, setQuantityValue] = useState(1);
@@ -48,7 +48,7 @@ const ProductCard = ({ currentIndex, product, debouncedUpdateQuantity, addToBask
   }, [product])
 
   return (
-    <div key={product.id} className={styles.gridItem}>
+    <div key={product.id} className={`${styles.gridItem} ${parentClass}`}>
       <div className={styles.transparentCard}>
         <div className={styles.cardContent}>
           <div className={`${styles.organicLogo} ${(!product?.is_new && !product?.is_organic) ? styles.noGap : ''}`}>
