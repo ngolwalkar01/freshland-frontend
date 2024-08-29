@@ -439,7 +439,7 @@ margin-right: 0;
 
 @media (min-width: 601px) and (max-width: 975px) {
   .gridContainer {
-    justify-content: center;
+    /*justify-content: center;*/
 	max-width: 675px;
     margin: 45px auto;
   }
