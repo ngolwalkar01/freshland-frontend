@@ -16,7 +16,7 @@ const lang = process.env.NEXT_PUBLIC_LANG || 'se';
 
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
-const ProductCard = ({ currentIndex, product, debouncedUpdateQuantity, addToBasket, cartProducts, setOlLoader, reload, page = "NoPage", parentClass }) => {
+const ProductCard = ({ currentIndex, product, debouncedUpdateQuantity, addToBasket, cartProducts, setOlLoader, reload, page = "NoPage", parentClass="" }) => {
   const cmt = commonTranslation[lang];
   const productInCart = cartProducts.find(x => x.id === product.id);
   const [quantityValue, setQuantityValue] = useState(1);
