@@ -32,7 +32,7 @@
 
 .gridContainer {
   /*justify-content: center;*/
-  column-gap: 20px;
+  column-gap: normal;
   row-gap: 48px;
   padding-inline: 10px;
   display: flex;
@@ -43,12 +43,13 @@
   background-color: #fff;
   border-radius: 19px;
   padding: 19px 19px 23px;
-  /* height: 100%;
-  max-height: 409px;
-  width: 100%;
-  max-width: 306px; */
   box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.06);
   border: 0.5px solid rgba(33, 144, 41, 0.4);
+	min-width: 225px;
+	margin-right: 19px;
+}
+.gridItem:last-child{
+margin-right: 0;
 }
 .transparentCard {
   border: none;
