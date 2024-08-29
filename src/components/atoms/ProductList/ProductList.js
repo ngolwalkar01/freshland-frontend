@@ -48,7 +48,7 @@ const ProductCard = ({ currentIndex, product, debouncedUpdateQuantity, addToBask
   }, [product])
 
   return (
-    <div key={product.id} className={`${styles.gridItem} ${parentClass}`}>
+    <div key={product.id} className={`${styles.gridItem} ${styles.parentClass}`}>
       <div className={styles.transparentCard}>
         <div className={styles.cardContent}>
           <div className={`${styles.organicLogo} ${(!product?.is_new && !product?.is_organic) ? styles.noGap : ''}`}>
