@@ -5,7 +5,7 @@ import cookieService from "@/services/cookie";
 
 const expires = parseInt(process.env.NEXT_PUBLIC_CART_KEY_EXPIRY);
 
-const createKlarnaPayload = (cartData) => {
+const createKlarnaPayload = (cartData, orderId) => {
   const orderLines = cartData.items.map((item) => {
     return {
       type: "physical",
@@ -73,6 +73,7 @@ const createKlarnaPayload = (cartData) => {
     locale: "se-SE",
     order_amount: parseInt(cartData.totals.total_price),
     order_lines: orderLines,
+    merchant_reference1: orderId,
     merchant_urls: {
       terms: process.env.NEXT_PUBLIC_API_BASE_URL,
       checkout: process.env.NEXT_PUBLIC_API_BASE_URL,
@@ -173,7 +174,7 @@ export const handleKlarnaAuthorization = async (
   failedCallBack
 ) => {
   const orderId = orderData.order_id;
-  const payload = createKlarnaPayload(cartData);
+  const payload = createKlarnaPayload(cartData, orderId);
   await fetchClientToken(orderData.order_id, payload, async (sessionId) => {
     await updateSessionInOrder(orderId, sessionId);
     window.Klarna.Payments.authorize(

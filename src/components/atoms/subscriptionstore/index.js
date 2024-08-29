@@ -35,7 +35,7 @@ const Subscription = ({ newsubscriptionProducts: products, onClose, subDetail, t
               {products && products.length > 0 && products.map((product, i) => (
                 <div key={product.id} className={styles.gridItem}>
                   <div className={styles.transparentCard}>
-                    <Link href={`/product/${product.id}`} className={styles.imgContainer}>
+                    <Link href={`/product/${product.slug}`} className={styles.imgContainer}>
                       <Image
                         className={styles.cardTopImage}
                         src="/Images/productTop.png" alt="" width={40} height={10}
@@ -48,7 +48,7 @@ const Subscription = ({ newsubscriptionProducts: products, onClose, subDetail, t
                       />
                     </Link>
                     <div className={styles.cardContent}>
-                      <Link href={`/product/${product.id}`}>
+                      <Link href={`/product/${product.slug}`}>
                         <h3 className={styles.cardTitle}>{product.name}</h3>
                       </Link>
                     </div>

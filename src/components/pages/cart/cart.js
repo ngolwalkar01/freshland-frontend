@@ -296,6 +296,7 @@ function Cart() {
                         const itemsSubTotal = getCorrectPrice(parseInt(itemTotals?.line_subtotal) + parseInt(itemTotals?.line_subtotal_tax))
                         const subscription_schemes =
                           cartItem?.extensions?.subscription_schemes;
+                        const productSlug = subscription_schemes?.slug;
                         const current_options =
                           subscription_schemes &&
                             subscription_schemes.subscription_schemes &&
@@ -335,7 +336,7 @@ function Cart() {
                                     </div>
                                   )}
                                   <div className={styles.mainImage}>
-                                    <Link href={`/product/${productId}`}>
+                                    <Link href={`/product/${productSlug}`}>
                                       <Image
                                         src={currentImage}
                                         width={100}
@@ -348,7 +349,7 @@ function Cart() {
                                 </div>
 
                                 <div>
-                                  <Link href={`/product/${productId}`}>
+                                  <Link href={`/product/${productSlug}`}>
                                     <p className={`${styles.productTitle} W-Body-Medium `}>
                                       {cartItem.name}{" "}
                                       <span>
