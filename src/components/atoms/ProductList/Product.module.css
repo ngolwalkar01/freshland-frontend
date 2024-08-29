@@ -446,12 +446,14 @@ margin-right: 0;
     /* margin-bottom: 50px; */
     font-size: 50px;
   }
+   .gridItem{
+      flex-basis: 47%;
+   }
 
 }
 
 @media ( min-width: 600px){
 	  .gridItem{
-      flex-basis: 47%;
 	  	min-width: 225px;
 	margin-right: 18px;
     }
