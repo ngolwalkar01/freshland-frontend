@@ -463,9 +463,13 @@ main{
 .AllGoods_filterButton__qraL0.sticky-filter{
 	position: fixed;
     width: 100%;
-    top: 60px;
+    top: 100px;
     background: #fff;
     z-index: 99;
+}
+
+.sticky-filter .AllGoods_newfilterlist__YuKh8 {
+    margin: 10px auto;
 }
 
 .sticky-header header.Header_header__DLcAQ {

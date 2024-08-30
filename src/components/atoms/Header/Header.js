@@ -166,6 +166,9 @@ const Header = () => {
           id="headerdiv"
           ref={headerRef}
         >
+		<div
+          className={`${styles.announcmentDiv}`}
+        >Vi har lanserat vår nya webbplats! 🎉 Om du upplever några problem, hittar buggar, eller har feedback, kontakta oss gärna på hej@fresh.land.</div>
           <header className={`${styles.header} header`}>
             <div className={styles.headercontent}>
               <Link href="/">
