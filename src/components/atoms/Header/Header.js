@@ -168,7 +168,7 @@ const Header = () => {
         >
 		<div
           className={`${styles.announcmentDiv}`}
-        >Vi har lanserat vår nya webbplats! 🎉 Om du upplever några problem, hittar buggar, eller har feedback, kontakta oss gärna på hej@fresh.land.</div>
+        >Vi har lanserat vår nya webbplats! 🎉 Om du upplever några problem, hittar buggar, eller har feedback, kontakta oss gärna på <a href="mailto:hej@fresh.land">hej@fresh.land</a>.</div>
           <header className={`${styles.header} header`}>
             <div className={styles.headercontent}>
               <Link href="/">
