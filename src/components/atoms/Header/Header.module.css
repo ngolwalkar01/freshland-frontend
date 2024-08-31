@@ -2,12 +2,12 @@
   height: 76px;
 }
 
-.announcmentDiv{
-	background: #219029;
-    padding: 10px;
-    color: #fff;
-    text-align: center;
-    border-radius: 16px;
+.announcmentDiv {
+  background: #219029;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  border-radius: 16px;
 }
 
 .headerdiv {
@@ -16,11 +16,14 @@
   left: 35px;
   right: 35px;
 }
-.storemenuicon{
+
+.storemenuicon {
   display: none;
 }
+
 .activeFilter {
-  color: green; /* Or any style you want for the active filter */
+  color: green;
+  /* Or any style you want for the active filter */
 }
 
 .activeLink {
@@ -283,29 +286,35 @@
   max-height: 72vh;
   /* padding: 20px; */
 }
-.favouritesicon{
+
+.favouritesicon {
   display: none;
 }
-.mobileSearch{
+
+.mobileSearch {
   display: none;
 }
 
 @media (min-width: 320px) and (max-width: 750px) {
-  .favouritesicon{
+  .favouritesicon {
     display: block;
   }
-  .mobileSearch{
+
+  .mobileSearch {
     display: flex;
     align-items: center;
     gap: 7px;
     font-weight: 600;
   }
-  .favicon{
+
+  .favicon {
     display: none;
   }
-  .storemenuicon{
+
+  .storemenuicon {
     display: block;
   }
+
   .storemenu {
     position: relative;
     top: 0;

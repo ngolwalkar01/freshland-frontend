@@ -1,6 +1,7 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Calistoga&display=swap");
 @import "/css/toast.css";
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -17,30 +18,24 @@
   --black: #2c2c2c;
   --text-light: rgba(44, 44, 44, 0.6);
 
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
+  --primary-glow: conic-gradient(from 180deg at 50% 50%,
+      #16abff33 0deg,
+      #0885ff33 55deg,
+      #54d6ff33 120deg,
+      #0071ff33 160deg,
+      transparent 360deg);
+  --secondary-glow: radial-gradient(rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0));
 
   --tile-start-rgb: 239, 245, 249;
   --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
+  --tile-border: conic-gradient(#00000080,
+      #00000040,
+      #00000030,
+      #00000020,
+      #00000010,
+      #00000010,
+      #00000080);
 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
@@ -49,7 +44,7 @@
 
   --fs-h1: ;
 
-  
+
 }
 
 * {
@@ -74,7 +69,7 @@ body {
     sans-serif;
   src: local("HelveticaNeue-Regular"),
     /* Name of the font installed on the user's system */
-      url("/fonts/HelveticaNeueRegular.otf") format("opentype");
+    url("/fonts/HelveticaNeueRegular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -85,7 +80,7 @@ body {
     sans-serif;
   src: local("HelveticaNeue-Medium"),
     /* Name of the font installed on the user's system */
-      url("/fonts/HelveticaNeueMedium.otf") format("truetype");
+    url("/fonts/HelveticaNeueMedium.otf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -96,7 +91,7 @@ body {
     sans-serif;
   src: local("HelveticaNeue-Bold"),
     /* Name of the font installed on the user's system */
-      url("/fonts/HelveticaNeueBold.otf") format("truetype");
+    url("/fonts/HelveticaNeueBold.otf") format("truetype");
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
@@ -231,6 +226,7 @@ h4 {
     line-height: normal;
     letter-spacing: -0.96px;
   }
+
   .home-img,
   .product-detail-img,
   .Frukt .shop-img,
@@ -426,11 +422,13 @@ body {
   padding: 0;
   /* Add other global styles or resets as needed */
 }
-main{
+
+main {
   min-height: 50vh;
   background: #fff;
   /* padding: 0px 0px 10px 0px; */
 }
+
 /* css for tablet device */
 @media (max-width: 600px) {
 
@@ -446,10 +444,11 @@ main{
   }
 } */
 @media (min-width: 1240px) {
-.Product_gridItem__TXQL2.shopPage {
+  .Product_gridItem__TXQL2.shopPage {
     min-width: 250px;
+  }
 }
-}
+
 /* Sticky Header CSS */
 .Header_headerdiv__pu9VV.sticky-header {
   position: fixed;
@@ -460,16 +459,16 @@ main{
   top: 0;
 }
 
-.AllGoods_filterButton__qraL0.sticky-filter{
-	position: fixed;
-    width: 100%;
-    top: 100px;
-    background: #fff;
-    z-index: 99;
+.AllGoods_filterButton__qraL0.sticky-filter {
+  position: fixed;
+  width: 100%;
+  top: 100px;
+  background: #fff;
+  z-index: 99;
 }
 
 .sticky-filter .AllGoods_newfilterlist__YuKh8 {
-    margin: 10px auto;
+  margin: 10px auto;
 }
 
 .sticky-header header.Header_header__DLcAQ {
@@ -480,7 +479,8 @@ main{
  *  Cookie consent css Start
 */
 /* General Styles for the Cookie Consent Popup */
-.cm-wrapper, .pm-wrapper {
+.cm-wrapper,
+.pm-wrapper {
   font-family: Arial, sans-serif;
 }
 
@@ -492,7 +492,8 @@ main{
 }
 
 /* Button Styles */
-.cm__btn, .pm__btn {
+.cm__btn,
+.pm__btn {
   background-color: green !important;
   border-color: green !important;
   color: white !important;
@@ -502,51 +503,58 @@ main{
 }
 
 /* Button Hover and Focus Styles */
-.cm__btn:hover, .pm__btn:hover,
-.cm__btn:focus, .pm__btn:focus {
+.cm__btn:hover,
+.pm__btn:hover,
+.cm__btn:focus,
+.pm__btn:focus {
   background-color: darkgreen !important;
   border-color: darkgreen !important;
 }
 
 /* Secondary Button Styles */
-.cm__btn.cm__btn--secondary, .pm__btn.pm__btn--secondary {
+.cm__btn.cm__btn--secondary,
+.pm__btn.pm__btn--secondary {
   background-color: lightgreen !important;
   border-color: lightgreen !important;
   color: white !important;
 }
 
-.cm__btn.cm__btn--secondary:hover, .pm__btn.pm__btn--secondary:hover,
-.cm__btn.cm__btn--secondary:focus, .pm__btn.pm__btn--secondary:focus {
+.cm__btn.cm__btn--secondary:hover,
+.pm__btn.pm__btn--secondary:hover,
+.cm__btn.cm__btn--secondary:focus,
+.pm__btn.pm__btn--secondary:focus {
   background-color: green !important;
   border-color: green !important;
 }
 
 /* Footer Links */
-.cm__footer a, .pm__footer a {
+.cm__footer a,
+.pm__footer a {
   color: green;
   text-decoration: underline;
 }
 
-.cm__footer a:hover, .pm__footer a:hover {
+.cm__footer a:hover,
+.pm__footer a:hover {
   color: darkgreen;
 }
 
 /* Toggle Styles */
-.section__toggle-wrapper .section__toggle:checked + .toggle__icon .toggle__icon-on {
+.section__toggle-wrapper .section__toggle:checked+.toggle__icon .toggle__icon-on {
   background-color: green !important;
   border-color: green !important;
 }
 
-.section__toggle-wrapper .section__toggle:checked + .toggle__icon .toggle__icon-on svg {
+.section__toggle-wrapper .section__toggle:checked+.toggle__icon .toggle__icon-on svg {
   stroke: white !important;
 }
 
-.section__toggle-wrapper .section__toggle:not(:checked) + .toggle__icon .toggle__icon-off {
+.section__toggle-wrapper .section__toggle:not(:checked)+.toggle__icon .toggle__icon-off {
   background-color: lightgray !important;
   border-color: gray !important;
 }
 
-.section__toggle-wrapper .section__toggle:not(:checked) + .toggle__icon .toggle__icon-off svg {
+.section__toggle-wrapper .section__toggle:not(:checked)+.toggle__icon .toggle__icon-off svg {
   stroke: gray !important;
 }
 
@@ -576,16 +584,19 @@ main{
 /*
  *  Product detail dynamic content start
 */
-.juicy p img{
+.juicy p img {
   align-items: center;
 }
-.cst-img{
+
+.cst-img {
   margin: 20px 0px;
 }
-.cst-img img{
+
+.cst-img img {
   height: 100%;
   width: 100%;
 }
+
 .featuresWrapper {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   font-size: 15px;
@@ -616,9 +627,11 @@ main{
   flex-direction: column;
   gap: 16px;
 }
-.gc-descriotionimg{
+
+.gc-descriotionimg {
   margin-top: 20px;
 }
+
 .descriptionWrapper span {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   font-size: 18px;
@@ -628,21 +641,25 @@ main{
   line-height: 1.5;
   letter-spacing: normal;
 }
+
 /*
  *  Product detail dynamic content end
 */
 
-#categoryContainer{
+#categoryContainer {
   padding: 60px 0px 40px 0px;
 }
-#searchContainer{
+
+#searchContainer {
   padding-top: 60px;
 }
-#searchContainer h2{
- font-size: 60px;
+
+#searchContainer h2 {
+  font-size: 60px;
 }
-#bgColor{
- background-color: #f4fff7;
+
+#bgColor {
+  background-color: #f4fff7;
 }
 
 .Frukt .shop-img,
@@ -657,59 +674,64 @@ main{
 .Frukt .shop-prod-link,
 .Grönsakerlådor .shop-prod-link,
 .home-prod-link,
-.product-detail-prod-link  {
+.product-detail-prod-link {
   overflow: hidden
 }
 
 input:focus-visible {
-    outline-offset: 0px !Important;
+  outline-offset: 0px !Important;
 }
 
 ul.cartdropdown_cartItems::-webkit-scrollbar-thumb {
   border-radius: 8px;
   background-color: #219029;
 }
+
 ul.cartdropdown_cartItems::-webkit-scrollbar-track {
   border-radius: 8px;
   background-color: #e7e7e7;
   border: 1px solid #cacaca;
 }
+
 ul.cartdropdown_cartItems::-webkit-scrollbar {
   width: 10px;
 }
 
-#resultNotfound{
+#resultNotfound {
   text-align: left;
   max-width: 570px;
   margin: auto;
 }
 
-#resultNotfound ul li{
+#resultNotfound ul li {
   font-size: 18px;
   margin-left: 20px;
 }
+
 #resultant {
   font-size: 18px;
   margin-bottom: 13px;
 }
 
-@media (max-width:600px){
-  #searchContainer{
+@media (max-width:600px) {
+  #searchContainer {
     padding: 40px 0px;
   }
-  #searchContainer h2{
+
+  #searchContainer h2 {
     font-size: 40px;
-   }
-   #resultNotfound{
+  }
+
+  #resultNotfound {
     margin: auto 40px;
-   }
- 
+  }
+
 }
 
 @media (min-width: 600px) {
   .custom-fa-heart {
     font-size: 32px !Important;
   }
- 
- 
+
+
 }

@@ -166,9 +166,9 @@ const Header = () => {
           id="headerdiv"
           ref={headerRef}
         >
-		<div
-          className={`${styles.announcmentDiv}`}
-        >Vi har lanserat vår nya webbplats! 🎉 Om du upplever några problem, hittar buggar, eller har feedback, kontakta oss gärna på <a href="mailto:hej@fresh.land">hej@fresh.land</a>.</div>
+          <div
+            className={`${styles.announcmentDiv}`}
+          >Vi har lanserat vår nya webbplats! 🎉 Om du upplever några problem, hittar buggar, eller har feedback, kontakta oss gärna på <a href="mailto:hej@fresh.land">hej@fresh.land</a>.</div>
           <header className={`${styles.header} header`}>
             <div className={styles.headercontent}>
               <Link href="/">
@@ -182,8 +182,8 @@ const Header = () => {
                 />
               </Link>
               <div className={Mobile ? `${styles.navlinksmobile}` : `${styles.linkdescription}`}>
-              <div className={`${styles.headerIconWrapper} ${styles.mobileSearch}`} onClick={openSearch}>
-                 <span>Search</span> <Image src="/Images/search.svg" alt="Search" fill />
+                <div className={`${styles.headerIconWrapper} ${styles.mobileSearch}`} onClick={openSearch}>
+                  <span>Search</span> <Image src="/Images/search.svg" alt="Search" fill />
                 </div>
                 <div className={`${styles.store} ${isActive('/shop')}`} ref={menuRef}>
                   <Link href="/shop">{hpt.storeDropdown}</Link>
@@ -195,14 +195,14 @@ const Header = () => {
                       <li className={styles.lifirst}><Link href='/shop'>{hpt.allgood}</Link></li>
                       {
                         categories && categories.length > 0 && categories.map((x, i) => {
-                          return <li key={i} ><Link href={`/category/${x}`}  className={pathname === `/category/${x}` ? styles.activeLink : ''}>{x}</Link></li>
+                          return <li key={i} ><Link href={`/category/${x}`} className={pathname === `/category/${x}` ? styles.activeLink : ''}>{x}</Link></li>
                         })
                       }
                     </ul>
                   )}
                 </div>
                 {/* <Link href="/seasonoverview" className={isActive('/seasonoverview')}>{hpt.seasonOverview}</Link> */}
-      
+
                 <Link href="/farmer" className={isActive('/farmer')}>{hpt.farmers}</Link>
                 <Link href="/se/faq" className={isActive('/se/faq')}>{hpt.faq}</Link>
                 <Link href="/about" className={isActive('/about')}>{hpt.aboutUs}</Link>
@@ -210,7 +210,7 @@ const Header = () => {
                 {/* <Link href="/favourites" className={`${isActive('/favourites')} ${styles.favouritesicon}`}>
                   {cmt.favoritesProducts}
                 </Link> */}
-              
+
               </div>
               <div className={styles.flexgrow} />
               <div className={styles.icon}>
@@ -269,9 +269,9 @@ const Header = () => {
             </div>
             <div className={styles.ovFlow_scroll}>
               <div className={styles.searchBox}>
-              {searchTxt && productData && productData.length > 0 && (
-                <Productsearch cardHeading=""
-                  productData={productData} />
+                {searchTxt && productData && productData.length > 0 && (
+                  <Productsearch cardHeading=""
+                    productData={productData} />
                 )}
               </div>
             </div>
