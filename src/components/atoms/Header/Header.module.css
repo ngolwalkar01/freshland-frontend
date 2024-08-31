@@ -1,5 +1,6 @@
 .bgWrapper {
   height: 76px;
+  position: relative;
 }
 
 .announcmentDiv {
@@ -296,6 +297,18 @@
 }
 
 @media (min-width: 320px) and (max-width: 750px) {
+	.header {
+		position: relative;
+    	top: 44px;
+	}
+	.announcmentDiv {
+  border-radius: 0;
+  font-size: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0;
+}
   .favouritesicon {
     display: block;
   }
