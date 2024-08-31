@@ -34,6 +34,12 @@ export default function RootLayout({ children }) {
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
             `}
                     </script> */}
+      </Head>
+      <body className={inter.className}>
+        {pubKey ? (
+          <script type="text/javascript" async="" src={src}></script>
+        ) : ''}
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -60,11 +66,7 @@ export default function RootLayout({ children }) {
             src={`https://www.facebook.com/tr?id=588900118705548&ev=PageView&noscript=1`}
           />
         </noscript>
-      </Head>
-      <body className={inter.className}>
-        {pubKey ? (
-          <script type="text/javascript" async="" src={src}></script>
-        ) : ''}
+
         <DataProvider>
           {children}
         </DataProvider>
