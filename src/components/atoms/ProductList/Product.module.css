@@ -493,6 +493,12 @@
   }
 }
 
+@media (min-width: 1290px) and (max-width: 1435px) {
+	.gridContainer{
+		justify-content:center;
+	}
+}
+
 @media (max-width: 1024px) {
 
   .Frukt .shop-img,

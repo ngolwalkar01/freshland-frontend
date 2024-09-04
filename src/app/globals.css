@@ -474,6 +474,9 @@ main {
 .sticky-header header.Header_header__DLcAQ {
   border-radius: 0;
 }
+.sticky-header .Header_announcmentDiv__kxeev {
+    border-radius: unset;
+}
 
 /*
  *  Cookie consent css Start
