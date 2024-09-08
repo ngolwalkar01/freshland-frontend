@@ -1,3 +1,16 @@
+export const convertPercentageToLargeNumber = (percentageString) => {
+    if (!percentageString) {
+        return 0;
+    }
+
+    let number = parseFloat(percentageString.replace('%', ''));
+    if (isNaN(number)) {
+        return 0;
+    }
+    return number * 100;
+}
+
+
 export const decodeString = (txt) => {
     return txt ? decodeURIComponent(txt) : txt
 }
@@ -25,7 +38,7 @@ export const getEmail = () => {
 }
 
 export const getBaseUrl = () => {
-    if(!(window && window?.location)) return '';
+    if (!(window && window?.location)) return '';
 
     const protocol = window.location.protocol;
     const hostname = window.location.hostname;

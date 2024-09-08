@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import KlarnaAPI from "@/services/klarna";
 import cookieService from "@/services/cookie";
+import { convertPercentageToLargeNumber } from "@/helper";
 
 const expires = parseInt(process.env.NEXT_PUBLIC_CART_KEY_EXPIRY);
 
 const createKlarnaPayload = (cartData, orderId) => {
+  const dbTaxRate = convertPercentageToLargeNumber(cartData.totals?.tax_lines[0]?.rate || 0);
   const orderLines = cartData.items.map((item) => {
     return {
       type: "physical",
@@ -13,10 +15,10 @@ const createKlarnaPayload = (cartData, orderId) => {
       name: item.name,
       quantity: item.quantity,
       unit_price: parseInt(item.prices.price),
-      tax_rate: 0,
+      tax_rate: dbTaxRate,
       total_amount:
         parseInt(item.totals.line_subtotal) + parseInt(item.totals.line_subtotal_tax),
-      total_tax_amount: 0,
+      total_tax_amount: parseInt(item.totals.line_total_tax),
     }
   })
 
