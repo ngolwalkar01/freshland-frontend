@@ -1,6 +1,7 @@
 import { generateRandomId, getEmail, getCorrectPrice, getBaseUrl } from "@/helper";
 import KlaviyoAPI from "@/services/klaviyo/apiIndex";
 import { gtViewItem, gtAddToCart, gtViewCart, gtCheckout, gtOrder } from "../googleTrack";
+import { fbViewItem, fbAddToCart, fbViewCart, fbCheckout, fbOrder } from "../facebookTrack";
 
 export const setKlaviyoEmail = (klaviyoEmail) => {
     if(klaviyoEmail)
@@ -24,6 +25,7 @@ export const userActiveOnSite = async () => {
 export const trackProductDetailPage = async (productDetail) => {
     try {
         gtViewItem(productDetail);
+        fbViewItem(productDetail);
         const email = getEmail();
         if (productDetail && email) {
             const payload = {
@@ -55,6 +57,7 @@ export const trackAddToCartPage = async (cartData) => {
     try {
         if(cartData) {
             gtViewCart(cartData);
+            fbViewCart(cartData);
         }
         // if (cartData) {
         //     const lastItemIndex = cartData.items.length - 1;
@@ -97,6 +100,7 @@ export const trackAddToCartPage = async (cartData) => {
 export const trackAddToCheckoutPage = async (cartData) => {
     try {
         gtCheckout(cartData);
+        fbCheckout(cartData);
         const email = getEmail();
         if (cartData && email) {
             const currMinorUnit = cartData.totals.currency_minor_unit;
@@ -121,7 +125,8 @@ export const trackAddToCheckoutPage = async (cartData) => {
 export const trackItemAddToCart = async (cartData, prodId, quantity) => {
     try {
         gtAddToCart(cartData);
-
+        fbAddToCart(cartData);
+        
         const email = getEmail();
         if (cartData && prodId && email && cartData.items && cartData.items.length > 0) {
             const productDetail = cartData.items.find(x => x.id == prodId);
@@ -145,6 +150,7 @@ export const trackItemAddToCart = async (cartData, prodId, quantity) => {
 export const trackItemPlaceOrder = async (orderData) => {
     try {
         gtOrder(orderData);
+        fbOrder(orderData);
         const email = getEmail();
         const currentEmail = email || orderData?.billing_address?.email;
         const isProcessOrderTracking = currentEmail && orderData;
