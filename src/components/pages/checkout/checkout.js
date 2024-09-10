@@ -447,7 +447,7 @@ function Checkout() {
 
   const validateUserAddress = () => {
     const { address_1, city, postcode, phone } = billingAddress;
-    const isNotValidBillingAddress = !(address_1 && city && postcode && phone && phone.length > 9);
+    const isNotValidBillingAddress = !(address_1 && city && postcode && phone && phone.length >= 9);
     return isNotValidBillingAddress || (userAddresses && userAddresses.length > 0 && userAddresses.some(item => item.errors && typeof item.errors === 'object' && item.errors !== null && Object.keys(item.errors).length > 0));
   }
 
