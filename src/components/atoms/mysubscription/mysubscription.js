@@ -128,8 +128,8 @@ function Mysubscription({ showOrderView, setShowOrderView, isUserLoggedIn, setLo
         const nextDate = subDetail?.next_payment_date_gmt ? new Date(subDetail.next_payment_date_gmt) : new Date();
         const nextDt = formatDateToLongForm(nextDate);
         const subOrders = await subscriptionService.getOrdersBySubscriptionId(id, token)
-        const newSubProducts = await subscriptionService.getNewPRoductsBySubscription(id);
-        setNewSubscriptionProducts(newSubProducts);
+        // const newSubProducts = await subscriptionService.getNewPRoductsBySubscription(id);
+        setNewSubscriptionProducts([]);
         setSubscriptionOrders(subOrders);
         setDate(new Date());
         setNewDate(nextDt);
@@ -252,13 +252,13 @@ function Mysubscription({ showOrderView, setShowOrderView, isUserLoggedIn, setLo
                 <p className={styles.label}>{mat.actions}</p>
                 <p className={`M-Caption-Bold ${styles.skip}`}>
                   <div className={styles.linkbtn}>
-                    <Link href="#">{mat.cancelHeading}</Link>
+                    {/* <Link href="#">{mat.cancelHeading}</Link> */}
                     <Link href="#" onClick={handlecalenderpopup}>
                       Break
                     </Link>
-                    <Link href="#">{mat.changeAddress}</Link>
-                    <Link href="#">{mat.changePay}</Link>
-                    <Link href="#">{mat.RenewNow}</Link>
+                    {/* <Link href="#">{mat.changeAddress}</Link> */}
+                    {/* <Link href="#">{mat.changePay}</Link> */}
+                    {/* <Link href="#">{mat.RenewNow}</Link> */}
                     <Link href="#" onClick={handleButtonClick}>
                       {mat.aadProduct}
                     </Link>

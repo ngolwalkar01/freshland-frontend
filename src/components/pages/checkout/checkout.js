@@ -77,7 +77,8 @@ const INTIAL_CART_DATA = {
   subscriptionShipping: [],
   paymentMethods: [],
   billing_address: null,
-  isOnlyVirtual: false
+  isOnlyVirtual: false,
+  subscriptionProductDetails: {}
 };
 
 function Checkout() {
@@ -142,7 +143,8 @@ function Checkout() {
     shipping,
     delivery_dates,
     subscriptionShipping,
-    isOnlyVirtual
+    isOnlyVirtual,
+    subscriptionProductDetails
   } = cartData;
   const coupons = couponsData;
   const currency_minor_unit = parseInt(totals?.currency_minor_unit);
@@ -223,7 +225,8 @@ function Checkout() {
       billing_address,
       subscriptionShipping,
       shipping_address,
-      isOnlyVirtual: isVirtual
+      isOnlyVirtual: isVirtual,
+      subscriptionProductDetails: extensions
     });
     if (delivery_dates && delivery_dates.length > 0 && delivery_dates[0].dates) {
       const firstDate = Object.keys(delivery_dates[0].dates)[0];
@@ -624,11 +627,7 @@ function Checkout() {
       create_account: isCreateAccount,
       payment_method: paymentOption,
       payment_data: [],
-      extensions: {
-        "some-extension-name": {
-          "some-data-key": "",
-        },
-      },
+      extensions: subscriptionProductDetails,
     };
   };
 

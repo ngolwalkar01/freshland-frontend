@@ -4,7 +4,7 @@ import About from '@/components/pages/aboutUs/about';
 import Layout from '@/components/layout';
 
 const AboutUs = () => {
-    return ( 
+    return (
     <Layout>
      <About />
     </Layout>

@@ -113,7 +113,7 @@ const getOrdersBySubscriptionId = async (sub_id: string, token: string) => {
 
 const getNewPRoductsBySubscription = async (id: string) => {
     try {
-        const url = `${SUBCRIPTION_DATE_API}/similar-products?subscription_id=352`;
+        const url = `${SUBCRIPTION_DATE_API}/similar-products?subscription_id=${id}`;
         const response = await axios.get(url);
         return response.data;
     } catch (error) {
