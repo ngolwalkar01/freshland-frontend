@@ -15,6 +15,7 @@ import { productdetailTranslation } from "@/locales";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/atoms/loader/loader";
+import { config } from "@/helper/config";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
@@ -102,8 +103,8 @@ const Description = ({ productDetailProps }) => {
         setDeliveryOption(currentDeliveryOpt);
       }
     };
-
-    getSubOptions();
+    if (config.isActivateSubscription)
+      getSubOptions();
   }, [productId]);
 
   useEffect(() => {

@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import styles from './Telephone.module.css'
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import React, { useState, useEffect } from 'react';
+import styles from './Telephone.module.css';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
-const Telephone = ({ value, onChange, onBlur = () => { } }) => {
-  // const [value, setValue] = useState()
+const Telephone = ({ value = '', onChange, onBlur = () => {}, onlyValue = false }) => {
+  const [countryCode, setCountryCode] = useState('+46');
+  const [phoneNumber, setPhoneNumber] = useState(value);
 
   useEffect(() => {
     // Access the flag element by class name
@@ -16,38 +17,44 @@ const Telephone = ({ value, onChange, onBlur = () => { } }) => {
     }
   }, []);
 
+  const handlePhoneChange = (value, countryData) => {
+    const { dialCode } = countryData;
+    const purePhoneNumber = value.replace(dialCode, '');
+
+    setCountryCode(dialCode);
+    setPhoneNumber(purePhoneNumber);
+    onChange(purePhoneNumber);
+  };
+
   return (
     <PhoneInput
-      value={value}
-      country={'se'}
-      onChange={onChange}
+      value={onlyValue ? countryCode + phoneNumber : value}
+      country={countryCode}
+      onChange={onlyValue ? handlePhoneChange : onChange}
       defaultCountry="se"
       onlyCountries={['se']}
       masks={{
         se: '(...) ...-....',
       }}
       onBlur={onBlur}
-      // Set your inline styles here
       inputStyle={{
-        border: "10px solid black",
-        boxsizing: "border-box",
+        border: "1px solid #E7E7E7", 
+        boxSizing: "border-box",
         width: "100%",
-        maxwidth: "319px",
+        maxWidth: "319px",
         height: "48px",
         background: "#FFFFFF",
-        border: "1px solid #E7E7E7",
-        borderradius: "8px",
+        borderRadius: "8px",
         fontWeight: "600",
         fontFamily: `-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif`
       }}
-
       buttonStyle={{
-        background: "rgb(44, 44, 44, 0.2)"
+        background: "rgba(44, 44, 44, 0.2)"
       }}
       required
       countryCodeEditable={false}
     />
-  )
+  );
 }
 
-export default Telephone
+export default Telephone;

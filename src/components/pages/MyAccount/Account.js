@@ -20,6 +20,7 @@ import { signOut as googleSignOut } from 'next-auth/react';
 import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
 import OverLayLoader from '@/components/atoms/overLayLoader';
 import { applyLoader } from "@/helper/loader";
+import { config } from "@/helper/config";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
@@ -155,18 +156,21 @@ function Account({ orders }) {
                     <i className="fa-solid fa-chevron-right"></i>
                   </Link>
                 </li>
-                {/* <li onClick={() => handleOptionClick("subscription")}>
-                  <Link
-                    href="#subscription"
-                    className={
-                      activeOption === "subscription" ? styles.activeOption : ""
-                    }
-                  >
-                    {" "}
-                    <span>{mat.subscriptionHeading}</span>
-                    <i className="fa-solid fa-chevron-right"></i>
-                  </Link>
-                </li> */}
+                {
+                  config.isActivateSubscription &&
+                  <li onClick={() => handleOptionClick("subscription")}>
+                    <Link
+                      href="#subscription"
+                      className={
+                        activeOption === "subscription" ? styles.activeOption : ""
+                      }
+                    >
+                      {" "}
+                      <span>{mat.subscriptionHeading}</span>
+                      <i className="fa-solid fa-chevron-right"></i>
+                    </Link>
+                  </li>
+                }
                 <li onClick={() => handleOptionClick("address")}>
                   <Link
                     href="#address"

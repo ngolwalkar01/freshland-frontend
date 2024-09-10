@@ -618,6 +618,7 @@ function UserAddress({ userAddressProps }) {
                                                                     <label>{check.cPhone}*</label>
                                                                     <Telephone
                                                                         value={selectedAddress?.phone || ""}
+                                                                        onlyValue={true}
                                                                         onChange={(e) => {
                                                                             onUpdateShippingAddress({
                                                                                 target: {
@@ -729,7 +730,7 @@ function UserAddress({ userAddressProps }) {
                                         type="text"
                                         value={firstName}
                                         placeholder={check.fName}
-                                        onChange={(e) => { 
+                                        onChange={(e) => {
                                             const value = e.target.value;
                                             setFirstName(value)
                                             handleErrorChange(e, 'firstName');
@@ -750,7 +751,7 @@ function UserAddress({ userAddressProps }) {
                                         type="text"
                                         value={lastName}
                                         placeholder={check.lName}
-                                        onChange={(e) => { 
+                                        onChange={(e) => {
                                             const value = e.target.value;
                                             setLastName(value)
                                             handleErrorChange(e, 'lastName');
@@ -841,8 +842,9 @@ function UserAddress({ userAddressProps }) {
                                     )}
                                 </div>
                                 <div className={styles.fieldColumn}>
-                                    <label>{check.cPhone}*</label>
+                                    <label>{check.cPhone}* </label>
                                     <Telephone
+                                        onlyValue={true}
                                         value={selectedAddress?.phone || ""}
                                         onChange={(e) => {
                                             onUpdateShippingAddress({
@@ -1012,8 +1014,15 @@ function UserAddress({ userAddressProps }) {
                                 <div className={styles.fieldColumn}>
                                     <label>{check.cPhone}*</label>
                                     <Telephone
+                                        onlyValue={true}
                                         value={billingAddress?.phone ? billingAddress.phone : ""}
-                                        onChange={(e) => { onUpdateBillingAddress(e, 'phone'); }}
+                                        onChange={(e) => {
+                                            onUpdateBillingAddress({
+                                                target: {
+                                                    value: e
+                                                }
+                                            }, 'phone');
+                                        }}
                                     />
                                     {(isSubmit || userAddressSubmit) && billingAddress?.errors?.phone && (
                                         <span className={styles.errorMessage}>
