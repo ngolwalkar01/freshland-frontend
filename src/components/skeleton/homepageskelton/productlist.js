@@ -8,7 +8,7 @@ const ProductList = () => {
 
   return (
     <div className={styles.skeletonContainer}>
-      {skeletons.map((index) => (
+      {skeletons.map((x, index) => (
         <div key={index} className={styles.skeletonCard}>
             <div className={styles.newskl}>
               <div>
