@@ -13,7 +13,7 @@ const toastTimer = parseInt(process.env.NEXT_PUBLIC_TOAST_TIMER);
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
-function Accountinformation({ isUserLoggedIn }) {
+function Accountinformation({ profile, isUserLoggedIn }) {
   const token = isUserLoggedIn();
   const mat = myaccountTranslation[lang];
   const service = serviceTranslation[lang];
@@ -26,9 +26,14 @@ function Accountinformation({ isUserLoggedIn }) {
   const [currentpasswordData, setCurrentPasswordData] = useState("");
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [errors, setErrors] = useState(null);
-  const [profile, setUserProfile] = useState();
   const [issubmit, SetIsSubmit] = useState(false);
   const [loader, setLoader] = useState(false);
+  const [userProfile, setUserProfile] = useState(null)
+  
+  useEffect(() => {
+    if (profile)
+      setUserProfile(profile);
+  }, [profile])
 
   const handleInput = (e) => {
     setPasswordData(e.target.value);
@@ -56,13 +61,13 @@ function Accountinformation({ isUserLoggedIn }) {
     validate();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [passwordData, showPassword, confirmPasswordData, showConfirmPassword,
-    currentpasswordData, showCurrentPassword, profile])
+    currentpasswordData, showCurrentPassword, userProfile])
 
   const validate = () => {
     // return true;
     const errors = {};
     let isValid = true;
-    const { first_name, last_name, email, display_name } = profile || {};
+    const { first_name, last_name, email, display_name } = userProfile || {};
     if (!(first_name && first_name.trim())) {
       errors.firstName = errormsg.firstNameRequired;
       isValid = false;
@@ -118,7 +123,7 @@ function Accountinformation({ isUserLoggedIn }) {
 
   const saveData = async () => {
     try {
-      const { first_name, last_name, display_name } = profile
+      const { first_name, last_name, display_name } = userProfile
       const obj = {
         "customer_info": {
           first_name,
@@ -147,17 +152,8 @@ function Accountinformation({ isUserLoggedIn }) {
   };
 
   const updateUserProfile = (e, column) => {
-    setUserProfile({ ...profile, [column]: e.target.value });
+    setUserProfile({ ...userProfile, [column]: e.target.value });
   };
-
-  useEffect(() => {
-    const getUserProfile = async () => {
-      const userData = await applyLoader(setLoader, AccountAPI.getCustomerProfile, [token]);
-      setUserProfile(userData);
-    };
-
-    getUserProfile();
-  }, [token]);
 
   return (
     <>
@@ -172,7 +168,7 @@ function Accountinformation({ isUserLoggedIn }) {
                   <input
                     className={styles.inputField}
                     type="text"
-                    value={profile?.first_name}
+                    value={userProfile?.first_name}
                     placeholder={mat.firstName}
                     onChange={(e) => updateUserProfile(e, "first_name")}
                   />
@@ -187,7 +183,7 @@ function Accountinformation({ isUserLoggedIn }) {
                   <input
                     className={styles.inputField}
                     type="text"
-                    value={profile?.last_name}
+                    value={userProfile?.last_name}
                     placeholder={mat.lastName}
                     onChange={(e) => updateUserProfile(e, "last_name")}
                   />
@@ -204,7 +200,7 @@ function Accountinformation({ isUserLoggedIn }) {
                   <input
                     className={styles.inputField}
                     type="text"
-                    value={profile?.display_name}
+                    value={userProfile?.display_name}
                     onChange={(e) => updateUserProfile(e, "display_name")}
                   />
                   <p className={styles.reviews}>{mat.thisIsHowYour}</p>
@@ -219,7 +215,7 @@ function Accountinformation({ isUserLoggedIn }) {
                   <input
                     className={styles.inputField}
                     type="email"
-                    value={profile?.email}
+                    value={userProfile?.email}
                     placeholder={mat.emailAddress}
                     onChange={(e) => updateUserProfile(e, "email")}
                     disabled

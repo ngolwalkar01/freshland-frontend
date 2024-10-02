@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "@/components/atoms/Header/Header";
 import styles from "./Account.module.css";
 import Image from "next/image";
@@ -21,6 +21,7 @@ import ActiveUserKlaviyo from '@/components/atoms/activeUserKlaviyo';
 import OverLayLoader from '@/components/atoms/overLayLoader';
 import { applyLoader } from "@/helper/loader";
 import { config } from "@/helper/config";
+import AccountAPI from "@/services/account";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
@@ -38,6 +39,7 @@ function Account({ orders }) {
   const [orderObj, setorderObj] = useState(null)
   const [orderDatesData, setOrderDatesData] = useState(null);
   const [olloading, setOlloading] = useState(false);
+  const [profile, setUserProfile] = useState(null);
 
   const router = useRouter();
 
@@ -49,6 +51,7 @@ function Account({ orders }) {
     }
     return token;
   }
+
 
   const toggleOrderView = async (id, val) => {
     try {
@@ -119,6 +122,19 @@ function Account({ orders }) {
     setShowAddAddressButton(true);
     setShippingAddress(false);
   };
+
+  useEffect(() => {
+    const token = isUserLoggedIn();
+    if (token && !profile) {
+      const getUserProfile = async () => {
+        const userData = await AccountAPI.getCustomerProfile();
+        setUserProfile(userData);
+      };
+
+      getUserProfile();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -237,10 +253,11 @@ function Account({ orders }) {
                   setShowOrderView={setShowOrderView} setLoading={setLoading} showOrderViewTab={showOrderViewTab} />
               </div>
             )}
-          {activeOption === "address" && (
+          {activeOption === "address" && profile && (
             <div>
               <h4 className={styles.ordercontainer}>{mat.addressesHeading}</h4>
               <Address
+                profile={profile} setUserProfile={setUserProfile}
                 setOlloading={setOlloading} applyLoader={applyLoader}
                 setShowSaveAddressBox={setShowSaveAddressBox}
                 showSaveAddressBox={showSaveAddressBox}
@@ -253,11 +270,11 @@ function Account({ orders }) {
             </div>
           )}
 
-          {activeOption === "accountinfo" && (
+          {activeOption === "accountinfo" && profile && (
             <div>
               <h4 className={styles.ordercontainer}>{mat.accountHeading}</h4>
-              <Accountinformation isUserLoggedIn={isUserLoggedIn}
-                setOlloading={setOlloading} applyLoader={applyLoader} />
+              <Accountinformation profile={profile} setUserProfile={setUserProfile}
+                setOlloading={setOlloading} applyLoader={applyLoader} isUserLoggedIn={isUserLoggedIn} />
             </div>
           )}
 

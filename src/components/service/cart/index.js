@@ -277,3 +277,11 @@ export const checkZipCode = async (zip) => {
     throw error;
   }
 };
+
+export const saveUserInformation = async (first_name, last_name) => {
+  try {
+    return await cartService.saveUserInformation(first_name, last_name);
+  } catch (error) {
+    
+  }
+};

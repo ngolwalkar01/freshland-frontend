@@ -110,6 +110,23 @@ const getConfig = () => {
                 document.head.appendChild(fbqScript);
                 window.fbqScriptLoaded = true;
               }
+
+              if (!window.pintrkScriptLoaded) {
+                const pintrkScript = document.createElement('script');
+                pintrkScript.innerHTML = `
+                  !function(e){if(!window.pintrk){window.pintrk = function () {
+                    window.pintrk.queue.push(Array.prototype.slice.call(arguments))
+                  };var
+                  n=window.pintrk;n.queue=[],n.version="3.0";var
+                  t=document.createElement("script");t.async=!0,t.src=e;var
+                  r=document.getElementsByTagName("script")[0];
+                  r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+                  pintrk('load', '2612957874414');
+                  pintrk('page');
+                `;
+                document.head.appendChild(pintrkScript);
+                window.pintrkScriptLoaded = true;
+              }
             },
             onReject: () => {
               document.cookie = '_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';

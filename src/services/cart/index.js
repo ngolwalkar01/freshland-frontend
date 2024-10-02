@@ -323,6 +323,21 @@ const checkZipCode = async (postalcode) => {
     }
 }
 
+const saveUserInformation = async (first_name, last_name) => {
+    try {
+        const url = `${INTERNAL_API_BASE_URL}/save-user-information`;
+        const response = await axios.post(url, {
+            first_name,
+            last_name
+        });
+
+        return response.data;
+    } catch (error) {
+        console.error('Error in getting recover user cart :', error);
+        throw error;
+    }
+}
+
 const CartAPI = {
     addProductToCart,
     getCartItems,
@@ -343,7 +358,8 @@ const CartAPI = {
     setUserAddresses,
     saveUserAddresses,
     getVipPageDataById,
-    checkZipCode
+    checkZipCode,
+    saveUserInformation
 };
 
 export default CartAPI;

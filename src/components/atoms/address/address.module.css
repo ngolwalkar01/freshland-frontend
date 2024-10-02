@@ -1,17 +1,1023 @@
+/* checkout css */
+.Checkoutcontainer {
+    background-color: #ffffff;
+}
+
+.mainconatiner {
+    padding: 50px 0px;
+}
+
+.newAddressbtn {
+    display: none;
+}
+
+.savecancelBtn {
+    display: flex;
+    gap: 10px;
+    margin: 13px 0px 10px 0px;
+}
+
+.cancelbtn {
+    display: flex;
+    gap: 10px;
+    margin: 13px 0px 13px 0px;
+}
+
+.savecancelBtn .newAddCover {
+    margin-bottom: 0px;
+
+}
+
+.cancelbtn .newAddCover {
+    margin-bottom: 0px;
+}
+
+.mainHeading {
+    text-align: center;
+}
+
+.selectAddress {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.wrapper {
+    margin: 45px auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 662px;
+}
+
+.errorMessage {
+    color: #D8000C !important;
+}
+
+.formTitle {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+}
+
+.fieldsRow {
+    display: flex;
+    gap: 24px;
+}
+
+
+.fieldColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    position: relative;
+}
+
+.inputField {
+    color: #2c2c2c;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    outline: none;
+}
+
+.addresssdrop {
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #fff;
+    margin-top: -19px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.addresssdrop li {
+    list-style: none;
+    padding: 12px 20px;
+    border-bottom: 1px solid #e7e7e7;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+}
+
+.radioField {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fieldColumn select {
+    box-sizing: border-box;
+    width: 424px;
+    height: 48px;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    position: relative;
+}
+
+.customArrow {
+    position: absolute;
+    top: 53%;
+    left: 60%;
+    margin-top: 6px;
+    transform: rotate(45deg);
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+.table .multiple {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.fieldColumn textarea {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 660px;
+    height: 72px;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    resize: none;
+    outline: none;
+
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: rgba(44, 44, 44);
+}
+
+.textarea::placeholder {
+    /* M Body Medium */
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: rgba(44, 44, 44, 0.6);
+}
+
+.wrapper span {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+}
+
+.wrapper label {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+}
+
+.sendaddress {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+}
+
+.addresscontainer {
+    width: 100%;
+    max-width: 660px;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.addresscontainer p {
+    cursor: pointer;
+}
+
+.newAddCover {
+    margin-bottom: 13px;
+}
+
+.newAddBtn {
+    padding: 14px 30px;
+    background: #1d405c;
+    color: #fff;
+    border: none;
+    font-family: "Helvetica Neue", Arial;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.address {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.address p:last-child {
+    color: #2c2c2c;
+}
+
+/* Right Container CSS */
+
+.rightContainer {
+    padding: 20px 21px 50px 21px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 498px;
+    height: fit-content;
+    background: rgba(29, 64, 92, 0.05);
+
+    /* payment Paragraph */
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+}
+
+.cross {
+    margin-left: 10px;
+    color: #2c2c2c !important;
+}
+
+.freedelivery {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.freedelivery span {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: justify;
+}
+
+.newshiping {
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.newshiping .newquantity {
+    padding: 10px 12px;
+}
+
+.paymentcard {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.terms {
+    /* payment Paragraph */
+    padding-inline: 7px;
+    font-size: 16px;
+}
+
+.acceptTerms {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-block: 27px 3px;
+}
+
+.acceptTerms input[type="checkbox"] {
+    height: 13px !important;
+}
+
+.rightContainer span {
+    /* payment Paragraph */
+    color: var(--green);
+}
+
+.rightContainer button {
+    box-sizing: border-box;
+    margin-inline: auto;
+    padding: 14px 59px;
+    width: fit-content;
+    gap: 55px;
+
+    background: #219029;
+    /* button shadow */
+    box-shadow: 0px 4px 8px rgba(33, 144, 41, 0.25);
+    border-radius: 25px;
+    border: none;
+    color: white;
+
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    cursor: pointer;
+}
+
+.policyLink a {
+    font-size: 15px;
+}
+
+.rightContainer button:active {
+    transform: scale(0.98);
+}
+
+.rightContainer button:hover {
+    background-color: #27aa30;
+}
+
+.table {
+    border-collapse: collapse;
+    margin: auto 0px;
+}
+
+.table tr {
+    display: flex;
+    align-items: unset;
+    justify-content: space-between;
+
+}
+
+.table th,
+.table td {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+}
+
+.table label {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    color: #2c2c2c;
+}
+
+.table span {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+}
+
+.firstHeading {
+    width: 60%;
+}
+
+.table th:nth-child(1) {
+    text-align: left;
+}
+
+.table th:nth-child(2) {
+    text-align: right;
+
+}
+
+.table th:nth-child(1) {
+    /* padding-block: 20px; */
+}
+
+.topRow th:nth-child(1),
+.topRow th:nth-child(2) {
+    padding: 20px 12px;
+}
+
+.productRow td:nth-child(1),
+.productRow td:nth-child(2) {
+    padding: 20px 12px;
+}
+
+.table th,
+.table td {
+    padding: 10px 12px;
+}
+
+/* Right align the content in the second column */
+.table td:nth-child(2) {
+    text-align: right;
+    align-items: flex-start;
+}
+
+.table tbody tr:nth-child(2) td {
+    padding-top: 20px;
+    /* Adjust as needed */
+}
+
+/* 
+  .productRow td {
+    border-block: 1px solid rgba(0, 0, 0, 0.2);
+  } */
+.productrowsec {
+    border-block: 1px solid rgba(0, 0, 0, 0.2);
+
+}
+
+.cartTotal {
+    font-family: Calistoga;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.96px;
+}
+
+.table .include {
+    color: #2c2c2c;
+}
+
+.wrapper input[type="radio"] {
+    accent-color: var(--green);
+    height: 16px;
+    width: 16px;
+}
+
+.radioContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radioContainer div {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.radioContainer label {
+    font-weight: 500;
+}
+
+.wrapper input[type="checkbox"] {
+    accent-color: #2c2c2c;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    outline: none;
+    border: 2px solid #2c2c2c;
+    border-radius: 2px;
+    position: relative;
+}
+
+.wrapper input[type="checkbox"]:checked::before {
+    content: "\2713";
+    /* Checkmark icon */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+    /* Adjust size as needed */
+    color: #2c2c2c;
+    font-weight: 800;
+}
+
+.wrapper input[type="text"]::placeholder {
+    color: #a7a7a7;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+
+}
+
+.wrapper input[type="email"]::placeholder {
+    color: #a7a7a7;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.wrapper select {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.cards {
+    display: flex;
+    gap: 10.26px;
+    padding: 5px 0px 20px 20px;
+}
+
+
+
+.paymentcard:last-child {
+    padding-bottom: 24px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.paymentSection label {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+        sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+}
+
+.black {
+    color: #000 !important;
+}
+
+.dividepayment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.paymentOption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.paymentOption label {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.payementpara {
+    display: flex;
+    align-items: baseline;
+    padding: 12px 25px;
+    gap: 7px;
+}
+
+.checkoutpayement {
+    padding: 20px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.isAccount {
+    margin: 0px 0px;
+    align-items: center;
+
+}
+
+.isAccount input[type="checkbox"] {
+    height: 16px !important;
+}
+
+.error_border {
+    border: 2px solid red;
+}
+
+.useBilling {
+    margin: 15px 0px 10px 0px;
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+    .useBilling {
+        display: none;
+    }
+
+    .newAddressbtn {
+        display: block;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        padding-inline: 0;
+        gap: 30px;
+    }
+
+    .fieldsRow {
+        flex-direction: column;
+    }
+
+    .customArrow {
+        left: 92%;
+    }
+
+    .sendaddress {
+        align-items: center;
+    }
+
+    .sendaddress input[type="checkbox"] {
+        width: 14px;
+        height: 13px;
+    }
+
+    .table th,
+    .table td {
+        padding: 10px 0px;
+    }
+
+    .topRow th:nth-child(1),
+    .topRow th:nth-child(2) {
+        padding: 20px 0px;
+    }
+
+    .productRow td:nth-child(1),
+    .productRow td:nth-child(2) {
+        padding: 20px 0px;
+    }
+
+    .mainconatiner {
+        padding: 30px 0px 0px 0px;
+    }
+
+    .wrapper {
+        margin: 0px 0px;
+    }
+
+    .leftContainer {
+        padding: 28px 28px;
+    }
+
+    .fieldColumn select {
+        width: 100%;
+    }
+
+    .fieldColumn textarea {
+        padding: 8px;
+    }
+
+    .leftContainer {
+        padding-inline: 28px;
+    }
+
+    .rightContainer {
+        max-width: 100%;
+        padding: 20px 28px 50px 28px;
+    }
+
+    .table th,
+    .table td {
+        font-size: 13px;
+    }
+
+    .table label {
+        font-size: 13px;
+    }
+
+    .wrapperskl {
+        flex-direction: column;
+    }
+
+    .wrapper label,
+    .terms {
+        font-size: 13px;
+    }
+
+    .textarea::placeholder,
+    .wrapper input[type="text"]::placeholder,
+    .wrapper input[type="email"]::placeholder,
+    .wrapper select {
+        font-size: 13px;
+    }
+
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .wrapper {
+        flex-direction: column;
+        padding-inline: 0;
+        gap: 30px;
+    }
+
+    .mainconatiner {
+        padding: 0px;
+    }
+
+    .wrapper {
+        margin: 0px 0px;
+    }
+
+    .fieldColumn select {
+        width: 100%;
+    }
+
+    .customArrow {
+        left: 96%;
+    }
+
+    .leftContainer {
+        padding-inline: 28px;
+    }
+
+    .rightContainer {
+        max-width: 100%;
+    }
+
+    .table {
+        margin: 0px 0px;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1150px) {
+    .wrapper {
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-evenly;
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .customArrow {
+        left: 53%;
+    }
+}
+
+
+.editcontentPopup {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 10px;
+    padding: 20px;
+    position: absolute;
+    background-color: #d0e7fa;
+    z-index: 100;
+    border: 1px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Ensure it's on top of other elements */
+}
+
+.editcontentPopup {
+    background: white;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    /* Ensure it's on top of the overlay */
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+
+
+/* Checkout.module.css */
+
+.tabs {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.tabs button {
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    background-color: #278f33;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 6.24px 12.47px 0px rgba(33, 144, 41, 0.25);
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    border-radius: 15px;
+}
+
+.tabs button:hover {
+    background-color: #3fb34c;
+}
+
+.activeTab {
+    background-color: #007bff;
+    color: black;
+    border-bottom: 1px solid transparent;
+}
+
+.tabs button:disabled {
+    cursor: not-allowed;
+    opacity: 0.1;
+}
+
+.fieldsRowChecking {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.fieldsRowChecking input[type="checkbox"] {
+    accent-color: #278f33;
+}
+
+.shippingAdd {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+}
+
+/* .shippingAdd label:first-child{
+    margin: 13px 0px;
+  } */
+
+
+.errorMessagePopup {
+    font-size: 13px;
+    color: #D8000C !important;
+}
+
+.popUpBtns {
+    display: flex;
+    gap: 10px;
+}
+
+.closeButton {
+    padding: 10px 16px;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 6.24px 12.47px 0px rgba(33, 144, 41, 0.25);
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.saveButton {
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    background-color: #278f33;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 6.24px 12.47px 0px rgba(33, 144, 41, 0.25);
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    border-radius: 15px;
+}
+
+.tabsError {
+    border: 1px solid #D8000C;
+    background-color: #df9b9b;
+}
+
+@media (max-width: 1380px) {
+    .editcontentPopup label {
+        font-size: 16px;
+    }
+
+    .editcontentPopup .fieldColumn {
+        gap: 2px;
+    }
+
+    .editcontentPopup {
+        gap: 10px;
+    }
+
+
+    .editcontentPopup {
+        gap: 12px;
+    }
+
+
+    .tabs {
+
+        gap: 12px;
+    }
+
+    .tabs button {
+        font-size: 14px;
+    }
+
+
+
+    .fieldsRowChecking {
+        display: flex;
+        align-items: center;
+        gap: 6px
+    }
+
+    .shippingAdd {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+
+    .popUpBtns {
+        display: flex;
+        gap: 6px;
+    }
+
+    .closeButton {
+        font-size: 14px;
+    }
+
+    .saveButton {
+        font-size: 14px;
+    }
+
+}
+
+
+
+
 .followingpage {
     color: var(--text-light);
 }
-.editaddress{
+
+.editaddress {
     display: flex;
     line-height: 1.6;
     gap: 11px;
     font-weight: 600;
 }
-.editaddress a{
+
+.editaddress a {
     font-size: 24px;
     color: #219029;
     font-family: Calistoga;
 }
+
 /* addresscontainer css */
 .addresscontainer {
     display: grid;
@@ -63,6 +1069,7 @@
     letter-spacing: normal;
     cursor: pointer;
 }
+
 .fieldColumn {
     display: flex;
     flex-direction: column;
@@ -87,6 +1094,7 @@
     border-radius: 8px;
     outline: none;
 }
+
 .fieldColumn label {
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
     font-size: 13px;
@@ -96,13 +1104,15 @@
     line-height: 1.54;
     letter-spacing: normal;
 }
-.saveaddressbox{
+
+.saveaddressbox {
     display: flex;
     flex-direction: column;
     gap: 40px;
     margin: 60px 0px;
 }
-.saveaddressbtn{
+
+.saveaddressbtn {
     box-sizing: border-box;
     margin-inline: auto;
     padding: 14px 59px;
@@ -124,33 +1134,41 @@
     letter-spacing: normal;
     cursor: pointer;
 }
-@media (min-width:320px) and (max-width:360px){
-    .addresscontainer{
+
+@media (min-width:320px) and (max-width:360px) {
+    .addresscontainer {
         grid-template-columns: auto;
         gap: 40px;
     }
-    .addresscontent{
+
+    .addresscontent {
         max-width: 300px;
     }
-    .saveaddressbox{
+
+    .saveaddressbox {
         margin: 40px auto;
     }
-    .addressbtn{
+
+    .addressbtn {
         margin: 40px auto;
     }
 }
-@media(min-width:365px) and (max-width:600px){
-    .addresscontainer{
+
+@media(min-width:365px) and (max-width:600px) {
+    .addresscontainer {
         grid-template-columns: auto;
         gap: 40px;
     }
-    .addresscontent{
+
+    .addresscontent {
         max-width: 320px;
     }
-    .saveaddressbox{
+
+    .saveaddressbox {
         margin: 40px auto;
     }
-    .addressbtn{
+
+    .addressbtn {
         margin: 40px auto;
     }
 }

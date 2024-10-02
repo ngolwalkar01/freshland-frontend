@@ -56,8 +56,7 @@ export default function RootLayout({ children }) {
             `,
           }}
         /> */}
-        <noscript>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* <noscript>
           <img
             height="1"
             width="1"
@@ -65,8 +64,8 @@ export default function RootLayout({ children }) {
             style={{ display: 'none' }}
             src={`https://www.facebook.com/tr?id=588900118705548&ev=PageView&noscript=1`}
           />
-        </noscript>
-
+        </noscript> */}
+{/* 
         <script dangerouslySetInnerHTML={{
           __html: `
               !function(e){if(!window.pintrk){window.pintrk = function () {
@@ -77,7 +76,7 @@ export default function RootLayout({ children }) {
           r=document.getElementsByTagName("script")[0];
             r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
             `,
-        }} />
+        }}></script> */}
         <DataProvider>
           {children}
         </DataProvider>

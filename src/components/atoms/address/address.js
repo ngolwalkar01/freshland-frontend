@@ -5,6 +5,7 @@ import { myaccountTranslation } from "@/locales";
 import Biiling from "../biilingaddress/biiling";
 import Shipping from "@/components/atoms/shippingaddress/shipping";
 import AccountAPI from "@/services/account";
+import AddressComp from './addressComp';
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 
@@ -47,6 +48,7 @@ function Address({
   setShowAddAddressButton,
   showshippingAddress,
   setShippingAddress,
+  profile
 }) {
   const token = isUserLoggedIn();
   const mat = myaccountTranslation[lang];
@@ -81,7 +83,8 @@ function Address({
   const showEditBtn = process.env.NEXT_PUBLIC_IS_EDIT_ADDRESS === 'true';
   return (
     <>
-      <div>
+      {billingAddress && <AddressComp profile={profile} billingAddressData={billingAddress}/>}
+      {/* <div>
         {showAddAddressButton && (
           <div className={styles.addresscontent}>
             <div>
@@ -112,10 +115,9 @@ function Address({
             </div>
           </div>
         )}
-        {/*  save address box */}
         {showSaveAddressBox && <Biiling billingAddressProp={billingAddress} />}
         {showshippingAddress && <Shipping shippingAddressProp={shippingAddress} />}
-      </div>
+      </div> */}
     </>
   );
 }

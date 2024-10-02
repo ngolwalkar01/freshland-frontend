@@ -2,13 +2,15 @@ import React, { useEffect, useCallback } from "react";
 import { useState } from "react";
 import { checkoutTranslation, cartTranslation, commonTranslation, errorTranslation } from "@/locales";
 import Telephone from "@/components/atoms/Telephone/Telephone";
-import { getUserAddresses, setUserAddressesAsync, saveUserAddresses } from '@/components/service/cart';
+import {
+    getUserAddresses, setUserAddressesAsync,
+    saveUserAddresses, setCustomerDetails
+} from '@/components/service/cart';
 import Image from 'next/image';
 import { applyLoader } from "@/helper/loader";
 import { deepCopyArray } from "@/helper/deepCopy";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
-const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
 
 const INTIAL_ADDRESS = {
     address_1: "",
@@ -69,16 +71,15 @@ function UserAddress({ userAddressProps }) {
         showBillingAddress, setShowBillingAddress,
         firstName, setFirstName,
         lastName, setLastName,
-        setCustomerDetail,
-        updateLocalStorageCartData,
-        errors, setErrors,
-        cartData,
-        isSubmit, setIsSubmit,
+        errors,
         validateUserAddress,
         setOlLoader,
-        setCartDataByCartData,
-        handleErrorChange
+        handleErrorChange,
+        validateForm,
+        saveUserInfo
     } = userAddressProps;
+
+    const isSubmit = false;
 
     const check = checkoutTranslation[lang];
     const ct = cartTranslation[lang];
@@ -93,9 +94,7 @@ function UserAddress({ userAddressProps }) {
     const [originalUserAddresses, setOriginalUserAddresses] = useState([]);
     const [userAddressSubmit, setUserAddressSubmit] = useState(false);
 
-    const cart_shipping_address = (token && userAddresses
-        && userAddresses.length > 0)
-        ? null : cartData?.shipping_address;
+    const cart_shipping_address = null;
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const getSavedAddress = useCallback(async () => {
@@ -150,24 +149,32 @@ function UserAddress({ userAddressProps }) {
 
     const checkIfUserHaveAddress = useCallback(async () => {
         let isNewAddress = true;
-        if (token) {
-            let userAddress = await getSavedAddress();
-            if (userAddress && userAddress.length > 0) {
-                isNewAddress = false;
-                const selectedIndex = userAddress && userAddress.length > 0 && userAddress.findIndex(x => x.selected);
-                const validUserAddresses = userAddress.map((x) => {
-                    const validAddress = checkAddress(x);
-                    return validAddress;
-                })
-                setUserAddresses(validUserAddresses);
-                setOriginalUserAddresses(deepCopyArray(validUserAddresses));
-                setSelectedAddressIndex(selectedIndex);
-                setShowSaveButton(validUserAddresses.length > 0);
-                return;
+        try {
+            setOlLoader(true);
+            if (token) {
+                let userAddress = await getSavedAddress();
+                if (userAddress && userAddress.length > 0) {
+                    isNewAddress = false;
+                    const selectedIndex = userAddress && userAddress.length > 0 && userAddress.findIndex(x => x.selected);
+                    const validUserAddresses = userAddress.map((x) => {
+                        const validAddress = checkAddress(x);
+                        return validAddress;
+                    })
+                    setUserAddresses(validUserAddresses);
+                    setOriginalUserAddresses(deepCopyArray(validUserAddresses));
+                    setSelectedAddressIndex(selectedIndex);
+                    setShowSaveButton(validUserAddresses.length > 0);
+                    setOlLoader(false);
+                    return;
+                }
             }
+
+            setIntialAddress(isNewAddress);
+            setOlLoader(false);
+        } catch (error) {
+            setOlLoader(false);
         }
 
-        setIntialAddress(isNewAddress);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, getSavedAddress, setUserAddresses, setSelectedAddressIndex, setShowSaveButton, setEditableMode])
 
@@ -291,14 +298,8 @@ function UserAddress({ userAddressProps }) {
     const fetchData1 = async () => {
         if (!validateUserAddress() && isAddressEdit) {
             try {
-                const preventAuthRedirect = "preventAuthRedirect";
-                const cartData = await applyLoader(setOlLoader, setCustomerDetail, [
-                    firstName, lastName, userAddresses, selectedAddressIndex, preventAuthRedirect
-                ]);
-                setCartDataByCartData(cartData);
                 setIsAddressEdit(false);
             } catch (error) {
-                await applyLoader(setOlLoader, updateLocalStorageCartData, []);
             }
         }
     }
@@ -421,7 +422,6 @@ function UserAddress({ userAddressProps }) {
         await applyLoader(setOlLoader, updateUserAddress, [
             i
         ]);
-        updateLocalStorageCartData();
     }
 
     const checkUserAddressValidity = (currentUserAdd) => {
@@ -442,13 +442,13 @@ function UserAddress({ userAddressProps }) {
             setUserAddressSubmit(true);
             const isnew = isNewAddress === "true";
             const addressesToSave = isnew ? userAddresses : userAddresses.filter(x => !x.isNewAddress);
-            if (checkUserAddressValidity(addressesToSave)) {
+            if (validateForm() && checkUserAddressValidity(addressesToSave)) {
                 setOlLoader(true);
                 await saveUserAddresses(addressesToSave);
+                await saveUserInfo();
                 resetForm();
                 if (isnew) {
                     await setUserAddressesAsync(userAddresses.length - 1);
-                    updateLocalStorageCartData();
                     await checkIfUserHaveAddress();
                 }
                 await fetchData1();
@@ -714,7 +714,6 @@ function UserAddress({ userAddressProps }) {
                             </button>
                         </div>
                     )}
-
                     {(!token || enableEditableMode.status) && selectedAddress?.isNewAddress && (
                         <div className={styles.shippingAdd}>
                             {token &&

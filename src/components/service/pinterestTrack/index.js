@@ -6,16 +6,16 @@ const init = () => {
     }
 
     const email = getEmail();
-    if (email) {
-        if (!window.pintrk.loaded) {
-            pintrk('load', '2612957874414', { em: email });
-            pintrk('page');
-            window.pintrk.loaded = true;
-        }
-        return true;
+    // if (email) {
+    if (!window.pintrk.loaded) {
+        pintrk('load', '2612957874414', { em: email });
+        pintrk('page');
+        window.pintrk.loaded = true;
     }
+    return true;
+    // }
 
-    return false;
+    // return false;
 };
 
 const sendPinterestEvent = (event_name, payload) => {
