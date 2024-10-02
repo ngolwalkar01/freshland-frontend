@@ -14,7 +14,6 @@ export const getOrderDates = async (orderid) => {
     toast.error(service.fetchOrderDateIssue, { autoClose: toastTimer });
   }
 };
-
 export const getOrderDetailById = async (orderid, order_key) => {
   try {
     const token = localStorage.getItem("token");
