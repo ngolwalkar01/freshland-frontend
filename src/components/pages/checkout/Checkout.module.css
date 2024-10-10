@@ -6,30 +6,29 @@
   padding: 50px 0px;
 }
 
-.newAddressbtn{
+.newAddressbtn {
   display: none;
 }
-.savecancelBtn{
+.savecancelBtn {
   display: flex;
   gap: 10px;
   margin: 13px 0px 10px 0px;
 }
-.cancelbtn{
+.cancelbtn {
   display: flex;
   gap: 10px;
   margin: 13px 0px 13px 0px;
 }
 .savecancelBtn .newAddCover {
   margin-bottom: 0px;
-  
 }
-.cancelbtn .newAddCover{
+.cancelbtn .newAddCover {
   margin-bottom: 0px;
 }
 .mainHeading {
   text-align: center;
 }
-.selectAddress{
+.selectAddress {
   display: flex;
   align-items: center;
   gap: 30px;
@@ -49,7 +48,7 @@
 }
 
 .errorMessage {
-  color: #D8000C !important;
+  color: #d8000c !important;
 }
 
 .formTitle {
@@ -67,7 +66,6 @@
   display: flex;
   gap: 24px;
 }
-
 
 .fieldColumn {
   display: flex;
@@ -101,7 +99,8 @@
   cursor: pointer;
   background-color: #fff;
   margin-top: -19px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .addresssdrop li {
@@ -209,7 +208,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-
 }
 
 .addresscontainer {
@@ -222,10 +220,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
-.addresscontainer p{
+.addresscontainer p {
   cursor: pointer;
 }
 .newAddCover {
@@ -275,6 +272,35 @@
   letter-spacing: normal;
 }
 
+.rightContainer p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.show_hide_list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3px;
+  margin-bottom: 15px;
+}
+
+.myEmail {
+  position: relative;
+  top: 3px;
+  margin-right: 6px;
+}
+
+.giftEmail {
+  position: relative;
+  top: 3px;
+  margin-right: 6px;
+}
+
 .cross {
   margin-left: 10px;
   color: #2c2c2c !important;
@@ -293,14 +319,12 @@
   gap: 10px;
   text-align: justify;
 }
-.newshiping{
-  
-
+.newshiping {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.newshiping .newquantity{
+.newshiping .newquantity {
   padding: 10px 12px;
 }
 .paymentcard {
@@ -356,8 +380,8 @@
   cursor: pointer;
 }
 
-.policyLink a{
- font-size: 15px;
+.policyLink a {
+  font-size: 15px;
 }
 .rightContainer button:active {
   transform: scale(0.98);
@@ -371,23 +395,22 @@
   border-collapse: collapse;
   margin: auto 0px;
 }
-.table tr{
+.table tr {
   display: flex;
   align-items: unset;
   justify-content: space-between;
-
 }
 
 .table th,
-.table td{
+.table td {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
-  sans-serif;
-font-size: 16px;
-font-weight: 500;
-font-stretch: normal;
-font-style: normal;
-line-height: 1.5;
-letter-spacing: normal;
+    sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
 }
 .table label {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
@@ -422,7 +445,6 @@ letter-spacing: normal;
 
 .table th:nth-child(2) {
   text-align: right;
-
 }
 
 .table th:nth-child(1) {
@@ -458,10 +480,9 @@ letter-spacing: normal;
 .productRow td {
   border-block: 1px solid rgba(0, 0, 0, 0.2);
 } */
- .productrowsec{
+.productrowsec {
   border-block: 1px solid rgba(0, 0, 0, 0.2);
-
- }
+}
 
 .cartTotal {
   font-family: Calistoga;
@@ -530,7 +551,6 @@ letter-spacing: normal;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-
 }
 
 .wrapper input[type="email"]::placeholder {
@@ -556,8 +576,6 @@ letter-spacing: normal;
   padding: 5px 0px 20px 20px;
 }
 
-
-
 .paymentcard:last-child {
   padding-bottom: 24px;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
@@ -575,53 +593,52 @@ letter-spacing: normal;
 }
 
 .black {
-  color: #000!important;
+  color: #000 !important;
 }
-.dividepayment{
+.dividepayment {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
-.paymentOption{
+.paymentOption {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.paymentOption label{
+.paymentOption label {
   font-weight: 600;
   font-size: 15px;
 }
-.payementpara{
+.payementpara {
   display: flex;
   align-items: baseline;
   padding: 12px 25px;
   gap: 7px;
 }
-.checkoutpayement{
+.checkoutpayement {
   padding: 20px 0px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-.isAccount{
+.isAccount {
   margin: 0px 0px;
   align-items: center;
-
 }
-.isAccount input[type="checkbox"]{
+.isAccount input[type="checkbox"] {
   height: 16px !important;
 }
 
 .error_border {
   border: 2px solid red;
 }
-.useBilling{
+.useBilling {
   margin: 15px 0px 10px 0px;
 }
 @media (min-width: 320px) and (max-width: 600px) {
-  .useBilling{
+  .useBilling {
     display: none;
   }
-  .newAddressbtn{
+  .newAddressbtn {
     display: block;
   }
   .wrapper {
@@ -691,28 +708,28 @@ letter-spacing: normal;
     padding: 20px 28px 50px 28px;
   }
   .table th,
-  .table td{
-  font-size: 13px;
-  }
-  
-  .table label{
+  .table td {
     font-size: 13px;
   }
-  .wrapperskl{
+
+  .table label {
+    font-size: 13px;
+  }
+  .wrapperskl {
     flex-direction: column;
   }
 
-  .wrapper label, .terms{
+  .wrapper label,
+  .terms {
     font-size: 13px;
   }
 
-.textarea::placeholder,
-.wrapper input[type="text"]::placeholder,
-.wrapper input[type="email"]::placeholder ,
-.wrapper select{
-  font-size: 13px;
-}
-
+  .textarea::placeholder,
+  .wrapper input[type="text"]::placeholder,
+  .wrapper input[type="email"]::placeholder,
+  .wrapper select {
+    font-size: 13px;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
@@ -765,7 +782,6 @@ letter-spacing: normal;
   }
 }
 
-
 .editcontentPopup {
   display: flex;
   position: absolute;
@@ -806,7 +822,6 @@ letter-spacing: normal;
   flex-direction: column;
 }
 
-
 /* Checkout.module.css */
 
 .tabs {
@@ -824,7 +839,8 @@ letter-spacing: normal;
   cursor: pointer;
   transition: background-color 0.3s ease;
   box-shadow: 0px 6.24px 12.47px 0px rgba(33, 144, 41, 0.25);
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
   border-radius: 15px;
 }
 
@@ -846,7 +862,7 @@ letter-spacing: normal;
 .fieldsRowChecking {
   display: flex;
   align-items: center;
-  gap: 10px
+  gap: 10px;
 }
 
 .fieldsRowChecking input[type="checkbox"] {
@@ -857,17 +873,15 @@ letter-spacing: normal;
   display: flex;
   flex-direction: column;
   gap: 12px;
-
 }
 
 /* .shippingAdd label:first-child{
   margin: 13px 0px;
 } */
 
-
 .errorMessagePopup {
   font-size: 13px;
-  color: #D8000C !important;
+  color: #d8000c !important;
 }
 
 .popUpBtns {
@@ -884,7 +898,8 @@ letter-spacing: normal;
   cursor: pointer;
   transition: background-color 0.3s ease;
   box-shadow: 0px 6.24px 12.47px 0px rgba(33, 144, 41, 0.25);
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
   border-radius: 15px;
   box-sizing: border-box;
 }
@@ -898,12 +913,13 @@ letter-spacing: normal;
   cursor: pointer;
   transition: background-color 0.3s ease;
   box-shadow: 0px 6.24px 12.47px 0px rgba(33, 144, 41, 0.25);
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
   border-radius: 15px;
 }
 
 .tabsError {
-  border: 1px solid #D8000C;
+  border: 1px solid #d8000c;
   background-color: #df9b9b;
 }
 
@@ -918,28 +934,23 @@ letter-spacing: normal;
   .editcontentPopup {
     gap: 10px;
   }
-  
-  
+
   .editcontentPopup {
     gap: 12px;
   }
 
-  
   .tabs {
-
     gap: 12px;
   }
-  
+
   .tabs button {
     font-size: 14px;
   }
 
-
-  
   .fieldsRowChecking {
     display: flex;
     align-items: center;
-    gap: 6px
+    gap: 6px;
   }
 
   .shippingAdd {
@@ -948,18 +959,16 @@ letter-spacing: normal;
     gap: 6px;
   }
 
-  
   .popUpBtns {
     display: flex;
     gap: 6px;
   }
-  
+
   .closeButton {
     font-size: 14px;
   }
-  
+
   .saveButton {
     font-size: 14px;
   }
-  
 }

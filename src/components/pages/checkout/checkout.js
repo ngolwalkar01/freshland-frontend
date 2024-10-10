@@ -6,7 +6,11 @@ import Telephone from "@/components/atoms/Telephone/Telephone";
 import Image from "next/image";
 import Link from "next/link";
 import Loader from "@/components/atoms/loader/loader";
-import { checkoutTranslation, cartTranslation, errorTranslation } from "@/locales";
+import {
+  checkoutTranslation,
+  cartTranslation,
+  errorTranslation,
+} from "@/locales";
 import { useRouter } from "next/navigation";
 import Shipping from "@/components/atoms/shipping";
 import CheckoutSkeleton from "@/components/skeleton/checkoutskeleton/checkoutskeleton";
@@ -40,7 +44,10 @@ import { applyLoader } from "@/helper/loader";
 import OverLayLoader from "@/components/atoms/overLayLoader";
 import ShippingBillingAddress from "@/components/atoms/shippingBillingAddress";
 import klaviyoservice from "@/services/klaviyo/apiIndex";
-import { setKlaviyoEmail, trackAddToCheckoutPage } from "@/components/service/klaviyoTrack";
+import {
+  setKlaviyoEmail,
+  trackAddToCheckoutPage,
+} from "@/components/service/klaviyoTrack";
 
 const lang = process.env.NEXT_PUBLIC_LANG || "se";
 const cartDataStorage = process.env.NEXT_PUBLIC_CART_STORAGE;
@@ -78,7 +85,7 @@ const INTIAL_CART_DATA = {
   paymentMethods: [],
   billing_address: null,
   isOnlyVirtual: false,
-  subscriptionProductDetails: {}
+  subscriptionProductDetails: {},
 };
 
 function Checkout() {
@@ -149,7 +156,7 @@ function Checkout() {
     delivery_dates,
     subscriptionShipping,
     isOnlyVirtual,
-    subscriptionProductDetails
+    subscriptionProductDetails,
   } = cartData;
   const coupons = couponsData;
   const currency_minor_unit = parseInt(totals?.currency_minor_unit);
@@ -218,9 +225,9 @@ function Checkout() {
       });
     }
     if (items && items.length > 0) {
-      const isShowGiftCard = items.find(x => {
-        return x?.extensions?.subscription_schemes?.is_gift_card
-      })
+      const isShowGiftCard = items.find((x) => {
+        return x?.extensions?.subscription_schemes?.is_gift_card;
+      });
       setShowGiftCardBox(!!isShowGiftCard);
     }
     const isVirtual = extensions?.delivery?.[0]?.only_virtual ?? false;
@@ -237,9 +244,13 @@ function Checkout() {
       subscriptionShipping,
       shipping_address,
       isOnlyVirtual: isVirtual,
-      subscriptionProductDetails: extensions
+      subscriptionProductDetails: extensions,
     });
-    if (delivery_dates && delivery_dates.length > 0 && delivery_dates[0].dates) {
+    if (
+      delivery_dates &&
+      delivery_dates.length > 0 &&
+      delivery_dates[0].dates
+    ) {
       const firstDate = Object.keys(delivery_dates[0].dates)[0];
       setDeliveryDate(firstDate);
     }
@@ -454,22 +465,42 @@ function Checkout() {
     try {
       return shipping[0]?.shipping[0]?.shipping_rates || null;
     } catch (error) {
-      console.error("An error occurred while retrieving shipping rates:", error);
+      console.error(
+        "An error occurred while retrieving shipping rates:",
+        error
+      );
       return null;
     }
   }
 
   const validateUserAddress = () => {
     const { address_1, city, postcode, phone } = billingAddress || {};
-    const isNotValidBillingAddress = !(address_1 && city && postcode && phone && phone.length >= 9);
-    return isNotValidBillingAddress || (userAddresses && userAddresses.length > 0 && userAddresses.some(item => item.errors && typeof item.errors === 'object' && item.errors !== null && Object.keys(item.errors).length > 0));
-  }
+    const isNotValidBillingAddress = !(
+      address_1 &&
+      city &&
+      postcode &&
+      phone &&
+      phone.length >= 9
+    );
+    return (
+      isNotValidBillingAddress ||
+      (userAddresses &&
+        userAddresses.length > 0 &&
+        userAddresses.some(
+          (item) =>
+            item.errors &&
+            typeof item.errors === "object" &&
+            item.errors !== null &&
+            Object.keys(item.errors).length > 0
+        ))
+    );
+  };
 
   const handleErrorChange = (event, key) => {
     const { value } = event.target;
     setErrors((prevErrors) => ({
       ...prevErrors,
-      [key]: value.trim() ? null : prevErrors[key]
+      [key]: value.trim() ? null : prevErrors[key],
     }));
   };
 
@@ -545,7 +576,6 @@ function Checkout() {
       errors.billing_company = errormsg.billingCompanyRequired;
     }
 
-
     if (showGiftCardBox && !giftEmail) {
       errors.gift_email = errormsg.giftEmailRequired;
     }
@@ -618,10 +648,10 @@ function Checkout() {
 
     if (showGiftCardBox && giftEmail) {
       let giftCardAttrivbutes = {
-        "emails": giftEmail,
-        "message": giftMessage,
-      }
-      extensionsData['gift-card-attributes'] = giftCardAttrivbutes;
+        emails: giftEmail,
+        message: giftMessage,
+      };
+      extensionsData["gift-card-attributes"] = giftCardAttrivbutes;
     }
 
     return {
@@ -654,7 +684,7 @@ function Checkout() {
       payment_method: paymentOption,
       payment_data: [],
       // extensions: subscriptionProductDetails,
-      "extensions": extensionsData
+      extensions: extensionsData,
     };
   };
 
@@ -772,12 +802,12 @@ function Checkout() {
   };
 
   useEffect(() => {
-    if (showGiftCardBox && email && sendEmail === 'myEmail') {
+    if (showGiftCardBox && email && sendEmail === "myEmail") {
       setGiftEmail(email);
     } else {
-      setGiftEmail('');
+      setGiftEmail("");
     }
-  }, [email, sendEmail, showGiftCardBox])
+  }, [email, sendEmail, showGiftCardBox]);
 
   const userAddressProps = {
     styles,
@@ -802,11 +832,12 @@ function Checkout() {
     errors,
     setErrors,
     cartData,
-    isSubmit, setIsSubmit,
+    isSubmit,
+    setIsSubmit,
     validateUserAddress,
     setOlLoader,
     setCartDataByCartData,
-    handleErrorChange
+    handleErrorChange,
   };
 
   return (
@@ -838,11 +869,11 @@ function Checkout() {
                     <div className={styles.fieldsRow}>
                       <div className={styles.fieldColumn}>
                         <label htmlFor="Email">
-                          <strong className="W-Body-Large-Medium">{check.contactInformation}</strong>
+                          <strong className="W-Body-Large-Medium">
+                            {check.contactInformation}
+                          </strong>
                         </label>
-                        <label>
-                          {check.emailUsage}
-                        </label>
+                        <label>{check.emailUsage}</label>
                         <input
                           className={styles.inputField}
                           type="email"
@@ -858,8 +889,10 @@ function Checkout() {
                         )}
                       </div>
                     </div>
-                    {!token &&
-                      <div className={`${styles.acceptTerms} ${styles.isAccount}`}>
+                    {!token && (
+                      <div
+                        className={`${styles.acceptTerms} ${styles.isAccount}`}
+                      >
                         <input
                           type="checkbox"
                           checked={isCreateAccount}
@@ -870,7 +903,7 @@ function Checkout() {
                           {check.wantAccount}
                         </label>
                       </div>
-                    }
+                    )}
 
                     {/*  */}
 
@@ -1121,7 +1154,9 @@ function Checkout() {
                       <div className={styles.fieldsRow}>
                         <div className={styles.fieldColumn}>
                           <label htmlFor="comp_name">
-                            <strong className="W-Body-Large-Medium">{check.billingCompanyName}</strong>
+                            <strong className="W-Body-Large-Medium">
+                              {check.billingCompanyName}
+                            </strong>
                           </label>
                           <input
                             className={styles.inputField}
@@ -1611,83 +1646,93 @@ function Checkout() {
                     </div>
                   </main>
                   <aside className={styles.rightContainer}>
-                    {showGiftCardBox && <div>
-                      <h3>{check.giftTitle}</h3>
-                      <p>{check.giftDescription}</p>
-                      <div class="gift-certificate-show-form">
-                        <p>{check.giftParagraph}</p>
-                        <ul
-                          class="show_hide_list"
-                          style={{ "list-style-type": "none" }}
-                        >
-                          <li>
-                            <input
-                              type="radio"
-                              id="myEmail"
-                              name="myEmail"
-                              value={sendEmail}
-                              onChange={() => {
-                                setSendEmail("myEmail")
-                              }}
-                              checked={sendEmail === "myEmail"}
-                            />{" "}
-                            <label for="myEmail">
-                              {check.myEmailRadioLabel}
-                            </label>
-                          </li>
-                          <li>
-                            <input
-                              type="radio"
-                              id="giftEmail"
-                              name="giftEmail"
-                              value={sendEmail}
-                              onChange={() => { setSendEmail("giftEmail") }}
-                              checked={sendEmail === "giftEmail"}
-                            />{" "}
-                            <label for="giftEmail">
-                              {check.giftEmailRadioLabel}
-                            </label>
-                          </li>
-                        </ul>
-                      </div>
-                      {sendEmail === "giftEmail" && (
-                        <div class="gift-certificate-receiver-detail-form">
-                          <div class="clear"></div>
-                          <div className={styles.fieldsRow}>
-                            <div className={styles.fieldColumn}>
-                              <div class="email">
-                                <input
-                                  className={styles.inputField}
-                                  type="text"
-                                  placeholder={
-                                    check.giftEmailAddressPlaceholder
-                                  }
-                                  name="giftEmail"
-                                  value={giftEmail}
-                                  onChange={(e) => { setGiftEmail(e.target.value) }}
-                                />
-                                {errors.gift_email && (
-                                  <span className={styles.errorMessage}>
-                                    {errors.gift_email}
-                                  </span>
-                                )}
-                              </div>
+                    {showGiftCardBox && (
+                      <div>
+                        <h3>{check.giftTitle}</h3>
+                        <p>{check.giftDescription}</p>
+                        <div class="gift-certificate-show-form">
+                          <p>{check.giftParagraph}</p>
+                          <ul
+                            className={styles.show_hide_list}
+                            style={{ "list-style-type": "none" }}
+                          >
+                            <li>
+                              <input
+                                type="radio"
+                                id="myEmail"
+                                name="myEmail"
+                                value={sendEmail}
+                                onChange={() => {
+                                  setSendEmail("myEmail");
+                                }}
+                                checked={sendEmail === "myEmail"}
+                                className={styles.myEmail}
+                              />{" "}
+                              <label for="myEmail">
+                                {check.myEmailRadioLabel}
+                              </label>
+                            </li>
+                            <li>
+                              <input
+                                type="radio"
+                                id="giftEmail"
+                                name="giftEmail"
+                                value={sendEmail}
+                                onChange={() => {
+                                  setSendEmail("giftEmail");
+                                }}
+                                checked={sendEmail === "giftEmail"}
+                                className={styles.giftEmail}
+                              />{" "}
+                              <label for="giftEmail">
+                                {check.giftEmailRadioLabel}
+                              </label>
+                            </li>
+                          </ul>
+                        </div>
+                        {sendEmail === "giftEmail" && (
+                          <div class="gift-certificate-receiver-detail-form">
+                            <div class="clear"></div>
+                            <div className={styles.fieldsRow}>
                               <div className={styles.fieldColumn}>
-                                <textarea
-                                  placeholder={check.giftEmailMessage}
-                                  className={styles.textarea}
-                                  name="message"
-                                  cols="50"
-                                  rows="5"
-                                  value={giftMessage}
-                                  onChange={(e) => { setGiftMessage(e.target.value) }}
-                                ></textarea>
+                                <div class="email">
+                                  <input
+                                    className={styles.inputField}
+                                    type="text"
+                                    placeholder={
+                                      check.giftEmailAddressPlaceholder
+                                    }
+                                    name="giftEmail"
+                                    value={giftEmail}
+                                    onChange={(e) => {
+                                      setGiftEmail(e.target.value);
+                                    }}
+                                  />
+                                  {errors.gift_email && (
+                                    <span className={styles.errorMessage}>
+                                      {errors.gift_email}
+                                    </span>
+                                  )}
+                                </div>
+                                <div className={styles.fieldColumn}>
+                                  <textarea
+                                    placeholder={check.giftEmailMessage}
+                                    className={styles.textarea}
+                                    name="message"
+                                    cols="50"
+                                    rows="5"
+                                    value={giftMessage}
+                                    onChange={(e) => {
+                                      setGiftMessage(e.target.value);
+                                    }}
+                                  ></textarea>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      )}
-                    </div>}
+                        )}
+                      </div>
+                    )}
                     <table className={styles.table}>
                       <thead>
                         <tr className={styles.topRow}>
@@ -1713,14 +1758,14 @@ function Checkout() {
                             const quantityValue = quantity;
                             const subtotal = getCorrectPrice(
                               parseInt(prices?.line_subtotal) +
-                              parseInt(prices?.line_subtotal_tax)
+                                parseInt(prices?.line_subtotal_tax)
                             );
                             const subscription_schemes =
                               cartItem?.extensions?.subscription_schemes;
                             const current_options =
                               subscription_schemes &&
-                                subscription_schemes.subscription_schemes &&
-                                subscription_schemes.subscription_schemes.length >
+                              subscription_schemes.subscription_schemes &&
+                              subscription_schemes.subscription_schemes.length >
                                 0
                                 ? subscription_schemes.subscription_schemes
                                 : [];
@@ -1746,7 +1791,7 @@ function Checkout() {
                             );
                           })}
 
-                        <tr >
+                        <tr>
                           <td>{check.subt}</td>
                           <td>
                             {cartSubTotal} {currency_symbol}
@@ -1797,102 +1842,103 @@ function Checkout() {
                         )}
                       </tbody>
                     </table>
-                    {
-                      cartTotal > 0 && (
-                        <div className={styles.paymentSection}>
-                          {paymentMethods &&
-                            paymentMethods.length > 0 &&
-                            paymentMethods.map((x, i) => {
-                              return (
-                                <Fragment key={i}>
-                                  <div className={styles.paymentcard}>
-                                    <input
-                                      type="radio"
-                                      id={x.id}
-                                      name="paymentOption"
-                                      value={x.id}
-                                      checked={paymentOption === x.id}
-                                      onChange={() => setPaymentOption(x.id)}
+                    {cartTotal > 0 && (
+                      <div className={styles.paymentSection}>
+                        {paymentMethods &&
+                          paymentMethods.length > 0 &&
+                          paymentMethods.map((x, i) => {
+                            return (
+                              <Fragment key={i}>
+                                <div className={styles.paymentcard}>
+                                  <input
+                                    type="radio"
+                                    id={x.id}
+                                    name="paymentOption"
+                                    value={x.id}
+                                    checked={paymentOption === x.id}
+                                    onChange={() => setPaymentOption(x.id)}
+                                  />
+                                  <label htmlFor={x.id}>{x.title}</label>
+                                </div>
+                                {x.id == "bacs" && (
+                                  <div className={styles.cards}>
+                                    <Image
+                                      src="/Images/Dkfooter.png"
+                                      alt="Dk"
+                                      height={20}
+                                      width={32}
                                     />
-                                    <label htmlFor={x.id}>{x.title}</label>
+                                    <Image
+                                      src="/Images/mobilepay.png"
+                                      alt="mobilepay"
+                                      height={20}
+                                      width={32}
+                                    />
+                                    <Image
+                                      src="/Images/visa.png"
+                                      alt="visa"
+                                      height={20}
+                                      width={32}
+                                    />
+                                    <Image
+                                      src="/Images/mastercard.png"
+                                      alt="mastercard"
+                                      height={20}
+                                      width={32}
+                                    />
                                   </div>
-                                  {x.id == "bacs" && (
-                                    <div className={styles.cards}>
-                                      <Image
-                                        src="/Images/Dkfooter.png"
-                                        alt="Dk"
-                                        height={20}
-                                        width={32}
-                                      />
-                                      <Image
-                                        src="/Images/mobilepay.png"
-                                        alt="mobilepay"
-                                        height={20}
-                                        width={32}
-                                      />
-                                      <Image
-                                        src="/Images/visa.png"
-                                        alt="visa"
-                                        height={20}
-                                        width={32}
-                                      />
-                                      <Image
-                                        src="/Images/mastercard.png"
-                                        alt="mastercard"
-                                        height={20}
-                                        width={32}
-                                      />
+                                )}
+                                {x.id === "stripe" &&
+                                  paymentOption === "stripe" && (
+                                    <div>
+                                      <form
+                                        onSubmit={handleSubmit}
+                                        autoComplete="off"
+                                      >
+                                        <div autoComplete="off">
+                                          <label>
+                                            {check.cardNo}
+                                            <CardNumberElement
+                                              options={CARD_ELEMENT_OPTIONS}
+                                            />
+                                          </label>
+                                        </div>
+
+                                        <label>
+                                          {check.expDate}
+                                          <CardExpiryElement
+                                            options={CARD_ELEMENT_OPTIONS}
+                                          />
+                                        </label>
+                                        <label>
+                                          {check.cvc}
+                                          <CardCvcElement
+                                            options={CARD_ELEMENT_OPTIONS}
+                                          />
+                                        </label>
+                                        <button
+                                          type="submit"
+                                          disabled={!stripe}
+                                        >
+                                          {check.pay}
+                                        </button>
+                                      </form>
                                     </div>
                                   )}
-                                  {x.id === "stripe" &&
-                                    paymentOption === "stripe" && (
-                                      <div>
-                                        <form
-                                          onSubmit={handleSubmit}
-                                          autoComplete="off"
-                                        >
-                                          <div autoComplete="off">
-                                            <label>
-                                              {check.cardNo}
-                                              <CardNumberElement
-                                                options={CARD_ELEMENT_OPTIONS}
-                                              />
-                                            </label>
-                                          </div>
-
-                                          <label>
-                                            {check.expDate}
-                                            <CardExpiryElement
-                                              options={CARD_ELEMENT_OPTIONS}
-                                            />
-                                          </label>
-                                          <label>
-                                            {check.cvc}
-                                            <CardCvcElement
-                                              options={CARD_ELEMENT_OPTIONS}
-                                            />
-                                          </label>
-                                          <button type="submit" disabled={!stripe}>
-                                            {check.pay}
-                                          </button>
-                                        </form>
-                                      </div>
-                                    )}
-                                </Fragment>
-                              );
-                            })}
-                          {errors.paymentVal && (
-                            <p className={styles.errorMessage}>
-                              {errors.paymentVal}
-                            </p>
-                          )}
-                          <div
-                            id="klarna-payments-container"
-                            style={{ minHeight: "200px", display: "none" }}
-                          ></div>
-                        </div>
-                      )
-                    }
+                              </Fragment>
+                            );
+                          })}
+                        {errors.paymentVal && (
+                          <p className={styles.errorMessage}>
+                            {errors.paymentVal}
+                          </p>
+                        )}
+                        <div
+                          id="klarna-payments-container"
+                          style={{ minHeight: "200px", display: "none" }}
+                        ></div>
+                      </div>
+                    )}
 
                     {/* <div className={styles.paymentSection}>
                     <div className={styles.paymentcard}>
@@ -2043,8 +2089,6 @@ function Checkout() {
       ) : (
         <CheckoutSkeleton />
       )}
-
-
     </>
   );
 }
