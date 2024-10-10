@@ -7,9 +7,7 @@ import { convertPercentageToLargeNumber } from "@/helper";
 const expires = parseInt(process.env.NEXT_PUBLIC_CART_KEY_EXPIRY);
 
 const createKlarnaPayload = (cartData, orderId) => {
-  const dbTaxRate = convertPercentageToLargeNumber(
-    cartData.totals?.tax_lines[0]?.rate || 0
-  );
+  const dbTaxRate = convertPercentageToLargeNumber(cartData.totals?.tax_lines[0]?.rate || 0);
   const orderLines = cartData.items.map((item) => {
     return {
       type: "physical",
@@ -19,11 +17,10 @@ const createKlarnaPayload = (cartData, orderId) => {
       unit_price: parseInt(item.prices.price),
       tax_rate: dbTaxRate,
       total_amount:
-        parseInt(item.totals.line_subtotal) +
-        parseInt(item.totals.line_subtotal_tax),
+        parseInt(item.totals.line_subtotal) + parseInt(item.totals.line_subtotal_tax),
       total_tax_amount: parseInt(item.totals.line_subtotal_tax),
-    };
-  });
+    }
+  })
 
   orderLines.push({
     type: "shipping_fee",

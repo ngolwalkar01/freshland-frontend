@@ -1,14 +1,14 @@
-"use client";
+'use client'
 
-import About from "@/components/pages/aboutUs/about";
-import Layout from "@/components/layout";
+import About from '@/components/pages/aboutUs/about';
+import Layout from '@/components/layout';
 
 const AboutUs = () => {
-  return (
+    return (
     <Layout>
-      <About />
+     <About />
     </Layout>
-  );
+    )
 };
-
+    
 export default AboutUs;
