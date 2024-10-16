@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useCallback } from "react";
+import React, { Fragment, useEffect } from "react";
 import styles from "./Checkout.module.css";
 import { useState } from "react";
 import Header from "@/components/atoms/Header/Header";
@@ -98,6 +98,7 @@ function Checkout() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [isBusinessAddress, setIsBusinessAddress] = useState(false);
+  const [allItemsAreGiftCards, setallItemsAreGiftCards] = useState(false);
   const [sendToAnotherAddress, setSendToAnotherAddress] = useState(false);
   const [checkbox, setChecbox] = useState(true);
   const [checkboxedit, setCheckboxEdit] = useState(false);
@@ -120,9 +121,8 @@ function Checkout() {
   const [isOrderStart, setIsOrderStart] = useState(false);
 
   const [showGiftCardBox, setShowGiftCardBox] = useState(false);
+  const [giftCardArr, setGiftCardArr] = useState([]);
   const [sendEmail, setSendEmail] = useState("myEmail");
-  const [giftMessage, setGiftMessage] = useState("");
-  const [giftEmail, setGiftEmail] = useState("");
 
   const [userAddresses, setUserAddresses] = useState([]);
   const [enableEditableMode, setEditableMode] = useState({
@@ -225,10 +225,26 @@ function Checkout() {
       });
     }
     if (items && items.length > 0) {
-      const isShowGiftCard = items.find((x) => {
-        return x?.extensions?.subscription_schemes?.is_gift_card;
-      });
-      setShowGiftCardBox(!!isShowGiftCard);
+      const result = items.reduce((acc, x) => {
+        if (x.extensions.subscription_schemes.is_gift_card) {
+          let recipients = [];
+          if (x.quantity > 0) {
+            recipients = Array.from({ length: x.quantity }, () => ({
+              email: sendEmail === "myEmail" ? billing_address.email : "",
+              message: "",
+            }));
+          }
+          acc.push({
+            name: x.name,
+            quantity: x.quantity,
+            couponCode: x.extensions.subscription_schemes.coupon_ids,
+            recipients,
+          });
+        }
+        return acc;
+      }, []);
+      setShowGiftCardBox(result.length > 0);
+      setGiftCardArr(result);
     }
     const isVirtual = extensions?.delivery?.[0]?.only_virtual ?? false;
     setCartData({
@@ -272,6 +288,10 @@ function Checkout() {
 
     const getCart = async () => {
       const cartData = await getCartData();
+      const allItemsAreGiftCards = cartData.items.every(
+        (item) => item.extensions?.subscription_schemes?.is_gift_card === true
+      );
+      setallItemsAreGiftCards(allItemsAreGiftCards);
       setCartDataByCartData(cartData);
       trackAddToCheckoutPage(cartData);
     };
@@ -576,8 +596,20 @@ function Checkout() {
       errors.billing_company = errormsg.billingCompanyRequired;
     }
 
-    if (showGiftCardBox && !giftEmail) {
-      errors.gift_email = errormsg.giftEmailRequired;
+    if (showGiftCardBox && giftCardArr && giftCardArr.length > 0) {
+      giftCardArr.forEach((item, itemIndex) => {
+        item.recipients.forEach((recipient, recipientIndex) => {
+          if (!recipient.email.trim()) {
+            errors[`recipientEmail_${itemIndex}_${recipientIndex}`] =
+              errormsg.emailRequired;
+            isValid = false;
+          } else if (!/\S+@\S+\.\S+/.test(recipient.email)) {
+            errors[`recipientEmail_${itemIndex}_${recipientIndex}`] =
+              errormsg.emailInvalid;
+            isValid = false;
+          }
+        });
+      });
     }
     // Add more validation rules for other fields if needed
 
@@ -638,6 +670,39 @@ function Checkout() {
     return data;
   };
 
+  const convertGiftCardArrToAttributes = (giftCardArr) => {
+    if (showGiftCardBox && giftCardArr && giftCardArr.length > 0) {
+      const giftCardAttributes = {
+        gift_receiver_email: {},
+        gift_receiver_message: {},
+        gift_sending_timestamp: {},
+      };
+      const currentTimestamp = new Date().getTime();
+
+      var couponIndex = 0;
+
+      giftCardArr.forEach(({ couponCode, recipients }) => {
+        // Loop through each coupon in the couponCode associative array
+        Object.values(couponCode).forEach((singleCouponCode) => {
+          const recipient = recipients[couponIndex] || recipients[0]; // Take the corresponding recipient, fallback to the first recipient if none exist for the index
+
+          // Create a unique key by combining the coupon code and the index (couponCode_index)
+          const uniqueKey = `${singleCouponCode}_${couponIndex}`;
+
+          // Ensure that the gift attributes are correctly indexed for each coupon and recipient
+          giftCardAttributes.gift_receiver_email[uniqueKey] = recipient.email;
+          giftCardAttributes.gift_receiver_message[uniqueKey] =
+            recipient.message;
+          giftCardAttributes.gift_sending_timestamp[uniqueKey] =
+            currentTimestamp;
+          couponIndex = couponIndex + 1;
+        });
+      });
+      return giftCardAttributes;
+    }
+    return null;
+  };
+
   const orderObj = () => {
     const currentAddress = userAddresses[selectedAddressIndex];
     const { address_1, city, postcode, phone } = currentAddress;
@@ -646,12 +711,10 @@ function Checkout() {
     const stVal = address_1;
     let extensionsData = { ...subscriptionProductDetails };
 
-    if (showGiftCardBox && giftEmail) {
-      let giftCardAttrivbutes = {
-        emails: giftEmail,
-        message: giftMessage,
-      };
-      extensionsData["gift-card-attributes"] = giftCardAttrivbutes;
+    const giftCardAttributes = convertGiftCardArrToAttributes(giftCardArr);
+
+    if (giftCardAttributes) {
+      extensionsData["woocommerce-smart-coupons"] = giftCardAttributes;
     }
 
     return {
@@ -801,13 +864,43 @@ function Checkout() {
     }
   };
 
-  useEffect(() => {
-    if (showGiftCardBox && email && sendEmail === "myEmail") {
-      setGiftEmail(email);
-    } else {
-      setGiftEmail("");
-    }
-  }, [email, sendEmail, showGiftCardBox]);
+  const updateRecipientProperty = (itemIndex, recipientIndex, key, value) => {
+    const updatedGiftCardArr = giftCardArr.map((item, idx) => {
+      if (idx === itemIndex) {
+        return {
+          ...item,
+          recipients: item.recipients.map((recipient, rIdx) => {
+            if (rIdx === recipientIndex) {
+              return {
+                ...recipient,
+                [key]: value,
+              };
+            }
+            return recipient;
+          }),
+        };
+      }
+      return item;
+    });
+
+    setGiftCardArr(updatedGiftCardArr);
+  };
+
+  const handleInputChange = (itemIndex, recipientIndex, key, event) => {
+    const newValue = event.target.value;
+    updateRecipientProperty(itemIndex, recipientIndex, key, newValue);
+  };
+
+  const updateRecipientsByKey = (key, value) => {
+    const updatedGiftCardArr = giftCardArr.map((item) => ({
+      ...item,
+      recipients: item.recipients.map((recipient) => ({
+        ...recipient,
+        [key]: value, // Dynamically update the key with the value
+      })),
+    }));
+    setGiftCardArr(updatedGiftCardArr);
+  };
 
   const userAddressProps = {
     styles,
@@ -838,6 +931,23 @@ function Checkout() {
     setOlLoader,
     setCartDataByCartData,
     handleErrorChange,
+  };
+
+  useEffect(() => {
+    if (email) {
+      checkAndUpdateGiftEmailToDefault();
+    }
+  }, [email]);
+
+  const checkAndUpdateGiftEmailToDefault = () => {
+    if (sendEmail === "myEmail" && email && giftCardArr.length > 0) {
+      updateRecipientsByKey("email", email);
+    }
+  };
+
+  const onChangeGiftEmail = (activeGiftOpt) => {
+    setSendEmail(activeGiftOpt);
+    checkAndUpdateGiftEmailToDefault();
   };
 
   return (
@@ -1545,49 +1655,51 @@ function Checkout() {
                         </div>
                       )}
                     </div> */}
-                    <div className={styles.radioField}>
-                      <label>{check.deliveryD}</label>
-                      <div className={styles.radioContainer}>
-                        {delivery_dates &&
-                          delivery_dates.length > 0 &&
-                          delivery_dates.map((x, i) => {
-                            const currDate = Object.keys(x.dates)[0];
-                            const value = x.dates[currDate];
-                            return (
-                              <>
-                                {value ? (
-                                  <Fragment key={i}>
-                                    <div>
-                                      <input
-                                        type="radio"
-                                        id="deliveryDate1"
-                                        name="deliveryDate"
-                                        value={currDate}
-                                        checked={deliveryDate === currDate}
-                                        onChange={() =>
-                                          setDeliveryDate(currDate)
-                                        }
-                                      />
-                                      <label htmlFor="deliveryDate1">
-                                        {value}
-                                      </label>
-                                    </div>
-                                    {errors.deliveryDateVal && (
-                                      <span className={styles.errorMessage}>
-                                        {errors.deliveryDateVal}
-                                      </span>
-                                    )}
-                                  </Fragment>
-                                ) : (
-                                  <span className={styles.errorMessage}>
-                                    {check.enterCompleteAddress}
-                                  </span>
-                                )}
-                              </>
-                            );
-                          })}
+                    {!allItemsAreGiftCards && (
+                      <div className={styles.radioField}>
+                        <label>{check.deliveryD}</label>
+                        <div className={styles.radioContainer}>
+                          {delivery_dates &&
+                            delivery_dates.length > 0 &&
+                            delivery_dates.map((x, i) => {
+                              const currDate = Object.keys(x.dates)[0];
+                              const value = x.dates[currDate];
+                              return (
+                                <>
+                                  {value ? (
+                                    <Fragment key={i}>
+                                      <div>
+                                        <input
+                                          type="radio"
+                                          id="deliveryDate1"
+                                          name="deliveryDate"
+                                          value={currDate}
+                                          checked={deliveryDate === currDate}
+                                          onChange={() =>
+                                            setDeliveryDate(currDate)
+                                          }
+                                        />
+                                        <label htmlFor="deliveryDate1">
+                                          {value}
+                                        </label>
+                                      </div>
+                                      {errors.deliveryDateVal && (
+                                        <span className={styles.errorMessage}>
+                                          {errors.deliveryDateVal}
+                                        </span>
+                                      )}
+                                    </Fragment>
+                                  ) : (
+                                    <span className={styles.errorMessage}>
+                                      {check.enterCompleteAddress}
+                                    </span>
+                                  )}
+                                </>
+                              );
+                            })}
+                        </div>
                       </div>
-                    </div>
+                    )}
                     <div className={styles.fieldColumn}>
                       <label htmlFor="setStandardOrderNote">
                         {check.stand}
@@ -1653,7 +1765,7 @@ function Checkout() {
                         <div class="gift-certificate-show-form">
                           <p>{check.giftParagraph}</p>
                           <ul
-                            className={styles.show_hide_list}
+                            class="show_hide_list"
                             style={{ "list-style-type": "none" }}
                           >
                             <li>
@@ -1663,10 +1775,9 @@ function Checkout() {
                                 name="myEmail"
                                 value={sendEmail}
                                 onChange={() => {
-                                  setSendEmail("myEmail");
+                                  onChangeGiftEmail("myEmail");
                                 }}
                                 checked={sendEmail === "myEmail"}
-                                className={styles.myEmail}
                               />{" "}
                               <label for="myEmail">
                                 {check.myEmailRadioLabel}
@@ -1679,58 +1790,157 @@ function Checkout() {
                                 name="giftEmail"
                                 value={sendEmail}
                                 onChange={() => {
-                                  setSendEmail("giftEmail");
+                                  onChangeGiftEmail("giftEmail");
                                 }}
                                 checked={sendEmail === "giftEmail"}
-                                className={styles.giftEmail}
                               />{" "}
                               <label for="giftEmail">
                                 {check.giftEmailRadioLabel}
                               </label>
                             </li>
+                            <li>
+                              <input
+                                type="radio"
+                                id="giftDifferentEmail"
+                                name="giftDifferentEmail"
+                                value={sendEmail}
+                                onChange={() => {
+                                  onChangeGiftEmail("giftDifferentEmail");
+                                }}
+                                checked={sendEmail === "giftDifferentEmail"}
+                              />{" "}
+                              <label for="giftDifferentEmail">
+                                {check.giftDifferentEmailRadioLabel}
+                              </label>
+                            </li>
                           </ul>
                         </div>
-                        {sendEmail === "giftEmail" && (
-                          <div class="gift-certificate-receiver-detail-form">
-                            <div class="clear"></div>
-                            <div className={styles.fieldsRow}>
-                              <div className={styles.fieldColumn}>
-                                <div class="email">
-                                  <input
-                                    className={styles.inputField}
-                                    type="text"
-                                    placeholder={
-                                      check.giftEmailAddressPlaceholder
-                                    }
-                                    name="giftEmail"
-                                    value={giftEmail}
-                                    onChange={(e) => {
-                                      setGiftEmail(e.target.value);
-                                    }}
-                                  />
-                                  {errors.gift_email && (
-                                    <span className={styles.errorMessage}>
-                                      {errors.gift_email}
-                                    </span>
-                                  )}
-                                </div>
+                        {sendEmail === "giftEmail" &&
+                          giftCardArr &&
+                          giftCardArr.length > 0 && (
+                            <div class="gift-certificate-receiver-detail-form">
+                              <div class="clear"></div>
+                              <div className={styles.fieldsRow}>
                                 <div className={styles.fieldColumn}>
-                                  <textarea
-                                    placeholder={check.giftEmailMessage}
-                                    className={styles.textarea}
-                                    name="message"
-                                    cols="50"
-                                    rows="5"
-                                    value={giftMessage}
-                                    onChange={(e) => {
-                                      setGiftMessage(e.target.value);
-                                    }}
-                                  ></textarea>
+                                  <div class="email">
+                                    <input
+                                      className={styles.inputField}
+                                      type="text"
+                                      placeholder={
+                                        check.giftEmailAddressPlaceholder
+                                      }
+                                      name="giftEmail"
+                                      value={
+                                        giftCardArr[0]?.recipients[0]?.email ||
+                                        ""
+                                      }
+                                      onChange={(e) => {
+                                        handleInputChange(0, 0, "email", e);
+                                      }}
+                                    />
+                                    {showGiftCardBox &&
+                                      errors &&
+                                      errors[`recipientEmail_0_0`] && (
+                                        <span className={styles.errorMessage}>
+                                          {errors[`recipientEmail_0_0`]}
+                                        </span>
+                                      )}
+                                  </div>
+                                  <div className={styles.fieldColumn}>
+                                    <textarea
+                                      placeholder={check.giftEmailMessage}
+                                      className={styles.textarea}
+                                      name="message"
+                                      cols="50"
+                                      rows="5"
+                                      value={
+                                        giftCardArr[0]?.recipients[0]
+                                          ?.message || ""
+                                      }
+                                      onChange={(e) => {
+                                        handleInputChange(0, 0, "message", e);
+                                      }}
+                                    ></textarea>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        )}
+                          )}
+                        {sendEmail === "giftDifferentEmail" &&
+                          giftCardArr?.map((item, itemIndex) => (
+                            <div
+                              class="gift-certificate-receiver-detail-form"
+                              key={itemIndex}
+                            >
+                              <div class="clear"></div>
+                              {item?.recipients?.map(
+                                (recipient, recipientIndex) => {
+                                  return (
+                                    <div
+                                      className={styles.fieldsRow}
+                                      key={recipientIndex}
+                                    >
+                                      <div className={styles.fieldColumn}>
+                                        <h5>{item.name}</h5>
+                                        <div class="email">
+                                          <input
+                                            className={styles.inputField}
+                                            type="text"
+                                            placeholder={
+                                              check.giftEmailAddressPlaceholder
+                                            }
+                                            name="giftEmail"
+                                            value={recipient?.email || ""}
+                                            onChange={(e) => {
+                                              handleInputChange(
+                                                itemIndex,
+                                                recipientIndex,
+                                                "email",
+                                                e
+                                              );
+                                            }}
+                                          />
+                                          {showGiftCardBox &&
+                                            errors &&
+                                            errors[
+                                              `recipientEmail_${itemIndex}_${recipientIndex}`
+                                            ] && (
+                                              <span
+                                                className={styles.errorMessage}
+                                              >
+                                                {
+                                                  errors[
+                                                    `recipientEmail_${itemIndex}_${recipientIndex}`
+                                                  ]
+                                                }
+                                              </span>
+                                            )}
+                                        </div>
+                                        <div className={styles.fieldColumn}>
+                                          <textarea
+                                            placeholder={check.giftEmailMessage}
+                                            className={styles.textarea}
+                                            name="message"
+                                            cols="50"
+                                            rows="5"
+                                            value={recipient?.message || ""}
+                                            onChange={(e) => {
+                                              handleInputChange(
+                                                itemIndex,
+                                                recipientIndex,
+                                                "message",
+                                                e
+                                              );
+                                            }}
+                                          ></textarea>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  );
+                                }
+                              )}
+                            </div>
+                          ))}
                       </div>
                     )}
                     <table className={styles.table}>
